@@ -1,0 +1,25 @@
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+    maven { url "https://bidmad-sdk.s3.amazonaws.com/" } //bidmad
+}
+
+dependencies {
+    implementation 'com.adop.sdk:bidmad-androidx-g:1.1.1'
+}
+
+android {
+    defaultConfig {
+        multiDexEnabled true
+    }
+
+    dexOptions{
+        javaMaxHeapSize "4g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
