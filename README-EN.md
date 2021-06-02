@@ -18,11 +18,14 @@ LOCAL_SRC_FILES := $(LOCAL_PATH)/hellocpp/main.cpp \
                    ...
                    $(LOCAL_PATH)/../../../Classes/bidmad/RewardInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/InterstitialInterface.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/BannerInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/CommonInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardCallback.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialCallback.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerController.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerCallback.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/CommonController.cpp
 ```
 *If using Cmake List, add bidmad source as below.
@@ -31,6 +34,7 @@ list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/HelloWorldScene.cpp
      Classes/bidmad/CommonInterface.cpp
+     Classes/bidmad/BannerInterface.cpp
      Classes/bidmad/InterstitialInterface.cpp
      Classes/bidmad/RewardInterface.cpp
      )
@@ -38,6 +42,7 @@ list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
      Classes/bidmad/CommonInterface.h
+     Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
      Classes/bidmad/RewardInterface.h
      )
@@ -46,6 +51,8 @@ if(ANDROID)
     list(APPEND GAME_SOURCE
          proj.android/app/jni/hellocpp/main.cpp
          Classes/bidmad/android/CommonController.cpp
+         Classes/bidmad/android/BannerController.cpp
+         Classes/bidmad/android/BannerCallback.cpp
          Classes/bidmad/android/InterstitialCallback.cpp
          Classes/bidmad/android/InterstitialController.cpp
          Classes/bidmad/android/RewardCallback.cpp
@@ -53,6 +60,8 @@ if(ANDROID)
          )
     list(APPEND GAME_HEADER
          Classes/bidmad/android/CommonController.h
+         Classes/bidmad/android/BannerController.h
+         Classes/bidmad/android/BannerCallback.h
          Classes/bidmad/android/InterstitialCallback.h
          Classes/bidmad/android/InterstitialController.h
          Classes/bidmad/android/RewardCallback.h
@@ -224,6 +233,73 @@ void showReward()
 }
 ```
 
+#### 2.3 Banner
+
+- Create a BannerInterface to request banner ads.
+- Only Android supports banner ads.
+```cpp
+#include "bidmad/BannerInterface.h"
+
+void initBanner()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    char *banner50 = (char*)"944fe870-fa3a-4d1b-9cc2-38e50b2aed43";
+#endif
+
+    //Banner Create
+    bi = new BannerInterface(banner50);
+
+    bi->setInterval(90);
+
+    //Callback Setting
+    bi->setOnLoadCallback(onBannerLoad);
+    bi->setOnFailCallback(onBannerFail);
+}
+void loadBanner(posX, posY)
+{
+    bi->load(posY);
+    // bi->load(posX, posY);
+}
+void removeBanner()
+{
+    bi->removeBanner();
+}
+void hideBanner()
+{
+    bi->hideBannerView();
+}
+void showBanner()
+{
+    bi->showBannerView();
+}
+```
+- To implement onResume/onPause, inherit Apllication and implement applicationDidEnterBackground/applicationWillEnterForeground.
+```cpp
+#include "bidmad/BannerInterface.h"
+
+class BannerSampleScene : public cocos2d::Scene, Application
+{
+public:
+    ...
+    virtual bool applicationDidFinishLaunching();
+    virtual void applicationDidEnterBackground();
+    virtual void applicationWillEnterForeground();
+};
+
+...
+
+void BannerSampleScene::applicationDidEnterBackground() {
+    if(bi != nullptr)
+        bi->onPause();
+}
+
+void BannerSampleScene::applicationWillEnterForeground() {
+    if(bi != nullptr)
+        bi->onResume();
+}
+```
+
 ### 3 Callback
 
 - Plugin provides Callback such as Load / Show / Fail according to the advertisement type.<br>
@@ -290,6 +366,24 @@ void onRewardFail(char* zoneId)
     ri->setOnSkipCallback(onRewardSkip);
 ...
 ```
+
+#### 3.3 Banner Callback
+```cpp
+void onBannerLoad(char* zoneId)
+{
+    CCLOG("onBannerLoad");
+}
+void onBannerFail(char* zoneId)
+{
+    CCLOG("onBannerFail");
+}
+
+...
+    bi->setOnLoadCallback(onBannerLoad);
+    bi->setOnFailCallback(onBannerFail);
+...
+```
+
 ### 4. Plugin Function
 
 #### 4.1 Interstitial
@@ -324,7 +418,25 @@ public void setOnCompleteCallback(void (*_onCompleteCallback) (char *))|If an Fu
 public void setOnSkipCallback(void (*_onSkipCallback) (char *))|If an Function is registered, the registered Function is executed when the reward payment standard of the reward ad is not met.
 public void setOnCloseCallback(void (*_onCloseCallback) (char *))|If an Function is registered, the registered Function is executed when the reward ad is closed.
 
-#### 4.3 iOS14 AppTrackingTransparencyAuthorization
+#### 4.3 Banner
+
+*Banner ads are handled via the BannerInterface, which is a list of functions for this.
+
+Function|Description
+---|---
+public BannerInterface(char* zoneId)|BidmadBanner constructor, Set ZoneId
+public void setInterval()|Set the banner refresh cycle.(60s~120s)
+public void load(int x)|Request an ad with the ZoneId entered in the constructor.
+public void load(int x, int y)|Request an ad with the ZoneId entered in the constructor. The banner is exposed based on the input x and y values.
+public void removeBanner()|Remove the loaded banner.
+public bool hideBannerView()|Hide the loaded banner view.
+public bool showBannerView()|Expose the loaded banner view.
+public bool onPause()|Banner ads are stopped. It is mainly called when the OnPause event occurs. Only Android is supported.
+public bool onResume()|Restart banner ads. It is mainly called when the OnResume event occurs. Only Android is supported.
+public void setOnLoadCallback(void (*_onLoadCallback) (char *))|If a function is registered, the registered function is executed when the banner ad is loaded.
+public void setOnFailCallback(void (*_onFailCallback) (char *))|If a function is registered, the registered function is executed when the banner ad load fails.
+
+#### 4.4 iOS14 AppTrackingTransparencyAuthorization
 
 *AppTrackingTransparencyAuthorization functions are provided through BidmadCommon.
 

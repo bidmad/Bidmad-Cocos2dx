@@ -18,11 +18,14 @@ LOCAL_SRC_FILES := $(LOCAL_PATH)/hellocpp/main.cpp \
                    ...
                    $(LOCAL_PATH)/../../../Classes/bidmad/RewardInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/InterstitialInterface.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/BannerInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/CommonInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardCallback.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialCallback.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerController.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerCallback.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/CommonController.cpp
 ```
 *Cmake List를 사용하는 경우 아래와 같이 bidmad source를 추가합니다.
@@ -31,6 +34,7 @@ list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/HelloWorldScene.cpp
      Classes/bidmad/CommonInterface.cpp
+     Classes/bidmad/BannerInterface.cpp
      Classes/bidmad/InterstitialInterface.cpp
      Classes/bidmad/RewardInterface.cpp
      )
@@ -38,6 +42,7 @@ list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
      Classes/bidmad/CommonInterface.h
+     Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
      Classes/bidmad/RewardInterface.h
      )
@@ -46,6 +51,8 @@ if(ANDROID)
     list(APPEND GAME_SOURCE
          proj.android/app/jni/hellocpp/main.cpp
          Classes/bidmad/android/CommonController.cpp
+         Classes/bidmad/android/BannerController.cpp
+         Classes/bidmad/android/BannerCallback.cpp
          Classes/bidmad/android/InterstitialCallback.cpp
          Classes/bidmad/android/InterstitialController.cpp
          Classes/bidmad/android/RewardCallback.cpp
@@ -53,6 +60,8 @@ if(ANDROID)
          )
     list(APPEND GAME_HEADER
          Classes/bidmad/android/CommonController.h
+         Classes/bidmad/android/BannerController.h
+         Classes/bidmad/android/BannerCallback.h
          Classes/bidmad/android/InterstitialCallback.h
          Classes/bidmad/android/InterstitialController.h
          Classes/bidmad/android/RewardCallback.h
@@ -224,6 +233,73 @@ void showReward()
 }
 ```
 
+#### 2.3 배너
+
+- 배너광고를 요청하기 위해 BannerInterface 생성합니다.
+- Android만 배너 광고를 지원합니다.
+```cpp
+#include "bidmad/BannerInterface.h"
+
+void initBanner()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    char *banner50 = (char*)"944fe870-fa3a-4d1b-9cc2-38e50b2aed43";
+#endif
+
+    //Banner Create
+    bi = new BannerInterface(banner50);
+
+    bi->setInterval(90);
+
+    //Callback Setting
+    bi->setOnLoadCallback(onBannerLoad);
+    bi->setOnFailCallback(onBannerFail);
+}
+void loadBanner(posX, posY)
+{
+    bi->load(posY);
+    // bi->load(posX, posY);
+}
+void removeBanner()
+{
+    bi->removeBanner();
+}
+void hideBanner()
+{
+    bi->hideBannerView();
+}
+void showBanner()
+{
+    bi->showBannerView();
+}
+```
+- onResume / onPause 구현을 위해 Apllication을 상속 받아 applicationDidEnterBackground / applicationWillEnterForeground를 구현합니다.
+```cpp
+#include "bidmad/BannerInterface.h"
+
+class BannerSampleScene : public cocos2d::Scene, Application
+{
+public:
+    ...
+    virtual bool applicationDidFinishLaunching();
+    virtual void applicationDidEnterBackground();
+    virtual void applicationWillEnterForeground();
+};
+
+...
+
+void BannerSampleScene::applicationDidEnterBackground() {
+    if(bi != nullptr)
+        bi->onPause();
+}
+
+void BannerSampleScene::applicationWillEnterForeground() {
+    if(bi != nullptr)
+        bi->onResume();
+}
+```
+
 ### 3. Callback 사용하기
 
 - Plugin에서는 광고 타입에 따라 Load / Show / Fail등 Callback을 제공합니다.<br>
@@ -290,6 +366,24 @@ void onRewardFail(char* zoneId)
     ri->setOnSkipCallback(onRewardSkip);
 ...
 ```
+
+#### 3.3 배너 Callback
+```cpp
+void onBannerLoad(char* zoneId)
+{
+    CCLOG("onBannerLoad");
+}
+void onBannerFail(char* zoneId)
+{
+    CCLOG("onBannerFail");
+}
+
+...
+    bi->setOnLoadCallback(onBannerLoad);
+    bi->setOnFailCallback(onBannerFail);
+...
+```
+
 ### 4. Plugin Function
 
 #### 4.1 전면
@@ -324,7 +418,25 @@ public void setOnCompleteCallback(void (*_onCompleteCallback) (char *))|Function
 public void setOnSkipCallback(void (*_onSkipCallback) (char *))|Function을 등록했다면 보상형광고의 리워드 지급기준에 미달 했을 때 등록한 Function을 실행합니다.
 public void setOnCloseCallback(void (*_onCloseCallback) (char *))|Function을 등록했다면 보상형광고를 Close 했을 때 등록한 Function을 실행합니다.
 
-#### 4.3 iOS14 앱 추적 투명성 승인 요청
+#### 4.3 배너
+
+*배너 광고는 BannerInterface 통해 처리되며 이를 위한 함수 목록입니다.
+
+Function|Description
+---|---
+public BannerInterface(char* zoneId)|BidmadBanner 생성자, ZoneId를 설정합니다.
+public void setInterval()|Banner Refresh 주기를 설정합니다.(60s~120s)
+public void load(int x)|생성자에서 입력한 ZoneId로 광고를 요청합니다.
+public void load(int x, int y)|생성자에서 입력한 ZoneId로 광고를 요청합니다. 배너는 입력받은 x,y값을 기준으로 노출됩니다.
+public void removeBanner()|Load된 배너를 제거합니다.
+public bool hideBannerView()|Load된 배너 View를 숨깁니다.
+public bool showBannerView()|Load된 배너 View를 노출시킵니다.
+public bool onPause()|배너 광고를 정지 시킵니다. 주로 OnPause 이벤트 발생 시 호출하며, Android만 지원합니다.
+public bool onResume()|배너 광고를 다시 시작합니다. 주로 OnResume 이벤트 발생 시 호출하며, Android만 지원합니다.
+public void setOnLoadCallback(void (*_onLoadCallback) (char *))|Function을 등록했다면 배너광고를 Load 했을 때 등록한 Function을 실행합니다.
+public void setOnFailCallback(void (*_onFailCallback) (char *))|Function을 등록했다면 배너광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
+
+#### 4.4 iOS14 앱 추적 투명성 승인 요청
 
 *앱 추적 투명성 승인 요청에 관한 함수는 CommonInterface을 통해 제공됩니다.
 
