@@ -6,7 +6,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.adop.sdk:bidmad-androidx-g:1.1.1'
+    implementation 'com.adop.sdk:bidmad-androidx-g:1.2.0'
 }
 
 android {

@@ -1,4 +1,8 @@
 #include "HelloWorldScene.h"
+#include "BannerSampleScene.h"
+#include "InterstitialSampleScene.h"
+#include "RewardSampleScene.h"
+#include "bidmad/CommonInterface.h"
 #include "SimpleAudioEngine.h"
 
 USING_NS_CC;
@@ -6,50 +10,6 @@ USING_NS_CC;
 Scene* HelloWorld::createScene()
 {
     return HelloWorld::create();
-}
-
-Label* callbackLabel;
-
-void onInterstitialLoad(char* zoneId)
-{
-    callbackLabel->setString("onInterstitialLoad");
-}
-void onInterstitialShow(char* zoneId)
-{
-    callbackLabel->setString("onInterstitialShow");
-}
-void InterstitialClose(char* zoneId)
-{
-    callbackLabel->setString("InterstitialClose");
-}
-void InterstitialFail(char* zoneId)
-{
-    callbackLabel->setString("InterstitialFail");
-}
-
-void onRewardLoad(char* zoneId)
-{
-    callbackLabel->setString("onRewardLoad");
-}
-void onRewardShow(char* zoneId)
-{
-    callbackLabel->setString("onRewardShow");
-}
-void onRewardComplete(char* zoneId)
-{
-    callbackLabel->setString("onRewardComplete");
-}
-void onRewardSkip(char* zoneId)
-{
-    callbackLabel->setString("onRewardSkip");
-}
-void onRewardClose(char* zoneId)
-{
-    callbackLabel->setString("onRewardClose");
-}
-void onRewardFail(char* zoneId)
-{
-    callbackLabel->setString("onRewardFail");
 }
 
 void onAdTrackingAuthorizationResponse (int response){
@@ -79,8 +39,6 @@ bool HelloWorld::init()
     CommonInterface::setDebugMode(true); //print Debug Log
     CommonInterface::reqAdTrackingAuthorization(onAdTrackingAuthorizationResponse); //iOS 14 ATT Call
     CommonInterface::setAdvertiserTrackingEnabled(true);
-    initInterstitial(); //Bidmad Interstitial Init
-    initReward(); //Bidmad Reward Init
     
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -90,94 +48,42 @@ bool HelloWorld::init()
                             origin.y + visibleSize.height - label->getContentSize().height));
 
     this->addChild(label, 1);
-
-    callbackLabel = Label::createWithTTF("Callback Print", "fonts/Marker Felt.ttf", 20);
-    callbackLabel->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height/2));
-    callbackLabel->setColor(Color3B(71, 200, 62));
-    this->addChild(callbackLabel, 1);
     
     int font_size = 15;
-    auto interstitial_load_btn = MenuItemFont::create("Interstitial Load", CC_CALLBACK_0(HelloWorld::loadInterstitial, this));
-    interstitial_load_btn->setFontSizeObj(font_size);
-    auto interstitial_show_btn = MenuItemFont::create("Interstitial Show", CC_CALLBACK_0(HelloWorld::showInterstitial, this));
-    interstitial_show_btn->setFontSizeObj(font_size);
 
-    auto interstitialMenus = Menu::create(interstitial_load_btn, interstitial_show_btn, NULL);
-    interstitialMenus->alignItemsVertically();
-    interstitialMenus->alignItemsVerticallyWithPadding(50);
-    interstitialMenus->setPositionX(80);
-    interstitialMenus->setColor(Color3B(67, 116, 217));
-    this->addChild(interstitialMenus);
-    
-    auto reward_load_btn = MenuItemFont::create("Reward Load", CC_CALLBACK_0(HelloWorld::loadReward, this));
-    reward_load_btn->setFontSizeObj(font_size);
-    auto reward_show_btn = MenuItemFont::create("Reward Show", CC_CALLBACK_0(HelloWorld::showReward, this));
-    reward_show_btn->setFontSizeObj(font_size);
-    
-    auto rewardMenus = Menu::create(reward_load_btn, reward_show_btn, NULL);
-    rewardMenus->alignItemsVertically();
-    rewardMenus->alignItemsVerticallyWithPadding(50);
-    rewardMenus->setPositionX(visibleSize.width-80);
-    rewardMenus->setColor(Color3B(204, 61, 61));
-    this->addChild(rewardMenus);
+    auto banner_sample_btn = MenuItemFont::create("BannerSample", CC_CALLBACK_0(HelloWorld::MoveBannerSample, this));
+    banner_sample_btn->setFontSizeObj(font_size);
+    auto interstitial_sample_btn = MenuItemFont::create("InterstitialSample", CC_CALLBACK_0(HelloWorld::MoveInterstitialSample, this));
+    interstitial_sample_btn->setFontSizeObj(font_size);
+    auto reward_sample_btn = MenuItemFont::create("RewardSample", CC_CALLBACK_0(HelloWorld::MoveRewardSample, this));
+    reward_sample_btn->setFontSizeObj(font_size);
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    auto sample_menus = Menu::create(interstitial_sample_btn, reward_sample_btn, NULL);
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    auto sample_menus = Menu::create(banner_sample_btn, interstitial_sample_btn, reward_sample_btn, NULL);
+#endif
+    sample_menus->alignItemsVertically();
+    sample_menus->alignItemsVerticallyWithPadding(40);
+    sample_menus->setColor(Color3B(67, 116, 217));
+    this->addChild(sample_menus);
     return true;
 }
 
-void HelloWorld::initInterstitial()
+void HelloWorld::MoveBannerSample()
 {
-    #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    char *interstitial = (char*)"228b95a9-6f42-46d8-a40d-60f17f751eb1";
-    #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    char *interstitial = (char*)"e9acd7fc-a962-40e4-aaad-9feab1b4f821";
-    #endif
-    
-    //Interstitial Create
-    ii = new InterstitialInterface(interstitial);
-    
-    //Callback Setting
-    ii->setOnLoadCallback(onInterstitialLoad);
-    ii->setOnShowCallback(onInterstitialShow);
-    ii->setOnFailCallback(InterstitialFail);
-    ii->setOnCloseCallback(InterstitialClose);
-}
-void HelloWorld::loadInterstitial()
-{
-    ii->load();
-}
-void HelloWorld::showInterstitial()
-{
-    if(ii->isLoaded()){
-        ii->show();
-    }
+    auto pScene = BannerSampleScene::createScene();
+    Director::getInstance()->replaceScene(pScene);
 }
 
-void HelloWorld::initReward()
+void HelloWorld::MoveInterstitialSample()
 {
-    #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    char* reward = (char*)"29e1ef67-98d2-47b3-9fa2-9192327dd75d";
-    #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    char *reward = (char*)"7d9a2c9e-5755-4022-85f1-6d4fc79e4418";
-    #endif
-    
-    //Reward Create
-    ri = new RewardInterface(reward);
-    
-    //Callback Setting
-    ri->setOnLoadCallback(onRewardLoad);
-    ri->setOnShowCallback(onRewardShow);
-    ri->setOnCompleteCallback(onRewardComplete);
-    ri->setOnCloseCallback(onRewardClose);
-    ri->setOnFailCallback(onRewardFail);
-    ri->setOnSkipCallback(onRewardSkip);
+    auto pScene = InterstitialSampleScene::createScene();
+    Director::getInstance()->replaceScene(pScene);
 }
-void HelloWorld::loadReward()
+
+void HelloWorld::MoveRewardSample()
 {
-    ri->load();
-}
-void HelloWorld::showReward()
-{
-    if(ri->isLoaded()){
-        ri->show();
-    }
+    auto pScene = RewardSampleScene::createScene();
+    Director::getInstance()->replaceScene(pScene);
 }
