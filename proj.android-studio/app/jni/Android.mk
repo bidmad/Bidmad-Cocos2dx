@@ -14,13 +14,19 @@ LOCAL_MODULE_FILENAME := libMyGame
 LOCAL_SRC_FILES := $(LOCAL_PATH)/hellocpp/main.cpp \
                    $(LOCAL_PATH)/../../../Classes/AppDelegate.cpp \
                    $(LOCAL_PATH)/../../../Classes/HelloWorldScene.cpp \
+                   $(LOCAL_PATH)/../../../Classes/RewardSampleScene.cpp \
+                   $(LOCAL_PATH)/../../../Classes/InterstitialSampleScene.cpp \
+                   $(LOCAL_PATH)/../../../Classes/BannerSampleScene.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/RewardInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/InterstitialInterface.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/BannerInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/CommonInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardCallback.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialCallback.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerController.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerCallback.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/CommonController.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../Classes
