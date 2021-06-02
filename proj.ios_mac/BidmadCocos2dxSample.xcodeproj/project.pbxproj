@@ -88,6 +88,10 @@
 		9F8BF331263BE2B500D64788 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF320263BE2B500D64788 /* FBSDKCoreKit.framework */; };
 		9F8BF332263BE2B500D64788 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF321263BE2B500D64788 /* FBAudienceNetwork.framework */; };
 		9F8BF336263BE2FC00D64788 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF335263BE2FC00D64788 /* GameController.framework */; };
+		9FAEC6F22667A1A600D9524C /* BannerSampleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC6EB2667A1A600D9524C /* BannerSampleScene.cpp */; };
+		9FAEC6F32667A1A600D9524C /* InterstitialSampleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC6EE2667A1A600D9524C /* InterstitialSampleScene.cpp */; };
+		9FAEC6F42667A1A600D9524C /* RewardSampleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC6F02667A1A600D9524C /* RewardSampleScene.cpp */; };
+		9FAEC6F92667A1C400D9524C /* BannerInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC6F72667A1C400D9524C /* BannerInterface.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -226,6 +230,14 @@
 		9F8BF320263BE2B500D64788 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = libBidmad/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		9F8BF321263BE2B500D64788 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBAudienceNetwork.framework; path = libBidmad/FBAudienceNetwork.framework; sourceTree = "<group>"; };
 		9F8BF335263BE2FC00D64788 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.4.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
+		9FAEC6EB2667A1A600D9524C /* BannerSampleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BannerSampleScene.cpp; sourceTree = "<group>"; };
+		9FAEC6ED2667A1A600D9524C /* BannerSampleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerSampleScene.h; sourceTree = "<group>"; };
+		9FAEC6EE2667A1A600D9524C /* InterstitialSampleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InterstitialSampleScene.cpp; sourceTree = "<group>"; };
+		9FAEC6EF2667A1A600D9524C /* InterstitialSampleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialSampleScene.h; sourceTree = "<group>"; };
+		9FAEC6F02667A1A600D9524C /* RewardSampleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RewardSampleScene.cpp; sourceTree = "<group>"; };
+		9FAEC6F12667A1A600D9524C /* RewardSampleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardSampleScene.h; sourceTree = "<group>"; };
+		9FAEC6F72667A1C400D9524C /* BannerInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BannerInterface.cpp; path = bidmad/BannerInterface.cpp; sourceTree = "<group>"; };
+		9FAEC6F82667A1C400D9524C /* BannerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BannerInterface.h; path = bidmad/BannerInterface.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -412,6 +424,8 @@
 				9F8BF29F263BDDEF00D64788 /* CommonInterface.h */,
 				9F8BF2A0263BDDEF00D64788 /* InterstitialInterface.cpp */,
 				9F8BF2A1263BDDEF00D64788 /* InterstitialInterface.h */,
+				9FAEC6F72667A1C400D9524C /* BannerInterface.cpp */,
+				9FAEC6F82667A1C400D9524C /* BannerInterface.h */,
 				9F8BF292263BDDEF00D64788 /* ios */,
 				9F8BF291263BDDEF00D64788 /* RewardInterface.cpp */,
 				9F8BF28D263BDDEF00D64788 /* RewardInterface.h */,
@@ -419,6 +433,12 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				9FAEC6EB2667A1A600D9524C /* BannerSampleScene.cpp */,
+				9FAEC6ED2667A1A600D9524C /* BannerSampleScene.h */,
+				9FAEC6EE2667A1A600D9524C /* InterstitialSampleScene.cpp */,
+				9FAEC6EF2667A1A600D9524C /* InterstitialSampleScene.h */,
+				9FAEC6F02667A1A600D9524C /* RewardSampleScene.cpp */,
+				9FAEC6F12667A1A600D9524C /* RewardSampleScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -652,12 +672,16 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				9F8BF2A3263BDDEF00D64788 /* RewardInterface.cpp in Sources */,
+				9FAEC6F92667A1C400D9524C /* BannerInterface.cpp in Sources */,
+				9FAEC6F22667A1A600D9524C /* BannerSampleScene.cpp in Sources */,
+				9FAEC6F32667A1A600D9524C /* InterstitialSampleScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				9F8BF2A7263BDDEF00D64788 /* CommonBridgeObjC.mm in Sources */,
 				9F8BF2A8263BDDEF00D64788 /* InterstitialBridgeObjC.mm in Sources */,
 				9F8BF2A4263BDDEF00D64788 /* RewardBridgeObjC.mm in Sources */,
 				9F8BF2AA263BDDEF00D64788 /* InterstitialInterface.cpp in Sources */,
 				9F8BF2AB263BDDEF00D64788 /* CommonInterface.cpp in Sources */,
+				9FAEC6F42667A1A600D9524C /* RewardSampleScene.cpp in Sources */,
 				9F8BF2A5263BDDEF00D64788 /* RewardBridgeCpp.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
