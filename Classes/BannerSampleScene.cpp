@@ -75,12 +75,16 @@ bool BannerSampleScene::init()
 
 void BannerSampleScene::initBanner()
 {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    char *banner50 = (char*)"1c3e3085-333f-45af-8427-2810c26a72fc";
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     char *banner50 = (char*)"944fe870-fa3a-4d1b-9cc2-38e50b2aed43";
+#endif
 
     //Banner Create
     bi = new BannerInterface(banner50);
 
-    bi->setInterval(90);
+    bi->setInterval(60);
 
     //Callback Setting
     bi->setOnLoadCallback(onBannerLoad);
@@ -88,11 +92,11 @@ void BannerSampleScene::initBanner()
 }
 void BannerSampleScene::loadBanner()
 {
-    int posX = 150;
-    int posY = 90;
+//    int posX = 80;
+//    int posY = 70;
 
-    //bi->load(20);
-    bi->load(posX, posY);
+    bi->load(0);
+//    bi->load(posX, posY);
 }
 void BannerSampleScene::removeBanner()
 {
@@ -114,6 +118,8 @@ void BannerSampleScene::backScene()
     Director::getInstance()->replaceScene(pScene);
 }
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 bool BannerSampleScene::applicationDidFinishLaunching() {
 
 }
@@ -127,4 +133,4 @@ void BannerSampleScene::applicationWillEnterForeground() {
     if(bi != nullptr)
         bi->onResume();
 }
-
+#endif

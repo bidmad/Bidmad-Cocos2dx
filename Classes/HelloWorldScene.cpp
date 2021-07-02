@@ -59,7 +59,7 @@ bool HelloWorld::init()
     reward_sample_btn->setFontSizeObj(font_size);
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    auto sample_menus = Menu::create(interstitial_sample_btn, reward_sample_btn, NULL);
+    auto sample_menus = Menu::create(banner_sample_btn, interstitial_sample_btn, reward_sample_btn, NULL);//auto sample_menus = Menu::create(interstitial_sample_btn, reward_sample_btn, NULL);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     auto sample_menus = Menu::create(banner_sample_btn, interstitial_sample_btn, reward_sample_btn, NULL);
 #endif

@@ -98,6 +98,7 @@ list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/HelloWorldScene.cpp
      Classes/bidmad/CommonInterface.cpp
+     Classes/bidmad/BannerInterface.cpp
      Classes/bidmad/InterstitialInterface.cpp
      Classes/bidmad/RewardInterface.cpp
      )
@@ -105,6 +106,7 @@ list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
      Classes/bidmad/CommonInterface.h
+     Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
      Classes/bidmad/RewardInterface.h
      )
@@ -117,6 +119,8 @@ elseif(APPLE)
              proj.ios_mac/ios/RootViewController.h
              Classes/bidmad/ios/CommonBridgeCpp.h
              Classes/bidmad/ios/CommonBridgeObjC.h
+             Classes/bidmad/ios/BannerBridgeCpp.h
+             Classes/bidmad/ios/BannerBridgeObjC.h
              Classes/bidmad/ios/InterstitialBridgeCpp.h
              Classes/bidmad/ios/InterstitialBridgeObjC.h
              Classes/bidmad/ios/RewardBridgeCpp.h
@@ -135,6 +139,8 @@ elseif(APPLE)
              ${APP_UI_RES}
              Classes/bidmad/ios/CommonBridgeCpp.mm
              Classes/bidmad/ios/CommonBridgeObjC.mm
+             Classes/bidmad/ios/BannerBridgeCpp.mm
+             Classes/bidmad/ios/BannerBridgeObjC.mm
              Classes/bidmad/ios/InterstitialBridgeCpp.mm
              Classes/bidmad/ios/InterstitialBridgeObjC.mm
              Classes/bidmad/ios/RewardBridgeCpp.mm
@@ -155,8 +161,29 @@ endif()
     <key>GADApplicationIdentifier</key>
     <string>ca-app-pub-XXXXXX~XXXXXX</string>
 ```
+5, Add the following libraries (Go to Target Build Setting → Build Phases and under the "Link Binary With Libraries," please add the following list of libraries) <br>
+- StoreKit.framework <br>
+- MobileCoreServices.framework <br>
+- WebKit.framework <br>
+- MediaPlayer.framework <br>
+- CoreMedia.framework <br>
+- AVFoundation.framework <br>
+- CoreTelephony.framework <br>
+- SystemConfiguration.framework <br>
+- AdSupport.framework <br>
+- CoreMotion.framework <br>
+- Accelerate.framework <br>
+- libresolv.9.tbd <br>
+- libc++.tbd <br>
+- libz.tbd <br>
+- libsqlite3.tbd <br>
+- libbz2.tbd <br>
+- libxml2.tbd <br>
+- libiconv.tbd <br>
+- libc++abi.tbd (newly required from sdk v3.5.0.0) <br>
+- Security.framework <br>
 
-5. Follow the [guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Preparing-for-iOS-14%5BENG%5D) to apply app tracking transparency approval request pop-up and SKAdNetwork.
+6. Follow the [guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Preparing-for-iOS-14%5BENG%5D) to apply app tracking transparency approval request pop-up and SKAdNetwork.
 
 If you're looking for a guide to the privacy requirements of the Apple Store, [see here](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Apple-privacy-survey%5BENG%5D).
 
@@ -236,13 +263,13 @@ void showReward()
 #### 2.3 Banner
 
 - Create a BannerInterface to request banner ads.
-- Only Android supports banner ads.
 ```cpp
 #include "bidmad/BannerInterface.h"
 
 void initBanner()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    char *banner50 = (char*)"1c3e3085-333f-45af-8427-2810c26a72fc";
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     char *banner50 = (char*)"944fe870-fa3a-4d1b-9cc2-38e50b2aed43";
 #endif

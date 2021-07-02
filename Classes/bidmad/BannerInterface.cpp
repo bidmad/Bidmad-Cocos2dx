@@ -1,6 +1,7 @@
 #include "BannerInterface.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "ios/BannerBridgeCpp.h"
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #define LOG_TAG "bidmad"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
@@ -8,6 +9,9 @@
 
 BannerInterface::BannerInterface(char* zoneId){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CCLOG("BidmadSDK, Banner Instance Creation");
+    localZoneId = zoneId;
+    banner = new BannerBridgeCpp(zoneId);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     banner = new BannerController(zoneId);
     banner->setActivity();
@@ -17,62 +21,51 @@ BannerInterface::BannerInterface(char* zoneId){
 }
 
 void BannerInterface::setInterval(int interval){
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CCLOG("BidmadSDK, setInterval");
     banner->setInterval(interval);
-#endif
 }
 void BannerInterface::load(int y){
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CCLOG("BidmadSDK, load");
     banner->load(y);
-#endif
 }
 void BannerInterface::load(int x, int y){
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CCLOG("BidmadSDK, load");
     banner->load(x,y);
-#endif
 }
 void BannerInterface::removeBanner(){
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CCLOG("BidmadSDK, removeBanner");
     banner->removeBanner();
-#endif
 }
 void BannerInterface::hideBannerView(){
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CCLOG("BidmadSDK, hideBannerView");
     banner->hideBannerView();
-#endif
 }
 void BannerInterface::showBannerView(){
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CCLOG("BidmadSDK, showBannerView");
     banner->showBannerView();
-#endif
 }
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 void BannerInterface::onPause(){
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     banner->onPause();
-#endif
 }
+
 void BannerInterface::onResume(){
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     banner->onResume();
-#endif
 }
+#endif
 
 void BannerInterface::setOnLoadCallback(void (*_onLoadCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    banner->setOnLoadCallback(_onLoadCallback);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     banner->callback->setOnLoadCallback(_onLoadCallback);
 #endif
 }
 void BannerInterface::setOnFailCallback(void (*_onFailCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    banner->setOnFailCallback(_onFailCallback);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     banner->callback->setOnFailCallback(_onFailCallback);
 #endif

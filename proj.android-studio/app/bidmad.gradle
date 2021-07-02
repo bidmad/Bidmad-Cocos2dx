@@ -3,10 +3,11 @@ repositories {
     jcenter()
     mavenCentral()
     maven { url "https://bidmad-sdk.s3.amazonaws.com/" } //bidmad
-}
+    maven { url "https://artifact.bytedance.com/repository/pangle"} //Pangle
+    maven { url "https://sdk.tapjoy.com/" }
 
 dependencies {
-    implementation 'com.adop.sdk:bidmad-androidx-g:1.2.0'
+    implementation 'com.adop.sdk:bidmad-androidx-g:1.3.0'
 }
 
 android {

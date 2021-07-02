@@ -1,3 +1,13 @@
+# Version 1.2.0
+#### Changes
+- Add Pangle Network
+- Changed to Minimum build gradle plugin version 3.4.3 (Android Only)
+- Add iOS Banner Interface
+- Bug FIx
+#### Integration Bidmad SDK version 
+- Android : bidmad-androidx-g 1.3.0
+- iOS : BidmadSDK.framework 2.7.0
+
 # Version 1.1.0
 #### Changes
 - Update Android Admob Version
