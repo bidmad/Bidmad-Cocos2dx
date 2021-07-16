@@ -1,3 +1,10 @@
+# Version 1.2.1
+#### Changes
+- Bug FIx
+#### Integration Bidmad SDK version 
+- Android : bidmad-androidx-g 1.3.1
+- iOS : BidmadSDK.framework 2.7.0
+
 # Version 1.2.0
 #### Changes
 - Add Pangle Network

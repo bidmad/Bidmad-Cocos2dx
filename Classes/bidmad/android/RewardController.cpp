@@ -130,7 +130,6 @@ void RewardController::callCallback(char* callbackType, char* zoneId){
         callback->onLoadCallback(zoneId);
     }else if( (strcmp(callbackType, "onShow") == 0) && (callback->onShowCallback != nullptr) ){
         callback->onShowCallback(zoneId);
-        controller->load();
     }else if( (strcmp(callbackType, "onFail") == 0) && (callback->onFailCallback != nullptr) ){
         callback->onFailCallback(zoneId);
     }else if( (strcmp(callbackType, "onComplete") == 0) && (callback->onCompleteCallback != nullptr) ){
