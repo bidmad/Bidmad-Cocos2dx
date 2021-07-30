@@ -156,6 +156,15 @@ void BannerController::setOnFailCallback(void (*_onFailCallback) (char *)){
 void BannerController::callCallback(char* callbackType, char* zoneId){
     std::string _zoneId = zoneId;
     BannerController* controller = icm.find(_zoneId)->second;
+
+    if(controller == nullptr){
+        LOGD("callCallback controller nullptr : %s", zoneId);
+        return;
+    } else if(controller->callback == nullptr){
+        LOGD("callCallback controller->callback nullptr : %s", zoneId);
+        return;
+    }
+
     BannerCallback* callback = controller->callback;
 
     LOGD("callCallback callbackType : %s", callbackType);

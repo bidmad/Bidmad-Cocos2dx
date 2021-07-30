@@ -22,17 +22,19 @@ extern "C"{
         LOGD("Java_com_adop_sdk_adview_Cocos2dxAdView_onLoadAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
-        env->ReleaseStringUTFChars(str, zoneId);
 
         BannerController::callCallback("onLoad", (char *)zoneId);
+
+        env->ReleaseStringUTFChars(str, zoneId);
     }
 
     JNIEXPORT void JNICALL Java_com_adop_sdk_adview_Cocos2dxAdView_onFailedAdCb(JNIEnv *env, jobject obj, jstring str){
         LOGD("Java_com_adop_sdk_adview_Cocos2dxAdView_onFailedAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
-        env->ReleaseStringUTFChars(str, zoneId);
 
         BannerController::callCallback("onFail", (char *)zoneId);
+
+        env->ReleaseStringUTFChars(str, zoneId);
     }
 }

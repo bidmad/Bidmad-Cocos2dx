@@ -1,3 +1,10 @@
+# Version 1.2.2
+#### Changes
+- Android callback stabilization.
+#### Integration Bidmad SDK version 
+- Android : bidmad-androidx-g 1.3.1
+- iOS : BidmadSDK.framework 2.7.0
+
 # Version 1.2.1
 #### Changes
 - Bug FIx

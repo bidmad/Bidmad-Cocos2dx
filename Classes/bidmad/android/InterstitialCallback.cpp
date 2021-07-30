@@ -30,35 +30,39 @@ extern "C"{
         LOGD("Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onLoadAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
-        env->ReleaseStringUTFChars(str, zoneId);
 
         InterstitialController::callCallback("onLoad", (char *)zoneId);
+
+        env->ReleaseStringUTFChars(str, zoneId);
     }
 
     JNIEXPORT void JNICALL Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onShowAdCb(JNIEnv *env, jobject obj, jstring str){
         LOGD("Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onShowAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
-        env->ReleaseStringUTFChars(str, zoneId);
 
         InterstitialController::callCallback("onShow", (char *)zoneId);
+
+        env->ReleaseStringUTFChars(str, zoneId);
     }
 
     JNIEXPORT void JNICALL Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onFailedAdCb(JNIEnv *env, jobject obj, jstring str){
         LOGD("Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onFailedAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
-        env->ReleaseStringUTFChars(str, zoneId);
 
         InterstitialController::callCallback("onFail", (char *)zoneId);
+
+        env->ReleaseStringUTFChars(str, zoneId);
     }
 
     JNIEXPORT void JNICALL Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onCloseAdCb(JNIEnv *env, jobject obj, jstring str){
         LOGD("Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onCloseAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
-        env->ReleaseStringUTFChars(str, zoneId);
 
         InterstitialController::callCallback("onClose", (char *)zoneId);
+
+        env->ReleaseStringUTFChars(str, zoneId);
     }
 }
