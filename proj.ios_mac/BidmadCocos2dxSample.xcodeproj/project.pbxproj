@@ -125,6 +125,8 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		E3585D6326CFFA2C0085A281 /* SwiftEnabler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3585D6226CFFA2C0085A281 /* SwiftEnabler.swift */; };
+		E3585D6526CFFAC90085A281 /* Tapjoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3585D6426CFFAC90085A281 /* Tapjoy.framework */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -299,6 +301,8 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		E3585D6226CFFA2C0085A281 /* SwiftEnabler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftEnabler.swift; path = libBidmad/SwiftEnabler.swift; sourceTree = "<group>"; };
+		E3585D6426CFFAC90085A281 /* Tapjoy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tapjoy.framework; path = libBidmad/Tapjoy.framework; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -319,6 +323,7 @@
 				26114EE7268ACB7000A83EA5 /* libresolv.9.tbd in Frameworks */,
 				26114EE5268ACB6700A83EA5 /* Accelerate.framework in Frameworks */,
 				26114EE3268ACB5E00A83EA5 /* CoreMotion.framework in Frameworks */,
+				E3585D6526CFFAC90085A281 /* Tapjoy.framework in Frameworks */,
 				26114EE1268ACB5700A83EA5 /* AdSupport.framework in Frameworks */,
 				26114EDF268ACB4F00A83EA5 /* SystemConfiguration.framework in Frameworks */,
 				26114EDD268ACB4700A83EA5 /* CoreTelephony.framework in Frameworks */,
@@ -439,6 +444,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3585D6226CFFA2C0085A281 /* SwiftEnabler.swift */,
 				26114EF6268ACBAE00A83EA5 /* Security.framework */,
 				26114EF4268ACBA800A83EA5 /* libc++abi.tbd */,
 				26114EF2268ACBA200A83EA5 /* libiconv.tbd */,
@@ -478,6 +484,7 @@
 				9F8BF316263BE2B400D64788 /* GoogleUtilities.framework */,
 				9F8BF31A263BE2B400D64788 /* nanopb.framework */,
 				9F8BF31F263BE2B500D64788 /* PromisesObjC.framework */,
+				E3585D6426CFFAC90085A281 /* Tapjoy.framework */,
 				9F8BF319263BE2B400D64788 /* UnityAdapter.framework */,
 				9F8BF31B263BE2B400D64788 /* UnityAds.framework */,
 				9F8BF31C263BE2B400D64788 /* UserMessagingPlatform.framework */,
@@ -665,6 +672,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = MWF8UC94P5;
+						LastSwiftMigration = 1250;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -782,6 +790,7 @@
 				26114EBB268AB02100A83EA5 /* BannerBridgeCpp.mm in Sources */,
 				9FAEC6F92667A1C400D9524C /* BannerInterface.cpp in Sources */,
 				9FAEC6F22667A1A600D9524C /* BannerSampleScene.cpp in Sources */,
+				E3585D6326CFFA2C0085A281 /* SwiftEnabler.swift in Sources */,
 				9FAEC6F32667A1A600D9524C /* InterstitialSampleScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				9F8BF2A7263BDDEF00D64788 /* CommonBridgeObjC.mm in Sources */,
@@ -824,9 +833,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
+				CURRENT_PROJECT_VERSION = 1.2.3;
 				DEVELOPMENT_TEAM = MWF8UC94P5;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = armv7;
@@ -847,18 +858,21 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adop.mnctest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adop.CocosSample;
 				PROVISIONING_PROFILE_SPECIFIER = MNCTEST_DEV;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
 				VALID_ARCHS = "arm64 armv7";
@@ -869,9 +883,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
+				CURRENT_PROJECT_VERSION = 1.2.3;
 				DEVELOPMENT_TEAM = MWF8UC94P5;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = armv7;
@@ -891,18 +907,20 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adop.mnctest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adop.CocosSample;
 				PROVISIONING_PROFILE_SPECIFIER = MNCTEST_DEV;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
 				VALID_ARCHS = "arm64 armv7";
