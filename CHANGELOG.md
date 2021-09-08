@@ -1,3 +1,10 @@
+# Version 1.2.4
+#### Changes
+- Android stabilization
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx-g 1.3.2
+- iOS : BidmadSDK.framework 2.9.0
+
 # Version 1.2.3
 #### Changes
 - iOS Banner refresh stabilization
