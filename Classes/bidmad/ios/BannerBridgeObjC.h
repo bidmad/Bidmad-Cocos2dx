@@ -11,13 +11,14 @@
 #include "BannerBridgeCpp.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <BidmadSDK/Cocos2dxBanner.h>
+#import <OpenBiddingHelper/OpenBiddingBanner.h>
+#import <OpenBiddingHelper/OpenBiddingCocos2dxBanner.h>
 
 static NSMutableDictionary* BidmadCocos2dxBannerDic;
 
-@interface BannerBridgeObjC : NSObject <BIDMADBannerDelegate>{
+@interface BannerBridgeObjC : NSObject <BIDMADOpenBiddingBannerDelegate>{
     NSString* mZoneId;
-    Cocos2dxBanner* mBanner;
+    OpenBiddingCocos2dxBanner* mBanner;
     BannerBridgeCpp* mController;
 }
 - (id)initWithZoneId:(NSString *)zoneId controller:(BannerBridgeCpp *)controller;

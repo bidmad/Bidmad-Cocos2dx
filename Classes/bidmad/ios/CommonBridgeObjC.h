@@ -20,6 +20,9 @@
 - (BOOL)getAdvertiserTrackingEnabled;
 - (void)reqAdTrackingAuthorization;
 - (void)setGoogleTestId:(NSString*)testDeviceId;
+- (void)setGdprConsent:(bool)consent useArea:(bool)useArea;
+- (int)getGdprConsentWithUseArea:(bool)useArea;
+- (const char *)getPRIVACYURL;
 @end
 
 

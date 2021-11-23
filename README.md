@@ -20,13 +20,16 @@ LOCAL_SRC_FILES := $(LOCAL_PATH)/hellocpp/main.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/InterstitialInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/BannerInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/CommonInterface.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/GoogleGDPRInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardCallback.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialCallback.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerCallback.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/CommonController.cpp
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/CommonController.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/GoogleGDPRController.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/GoogleGDPRCallback.cpp
 ```
 *Cmake List를 사용하는 경우 아래와 같이 bidmad source를 추가합니다.
 ```cpp
@@ -37,6 +40,7 @@ list(APPEND GAME_SOURCE
      Classes/bidmad/BannerInterface.cpp
      Classes/bidmad/InterstitialInterface.cpp
      Classes/bidmad/RewardInterface.cpp
+     Classes/bidmad/GoogleGDPRInterface.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
@@ -45,6 +49,7 @@ list(APPEND GAME_HEADER
      Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
      Classes/bidmad/RewardInterface.h
+     Classes/bidmad/GoogleGDPRInterface.h
      )
 if(ANDROID)
     ...
@@ -57,6 +62,8 @@ if(ANDROID)
          Classes/bidmad/android/InterstitialController.cpp
          Classes/bidmad/android/RewardCallback.cpp
          Classes/bidmad/android/RewardController.cpp
+         Classes/bidmad/android/GoogleGDPRCallback.cpp
+         Classes/bidmad/android/GoogleGDPRController.cpp
          )
     list(APPEND GAME_HEADER
          Classes/bidmad/android/CommonController.h
@@ -66,6 +73,8 @@ if(ANDROID)
          Classes/bidmad/android/InterstitialController.h
          Classes/bidmad/android/RewardCallback.h
          Classes/bidmad/android/RewardController.h
+         Classes/bidmad/android/GoogleGDPRCallback.h
+         Classes/bidmad/android/GoogleGDPRController.h
          )
     ...
 endif()
@@ -101,6 +110,7 @@ list(APPEND GAME_SOURCE
      Classes/bidmad/BannerInterface.cpp
      Classes/bidmad/InterstitialInterface.cpp
      Classes/bidmad/RewardInterface.cpp
+     Classes/bidmad/GoogleGDPRInterface.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
@@ -109,6 +119,7 @@ list(APPEND GAME_HEADER
      Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
      Classes/bidmad/RewardInterface.h
+     Classes/bidmad/GoogleGDPRInterface.h
      )
 if(ANDROID)
     ...
@@ -125,6 +136,8 @@ elseif(APPLE)
              Classes/bidmad/ios/InterstitialBridgeObjC.h
              Classes/bidmad/ios/RewardBridgeCpp.h
              Classes/bidmad/ios/RewardBridgeObjC.h
+             Classes/bidmad/ios/GoogleGDPRBridgeCpp.h
+             Classes/bidmad/ios/GoogleGDPRBridgeObjC.h
              )
         set(APP_UI_RES
             proj.ios_mac/ios/LaunchScreen.storyboard
@@ -145,45 +158,90 @@ elseif(APPLE)
              Classes/bidmad/ios/InterstitialBridgeObjC.mm
              Classes/bidmad/ios/RewardBridgeCpp.mm
              Classes/bidmad/ios/RewardBridgeObjC.mm
+             Classes/bidmad/ios/GoogleGDPRBridgeCpp.mm
+             Classes/bidmad/ios/GoogleGDPRBridgeObjC.mm
              )
     elseif(MACOSX)
     ...
 endif()
 ```
-2. 게임 프로젝트의 Xcode에서 Build Settings에서 설정을 적용합니다.<br>
-- Enable BitCode = No 설정 (Cocos2dx 기본 설정 = No)<br>
-- Other Linker Flags = -ObjC 추가<br>
-3. 다운로드 받은 샘플 프로젝트의 /proj.ios_mac/libBidmad 폴더를 게임 프로젝트로 복사, Xcode에 추가합니다.<br>
+2. Classes/bidmad 폴더 추가 이후, 다음 임포트 가이드를 따라주십시오.
+<details markdown="1">
+<summary>Cocos2DX 4.X 이상 버전을 위한 임포트 가이드</summary>
+<br>
+
+- 다운로드 받은 샘플 프로젝트의 /proj.ios_mac/libBidmad 폴더를 게임 프로젝트로 복사, Xcode에 추가합니다.<br>
 *libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
-4. info.plist에 GADApplicationIdentifier를 추가합니다.<br>
+- 다음 라이브러리를 추가하십시오. ( 타겟 빌드 세팅 → Build Phases 의 "Link Binary With Libraries" 내부에, 다음 라이브러리를 추가해주십시오) <br>
+    - StoreKit.framework <br>
+    - MobileCoreServices.framework <br>
+    - WebKit.framework <br>
+    - MediaPlayer.framework <br>
+    - CoreMedia.framework <br>
+    - AVFoundation.framework <br>
+    - CoreTelephony.framework <br>
+    - SystemConfiguration.framework <br>
+    - AdSupport.framework <br>
+    - CoreMotion.framework <br>
+    - Accelerate.framework <br>
+    - libresolv.9.tbd <br>
+    - libc++.tbd <br>
+    - libz.tbd <br>
+    - libsqlite3.tbd <br>
+    - libbz2.tbd <br>
+    - libxml2.tbd <br>
+    - libiconv.tbd <br>
+    - libc++abi.tbd (newly required from sdk v3.5.0.0) <br>
+    - Security.framework <br>
+</details>
+
+<details markdown="1">
+<summary>Cocos2DX 3.X 버전을 위한 임포트 가이드</summary>
+<br>
+
+- Xcode Project를 닫은 뒤, terminal 에서 Xcode Project 가 담긴 폴더로 이동해, pod init 커맨드를 내리십시오. (커맨드 작동이 되지 않는다면, CocoaPods 설치를 부탁드립니다)
+- 이후 Podfile 내부에 다음과 같이 작성해주십시오.
+```
+platform :ios, '11.0'
+
+target 'MyGame-desktop' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MyGame-desktop
+
+end
+
+target 'MyGame-mobile' do
+  use_frameworks! :linkage => :static
+
+  # Pods for MyGame-mobile
+  pod 'BidmadSDK', '4.0.1.1'
+  pod 'OpenBiddingHelper', '4.0.1.1'
+  pod 'BidmadAdapterFNC/ForGame', '4.0.0.2'
+  pod 'BidmadAdapterFC', '4.0.0.0'
+
+end
+
+```
+- 변경된 Podfile 저장 이후, terminal에서 Xcode Project 가 담긴 폴더 내부로 이동해, pod install 커맨드를 내리십시오.
+- Xcode Project 내부, mobile 타겟 용 빌드 세팅에서 다음 값을 설정해주십시오.
+    - ENABLE_BITCODE → NO
+- Xcode Project 내부, mobile 타겟 용 빌드 세팅에서 다음 값을 추가해주십시오.
+    - GCC_PREPROCESSOR_DEFINITIONS → $(inherited)
+    - LIBRARY_SEARCH_PATHS → $(inherited)
+    - OTHER_LDFLAGS → $(inherited)
+    - SWIFT_VERSION → Swift 5
+</details>
+
+3. Cocos2DX 버전에 따른 임포트 가이드 수행 이후, info.plist에 GADApplicationIdentifier를 추가합니다.<br>
 *GADApplicationIdentifier는 Google Admob에서 확인할 수 있습니다. 
 ```
     <key>GADApplicationIdentifier</key>
     <string>ca-app-pub-XXXXXX~XXXXXX</string>
 ```
-5. 다음 라이브러리를 추가하십시오. ( 타겟 빌드 세팅 → Build Phases 의 "Link Binary With Libraries" 내부에, 다음 라이브러리를 추가해주십시오) <br>
-- StoreKit.framework <br>
-- MobileCoreServices.framework <br>
-- WebKit.framework <br>
-- MediaPlayer.framework <br>
-- CoreMedia.framework <br>
-- AVFoundation.framework <br>
-- CoreTelephony.framework <br>
-- SystemConfiguration.framework <br>
-- AdSupport.framework <br>
-- CoreMotion.framework <br>
-- Accelerate.framework <br>
-- libresolv.9.tbd <br>
-- libc++.tbd <br>
-- libz.tbd <br>
-- libsqlite3.tbd <br>
-- libbz2.tbd <br>
-- libxml2.tbd <br>
-- libiconv.tbd <br>
-- libc++abi.tbd (newly required from sdk v3.5.0.0) <br>
-- Security.framework <br>
 
-6. [가이드](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Preparing-for-iOS-14%5BKOR%5D)에 따라 앱 추적 투명성 승인 요청 팝업 및 SKAdNetwork를 적용합니다.<br>
+4. [가이드](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Preparing-for-iOS-14%5BKOR%5D)에 따라 앱 추적 투명성 승인 요청 팝업 및 SKAdNetwork를 적용합니다.<br>
 
 *Apple Store에서 요구하는 개인정보 보호에 관한 가이드가 필요한 경우 [이곳](https://github.com/bidmad/Bidmad-Unity/wiki/Apple-privacy-survey%5BKOR%5D)을 참고하세요.
 
@@ -423,6 +481,7 @@ public InterstitialInterface(char* zoneId)|InterstitialInterface 생성자, Zone
 public void load()|생성자에서 입력한 ZoneId로 광고를 요청합니다.
 public void show()|Load한 광고를 노출 시킵니다.
 public bool isLoaded()|광고가 Load된 상태인지 체크합니다.
+public void setAutoReload(bool isAutoReload)|Show 이후 다음 광고를 Load 합니다. 해당 옵션은 기본 true로 적용되어있으며, failCallback을 수신한 경우에는 Reload 동작을 하지 않습니다.
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|Function을 등록했다면 전면광고를 Load 했을 때 등록한 Function을 실행합니다.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|Function을 등록했다면 전면광고를 Show 했을 때 등록한 Function을 실행합니다.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|Function을 등록했다면 전면광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
@@ -438,6 +497,7 @@ public RewardInterface(char* zoneId)|BidmadReward 생성자, ZoneId를 설정합
 public void load()|생성자에서 입력한 ZoneId로 광고를 요청합니다.
 public void show()|Load한 광고를 노출 시킵니다.
 public bool isLoaded()|광고가 Load된 상태인지 체크합니다.
+public void setAutoReload(bool isAutoReload)|Show 이후 다음 광고를 Load 합니다. 해당 옵션은 기본 true로 적용되어있으며, failCallback을 수신한 경우에는 Reload 동작을 하지 않습니다.
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|Function을 등록했다면 보상형광고를 Load 했을 때 등록한 Function을 실행합니다.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|Function을 등록했다면 보상형광고를 Show 했을 때 등록한 Function을 실행합니다.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|Function을 등록했다면 보상형광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
@@ -473,3 +533,7 @@ public static void reqAdTrackingAuthorization(void (*_onAdTrackingAuthorizationR
 public static void setAdvertiserTrackingEnabled(bool)|reqAdTrackingAuthorization 이외의 함수로 앱 추적 투명성 승인 요청 팝업 동의/거절을 얻는 경우 이에 대한 결과를 설정합니다.
 public static bool getAdvertiserTrackingEnabled()|설정된 앱 추적 투명성 승인 요청 팝업 동의/거절에 대한 결과를 조회합니다.
 
+----
+### 참고사항
+
+- [GDPR 가이드](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Cocos2dx-GDPR-Guide-%5BKOR%5D)

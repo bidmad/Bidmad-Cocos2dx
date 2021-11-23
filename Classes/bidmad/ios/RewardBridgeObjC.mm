@@ -18,7 +18,7 @@
     mZoneId = zoneId;
     mController = controller;
     
-    mRewardVideo = [[Cocos2dxReward alloc] initWithZoneId:zoneId];
+    mRewardVideo = [[OpenBiddingCocos2dxReward alloc] initWithZoneId:zoneId viewController:[BIDMADUtil topMostController]];
     [mRewardVideo setDelegate:self];
     
     [BidmadCocos2dxRewardDic setObject:self forKey:zoneId];
@@ -44,33 +44,37 @@
     return [mRewardVideo isLoaded];
 }
 
-- (void)BIDMADRewardVideoLoad:(BIDMADRewardVideo *)core {
+- (void)setAutoReload:(bool)isAutoReload {
+    [mRewardVideo setAutoReoad:isAutoReload];
+}
+
+- (void)BIDMADOpenBiddingRewardVideoLoad:(OpenBiddingRewardVideo *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onLoad" UTF8String];
     mController->callCallback(type, zoneId);
     
 }
-- (void)BIDMADRewardVideoShow:(BIDMADRewardVideo *)core {
+- (void)BIDMADOpenBiddingRewardVideoShow:(OpenBiddingRewardVideo *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onShow" UTF8String];
     mController->callCallback(type, zoneId);
 }
-- (void)BIDMADRewardVideoSucceed:(BIDMADRewardVideo *)core {
+- (void)BIDMADOpenBiddingRewardVideoSucceed:(OpenBiddingRewardVideo *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onComplete" UTF8String];
     mController->callCallback(type, zoneId);;
 }
-- (void)BIDMADRewardSkipped:(BIDMADRewardVideo *)core {
+- (void)BIDMADOpenBiddingRewardSkipped:(OpenBiddingRewardVideo *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onSkip" UTF8String];
     mController->callCallback(type, zoneId);
 }
-- (void)BIDMADRewardVideoAllFail:(BIDMADRewardVideo *)core {
+- (void)BIDMADOpenBiddingRewardVideoAllFail:(OpenBiddingRewardVideo *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onFail" UTF8String];
     mController->callCallback(type, zoneId);
 }
-- (void)BIDMADRewardVideoClose:(BIDMADRewardVideo *)core {
+- (void)BIDMADOpenBiddingRewardVideoClose:(OpenBiddingRewardVideo *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onClose" UTF8String];
     mController->callCallback(type, zoneId);

@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, BURewardedVideoAdType) {
 @interface BURewardedVideoAd : NSObject <BUMopubAdMarkUpDelegate>
 @property (nonatomic, strong) BURewardedVideoModel *rewardedVideoModel;
 @property (nonatomic, weak, nullable) id<BURewardedVideoAdDelegate> delegate;
-
+@property (nonatomic, weak, nullable) id<BURewardedVideoAdDelegate> rewardPlayAgainInteractionDelegate;
 /**
  Whether material is effective.
  Setted to YES when data is not empty and has not been displayed.

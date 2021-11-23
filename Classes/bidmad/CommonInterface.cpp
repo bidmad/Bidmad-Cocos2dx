@@ -10,7 +10,7 @@
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #endif
 
-char* CommonInterface::pluginVersion = "1.2.4";
+char* CommonInterface::pluginVersion = "1.3.0";
 
 void CommonInterface::setDebugMode(bool isDebug){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -49,4 +49,30 @@ void CommonInterface::setGoogleTestId(char * testDeviceId){
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     CommonController::setGgTestDeviceid(testDeviceId);
 #endif
+}
+
+void CommonInterface::setGdprConsent(bool consent, bool useArea) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CommonBridgeCpp::setGdprConsent(consent, useArea);
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CommonController::setGdprConsent(consent, useArea);
+#endif
+}
+
+int CommonInterface::getGdprConsent(bool useArea) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CommonBridgeCpp::getGdprConsent(useArea);
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CommonController::getGdprConsent(useArea);
+#endif
+}
+
+const char* CommonInterface::getPRIVACYURL() {
+    const char* result = "";
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    result = CommonBridgeCpp::getPRIVACYURL();
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    result = CommonController::getPRIVACYURL();
+#endif
+  return result;
 }

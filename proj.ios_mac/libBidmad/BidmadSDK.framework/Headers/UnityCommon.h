@@ -25,6 +25,8 @@
 }
 
 + (UnityCommon*)sharedInstance;
+
+- (void)initializeSdk;
 - (void)setDelegate:(id)param;
 - (void)setDebugMode:(BOOL)isDebug;
 - (void)setAdvertiserTrackingEnabled:(BOOL)enable;

@@ -1,8 +1,13 @@
-@interface UADSBaseOptions : NSObject
 
-@property (nonatomic, strong, readonly) NSDictionary* dictionary;
-@property (nonatomic, readwrite) NSString* objectId;
+@protocol UADSDictionaryConvertible <NSObject>
+- (NSDictionary *)dictionary;
+@end
 
-- (instancetype)init;
+@interface UADSBaseOptions : NSObject<UADSDictionaryConvertible>
+
+@property (nonatomic, strong, readonly) NSDictionary *dictionary;
+@property (nonatomic, readwrite) NSString *objectId;
+
+- (instancetype)  init;
 
 @end

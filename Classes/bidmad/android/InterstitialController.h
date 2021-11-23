@@ -23,6 +23,7 @@ public:
     void load();
     void show();
     bool isLoaded();
+    void setAutoReload(bool);
     void setOnLoadCallback(void (*_onLoadCallback) (char *));
     void setOnShowCallback(void (*_onShowCallback) (char *));
     void setOnFailCallback(void (*_onFailCallback) (char *));

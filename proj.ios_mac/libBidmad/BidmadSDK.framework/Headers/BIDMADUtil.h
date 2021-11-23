@@ -85,12 +85,16 @@ typedef void (^CompletionBlock)();
 
 + (void)compassDataFetcherWithZoneId: (NSString *)zoneId completionBlock:(void (^)(NSDictionary *, NSError *))completionBlock;
 
-+ (void) sendLog :(NSDictionary *)info :(NSString *)advertisementType :(NSString *)logType :(NSString*)sessionId :(NSString*)realZoneId;
++ (void) sendLog :(NSDictionary *)info :(NSString *)advertisementType :(NSString *)logType :(NSString*)sessionId :(NSString*)realZoneId :(NSString * _Nullable)cuid;
 
-+ (void) sendLog :(NSDictionary *)info : (NSString *)advertisementType : (NSString *)logType : (NSString *)recvSessionId;
++ (void)sendLogWithInfoDict:(NSDictionary * _Nonnull)info
+                     adType:(NSString * _Nonnull)advertisementType
+                    logType:(NSString * _Nonnull)logType
+                       ssid:(NSString * _Nonnull)sessionId
+                       cuid:(NSString * _Nullable)cuid;
 
 + (BOOL)dictionaryKeyCheck:(NSDictionary *)dictionary hasKey:(NSString *)key;
 
-+ (void)cancelPerformSelectorAndThenRun: (CompletionBlock)afterCancellation;
++ (void)cancelPerformSelectorFor:(NSObject *)selfObject AndThenRun: (CompletionBlock)afterCancellation;
 
 @end

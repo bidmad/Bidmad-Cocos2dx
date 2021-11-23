@@ -1,3 +1,12 @@
+# Version 1.3.0
+#### Changes
+- Add Interstitial / Reward AutoReload option
+- Support iOS cocoapod 
+- Bug Fix
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx-g 2.0.1.0
+- iOS : BidmadSDK.framework 4.0.1.1
+
 # Version 1.2.4
 #### Changes
 - Android stabilization
@@ -21,7 +30,7 @@
 
 # Version 1.2.1
 #### Changes
-- Bug FIx
+- Bug Fix
 #### Integration Bidmad SDK version 
 - Android : bidmad-androidx-g 1.3.1
 - iOS : BidmadSDK.framework 2.7.0
@@ -31,7 +40,7 @@
 - Add Pangle Network
 - Changed to Minimum build gradle plugin version 3.4.3 (Android Only)
 - Add iOS Banner Interface
-- Bug FIx
+- Bug Fix
 #### Integration Bidmad SDK version 
 - Android : bidmad-androidx-g 1.3.0
 - iOS : BidmadSDK.framework 2.7.0

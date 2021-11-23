@@ -3,7 +3,7 @@
 
 #define LOG_TAG "bidmad"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
-#define coco2dxClass "com.adop.sdk.adview.Cocos2dxAdView"
+#define coco2dxClass "ad.helper.openbidding.adview.Cocos2dxAdView"
 
 static std::map<std::string, BannerController*> icm;
 
@@ -20,7 +20,7 @@ void BannerController::getInstance() {
             jniM,
             coco2dxClass,
             "getInstance",
-            "(Ljava/lang/String;)Lcom/adop/sdk/adview/Cocos2dxAdView;"
+            "(Ljava/lang/String;)Lad/helper/openbidding/adview/Cocos2dxAdView;"
     )) {
         jstring _zoneId = jniM.env->NewStringUTF(mZoneId);
         jObj = jniM.env->CallStaticObjectMethod(jniM.classID, jniM.methodID, _zoneId);

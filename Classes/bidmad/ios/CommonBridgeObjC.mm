@@ -60,4 +60,17 @@ return _sharedObject; \
     CommonBridgeCpp::onATTCallback(response);
 }
 
+- (void)setGdprConsent:(bool)consent useArea:(bool)useArea
+{
+    [[Cocos2dxCommon sharedInstance] setGdprConsent:consent useArea:useArea];
+}
+
+- (int)getGdprConsentWithUseArea:(bool)useArea {
+    return [[Cocos2dxCommon sharedInstance] getGdprConsentWithUseArea:useArea];
+}
+
+- (const char*)getPRIVACYURL {
+    return [[Cocos2dxCommon sharedInstance] getPRIVACYURL];
+}
+
 @end

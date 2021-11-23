@@ -20,13 +20,16 @@ LOCAL_SRC_FILES := $(LOCAL_PATH)/hellocpp/main.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/InterstitialInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/BannerInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/CommonInterface.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/GoogleGDPRInterface.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardCallback.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialCallback.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerController.cpp \
                    $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerCallback.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/CommonController.cpp
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/CommonController.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/GoogleGDPRController.cpp \
+                   $(LOCAL_PATH)/../../../Classes/bidmad/android/GoogleGDPRCallback.cpp
 ```
 *If using Cmake List, add bidmad source as below.
 ```cpp
@@ -37,6 +40,7 @@ list(APPEND GAME_SOURCE
      Classes/bidmad/BannerInterface.cpp
      Classes/bidmad/InterstitialInterface.cpp
      Classes/bidmad/RewardInterface.cpp
+     Classes/bidmad/GoogleGDPRInterface.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
@@ -45,6 +49,7 @@ list(APPEND GAME_HEADER
      Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
      Classes/bidmad/RewardInterface.h
+     Classes/bidmad/GoogleGDPRInterface.h
      )
 if(ANDROID)
     ...
@@ -57,6 +62,8 @@ if(ANDROID)
          Classes/bidmad/android/InterstitialController.cpp
          Classes/bidmad/android/RewardCallback.cpp
          Classes/bidmad/android/RewardController.cpp
+         Classes/bidmad/android/GoogleGDPRCallback.cpp
+         Classes/bidmad/android/GoogleGDPRController.cpp
          )
     list(APPEND GAME_HEADER
          Classes/bidmad/android/CommonController.h
@@ -66,6 +73,8 @@ if(ANDROID)
          Classes/bidmad/android/InterstitialController.h
          Classes/bidmad/android/RewardCallback.h
          Classes/bidmad/android/RewardController.h
+         Classes/bidmad/android/GoogleGDPRCallback.h
+         Classes/bidmad/android/GoogleGDPRController.h
          )
     ...
 endif()
@@ -101,6 +110,7 @@ list(APPEND GAME_SOURCE
      Classes/bidmad/BannerInterface.cpp
      Classes/bidmad/InterstitialInterface.cpp
      Classes/bidmad/RewardInterface.cpp
+     Classes/bidmad/GoogleGDPRInterface.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
@@ -109,6 +119,7 @@ list(APPEND GAME_HEADER
      Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
      Classes/bidmad/RewardInterface.h
+     Classes/bidmad/GoogleGDPRInterface.h
      )
 if(ANDROID)
     ...
@@ -125,6 +136,8 @@ elseif(APPLE)
              Classes/bidmad/ios/InterstitialBridgeObjC.h
              Classes/bidmad/ios/RewardBridgeCpp.h
              Classes/bidmad/ios/RewardBridgeObjC.h
+             Classes/bidmad/ios/GoogleGDPRBridgeCpp.h
+             Classes/bidmad/ios/GoogleGDPRBridgeObjC.h
              )
         set(APP_UI_RES
             proj.ios_mac/ios/LaunchScreen.storyboard
@@ -145,45 +158,91 @@ elseif(APPLE)
              Classes/bidmad/ios/InterstitialBridgeObjC.mm
              Classes/bidmad/ios/RewardBridgeCpp.mm
              Classes/bidmad/ios/RewardBridgeObjC.mm
+             Classes/bidmad/ios/GoogleGDPRBridgeCpp.mm
+             Classes/bidmad/ios/GoogleGDPRBridgeObjC.mm
              )
     elseif(MACOSX)
     ...
 endif()
 ```
-2. Apply the settings in Build Settings in Xcode of your game project.<br>
-- Set Enable BitCode = No (Cocos2dx default setting = No)<br>
-- Add Other Linker Flags = -ObjC<br>
-3. Copy the /proj.ios_mac/libBidmad folder of the downloaded sample project to the game project and add it to Xcode.<br>
-*All frameworks within libBidmad are Do not Embed.
-4. Add GADApplicationIdentifier to info.plist.<br>
+2. After adding the Classes/bidmad folder, please follow the import guide below.
+
+<details markdown="1">
+<summary>Import guide for Cocos2DX 4.X and above</summary>
+<br>
+
+- Copy the /proj.ios_mac/libBidmad folder of the downloaded sample project to the game project and add it to Xcode.<br>
+*All frameworks in libBidmad are set to the Do not Embed option when adding Xcode.
+- Add the following library: (Inside "Link Binary With Libraries" in Target Build Settings → Build Phases, add the following library) <br>
+    - StoreKit.framework <br>
+    - MobileCoreServices.framework <br>
+    - WebKit.framework <br>
+    - MediaPlayer.framework <br>
+    - CoreMedia.framework <br>
+    - AVFoundation.framework <br>
+    - CoreTelephony.framework <br>
+    - SystemConfiguration.framework <br>
+    - AdSupport.framework <br>
+    - CoreMotion.framework <br>
+    - Accelerate.framework <br>
+    - libresolv.9.tbd <br>
+    - libc++.tbd <br>
+    - libz.tbd <br>
+    - libsqlite3.tbd <br>
+    - libbz2.tbd <br>
+    - libxml2.tbd <br>
+    - libiconv.tbd <br>
+    - libc++abi.tbd (newly required from sdk v3.5.0.0) <br>
+    - Security.framework <br>
+</details>
+
+<details markdown="1">
+<summary>Import guide for Cocos2DX 3.X</summary>
+<br>
+
+- After closing the Xcode Project, go to the folder containing the Xcode Project in the terminal and issue the pod init command. (If the command does not work, please install CocoaPods)
+- After that, write the following inside the Podfile.
+```
+platform :ios, '11.0'
+
+target 'MyGame-desktop' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MyGame-desktop
+
+end
+
+target 'MyGame-mobile' do
+  use_frameworks! :linkage => :static
+
+  # Pods for MyGame-mobile
+  pod 'BidmadSDK', '4.0.1.1'
+  pod 'OpenBiddingHelper', '4.0.1.1'
+  pod 'BidmadAdapterFNC/ForGame', '4.0.0.2'
+  pod 'BidmadAdapterFC', '4.0.0.0'
+
+end
+
+```
+- After saving the changed Podfile, go to the folder containing the Xcode Project in the terminal and issue the pod install command.
+- In the Xcode Project, in the build settings for mobile target, set the following values.
+    - ENABLE_BITCODE → NO
+- Inside the Xcode Project, in the build settings for mobile target, add the following values:
+    - GCC_PREPROCESSOR_DEFINITIONS → $(inherited)
+    - LIBRARY_SEARCH_PATHS → $(inherited)
+    - OTHER_LDFLAGS → $(inherited)
+    - SWIFT_VERSION → Swift 5
+</details>
+
+3. After performing the import guide according to the Cocos2DX version, add GADApplicationIdentifier to info.plist.<br>
 *GADApplicationIdentifier can be found in Google Admob.
 ```
     <key>GADApplicationIdentifier</key>
     <string>ca-app-pub-XXXXXX~XXXXXX</string>
 ```
-5, Add the following libraries (Go to Target Build Setting → Build Phases and under the "Link Binary With Libraries," please add the following list of libraries) <br>
-- StoreKit.framework <br>
-- MobileCoreServices.framework <br>
-- WebKit.framework <br>
-- MediaPlayer.framework <br>
-- CoreMedia.framework <br>
-- AVFoundation.framework <br>
-- CoreTelephony.framework <br>
-- SystemConfiguration.framework <br>
-- AdSupport.framework <br>
-- CoreMotion.framework <br>
-- Accelerate.framework <br>
-- libresolv.9.tbd <br>
-- libc++.tbd <br>
-- libz.tbd <br>
-- libsqlite3.tbd <br>
-- libbz2.tbd <br>
-- libxml2.tbd <br>
-- libiconv.tbd <br>
-- libc++abi.tbd (newly required from sdk v3.5.0.0) <br>
-- Security.framework <br>
 
-6. Follow the [guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Preparing-for-iOS-14%5BENG%5D) to apply app tracking transparency approval request pop-up and SKAdNetwork.
+4. Follow the [guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Preparing-for-iOS-14%5BENG%5D) to apply app tracking transparency approval request pop-up and SKAdNetwork.<br>
 
 If you're looking for a guide to the privacy requirements of the Apple Store, [see here](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Apple-privacy-survey%5BENG%5D).
 
@@ -423,6 +482,7 @@ public InterstitialInterface(char* zoneId)|This is the BidmadInterstitial constr
 public void load()|Request an ad with the ZoneId entered in the constructor.
 public void show()|Display the loaded advertisement.
 public bool isLoaded()|Check if the ad is loaded.
+public void setAutoReload(bool isAutoReload)|Load the next ad after Show. This option defaults to true, and if a failCallback is received, the reload operation is not performed.
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|If an Function is registered, the registered Function is executed when the interstitial ad is loaded.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|If an Function is registered, the registered Function is executed when the interstitial ad is shown.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|If an Function is registered, the registered Function is executed when the load of interstitial ad through ZoneId fails.
@@ -438,6 +498,7 @@ public RewardInterface(char* zoneId)|This is the BidmadReward constructor, Set t
 public void load()|Request an ad with the ZoneId entered in the constructor.
 public void show()|Display the loaded advertisement.
 public bool isLoaded()|Check if the ad is loaded.
+public void setAutoReload(bool isAutoReload)|Load the next ad after Show. This option defaults to true, and if a failCallback is received, the reload operation is not performed.
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|If an Function is registered, the registered Function is executed when the reward ad is loaded.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|If an Function is registered, the registered Function is executed when the reward ad is shown.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|If an Function is registered, the registered Function is executed when the load of reward ad through ZoneId fails.
@@ -472,3 +533,8 @@ Function|Description
 public static void reqAdTrackingAuthorization(void (*_onAdTrackingAuthorizationResponse) (int))| App Tracking Transparency Displays the approval request popup and passes the result to the callback.
 public static void setAdvertiserTrackingEnabled(bool)| Set the result for app tracking transparency approval request pop-up consent/rejection obtained with a function other than reqAdTrackingAuthorization.
 public static bool getAdvertiserTrackingEnabled()| Set app tracking transparency approval request popup inquires the result of consent/rejection.
+
+----
+### Reference
+
+- [GDPR Guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Cocos2dx-GDPR-Guide-%5BENG%5D)

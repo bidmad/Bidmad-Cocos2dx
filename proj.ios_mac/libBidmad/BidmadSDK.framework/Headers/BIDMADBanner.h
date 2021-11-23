@@ -9,16 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "BIDMADUtil.h"
 #import "BIDMADSetting.h"
-#import "BIDMADFacebook.h"
 #import "BIDMADAtom.h"
 #import "BIDMADAdmob.h"
-#import "BIDMADUnityAdsBanner.h"
 #import "BIDMADAdmanager.h"
-#import "BIDMADPangleBanner.h"
 
-#if __has_include(<AdFitSDK/AdFitSDK.h>) || __has_include("AdFitSDK.h")
-#import "BIDMADAdFit.h"
-#import <AdFitSDK/AdFitSDK.h>
+#if __has_include(<BidmadAdapterFC/BidmadAdapterFC.h>) || __has_include("BidmadAdapterFC.h")
+#import <BidmadAdapterFC/BidmadAdapterFC.h>
+#endif
+
+#if __has_include(<BidmadAdapterFNC/BidmadAdapterFNC.h>) || __has_include("BidmadAdapterFNC.h")
+#import <BidmadAdapterFNC/BidmadAdapterFNC.h>
 #endif
 
 @protocol BIDMADBannerDelegate;
@@ -27,11 +27,11 @@
 
 @optional
 
-- (void)onBannerAllFail:(BIDMADBanner *)core;
+- (void)onBannerAllFail;
 - (void)onBannerError:(NSString *)error failType:(NSString *)failType;
-- (void)onBannerClosed:(BIDMADBanner *)core current:(NSDictionary*) currentDic;
-- (void)onBannerLoad:(BIDMADBanner *)core current:(NSDictionary*) currentDic;
-- (void)onBannerClick:(BIDMADBanner*) core current:(NSDictionary*) currentDic;
+- (void)onBannerClosed;
+- (void)onBannerLoad;
+- (void)onBannerClick;
 
 @end
 
@@ -43,7 +43,7 @@
 @property (strong, nonatomic) id<BIDMADBannerDelegate> delegate;
 @property (strong, nonatomic) id<BIDMADBannerInnerDelegate> innerDelegate;
 
-@property (strong, nonatomic) NSDictionary* ecmp_rev_info;
+@property (strong, nonatomic) NSDictionary* ecpm_rev_info;
 @property (strong, nonatomic) NSDictionary* area_info;
 
 @property (strong, nonatomic) NSDictionary* change_info;
@@ -67,6 +67,8 @@
 
 @property (nonatomic, strong) NSString* currentAdNetwork;
 
+@property (nonatomic, strong) NSString * _Nullable CUID;
+
 /// Banner Size Parameter is no longer supported, Please use initWithParentViewController:(UIViewController *):(CGPoint)
 - (id)initWithParentViewController:(UIViewController *)parentVC adsPosition:(CGPoint)point bannerSize:(bannerSizeType)bannerTypeParam __deprecated;
 /// Banner Size Parameter is no longer supported, Please use initWithParentViewController:(UIViewController *):(UIView *)
@@ -75,10 +77,30 @@
 - (id)initWithParentViewController:(UIViewController *)parentVC adsPosition:(CGPoint)point;
 - (id)initWithParentViewController:(UIViewController *)parentVC rootView:(UIView *)view;
 - (id)initWithParentViewController:(UIViewController *)parentVC yPoint:(int)yPoint;
+- (instancetype)initWithZoneID:(NSString * _Nonnull)zoneID
+          parentViewController:(UIViewController * _Nonnull)parentVC
+                    parentView:(UIView * _Nullable)parentView
+                   instanceOBH:(id _Nullable)instanceOBH
+                     sessionID:(NSString * _Nonnull)sessionID
+                     xPosition:(NSNumber * _Nullable)xPosition
+                     yPosition:(NSNumber * _Nullable)yPosition
+                       adsDict:(NSDictionary * _Nullable)adsDict
+                   revInfoECPM:(NSDictionary * _Nullable)revInfoECPM
+                      areaInfo:(NSDictionary * _Nullable)areaInfo
+                    changeInfo:(NSDictionary * _Nullable)changeInfo
+                          date:(NSDictionary * _Nullable)date
+                isLabelService:(NSNumber * _Nullable)isLabelService
+           isLabelServiceAdmin:(NSNumber * _Nullable)isLabelServiceAdmin
+                    realZoneID:(NSString * _Nonnull)realZoneID;
 /// REQUEST ADS
 - (void)requestBannerView;
 /// DELETE ADS
 - (void)removeAds;
+/// This method sorts the dictionary of compass ads data from the least floor price to the highest.
+/// It returns the NSError if necessary properties are not available nor nil.
+/// If success, it lastly calls selectAds with the first ad with the highest floor price.
+- (NSError * _Nullable)sortBasedOnFloorPriceAndSelectFirstAd;
+- (NSError * _Nullable)withoutSortingJustSelectFirstAd;
 - (void)selectAds:(NSDictionary *)lv_dic isAdsExist:(BOOL)isAds;
 - (void)runAds;
 - (void)setParentController:(UIViewController *)parentVC;

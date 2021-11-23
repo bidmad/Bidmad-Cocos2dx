@@ -21,6 +21,7 @@
 #import <BUAdSDK/BUVideoAdDelegate.h>
 #import <BUAdSDK/BUVideoAdReportor.h>
 #import <BUAdSDK/BUMopubAdMarkUpDelegate.h>
+#import <BUAdSDK/BUGeckoManager.h>
 
 
 ///customize dislike style
@@ -63,7 +64,3 @@
 
 /// test tools
 #import <BUAdSDK/BUAdSDKTestToolManager.h>
-
-/// pangle view
-#import <BUAdSDK/PangleNativeBannerView.h>
-#import <BUAdSDK/PangleNativeInterstitialView.h>

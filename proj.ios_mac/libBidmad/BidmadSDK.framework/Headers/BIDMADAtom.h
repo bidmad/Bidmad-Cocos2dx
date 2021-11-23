@@ -10,6 +10,8 @@
 #import <WebKit/WebKit.h>
 #import "BIDMADBanner.h"
 
+@class BIDMADBanner;
+
 @interface BIDMADAtom : WKWebView<WKNavigationDelegate>
 
 - (id)initWithAdDic:(NSDictionary *)dic;

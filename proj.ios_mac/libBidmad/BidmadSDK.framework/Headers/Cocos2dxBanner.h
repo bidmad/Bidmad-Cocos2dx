@@ -14,6 +14,7 @@
 @property (nonatomic, strong) id<BIDMADBannerDelegate> delegate;
 @property (nonatomic, strong) NSNumber *refreshInterval;
 
+- (id)initWithZoneID:(NSString*)zoneId;
 - (void)load:(int)y;
 - (void)load:(int)x :(int)y;
 - (void)setInterval:(int)interval;

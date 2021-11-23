@@ -16,7 +16,7 @@
 
 + (id)sharedInstance;
 
-- (void)bidmadNewInstanceRewardInterstitial:(NSString *)zoneId withDelegate:(id<BIDMADRewardInterstitialDelegate>)delegate;
+- (void)bidmadNewInstanceRewardInterstitial:(NSString *)zoneId withDelegate:(id<BIDMADRewardInterstitialDelegate>)delegate parentVC:(UIViewController *)parentVC;
 - (void)bidmadLoadRewardInterstitial:(NSString *)zoneId;
 - (void)bidmadShowRewardInterstitial:(NSString *)zoneId;
 - (bool)bidmadIsLoadedRewardInterstitial:(NSString *)zoneId;

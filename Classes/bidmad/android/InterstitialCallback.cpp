@@ -26,8 +26,8 @@ void InterstitialCallback::setOnCloseCallback(void (*_onCloseCallback) (char *))
 }
 
 extern "C"{
-    JNIEXPORT void JNICALL Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onLoadAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onLoadAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onLoadAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onLoadAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
@@ -36,8 +36,8 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onShowAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onShowAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onShowAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onShowAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
@@ -46,8 +46,8 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onFailedAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onFailedAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onFailedAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onFailedAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
@@ -56,8 +56,8 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onCloseAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_com_adop_sdk_interstitial_Cocos2dxInterstitial_onCloseAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onCloseAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onCloseAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 

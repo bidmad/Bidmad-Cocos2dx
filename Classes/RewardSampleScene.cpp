@@ -95,7 +95,9 @@ void RewardSampleScene::initReward()
     
     //Reward Create
     ri = new RewardInterface(reward);
-    
+
+    // ri->setAutoReload(false); //Default true
+
     //Callback Setting
     ri->setOnLoadCallback(onRewardLoad);
     ri->setOnShowCallback(onRewardShow);

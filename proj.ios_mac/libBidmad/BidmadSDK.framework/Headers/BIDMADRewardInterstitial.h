@@ -20,10 +20,28 @@
     @property (nonatomic, strong) UIViewController *parentViewController;
     @property (nonatomic) NSString *zoneID;
     @property (nonatomic) BOOL isLoaded;
+    @property (nonatomic, strong) NSString * _Nullable CUID;
 
     - (void) requestRewardInterstitial;
     - (void) showRewardInterstitialView;
     - (void)removeRewardInterstitialAds;
+
+    /// Init Method specifically for OBH Framework
+    - (instancetype)initWithZoneID:(NSString * _Nonnull)zoneID
+              parentViewController:(UIViewController * _Nonnull)parentVC
+                       instanceOBH:(id _Nullable)instanceOBH
+                         sessionID:(NSString * _Nonnull)sessionID
+                           adsDict:(NSDictionary * _Nullable)adsDict
+                       revInfoECPM:(NSDictionary * _Nullable)revInfoECPM
+                          areaInfo:(NSDictionary * _Nullable)areaInfo
+                        changeInfo:(NSDictionary * _Nullable)changeInfo
+                              date:(NSDictionary * _Nullable)date
+                    isLabelService:(NSNumber * _Nullable)isLabelService
+               isLabelServiceAdmin:(NSNumber * _Nullable)isLabelServiceAdmin
+                          mediType:(NSString * _Nullable)mediationType
+                        realZoneID:(NSString * _Nonnull)realZoneID;
+- (NSError * _Nullable)sortBasedOnFloorPriceAndSelectFirstAd;
+- (NSError * _Nullable)withoutSortingJustSelectFirstAd;
 
     @end
 

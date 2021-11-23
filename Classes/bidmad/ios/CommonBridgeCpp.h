@@ -17,6 +17,9 @@ public:
     static void reqAdTrackingAuthorization(void (*_onAdTrackingAuthorizationResponse) (int));
     static void onATTCallback(int);
     static void setGoogleTestId(char *);
+    static void setGdprConsent(bool, bool);
+    static int getGdprConsent(bool);
+    static const char* getPRIVACYURL();
 };
 
 #endif /* CommonBridgeCpp_h */

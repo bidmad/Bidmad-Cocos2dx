@@ -10,13 +10,14 @@
 #include "InterstitialBridgeCpp.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <BidmadSDK/Cocos2dxInterstitial.h>
+#import <OpenBiddingHelper/OpenBiddingInterstitial.h>
+#import <OpenBiddingHelper/OpenBiddingCocos2dxInterstitial.h>
 
 static NSMutableDictionary* BidmadCocos2dxInterstitialDic;
 
-@interface InterstitialBridgeObjC : NSObject <BIDMADInterstitialDelegate>{
+@interface InterstitialBridgeObjC : NSObject <BIDMADOpenBiddingInterstitialDelegate>{
     NSString* mZoneId;
-    Cocos2dxInterstitial* mInterstitialVideo;
+    OpenBiddingCocos2dxInterstitial* mInterstitialVideo;
     InterstitialBridgeCpp* mController;
 }
 - (id)initWithZoneId:(NSString *)zoneId controller:(InterstitialBridgeCpp*) controller;
@@ -24,6 +25,7 @@ static NSMutableDictionary* BidmadCocos2dxInterstitialDic;
 - (void)loadInterstitial;
 - (void)showInterstitial;
 - (BOOL)isLoaded;
+- (void)setAutoReload:(bool)isAutoReload;
 
 @end
 

@@ -127,6 +127,8 @@ typedef NS_ENUM(NSUInteger, BUNativeExpressRewardedVideoAdType) {
 @interface BUNativeExpressRewardedVideoAd : NSObject <BUMopubAdMarkUpDelegate>
 @property (nonatomic, strong) BURewardedVideoModel *rewardedVideoModel;
 @property (nonatomic, weak, nullable) id<BUNativeExpressRewardedVideoAdDelegate> delegate;
+@property (nonatomic, weak, nullable) id<BUNativeExpressRewardedVideoAdDelegate> rewardPlayAgainInteractionDelegate;
+
 /// media configuration parameters.
 @property (nonatomic, copy, readonly) NSDictionary *mediaExt;
 

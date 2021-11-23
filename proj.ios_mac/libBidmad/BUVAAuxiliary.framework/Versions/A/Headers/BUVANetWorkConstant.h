@@ -52,6 +52,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)bu_playable_test_icon_url;
 /// playable_test_video_url
 + (NSString *)bu_playable_test_video_url;
+/// bu_aem_upload_url
++ (NSString *)bu_aem_upload_url;
 @end
 
 NS_ASSUME_NONNULL_END

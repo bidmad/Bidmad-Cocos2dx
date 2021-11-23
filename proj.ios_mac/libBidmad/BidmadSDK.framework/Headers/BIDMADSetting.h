@@ -30,6 +30,7 @@
 #define ADFIT                   @"5e0ce4ec-57ec-4dbd-9703-dc330d027c40"
 #define TAPJOY                  @"6c470ac8-6069-11eb-8e02-021baddf8c08"
 #define PANGLE                  @"640ab9f2-d8b8-11eb-8e02-021baddf8c08"
+#define ADMOB_OB                @"e2678be7-2fbf-11ec-8e02-021baddf8c08"
 
 
 #define COMPASS_SERVING         @"https://compass.adop.cc/serving/ms.php"
@@ -85,16 +86,22 @@ typedef enum
 typedef void (^CompleteHandler)(BidmadTrackingAuthorizationStatus status);
 //Bidmad AppTrackingTransparency 관련 내용 정의
 
+extern NSString* _Nonnull const BIDMAD_GDPR_CONSENT;
+extern NSString* _Nonnull const BIDMAD_CCPA_CONSENT;
+
 @interface BIDMADSetting : NSObject
 
 + (BIDMADSetting *)sharedInstance;
 - (void)setAdvertiserTrackingEnabled:(BOOL)enable;
 - (BOOL)getAdvertiserTrackingEnabled;
 - (void)reqAdTrackingAuthorizationWithCompletionHandler:(CompleteHandler)completeHandler;
+- (void)initializeSdk;
 
-@property (nonatomic, assign) BOOL                  europe;
+/// If your app is directed to kids under the age of 13, please set YES or true.
+- (void)setIsChildDirectedAds: (BOOL)isChildDirectedAdsNeeded;
 
-@property (nonatomic, assign) NSInteger             gdprStatus;
+/// If your app should be compliant to CCPA, please set the user consent status with this method.
+- (void)setUserConsentStatusForCCPACompliance: (BOOL)isUserConsent;
 
 ///  Auto Loading Interval.
 @property (nonatomic, assign) int                   refreshInterval;
@@ -144,6 +151,8 @@ typedef void (^CompleteHandler)(BidmadTrackingAuthorizationStatus status);
 
 @property (nonatomic) bool isIronInit;
 
+@property (nonatomic, strong) NSNumber* isGADMobileAdsInitilized;
+
 @property (nonatomic)  bool isBannerArpmVisible;
 
 @property (nonatomic) bool isRewardCompleteInSetting;
@@ -155,5 +164,11 @@ typedef void (^CompleteHandler)(BidmadTrackingAuthorizationStatus status);
 @property (nonatomic, strong) NSString* version;
 
 @property (nonatomic, strong) NSString* testDeviceId;
+
+/// Setting for Child-Directed Treament for COPPA-Compliance.
+@property (nonatomic, strong) NSNumber* __nullable isChildDirectedTreament;
+
+/// Setting for CCPA User Consent Status. If nil, the app does not have to be compliant to CCPA.
+@property (nonatomic, strong) NSNumber* __nullable isUserConsentCCPA;
 
 @end

@@ -10,13 +10,14 @@
 #include "RewardBridgeCpp.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <BidmadSDK/Cocos2dxReward.h>
+#import <OpenBiddingHelper/OpenBiddingRewardVideo.h>
+#import <OpenBiddingHelper/OpenBiddingCocos2dxReward.h>
 
 static NSMutableDictionary* BidmadCocos2dxRewardDic;
 
-@interface RewardBridgeObjC : NSObject <BIDMADRewardVideoDelegate>{
+@interface RewardBridgeObjC : NSObject <BIDMADOpenBiddingRewardVideoDelegate>{
     NSString* mZoneId;
-    Cocos2dxReward* mRewardVideo;
+    OpenBiddingCocos2dxReward* mRewardVideo;
     RewardBridgeCpp* mController;
 }
 - (id)initWithZoneId:(NSString *)zoneId controller:(RewardBridgeCpp*) controller;
@@ -24,6 +25,7 @@ static NSMutableDictionary* BidmadCocos2dxRewardDic;
 - (void)loadRewardVideo;
 - (void)showRewardVideo;
 - (BOOL)isLoaded;
+- (void)setAutoReload:(bool)isAutoReload;
 
 @end
 

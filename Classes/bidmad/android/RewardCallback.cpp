@@ -34,8 +34,8 @@ void RewardCallback::setOnCloseCallback(void (*_onCloseCallback) (char *)) {
 }
 
 extern "C"{
-    JNIEXPORT void JNICALL Java_com_adop_sdk_reward_Cocos2dxReward_onLoadAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_com_adop_sdk_reward_Cocos2dxReward_onLoadAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onLoadAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_reward_Cocos2dxReward_onLoadAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
@@ -44,8 +44,8 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_com_adop_sdk_reward_Cocos2dxReward_onShowAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_com_adop_sdk_reward_Cocos2dxReward_onShowAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onShowAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_reward_Cocos2dxReward_onShowAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
@@ -54,8 +54,8 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_com_adop_sdk_reward_Cocos2dxReward_onFailedAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_com_adop_sdk_reward_Cocos2dxReward_onFailedAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onFailedAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_reward_Cocos2dxReward_onFailedAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
@@ -64,8 +64,8 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_com_adop_sdk_reward_Cocos2dxReward_onCompleteAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_com_adop_sdk_reward_Cocos2dxReward_onCompleteAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onCompleteAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_reward_Cocos2dxReward_onCompleteAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
@@ -74,8 +74,8 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_com_adop_sdk_reward_Cocos2dxReward_onCloseAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_com_adop_sdk_reward_Cocos2dxReward_onCloseAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onCloseAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_reward_Cocos2dxReward_onCloseAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
@@ -84,8 +84,8 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_com_adop_sdk_reward_Cocos2dxReward_onSkippedAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_com_adop_sdk_reward_Cocos2dxReward_onSkippedAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onSkippedAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_reward_Cocos2dxReward_onSkippedAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 

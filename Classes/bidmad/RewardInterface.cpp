@@ -48,6 +48,14 @@ bool RewardInterface::isLoaded(){
     return result;
 }
 
+void RewardInterface::setAutoReload(bool isAutoReload) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    reward->setAutoReload(isAutoReload);
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    reward->setAutoReload(isAutoReload);
+#endif
+}
+
 void RewardInterface::setOnLoadCallback(void (*_onLoadCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     reward->setOnLoadCallback(_onLoadCallback);
@@ -55,6 +63,7 @@ void RewardInterface::setOnLoadCallback(void (*_onLoadCallback) (char *)){
     reward->callback->setOnLoadCallback(_onLoadCallback);
 #endif
 }
+
 void RewardInterface::setOnShowCallback(void (*_onShowCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     reward->setOnShowCallback(_onShowCallback);
@@ -62,6 +71,7 @@ void RewardInterface::setOnShowCallback(void (*_onShowCallback) (char *)){
     reward->callback->setOnShowCallback(_onShowCallback);
 #endif
 }
+
 void RewardInterface::setOnFailCallback(void (*_onFailCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     reward->setOnFailCallback(_onFailCallback);
@@ -69,6 +79,7 @@ void RewardInterface::setOnFailCallback(void (*_onFailCallback) (char *)){
     reward->callback->setOnFailCallback(_onFailCallback);
 #endif
 }
+
 void RewardInterface::setOnCompleteCallback(void (*_onCompleteCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     reward->setOnCompleteCallback(_onCompleteCallback);
@@ -76,6 +87,7 @@ void RewardInterface::setOnCompleteCallback(void (*_onCompleteCallback) (char *)
     reward->callback->setOnCompleteCallback(_onCompleteCallback);
 #endif
 }
+
 void RewardInterface::setOnSkipCallback(void (*_onSkipCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     reward->setOnSkipCallback(_onSkipCallback);
@@ -83,6 +95,7 @@ void RewardInterface::setOnSkipCallback(void (*_onSkipCallback) (char *)){
     reward->callback->setOnSkipCallback(_onSkipCallback);
 #endif
 }
+
 void RewardInterface::setOnCloseCallback(void (*_onCloseCallback)(char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     reward->setOnCloseCallback(_onCloseCallback);

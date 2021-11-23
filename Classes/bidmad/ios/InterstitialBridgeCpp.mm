@@ -32,6 +32,12 @@ bool InterstitialBridgeCpp::isLoaded() {
     return [bidmadObject isLoaded];
 }
 
+void InterstitialBridgeCpp::setAutoReload(bool isAutoReload) {
+    NSString* _zoneId = [NSString stringWithUTF8String: mZoneId];
+    InterstitialBridgeObjC* bidmadObject = [InterstitialBridgeObjC getInstance:_zoneId];
+    [bidmadObject setAutoReload:isAutoReload];
+}
+
 void InterstitialBridgeCpp::setOnLoadCallback(void (*_onLoadCallback)( char *)){
     onLoadCallback = _onLoadCallback;
 }
@@ -55,11 +61,6 @@ void InterstitialBridgeCpp::callCallback(char* callbackType, char* zoneId){
         onLoadCallback(zoneId);
     }else if( (strcmp(callbackType, "onShow") == 0) && (onShowCallback != nullptr) ){
         onShowCallback(zoneId);
-        
-        NSString* _zoneId = [NSString stringWithUTF8String: zoneId];
-        InterstitialBridgeObjC* bidmadObject = [[InterstitialBridgeObjC alloc] initWithZoneId:_zoneId controller:this];
-        
-        [bidmadObject loadInterstitial];
     }else if( (strcmp(callbackType, "onFail") == 0) && (onFailCallback != nullptr) ){
         onFailCallback(zoneId);
     }else if( (strcmp(callbackType, "onClose") == 0) && (onCloseCallback != nullptr) ){

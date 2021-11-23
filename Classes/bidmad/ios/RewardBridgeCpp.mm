@@ -32,6 +32,12 @@ bool RewardBridgeCpp::isLoaded() {
     return [bidmadObject isLoaded];
 }
 
+void RewardBridgeCpp::setAutoReload(bool isAutoReload) {
+    NSString* _zoneId = [NSString stringWithUTF8String: mZoneId];
+    RewardBridgeObjC* bidmadObject = [RewardBridgeObjC getInstance:_zoneId];
+    [bidmadObject setAutoReload:isAutoReload];
+}
+
 void RewardBridgeCpp::setOnLoadCallback(void (*_onLoadCallback)( char *)){
     onLoadCallback = _onLoadCallback;
 }
@@ -63,11 +69,6 @@ void RewardBridgeCpp::callCallback(char* callbackType, char* zoneId){
         onLoadCallback(zoneId);
     }else if( (strcmp(callbackType, "onShow") == 0) && (onShowCallback != nullptr) ){
         onShowCallback(zoneId);
-        
-        NSString* _zoneId = [NSString stringWithUTF8String: zoneId];
-        [[RewardBridgeObjC alloc] initWithZoneId:_zoneId controller:this];
-        
-        loadRewardVideo();
     }else if( (strcmp(callbackType, "onFail") == 0) && (onFailCallback != nullptr) ){
         onFailCallback(zoneId);
     }else if( (strcmp(callbackType, "onComplete") == 0) && (onCompleteCallback != nullptr) ){

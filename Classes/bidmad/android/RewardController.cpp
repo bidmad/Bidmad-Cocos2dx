@@ -8,7 +8,7 @@
 
 #define LOG_TAG "bidmad"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
-#define coco2dxClass "com.adop.sdk.reward.Cocos2dxReward"
+#define coco2dxClass "ad.helper.openbidding.reward.Cocos2dxReward"
 
 static std::map<std::string, RewardController*> rcm;
 
@@ -25,7 +25,7 @@ void RewardController::getInstance() {
             jniM,
             coco2dxClass,
             "getInstance",
-            "(Ljava/lang/String;)Lcom/adop/sdk/reward/Cocos2dxReward;"
+            "(Ljava/lang/String;)Lad/helper/openbidding/reward/Cocos2dxReward;"
     )) {
         jstring _zoneId = jniM.env->NewStringUTF(mZoneId);
         jObj = jniM.env->CallStaticObjectMethod(jniM.classID, jniM.methodID, _zoneId);
@@ -92,6 +92,15 @@ bool RewardController::isLoaded() {
     deleteLocalRefMember();
 
     return result;
+}
+
+void RewardController::setAutoReload(bool isAutoReload) {
+    getInstance();
+
+    jmethodID midGet = jniM.env->GetMethodID(jCls, "setAutoReload", "(Z)V");
+    jniM.env->CallVoidMethod(jObj, midGet, isAutoReload);
+
+    deleteLocalRefMember();
 }
 
 void RewardController::deleteLocalRefMember(){

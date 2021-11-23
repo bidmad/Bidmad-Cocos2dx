@@ -36,3 +36,15 @@ void CommonBridgeCpp::setGoogleTestId(char * testDeviceId) {
     NSString* _testDeviceId = [NSString stringWithUTF8String: testDeviceId];
     [[CommonBridgeObjC sharedInstance] setGoogleTestId:_testDeviceId];
 }
+
+void CommonBridgeCpp::setGdprConsent(bool consent, bool useArea) {
+    [[CommonBridgeObjC sharedInstance] setGdprConsent:consent useArea:useArea];
+}
+
+int CommonBridgeCpp::getGdprConsent(bool useArea) {
+    return [[CommonBridgeObjC sharedInstance] getGdprConsentWithUseArea:useArea];
+}
+
+const char* CommonBridgeCpp::getPRIVACYURL() {
+    return [[CommonBridgeObjC sharedInstance] getPRIVACYURL];
+}

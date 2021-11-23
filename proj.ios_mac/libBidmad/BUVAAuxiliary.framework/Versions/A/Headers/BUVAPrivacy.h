@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSInteger)bu_personalized_ad;
 ///0(不初始化) 1(初始化) - 目前不支持GDPR，之后sdk合入新版本后，依据版本号打开  3300 add
 + (NSInteger)bu_sladar_enable;
+///0(不输出debug日志) 1(SDK默认值，服务端不下发、或下发异常值时认定为1 输出debug日志) 3800 add
++ (NSInteger)bu_debugLog_enable;
 ///0(不初始化) 1(初始化) - 目前不支持GDPR）3300 add
 + (NSInteger)bu_app_log_enable;
 ///0(不初始化) 1(初始化) ）3300 add

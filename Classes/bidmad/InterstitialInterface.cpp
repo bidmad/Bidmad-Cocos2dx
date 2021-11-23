@@ -48,6 +48,10 @@ bool InterstitialInterface::isLoaded(){
     return result;
 }
 
+void InterstitialInterface::setAutoReload(bool isAutoReload) {
+    interstitial->setAutoReload(isAutoReload);
+}
+
 void InterstitialInterface::setOnLoadCallback(void (*_onLoadCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     interstitial->setOnLoadCallback(_onLoadCallback);

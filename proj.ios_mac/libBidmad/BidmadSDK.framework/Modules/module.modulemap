@@ -4,31 +4,22 @@ framework module BidmadSDK {
   export *
   module * { export * }
   
-  header "BIDMADAdFit.h"
   header "BIDMADAdmanager.h"
-  header "BIDMADAppLoving.h"
   header "BIDMADAppOpenAd.h"
   header "BIDMADAtom.h"
   header "BIDMADAtomInterstitial.h"
   header "BIDMADAtomReward.h"
   header "BIDMADBanner.h"
-  header "BIDMADFacebook.h"
   header "BIDMADInterstitial.h"
   header "BIDMADLabelView.h"
   header "BIDMADOfferwall.h"
   header "BIDMADRewardInterstitial.h"
   header "BIDMADRewardVideo.h"
   header "BIDMADSetting.h"
-  header "BIDMADTapjoy.h"
   header "BIDMADUtil.h"
-  header "KeychainItemWrapper.h"
+  header "BidmadKeychainItemWrapper.h"
   header "BIDMADAdmob.h"
   header "BIDMADAdmobAppOpenAd.h"
-  header "BIDMADPangleBanner.h"
-  header "BIDMADPangleInterstitial.h"
-  header "BIDMADPangleReward.h"
-  header "BIDMADUnityAdsBanner.h"
-  header "BIDMADUnityAdsReward.h"
   header "Cocos2dxBanner.h"
   header "Cocos2dxCommon.h"
   header "Cocos2dxInterstitial.h"
@@ -51,7 +42,7 @@ framework module BidmadSDK {
   header "UnrealGDPRforGoogle.h"
   header "UnrealInterstitial.h"
   header "UnrealReward.h"
-
+  header "BIDMADNativeAdView.h"
 }
 
 module BidmadSDK.Swift {

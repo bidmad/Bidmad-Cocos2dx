@@ -87,6 +87,8 @@ void InterstitialSampleScene::initInterstitial()
     
     //Interstitial Create
     ii = new InterstitialInterface(interstitial);
+
+    // ii->setAutoReload(false); //Default true
     
     //Callback Setting
     ii->setOnLoadCallback(onInterstitialLoad);

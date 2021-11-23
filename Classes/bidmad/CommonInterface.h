@@ -16,4 +16,7 @@ public:
     static bool getAdvertiserTrackingEnabled();
     static void reqAdTrackingAuthorization(void (*_onAdTrackingAuthorizationResponse) (int));
     static void setGoogleTestId(char *);
+    static void setGdprConsent(bool, bool); // Parameters: Consent, UseArea
+    static int getGdprConsent(bool);       // Parameter: UseArea
+    static const char* getPRIVACYURL();
 };

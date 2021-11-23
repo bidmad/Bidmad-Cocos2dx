@@ -7,7 +7,7 @@
 
 #define LOG_TAG "bidmad"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
-#define coco2dxClass "com.adop.sdk.interstitial.Cocos2dxInterstitial"
+#define coco2dxClass "ad.helper.openbidding.interstitial.Cocos2dxInterstitial"
 
 static std::map<std::string, InterstitialController*> icm;
 
@@ -24,7 +24,7 @@ void InterstitialController::getInstance() {
             jniM,
             coco2dxClass,
             "getInstance",
-            "(Ljava/lang/String;)Lcom/adop/sdk/interstitial/Cocos2dxInterstitial;"
+            "(Ljava/lang/String;)Lad/helper/openbidding/interstitial/Cocos2dxInterstitial;"
     )) {
         jstring _zoneId = jniM.env->NewStringUTF(mZoneId);
         jObj = jniM.env->CallStaticObjectMethod(jniM.classID, jniM.methodID, _zoneId);
@@ -91,6 +91,15 @@ bool InterstitialController::isLoaded() {
     deleteLocalRefMember();
 
     return result;
+}
+
+void InterstitialController::setAutoReload(bool isAutoReload) {
+    getInstance();
+
+    jmethodID midGet = jniM.env->GetMethodID(jCls, "setAutoReload", "(Z)V");
+    jniM.env->CallVoidMethod(jObj, midGet, isAutoReload);
+
+    deleteLocalRefMember();
 }
 
 void InterstitialController::deleteLocalRefMember(){

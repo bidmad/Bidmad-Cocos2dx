@@ -3,9 +3,12 @@
 #include "InterstitialSampleScene.h"
 #include "RewardSampleScene.h"
 #include "bidmad/CommonInterface.h"
+#include "bidmad/GoogleGDPRInterface.h"
 #include "SimpleAudioEngine.h"
 
 USING_NS_CC;
+
+GoogleGDPRInterface* gdpri;
 
 Scene* HelloWorld::createScene()
 {
@@ -28,6 +31,42 @@ void onAdTrackingAuthorizationResponse (int response){
     }
 }
 
+void onConsentInfoUpdateSuccessCallback (){
+    CCLOG("BidmadPlugin onConsentInfoUpdateSuccessCallback : %d", gdpri->isConsentFormAvailable());
+
+    if (gdpri->getConsentStatus() == 1) {
+        gdpri->showForm();
+        CCLOG("ConsentStatusRequired");
+    } else if (gdpri->getConsentStatus() == 0) {
+        CCLOG("ConsentStatusUnknown");
+    } else if (gdpri->getConsentStatus() == 2) {
+        CCLOG("ConsentStatusNotRequired");
+    } else if (gdpri->getConsentStatus() == 3) {
+        CCLOG("ConsentStatusObtained");
+    }
+}
+
+void onConsentInfoUpdateFailureCallback (char* msg){
+    CCLOG("BidmadPlugin onConsentInfoUpdateFailureCallback : %s",msg);
+}
+
+void onConsentFormLoadSuccessCallback (){
+    CCLOG("BidmadPlugin onConsentFormLoadSuccessCallback : %d", gdpri->getConsentStatus());
+    if(gdpri->getConsentStatus() == 1)
+        gdpri->showForm();
+}
+
+void onConsentFormLoadFailureCallback (char* msg){
+    CCLOG("BidmadPlugin onConsentFormLoadFailureCallback : %s",msg);
+}
+
+void onConsentFormDismissedCallback (char* msg){
+    CCLOG("BidmadPlugin onConsentFormDismissedCallback : %s",msg);
+}
+
+
+
+
 bool HelloWorld::init()
 {
     if ( !Scene::init() )
@@ -39,7 +78,25 @@ bool HelloWorld::init()
     CommonInterface::setDebugMode(true); //print Debug Log
     CommonInterface::reqAdTrackingAuthorization(onAdTrackingAuthorizationResponse); //iOS 14 ATT Call
     CommonInterface::setAdvertiserTrackingEnabled(true);
-    
+
+
+    //GDPR interface provided by Google UMP.
+    gdpri = new GoogleGDPRInterface();
+    // gdpri->setDebug("GOOGLE_TEST_ID", true);
+
+    gdpri->setOnConsentInfoUpdateSuccessCallback(onConsentInfoUpdateSuccessCallback);
+    gdpri->setOnConsentInfoUpdateFailureCallback(onConsentInfoUpdateFailureCallback);
+    gdpri->setOnConsentFormLoadSuccessCallback(onConsentFormLoadSuccessCallback);
+    gdpri->setOnConsentFormLoadFailureCallback(onConsentFormLoadFailureCallback);
+    gdpri->setOnConsentFormDismissedCallback(onConsentFormDismissedCallback);
+
+    // gdpri->reset(); //Reset previous decisions
+    gdpri->requestConsentInfoUpdate();
+
+    // Use of that Interface when Google GDPR is not available.
+    // CCLOG("BidmadPlugin getGdprConsent : %d", CommonInterface::getGdprConsent(false));
+    // CommonInterface::setGdprConsent(true, false);
+
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 

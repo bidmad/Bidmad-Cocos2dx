@@ -41,10 +41,10 @@
 @property (weak,nonatomic) BIDMADInterstitial* interstitial;
 @property (weak,nonatomic) BIDMADRewardVideo* rewardVideo;
 
-- (id)initWithAdBanner:(NSDictionary *)dic bidmadbanner:(BIDMADBanner *)banner;
-- (id)initWithInterstitial:(NSDictionary *)dic bidmadInterstitial:(BIDMADInterstitial *)interstitial;
-- (id)initWithRewardVideo:(NSDictionary *)dic bidmadReward:(BIDMADRewardVideo *)rewardVideo userId:(NSString *) userId;
-- (id)initWithRewardInterstitial:(NSDictionary *)dic bidmadInterstitial:(BIDMADRewardInterstitial *)rewardInterstitialArg;
+- (id)initWithAdBanner:(NSDictionary *)dic bidmadbanner:(BIDMADBanner *)banner isChildDirectedAds:(NSNumber* __nullable)isChild;
+- (id)initWithInterstitial:(NSDictionary *)dic bidmadInterstitial:(BIDMADInterstitial *)interstitial isChildDirectedAds:(NSNumber* __nullable)isChild;
+- (id)initWithRewardVideo:(NSDictionary *)dic bidmadReward:(BIDMADRewardVideo *)rewardVideo userId:(NSString *)userId isChildDirectedAds:(NSNumber* __nullable)isChild;
+- (id)initWithRewardInterstitial:(NSDictionary *)dic bidmadInterstitial:(BIDMADRewardInterstitial *)rewardInterstitialArg isChildDirectedAds:(NSNumber* __nullable)isChild;
 
 - (void)showAdmobBanner:(UIViewController *)pvc bannerContainer:(UIView*)bannerContainer;
 - (void)showAdmobInterstitial:(UIViewController *)pvc;

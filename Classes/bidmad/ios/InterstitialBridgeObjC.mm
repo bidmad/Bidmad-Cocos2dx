@@ -18,7 +18,7 @@
     mZoneId = zoneId;
     mController = controller;
     
-    mInterstitialVideo = [[Cocos2dxInterstitial alloc] initWithZoneId:zoneId];
+    mInterstitialVideo = [[OpenBiddingCocos2dxInterstitial alloc] initWithZoneId:zoneId viewController:[BIDMADUtil topMostController]];
     [mInterstitialVideo setDelegate:self];
     
     [BidmadCocos2dxInterstitialDic setObject:self forKey:zoneId];
@@ -44,22 +44,26 @@
     return [mInterstitialVideo isLoaded];
 }
 
-- (void)BIDMADInterstitialLoad:(BIDMADInterstitial *)core {
+- (void)setAutoReload:(bool)isAutoReload {
+    [mInterstitialVideo setAutoReoad:isAutoReload];
+}
+
+- (void)BIDMADOpenBiddingInterstitialLoad:(OpenBiddingInterstitial *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onLoad" UTF8String];
     mController->callCallback(type, zoneId);
 }
-- (void)BIDMADInterstitialAllFail:(BIDMADInterstitial *)core {
+- (void)BIDMADOpenBiddingInterstitialAllFail:(OpenBiddingInterstitial *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onFail" UTF8String];
     mController->callCallback(type, zoneId);
 }
-- (void)BIDMADInterstitialShow:(BIDMADInterstitial *)core {
+- (void)BIDMADOpenBiddingInterstitialShow:(OpenBiddingInterstitial *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onShow" UTF8String];
     mController->callCallback(type, zoneId);
 }
-- (void)BIDMADInterstitialClose:(BIDMADInterstitial *)core {
+- (void)BIDMADOpenBiddingInterstitialClose:(OpenBiddingInterstitial *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onClose" UTF8String];
     mController->callCallback(type, zoneId);

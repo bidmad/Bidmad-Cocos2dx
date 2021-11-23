@@ -9,25 +9,33 @@
 #import <Foundation/Foundation.h>
 #import "BIDMADUtil.h"
 #import "BIDMADSetting.h"
-#import "BIDMADFacebook.h"
 #import "BIDMADAtomReward.h"
 #import "BIDMADAdmob.h"
 #import "BIDMADAdmanager.h"
-#import "BIDMADUnityAdsReward.h"
-#import "BIDMADAppLoving.h"
 #import "BIDMADInterstitial.h"
+
+#if __has_include(<BidmadAdapterFC/BidmadAdapterFC.h>) || __has_include("BidmadAdapterFC.h")
+#import <BidmadAdapterFC/BidmadAdapterFC.h>
+#endif
+
+#if __has_include(<BidmadAdapterFNC/BidmadAdapterFNC.h>) || __has_include("BidmadAdapterFNC.h")
+#import <BidmadAdapterFNC/BidmadAdapterFNC.h>
+#endif
+
+@class BIDMADInterstitial;
 
 @protocol BIDMADRewardVideoDelegate;
 
 @protocol BIDMADRewardVideoInnerDelegate <NSObject>
 @required
 
-- (void)onVideoLoad:(BIDMADRewardVideo *)core       current:(NSDictionary*) currentDic;
+- (void)onVideoLoad;
 - (void)onVideoError:(NSString *)error failType:(NSString *)failType;
-- (void)onVideoShow:(BIDMADRewardVideo *)core       current:(NSDictionary*) currentDic;
-- (void)onVideoClick:(BIDMADRewardVideo *)core      current:(NSDictionary*) currentDic;
-- (void)onVideoSuccess:(BIDMADRewardVideo *)core    current:(NSDictionary*) currentDic;
-- (void)onVideoSkipped:(BIDMADRewardVideo *) core   current:(NSDictionary*) currentDic;
+- (void)onVideoShow;
+- (void)onVideoClick;
+- (void)onVideoSuccess;
+- (void)onVideoSkipped;
+- (void)onVideoClose;
 
 @end
 
@@ -41,7 +49,7 @@
 
 @property (strong, nonatomic) NSDictionary*                 ads_dic;
 
-@property (strong, nonatomic) NSDictionary*                      ecmp_rev_info;
+@property (strong, nonatomic) NSDictionary*                      ecpm_rev_info;
 @property (strong, nonatomic) NSDictionary*                      area_info;
 
 @property (strong, nonatomic) NSDictionary*                    change_info;
@@ -66,6 +74,7 @@
 
 @property (nonatomic) NSString *                 realZoneId;
 
+@property (nonatomic, strong) NSString * _Nullable CUID;
 
 @property (nonatomic) BOOL isInterstitialBackfill;
 @property (nonatomic, strong) BIDMADInterstitial* interstitial;
@@ -73,6 +82,25 @@
 
 ///inititalize
 - (id)init;
+
+/// Init Method specifically for OBH Framework
+- (instancetype)initWithZoneID:(NSString * _Nonnull)zoneID
+          parentViewController:(UIViewController * _Nonnull)parentVC
+                   instanceOBH:(id _Nullable)instanceOBH
+                     sessionID:(NSString * _Nonnull)sessionID
+                       adsDict:(NSDictionary * _Nullable)adsDict
+                   revInfoECPM:(NSDictionary * _Nullable)revInfoECPM
+                      areaInfo:(NSDictionary * _Nullable)areaInfo
+                    changeInfo:(NSDictionary * _Nullable)changeInfo
+                          date:(NSDictionary * _Nullable)date
+                isLabelService:(NSNumber * _Nullable)isLabelService
+           isLabelServiceAdmin:(NSNumber * _Nullable)isLabelServiceAdmin
+                      mediType:(NSString * _Nullable)mediationType
+                    realZoneID:(NSString * _Nonnull)realZoneID;
+
+- (NSError * _Nullable)sortBasedOnFloorPriceAndSelectFirstAd;
+
+- (NSError * _Nullable)withoutSortingJustSelectFirstAd;
 
 ///InterstitialView Load
 - (void)loadRewardVideo;

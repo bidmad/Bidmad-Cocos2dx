@@ -6,7 +6,7 @@
 //
 
 #include "BannerBridgeObjC.h"
-#include <FBAudienceNetwork/FBAudienceNetwork.h>
+//#include <FBAudienceNetwork/FBAudienceNetwork.h>
 
 @implementation BannerBridgeObjC
 
@@ -21,7 +21,7 @@
     mZoneId = zoneId;
     mController = controller;
     
-    mBanner = [[Cocos2dxBanner alloc] initWithZoneID:zoneId];
+    mBanner = [[OpenBiddingCocos2dxBanner alloc] initWithZoneID:zoneId];
     [mBanner setDelegate:self];
     
     [BidmadCocos2dxBannerDic setObject:self forKey:zoneId];
@@ -66,22 +66,20 @@
     [mBanner showBannerView];
 }
 
-- (void)BIDMADBannerAllFail:(BIDMADBanner *)core {
+- (void)BIDMADOpenBiddingBannerAllFail:(OpenBiddingBanner *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onFail" UTF8String];
     mController->callCallback(type, zoneId);
 }
 
-- (void)BIDMADBannerError:(BIDMADBanner *)core code:(NSString *)error {}
+- (void)BIDMADOpenBiddingBannerClosed:(BIDMADBanner *)core {}
 
-- (void)BIDMADBannerClosed:(BIDMADBanner *)core {}
-
-- (void)BIDMADBannerLoad:(BIDMADBanner *)core {
+- (void)BIDMADOpenBiddingBannerLoad:(BIDMADBanner *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onLoad" UTF8String];
     mController->callCallback(type, zoneId);
 }
 
-- (void)BIDMADBannerClick:(BIDMADBanner*) core {}
+- (void)BIDMADOpenBiddingBannerClick:(BIDMADBanner*) core {}
 
 @end

@@ -1,0 +1,11 @@
+framework module BidmadAdapterFNC {
+  umbrella header "BidmadAdapterFNC.h"
+
+  export *
+  module * { export * }
+}
+
+module BidmadAdapterFNC.Swift {
+    header "BidmadAdapterFNC-Swift.h"
+    requires objc
+}

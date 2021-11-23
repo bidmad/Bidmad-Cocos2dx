@@ -31,6 +31,7 @@ typedef NS_ENUM(NSInteger, BUFeedADMode) {
     BUFeedADModeImagePortrait = 16,
     BUFeedADModeSquareImage   = 33, //SquareImage Currently it exists only in the oversea now. V3200 add
     BUFeedADModeSquareVideo   = 50, //SquareVideo Currently it exists only in the oversea now. V3200 add
+    BUFeedADModeUnionSplashVideo = 154, // Video splash, V3800 add
 };
 
 @interface BUMaterialMeta : NSObject <NSCoding>
