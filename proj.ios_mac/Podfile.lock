@@ -1,0 +1,149 @@
+PODS:
+  - AdColony (4.7.2)
+  - Ads-Global (3.8.1.0):
+    - Ads-Global/BUAdSDK (= 3.8.1.0)
+  - Ads-Global/BUAdSDK (3.8.1.0):
+    - Ads-Global/BUFoundation
+    - Ads-Global/International
+  - Ads-Global/BUFoundation (3.8.1.0)
+  - Ads-Global/International (3.8.1.0)
+  - AppLovinSDK (10.3.6)
+  - BidmadAdapterFC (4.0.0.0):
+    - AdColony (= 4.7.2)
+    - AppLovinSDK (= 10.3.6)
+    - GoogleMobileAdsMediationAdColony (= 4.7.2.0)
+    - GoogleMobileAdsMediationAppLovin (= 10.3.6.0)
+    - GoogleMobileAdsMediationUnity (= 3.7.5.0)
+    - UnityAds (= 3.7.5)
+  - BidmadAdapterFNC/ForGame (4.0.0.2):
+    - Ads-Global (= 3.8.1.0)
+    - GoogleMobileAdsMediationFacebook (= 6.3.1.0)
+    - TapjoySDK (= 12.8.1)
+  - BidmadSDK (4.0.1.1):
+    - BidmadSDK/ForNative (= 4.0.1.1)
+    - Google-Mobile-Ads-SDK (= 8.12.0)
+  - BidmadSDK/ForNative (4.0.1.1):
+    - Google-Mobile-Ads-SDK (= 8.12.0)
+  - FBAudienceNetwork (6.3.1):
+    - FBSDKCoreKit/Basics (>= 7.0.1)
+  - FBSDKCoreKit/Basics (9.3.0)
+  - Google-Mobile-Ads-SDK (8.12.0):
+    - GoogleAppMeasurement (< 9.0, >= 7.0)
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleAppMeasurement (8.9.1):
+    - GoogleAppMeasurement/AdIdSupport (= 8.9.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.6)
+    - GoogleUtilities/MethodSwizzler (~> 7.6)
+    - GoogleUtilities/Network (~> 7.6)
+    - "GoogleUtilities/NSData+zlib (~> 7.6)"
+    - nanopb (~> 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (8.9.1):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 8.9.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.6)
+    - GoogleUtilities/MethodSwizzler (~> 7.6)
+    - GoogleUtilities/Network (~> 7.6)
+    - "GoogleUtilities/NSData+zlib (~> 7.6)"
+    - nanopb (~> 2.30908.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (8.9.1):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.6)
+    - GoogleUtilities/MethodSwizzler (~> 7.6)
+    - GoogleUtilities/Network (~> 7.6)
+    - "GoogleUtilities/NSData+zlib (~> 7.6)"
+    - nanopb (~> 2.30908.0)
+  - GoogleMobileAdsMediationAdColony (4.7.2.0):
+    - AdColony (= 4.7.2.0)
+    - Google-Mobile-Ads-SDK (~> 8.0)
+  - GoogleMobileAdsMediationAppLovin (10.3.6.0):
+    - AppLovinSDK (= 10.3.6)
+    - Google-Mobile-Ads-SDK (~> 8.0)
+  - GoogleMobileAdsMediationFacebook (6.3.1.0):
+    - FBAudienceNetwork (= 6.3.1)
+    - Google-Mobile-Ads-SDK (>= 8.2.0)
+  - GoogleMobileAdsMediationUnity (3.7.5.0):
+    - Google-Mobile-Ads-SDK (~> 8.0)
+    - UnityAds (= 3.7.5)
+  - GoogleUserMessagingPlatform (2.0.0)
+  - GoogleUtilities/AppDelegateSwizzler (7.6.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.6.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.6.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (7.6.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (7.6.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.6.0)"
+  - GoogleUtilities/Reachability (7.6.0):
+    - GoogleUtilities/Logger
+  - nanopb (2.30908.0):
+    - nanopb/decode (= 2.30908.0)
+    - nanopb/encode (= 2.30908.0)
+  - nanopb/decode (2.30908.0)
+  - nanopb/encode (2.30908.0)
+  - OpenBiddingHelper (4.0.1.1):
+    - Google-Mobile-Ads-SDK (= 8.12.0)
+  - PromisesObjC (2.0.0)
+  - TapjoySDK (12.8.1)
+  - UnityAds (3.7.5)
+
+DEPENDENCIES:
+  - BidmadAdapterFC (= 4.0.0.0)
+  - BidmadAdapterFNC/ForGame (= 4.0.0.2)
+  - BidmadSDK (= 4.0.1.1)
+  - OpenBiddingHelper (= 4.0.1.1)
+
+SPEC REPOS:
+  trunk:
+    - AdColony
+    - Ads-Global
+    - AppLovinSDK
+    - BidmadAdapterFC
+    - BidmadAdapterFNC
+    - BidmadSDK
+    - FBAudienceNetwork
+    - FBSDKCoreKit
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleMobileAdsMediationAdColony
+    - GoogleMobileAdsMediationAppLovin
+    - GoogleMobileAdsMediationFacebook
+    - GoogleMobileAdsMediationUnity
+    - GoogleUserMessagingPlatform
+    - GoogleUtilities
+    - nanopb
+    - OpenBiddingHelper
+    - PromisesObjC
+    - TapjoySDK
+    - UnityAds
+
+SPEC CHECKSUMS:
+  AdColony: 970af2bff1e500c8a681bfcbd85f8054c0f57071
+  Ads-Global: c89f2059cf768ac4b965ac05897eeef8833d7710
+  AppLovinSDK: 6c261fe2ba6ed53969fcfb40aabd41cd3e7d9373
+  BidmadAdapterFC: e5ba83b0b4a48cbb423eb5067a5bf9959d0bd4d6
+  BidmadAdapterFNC: fb8a7d6f22880136517c2bc1af1f1a8855383a3b
+  BidmadSDK: 349bcc0cc13bb773a20af17f61f2d68f07dc7000
+  FBAudienceNetwork: 443e9c5e717e2d80c0253535a57e2681d34d9571
+  FBSDKCoreKit: 0d1ae58388a458b8222f72025804cdc84eb5d0c3
+  Google-Mobile-Ads-SDK: fb31b6ef68ef352b551ee29585cd9ceb07230cd0
+  GoogleAppMeasurement: 837649ad3987936c232f6717c5680216f6243d24
+  GoogleMobileAdsMediationAdColony: 9fdd5b256c350cb94d89400f9a2e86bbcc2967fa
+  GoogleMobileAdsMediationAppLovin: f5bac07316cb767bb834ca6ccc29da6cff3471b0
+  GoogleMobileAdsMediationFacebook: ede1b57a00d79d04655a6bea56939b5f56153ced
+  GoogleMobileAdsMediationUnity: f5d79cedf3f9e5430650b06e60b9577f03fe26ae
+  GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
+  GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
+  nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  OpenBiddingHelper: 05f86a795ee91eb5c68bee5282ae8315e5d3ef67
+  PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  TapjoySDK: 6d344dfb0cd205014c9286580d5c97857b170402
+  UnityAds: 9adbfd8ccc008e4e3e7b1bcf5666a126df4f1a8e
+
+PODFILE CHECKSUM: 8c34f8a97132e1e9865af97b1d16f9496942654b
+
+COCOAPODS: 1.11.2

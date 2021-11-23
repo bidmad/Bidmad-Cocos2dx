@@ -4,7 +4,6 @@
 #include "RewardSampleScene.h"
 #include "bidmad/CommonInterface.h"
 #include "bidmad/GoogleGDPRInterface.h"
-#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 

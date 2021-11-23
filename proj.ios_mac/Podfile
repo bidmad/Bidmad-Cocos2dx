@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '11.0'
+
+target 'BidmadCocos2dxSample-desktop' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for BidmadCocos2dxSample-desktop
+
+end
+
+target 'BidmadCocos2dxSample-mobile' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for BidmadCocos2dxSample-mobile
+  pod 'BidmadSDK', '4.0.1.1'
+  pod 'OpenBiddingHelper', '4.0.1.1'
+  pod 'BidmadAdapterFNC/ForGame', '4.0.0.2'
+  pod 'BidmadAdapterFC', '4.0.0.0'
+
+end

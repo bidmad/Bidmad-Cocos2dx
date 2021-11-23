@@ -7,36 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091D4087DF525481B5C01CCA /* Pods_BidmadCocos2dxSample_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E959E4BDFBF7C37FEE65DAA /* Pods_BidmadCocos2dxSample_mobile.framework */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		26114EBB268AB02100A83EA5 /* BannerBridgeCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 26114EBA268AB02100A83EA5 /* BannerBridgeCpp.mm */; };
 		26114EC1268AB0F400A83EA5 /* BannerBridgeObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 26114EC0268AB0F400A83EA5 /* BannerBridgeObjC.mm */; };
-		26114ECB268AC85800A83EA5 /* BUFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EC7268AC85800A83EA5 /* BUFoundation.framework */; };
-		26114ECC268AC85800A83EA5 /* BUVAAuxiliary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EC8268AC85800A83EA5 /* BUVAAuxiliary.framework */; };
-		26114ECD268AC85800A83EA5 /* BUAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EC9268AC85800A83EA5 /* BUAdSDK.framework */; };
-		26114ECF268AC87800A83EA5 /* BUAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 26114ECE268AC87800A83EA5 /* BUAdSDK.bundle */; };
-		26114ED1268ACB0F00A83EA5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114ED0268ACB0E00A83EA5 /* StoreKit.framework */; };
-		26114ED3268ACB2800A83EA5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114ED2268ACB2800A83EA5 /* MobileCoreServices.framework */; };
-		26114ED5268ACB2F00A83EA5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114ED4268ACB2F00A83EA5 /* WebKit.framework */; };
-		26114ED7268ACB3600A83EA5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114ED6268ACB3600A83EA5 /* MediaPlayer.framework */; };
-		26114ED9268ACB3B00A83EA5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114ED8268ACB3B00A83EA5 /* CoreMedia.framework */; };
 		26114EDB268ACB4100A83EA5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EDA268ACB4100A83EA5 /* AVFoundation.framework */; };
-		26114EDD268ACB4700A83EA5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EDC268ACB4700A83EA5 /* CoreTelephony.framework */; };
-		26114EDF268ACB4F00A83EA5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EDE268ACB4F00A83EA5 /* SystemConfiguration.framework */; };
-		26114EE1268ACB5700A83EA5 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EE0268ACB5700A83EA5 /* AdSupport.framework */; };
-		26114EE3268ACB5E00A83EA5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EE2268ACB5E00A83EA5 /* CoreMotion.framework */; };
-		26114EE5268ACB6700A83EA5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EE4268ACB6700A83EA5 /* Accelerate.framework */; };
-		26114EE7268ACB7000A83EA5 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EE6268ACB7000A83EA5 /* libresolv.9.tbd */; };
-		26114EE9268ACB7900A83EA5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EE8268ACB7900A83EA5 /* libc++.tbd */; };
-		26114EEB268ACB8200A83EA5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EEA268ACB8100A83EA5 /* libz.tbd */; };
-		26114EED268ACB9000A83EA5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EEC268ACB9000A83EA5 /* libsqlite3.tbd */; };
-		26114EEF268ACB9600A83EA5 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EEE268ACB9500A83EA5 /* libbz2.tbd */; };
-		26114EF1268ACB9B00A83EA5 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EF0268ACB9B00A83EA5 /* libxml2.tbd */; };
-		26114EF3268ACBA200A83EA5 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EF2268ACBA200A83EA5 /* libiconv.tbd */; };
-		26114EF5268ACBA800A83EA5 /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EF4268ACBA800A83EA5 /* libc++abi.tbd */; };
-		26114EF7268ACBAE00A83EA5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26114EF6268ACBAE00A83EA5 /* Security.framework */; };
+		2670A251274CCADA00C75D58 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2670A250274CCADA00C75D58 /* CoreMedia.framework */; };
+		2670A274274CCC3500C75D58 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2670A273274CCC3500C75D58 /* GameController.framework */; };
+		2670A278274CCC4E00C75D58 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2670A277274CCC4E00C75D58 /* MediaPlayer.framework */; };
+		2670A2A5274CCD5500C75D58 /* GoogleGDPRBridgeCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2670A2A2274CCD5500C75D58 /* GoogleGDPRBridgeCpp.mm */; };
+		2670A2A6274CCD5500C75D58 /* GoogleGDPRBridgeObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2670A2A4274CCD5500C75D58 /* GoogleGDPRBridgeObjC.mm */; };
+		2670A2AB274CCD6400C75D58 /* GoogleGDPRInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2670A2A9274CCD6400C75D58 /* GoogleGDPRInterface.cpp */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
@@ -86,6 +70,7 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		545F60299F40FD90BAAE39D8 /* Pods_BidmadCocos2dxSample_desktop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5513589E82546628E6F826 /* Pods_BidmadCocos2dxSample_desktop.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		9F8BF2A3263BDDEF00D64788 /* RewardInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BF291263BDDEF00D64788 /* RewardInterface.cpp */; };
 		9F8BF2A4263BDDEF00D64788 /* RewardBridgeObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BF294263BDDEF00D64788 /* RewardBridgeObjC.mm */; };
@@ -96,23 +81,6 @@
 		9F8BF2A9263BDDEF00D64788 /* InterstitialBridgeCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BF29C263BDDEF00D64788 /* InterstitialBridgeCpp.mm */; };
 		9F8BF2AA263BDDEF00D64788 /* InterstitialInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BF2A0263BDDEF00D64788 /* InterstitialInterface.cpp */; };
 		9F8BF2AB263BDDEF00D64788 /* CommonInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BF2A2263BDDEF00D64788 /* CommonInterface.cpp */; };
-		9F8BF322263BE2B500D64788 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF311263BE2B400D64788 /* GoogleMobileAds.framework */; };
-		9F8BF323263BE2B500D64788 /* BidmadSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF312263BE2B400D64788 /* BidmadSDK.framework */; };
-		9F8BF324263BE2B500D64788 /* AppLovinSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF313263BE2B400D64788 /* AppLovinSDK.framework */; };
-		9F8BF325263BE2B500D64788 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF314263BE2B400D64788 /* GoogleAppMeasurement.framework */; };
-		9F8BF326263BE2B500D64788 /* FacebookAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF315263BE2B400D64788 /* FacebookAdapter.framework */; };
-		9F8BF327263BE2B500D64788 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF316263BE2B400D64788 /* GoogleUtilities.framework */; };
-		9F8BF328263BE2B500D64788 /* AppLovinSDKResources.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF317263BE2B400D64788 /* AppLovinSDKResources.bundle */; };
-		9F8BF329263BE2B500D64788 /* AdColony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF318263BE2B400D64788 /* AdColony.framework */; };
-		9F8BF32A263BE2B500D64788 /* UnityAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF319263BE2B400D64788 /* UnityAdapter.framework */; };
-		9F8BF32B263BE2B500D64788 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF31A263BE2B400D64788 /* nanopb.framework */; };
-		9F8BF32C263BE2B500D64788 /* UnityAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF31B263BE2B400D64788 /* UnityAds.framework */; };
-		9F8BF32D263BE2B500D64788 /* UserMessagingPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF31C263BE2B400D64788 /* UserMessagingPlatform.framework */; };
-		9F8BF32E263BE2B500D64788 /* AppLovinAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF31D263BE2B400D64788 /* AppLovinAdapter.framework */; };
-		9F8BF32F263BE2B500D64788 /* AdColonyAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF31E263BE2B400D64788 /* AdColonyAdapter.framework */; };
-		9F8BF330263BE2B500D64788 /* PromisesObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF31F263BE2B500D64788 /* PromisesObjC.framework */; };
-		9F8BF331263BE2B500D64788 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF320263BE2B500D64788 /* FBSDKCoreKit.framework */; };
-		9F8BF332263BE2B500D64788 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF321263BE2B500D64788 /* FBAudienceNetwork.framework */; };
 		9F8BF336263BE2FC00D64788 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F8BF335263BE2FC00D64788 /* GameController.framework */; };
 		9FAEC6F22667A1A600D9524C /* BannerSampleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC6EB2667A1A600D9524C /* BannerSampleScene.cpp */; };
 		9FAEC6F32667A1A600D9524C /* InterstitialSampleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAEC6EE2667A1A600D9524C /* InterstitialSampleScene.cpp */; };
@@ -125,8 +93,6 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
-		E3585D6326CFFA2C0085A281 /* SwiftEnabler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3585D6226CFFA2C0085A281 /* SwiftEnabler.swift */; };
-		E3585D6526CFFAC90085A281 /* Tapjoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3585D6426CFFAC90085A281 /* Tapjoy.framework */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
@@ -179,33 +145,21 @@
 		26114EBA268AB02100A83EA5 /* BannerBridgeCpp.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BannerBridgeCpp.mm; sourceTree = "<group>"; };
 		26114EBF268AB0F400A83EA5 /* BannerBridgeObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerBridgeObjC.h; sourceTree = "<group>"; };
 		26114EC0268AB0F400A83EA5 /* BannerBridgeObjC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BannerBridgeObjC.mm; sourceTree = "<group>"; };
-		26114EC7268AC85800A83EA5 /* BUFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUFoundation.framework; path = libBidmad/BUFoundation.framework; sourceTree = "<group>"; };
-		26114EC8268AC85800A83EA5 /* BUVAAuxiliary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUVAAuxiliary.framework; path = libBidmad/BUVAAuxiliary.framework; sourceTree = "<group>"; };
-		26114EC9268AC85800A83EA5 /* BUAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BUAdSDK.framework; path = libBidmad/BUAdSDK.framework; sourceTree = "<group>"; };
-		26114ECE268AC87800A83EA5 /* BUAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BUAdSDK.bundle; path = libBidmad/BUAdSDK.bundle; sourceTree = "<group>"; };
-		26114ED0268ACB0E00A83EA5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
-		26114ED2268ACB2800A83EA5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		26114ED4268ACB2F00A83EA5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/WebKit.framework; sourceTree = DEVELOPER_DIR; };
-		26114ED6268ACB3600A83EA5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
-		26114ED8268ACB3B00A83EA5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		26114EDA268ACB4100A83EA5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		26114EDC268ACB4700A83EA5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
-		26114EDE268ACB4F00A83EA5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		26114EE0268ACB5700A83EA5 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
-		26114EE2268ACB5E00A83EA5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		26114EE4268ACB6700A83EA5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
-		26114EE6268ACB7000A83EA5 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/lib/libresolv.9.tbd; sourceTree = DEVELOPER_DIR; };
-		26114EE8268ACB7900A83EA5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
-		26114EEA268ACB8100A83EA5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
-		26114EEC268ACB9000A83EA5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
-		26114EEE268ACB9500A83EA5 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/lib/libbz2.tbd; sourceTree = DEVELOPER_DIR; };
-		26114EF0268ACB9B00A83EA5 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/lib/libxml2.tbd; sourceTree = DEVELOPER_DIR; };
-		26114EF2268ACBA200A83EA5 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/lib/libiconv.tbd; sourceTree = DEVELOPER_DIR; };
-		26114EF4268ACBA800A83EA5 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/lib/libc++abi.tbd"; sourceTree = DEVELOPER_DIR; };
-		26114EF6268ACBAE00A83EA5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		2670A250274CCADA00C75D58 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		2670A273274CCC3500C75D58 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
+		2670A277274CCC4E00C75D58 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		2670A2A1274CCD5400C75D58 /* GoogleGDPRBridgeCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleGDPRBridgeCpp.h; sourceTree = "<group>"; };
+		2670A2A2274CCD5500C75D58 /* GoogleGDPRBridgeCpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleGDPRBridgeCpp.mm; sourceTree = "<group>"; };
+		2670A2A3274CCD5500C75D58 /* GoogleGDPRBridgeObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleGDPRBridgeObjC.h; sourceTree = "<group>"; };
+		2670A2A4274CCD5500C75D58 /* GoogleGDPRBridgeObjC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleGDPRBridgeObjC.mm; sourceTree = "<group>"; };
+		2670A2A9274CCD6400C75D58 /* GoogleGDPRInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoogleGDPRInterface.cpp; path = bidmad/GoogleGDPRInterface.cpp; sourceTree = "<group>"; };
+		2670A2AA274CCD6400C75D58 /* GoogleGDPRInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleGDPRInterface.h; path = bidmad/GoogleGDPRInterface.h; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		2E959E4BDFBF7C37FEE65DAA /* Pods_BidmadCocos2dxSample_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BidmadCocos2dxSample_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		4633824143D775EF1A5E1634 /* Pods-BidmadCocos2dxSample-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-mobile.debug.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		46880B7A19C43A67006E1F66 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
@@ -249,7 +203,10 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		6DB0914004595E4E6EB41596 /* Pods-BidmadCocos2dxSample-desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-desktop.release.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-desktop/Pods-BidmadCocos2dxSample-desktop.release.xcconfig"; sourceTree = "<group>"; };
+		7F1606C78687ED6186F9428D /* Pods-BidmadCocos2dxSample-desktop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-desktop.debug.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-desktop/Pods-BidmadCocos2dxSample-desktop.debug.xcconfig"; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8B5513589E82546628E6F826 /* Pods_BidmadCocos2dxSample_desktop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BidmadCocos2dxSample_desktop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8BF28D263BDDEF00D64788 /* RewardInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RewardInterface.h; path = bidmad/RewardInterface.h; sourceTree = "<group>"; };
 		9F8BF291263BDDEF00D64788 /* RewardInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RewardInterface.cpp; path = bidmad/RewardInterface.cpp; sourceTree = "<group>"; };
 		9F8BF293263BDDEF00D64788 /* InterstitialBridgeCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialBridgeCpp.h; sourceTree = "<group>"; };
@@ -268,23 +225,6 @@
 		9F8BF2A0263BDDEF00D64788 /* InterstitialInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InterstitialInterface.cpp; path = bidmad/InterstitialInterface.cpp; sourceTree = "<group>"; };
 		9F8BF2A1263BDDEF00D64788 /* InterstitialInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterstitialInterface.h; path = bidmad/InterstitialInterface.h; sourceTree = "<group>"; };
 		9F8BF2A2263BDDEF00D64788 /* CommonInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CommonInterface.cpp; path = bidmad/CommonInterface.cpp; sourceTree = "<group>"; };
-		9F8BF311263BE2B400D64788 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = libBidmad/GoogleMobileAds.framework; sourceTree = "<group>"; };
-		9F8BF312263BE2B400D64788 /* BidmadSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BidmadSDK.framework; path = libBidmad/BidmadSDK.framework; sourceTree = "<group>"; };
-		9F8BF313263BE2B400D64788 /* AppLovinSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppLovinSDK.framework; path = libBidmad/AppLovinSDK.framework; sourceTree = "<group>"; };
-		9F8BF314263BE2B400D64788 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = libBidmad/GoogleAppMeasurement.framework; sourceTree = "<group>"; };
-		9F8BF315263BE2B400D64788 /* FacebookAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookAdapter.framework; path = libBidmad/FacebookAdapter.framework; sourceTree = "<group>"; };
-		9F8BF316263BE2B400D64788 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = libBidmad/GoogleUtilities.framework; sourceTree = "<group>"; };
-		9F8BF317263BE2B400D64788 /* AppLovinSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AppLovinSDKResources.bundle; path = libBidmad/AppLovinSDKResources.bundle; sourceTree = "<group>"; };
-		9F8BF318263BE2B400D64788 /* AdColony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdColony.framework; path = libBidmad/AdColony.framework; sourceTree = "<group>"; };
-		9F8BF319263BE2B400D64788 /* UnityAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityAdapter.framework; path = libBidmad/UnityAdapter.framework; sourceTree = "<group>"; };
-		9F8BF31A263BE2B400D64788 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = libBidmad/nanopb.framework; sourceTree = "<group>"; };
-		9F8BF31B263BE2B400D64788 /* UnityAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityAds.framework; path = libBidmad/UnityAds.framework; sourceTree = "<group>"; };
-		9F8BF31C263BE2B400D64788 /* UserMessagingPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserMessagingPlatform.framework; path = libBidmad/UserMessagingPlatform.framework; sourceTree = "<group>"; };
-		9F8BF31D263BE2B400D64788 /* AppLovinAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppLovinAdapter.framework; path = libBidmad/AppLovinAdapter.framework; sourceTree = "<group>"; };
-		9F8BF31E263BE2B400D64788 /* AdColonyAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdColonyAdapter.framework; path = libBidmad/AdColonyAdapter.framework; sourceTree = "<group>"; };
-		9F8BF31F263BE2B500D64788 /* PromisesObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromisesObjC.framework; path = libBidmad/PromisesObjC.framework; sourceTree = "<group>"; };
-		9F8BF320263BE2B500D64788 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = libBidmad/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		9F8BF321263BE2B500D64788 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBAudienceNetwork.framework; path = libBidmad/FBAudienceNetwork.framework; sourceTree = "<group>"; };
 		9F8BF335263BE2FC00D64788 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.4.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		9FAEC6EB2667A1A600D9524C /* BannerSampleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BannerSampleScene.cpp; sourceTree = "<group>"; };
 		9FAEC6ED2667A1A600D9524C /* BannerSampleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerSampleScene.h; sourceTree = "<group>"; };
@@ -301,8 +241,7 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		E3585D6226CFFA2C0085A281 /* SwiftEnabler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftEnabler.swift; path = libBidmad/SwiftEnabler.swift; sourceTree = "<group>"; };
-		E3585D6426CFFAC90085A281 /* Tapjoy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tapjoy.framework; path = libBidmad/Tapjoy.framework; sourceTree = "<group>"; };
+		E0B5C7D678859CD0CF3A066B /* Pods-BidmadCocos2dxSample-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-mobile.release.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -312,31 +251,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26114EF7268ACBAE00A83EA5 /* Security.framework in Frameworks */,
-				26114EF5268ACBA800A83EA5 /* libc++abi.tbd in Frameworks */,
-				26114EF3268ACBA200A83EA5 /* libiconv.tbd in Frameworks */,
-				26114EF1268ACB9B00A83EA5 /* libxml2.tbd in Frameworks */,
-				26114EEF268ACB9600A83EA5 /* libbz2.tbd in Frameworks */,
-				26114EED268ACB9000A83EA5 /* libsqlite3.tbd in Frameworks */,
-				26114EEB268ACB8200A83EA5 /* libz.tbd in Frameworks */,
-				26114EE9268ACB7900A83EA5 /* libc++.tbd in Frameworks */,
-				26114EE7268ACB7000A83EA5 /* libresolv.9.tbd in Frameworks */,
-				26114EE5268ACB6700A83EA5 /* Accelerate.framework in Frameworks */,
-				26114EE3268ACB5E00A83EA5 /* CoreMotion.framework in Frameworks */,
-				E3585D6526CFFAC90085A281 /* Tapjoy.framework in Frameworks */,
-				26114EE1268ACB5700A83EA5 /* AdSupport.framework in Frameworks */,
-				26114EDF268ACB4F00A83EA5 /* SystemConfiguration.framework in Frameworks */,
-				26114EDD268ACB4700A83EA5 /* CoreTelephony.framework in Frameworks */,
+				2670A251274CCADA00C75D58 /* CoreMedia.framework in Frameworks */,
 				26114EDB268ACB4100A83EA5 /* AVFoundation.framework in Frameworks */,
-				26114ED9268ACB3B00A83EA5 /* CoreMedia.framework in Frameworks */,
-				26114ED7268ACB3600A83EA5 /* MediaPlayer.framework in Frameworks */,
-				26114ED5268ACB2F00A83EA5 /* WebKit.framework in Frameworks */,
-				26114ED3268ACB2800A83EA5 /* MobileCoreServices.framework in Frameworks */,
-				26114ED1268ACB0F00A83EA5 /* StoreKit.framework in Frameworks */,
 				9F8BF336263BE2FC00D64788 /* GameController.framework in Frameworks */,
 				294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */,
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
+				2670A278274CCC4E00C75D58 /* MediaPlayer.framework in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -348,26 +269,8 @@
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
 				D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */,
 				D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */,
-				9F8BF322263BE2B500D64788 /* GoogleMobileAds.framework in Frameworks */,
-				9F8BF323263BE2B500D64788 /* BidmadSDK.framework in Frameworks */,
-				9F8BF324263BE2B500D64788 /* AppLovinSDK.framework in Frameworks */,
-				9F8BF325263BE2B500D64788 /* GoogleAppMeasurement.framework in Frameworks */,
-				9F8BF326263BE2B500D64788 /* FacebookAdapter.framework in Frameworks */,
-				9F8BF327263BE2B500D64788 /* GoogleUtilities.framework in Frameworks */,
-				9F8BF328263BE2B500D64788 /* AppLovinSDKResources.bundle in Frameworks */,
-				9F8BF329263BE2B500D64788 /* AdColony.framework in Frameworks */,
-				9F8BF32A263BE2B500D64788 /* UnityAdapter.framework in Frameworks */,
-				9F8BF32B263BE2B500D64788 /* nanopb.framework in Frameworks */,
-				26114ECC268AC85800A83EA5 /* BUVAAuxiliary.framework in Frameworks */,
-				9F8BF32C263BE2B500D64788 /* UnityAds.framework in Frameworks */,
-				9F8BF32D263BE2B500D64788 /* UserMessagingPlatform.framework in Frameworks */,
-				9F8BF32E263BE2B500D64788 /* AppLovinAdapter.framework in Frameworks */,
-				9F8BF32F263BE2B500D64788 /* AdColonyAdapter.framework in Frameworks */,
-				9F8BF330263BE2B500D64788 /* PromisesObjC.framework in Frameworks */,
-				9F8BF331263BE2B500D64788 /* FBSDKCoreKit.framework in Frameworks */,
-				26114ECB268AC85800A83EA5 /* BUFoundation.framework in Frameworks */,
-				9F8BF332263BE2B500D64788 /* FBAudienceNetwork.framework in Frameworks */,
-				26114ECD268AC85800A83EA5 /* BUAdSDK.framework in Frameworks */,
+				2670A274274CCC3500C75D58 /* GameController.framework in Frameworks */,
+				091D4087DF525481B5C01CCA /* Pods_BidmadCocos2dxSample_mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +290,7 @@
 				5087E76917EB910900C73F5D /* OpenAL.framework in Frameworks */,
 				5087E76A17EB910900C73F5D /* AVFoundation.framework in Frameworks */,
 				5087E76B17EB910900C73F5D /* AudioToolbox.framework in Frameworks */,
+				545F60299F40FD90BAAE39D8 /* Pods_BidmadCocos2dxSample_desktop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +310,17 @@
 			);
 			name = ios;
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		0AD30598FC90F51AE3D68188 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F1606C78687ED6186F9428D /* Pods-BidmadCocos2dxSample-desktop.debug.xcconfig */,
+				6DB0914004595E4E6EB41596 /* Pods-BidmadCocos2dxSample-desktop.release.xcconfig */,
+				4633824143D775EF1A5E1634 /* Pods-BidmadCocos2dxSample-mobile.debug.xcconfig */,
+				E0B5C7D678859CD0CF3A066B /* Pods-BidmadCocos2dxSample-mobile.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -437,6 +352,7 @@
 				080E96DDFE201D6D7F000001 /* ios */,
 				503AE10617EB990700D1A890 /* mac */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				0AD30598FC90F51AE3D68188 /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -444,50 +360,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E3585D6226CFFA2C0085A281 /* SwiftEnabler.swift */,
-				26114EF6268ACBAE00A83EA5 /* Security.framework */,
-				26114EF4268ACBA800A83EA5 /* libc++abi.tbd */,
-				26114EF2268ACBA200A83EA5 /* libiconv.tbd */,
-				26114EF0268ACB9B00A83EA5 /* libxml2.tbd */,
-				26114EEE268ACB9500A83EA5 /* libbz2.tbd */,
-				26114EEC268ACB9000A83EA5 /* libsqlite3.tbd */,
-				26114EEA268ACB8100A83EA5 /* libz.tbd */,
-				26114EE8268ACB7900A83EA5 /* libc++.tbd */,
-				26114EE6268ACB7000A83EA5 /* libresolv.9.tbd */,
-				26114EE4268ACB6700A83EA5 /* Accelerate.framework */,
-				26114EE2268ACB5E00A83EA5 /* CoreMotion.framework */,
-				26114EE0268ACB5700A83EA5 /* AdSupport.framework */,
-				26114EDE268ACB4F00A83EA5 /* SystemConfiguration.framework */,
-				26114EDC268ACB4700A83EA5 /* CoreTelephony.framework */,
+				2670A277274CCC4E00C75D58 /* MediaPlayer.framework */,
+				2670A273274CCC3500C75D58 /* GameController.framework */,
+				2670A250274CCADA00C75D58 /* CoreMedia.framework */,
 				26114EDA268ACB4100A83EA5 /* AVFoundation.framework */,
-				26114ED8268ACB3B00A83EA5 /* CoreMedia.framework */,
-				26114ED6268ACB3600A83EA5 /* MediaPlayer.framework */,
-				26114ED4268ACB2F00A83EA5 /* WebKit.framework */,
-				26114ED2268ACB2800A83EA5 /* MobileCoreServices.framework */,
-				26114ED0268ACB0E00A83EA5 /* StoreKit.framework */,
 				9F8BF335263BE2FC00D64788 /* GameController.framework */,
-				26114ECE268AC87800A83EA5 /* BUAdSDK.bundle */,
-				26114EC9268AC85800A83EA5 /* BUAdSDK.framework */,
-				26114EC7268AC85800A83EA5 /* BUFoundation.framework */,
-				26114EC8268AC85800A83EA5 /* BUVAAuxiliary.framework */,
-				9F8BF318263BE2B400D64788 /* AdColony.framework */,
-				9F8BF31E263BE2B400D64788 /* AdColonyAdapter.framework */,
-				9F8BF31D263BE2B400D64788 /* AppLovinAdapter.framework */,
-				9F8BF313263BE2B400D64788 /* AppLovinSDK.framework */,
-				9F8BF317263BE2B400D64788 /* AppLovinSDKResources.bundle */,
-				9F8BF312263BE2B400D64788 /* BidmadSDK.framework */,
-				9F8BF315263BE2B400D64788 /* FacebookAdapter.framework */,
-				9F8BF321263BE2B500D64788 /* FBAudienceNetwork.framework */,
-				9F8BF320263BE2B500D64788 /* FBSDKCoreKit.framework */,
-				9F8BF314263BE2B400D64788 /* GoogleAppMeasurement.framework */,
-				9F8BF311263BE2B400D64788 /* GoogleMobileAds.framework */,
-				9F8BF316263BE2B400D64788 /* GoogleUtilities.framework */,
-				9F8BF31A263BE2B400D64788 /* nanopb.framework */,
-				9F8BF31F263BE2B500D64788 /* PromisesObjC.framework */,
-				E3585D6426CFFAC90085A281 /* Tapjoy.framework */,
-				9F8BF319263BE2B400D64788 /* UnityAdapter.framework */,
-				9F8BF31B263BE2B400D64788 /* UnityAds.framework */,
-				9F8BF31C263BE2B400D64788 /* UserMessagingPlatform.framework */,
 				294D0D631D0D56D500F7F5D4 /* CoreText.framework */,
 				ED545A7D1B68A1FA00C3958E /* libiconv.dylib */,
 				ED545A7B1B68A1F400C3958E /* libiconv.dylib */,
@@ -508,6 +385,8 @@
 				BF170DB012928DE900B8313A /* OpenGLES.framework */,
 				BF1C47EA1293683800B63C5D /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				8B5513589E82546628E6F826 /* Pods_BidmadCocos2dxSample_desktop.framework */,
+				2E959E4BDFBF7C37FEE65DAA /* Pods_BidmadCocos2dxSample_mobile.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -534,6 +413,8 @@
 				9F8BF2A1263BDDEF00D64788 /* InterstitialInterface.h */,
 				9FAEC6F72667A1C400D9524C /* BannerInterface.cpp */,
 				9FAEC6F82667A1C400D9524C /* BannerInterface.h */,
+				2670A2A9274CCD6400C75D58 /* GoogleGDPRInterface.cpp */,
+				2670A2AA274CCD6400C75D58 /* GoogleGDPRInterface.h */,
 				9F8BF292263BDDEF00D64788 /* ios */,
 				9F8BF291263BDDEF00D64788 /* RewardInterface.cpp */,
 				9F8BF28D263BDDEF00D64788 /* RewardInterface.h */,
@@ -618,6 +499,10 @@
 				9F8BF295263BDDEF00D64788 /* RewardBridgeCpp.mm */,
 				9F8BF29A263BDDEF00D64788 /* RewardBridgeObjC.h */,
 				9F8BF294263BDDEF00D64788 /* RewardBridgeObjC.mm */,
+				2670A2A1274CCD5400C75D58 /* GoogleGDPRBridgeCpp.h */,
+				2670A2A2274CCD5500C75D58 /* GoogleGDPRBridgeCpp.mm */,
+				2670A2A3274CCD5500C75D58 /* GoogleGDPRBridgeObjC.h */,
+				2670A2A4274CCD5500C75D58 /* GoogleGDPRBridgeObjC.mm */,
 			);
 			name = ios;
 			path = bidmad/ios;
@@ -630,9 +515,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "BidmadCocos2dxSample-mobile" */;
 			buildPhases = (
+				4CE5037E1692311021D424F7 /* [CP] Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				EE42668D3EA058B220D16D38 /* [CP] Embed Pods Frameworks */,
+				90EA2C301F5389D89E348D02 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -648,6 +536,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5087E76C17EB910900C73F5D /* Build configuration list for PBXNativeTarget "BidmadCocos2dxSample-desktop" */;
 			buildPhases = (
+				CC9BBF991BCBFBF8A1F5051B /* [CP] Check Pods Manifest.lock */,
 				5087E74817EB910900C73F5D /* Resources */,
 				5087E75617EB910900C73F5D /* Sources */,
 				5087E75C17EB910900C73F5D /* Frameworks */,
@@ -688,6 +577,7 @@
 				German,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
@@ -736,7 +626,6 @@
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
-				26114ECF268AC87800A83EA5 /* BUAdSDK.bundle in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
@@ -774,11 +663,107 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4CE5037E1692311021D424F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BidmadCocos2dxSample-mobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90EA2C301F5389D89E348D02 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile-resources.sh",
+				"${PODS_ROOT}/Ads-Global/PangleSDK/LICENSE",
+				"${PODS_ROOT}/Ads-Global/PangleSDK/BUAdSDK.bundle",
+				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-10.3.6/AppLovinSDKResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/BidmadSDK/bidmad_asset.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LICENSE",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BUAdSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppLovinSDKResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bidmad_asset.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC9BBF991BCBFBF8A1F5051B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BidmadCocos2dxSample-desktop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE42668D3EA058B220D16D38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2670A2A5274CCD5500C75D58 /* GoogleGDPRBridgeCpp.mm in Sources */,
 				26114EC1268AB0F400A83EA5 /* BannerBridgeObjC.mm in Sources */,
 				9F8BF2A9263BDDEF00D64788 /* InterstitialBridgeCpp.mm in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
@@ -786,11 +771,12 @@
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				2670A2AB274CCD6400C75D58 /* GoogleGDPRInterface.cpp in Sources */,
 				9F8BF2A3263BDDEF00D64788 /* RewardInterface.cpp in Sources */,
 				26114EBB268AB02100A83EA5 /* BannerBridgeCpp.mm in Sources */,
 				9FAEC6F92667A1C400D9524C /* BannerInterface.cpp in Sources */,
 				9FAEC6F22667A1A600D9524C /* BannerSampleScene.cpp in Sources */,
-				E3585D6326CFFA2C0085A281 /* SwiftEnabler.swift in Sources */,
+				2670A2A6274CCD5500C75D58 /* GoogleGDPRBridgeObjC.mm in Sources */,
 				9FAEC6F32667A1A600D9524C /* InterstitialSampleScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				9F8BF2A7263BDDEF00D64788 /* CommonBridgeObjC.mm in Sources */,
@@ -831,6 +817,7 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4633824143D775EF1A5E1634 /* Pods-BidmadCocos2dxSample-mobile.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -853,21 +840,22 @@
 					USE_FILE32API,
 					"COCOS2D_DEBUG=1",
 					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
+					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.2.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
-					"-ObjC",
+					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adop.CocosSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adop.mnctest;
 				PROVISIONING_PROFILE_SPECIFIER = MNCTEST_DEV;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
@@ -881,6 +869,7 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0B5C7D678859CD0CF3A066B /* Pods-BidmadCocos2dxSample-mobile.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -902,21 +891,22 @@
 					USE_FILE32API,
 					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
 					NDEBUG,
+					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 1.2.3;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
-					"-ObjC",
+					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adop.CocosSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adop.mnctest;
 				PROVISIONING_PROFILE_SPECIFIER = MNCTEST_DEV;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
@@ -929,6 +919,7 @@
 		};
 		5087E76D17EB910900C73F5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F1606C78687ED6186F9428D /* Pods-BidmadCocos2dxSample-desktop.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -960,6 +951,7 @@
 		};
 		5087E76E17EB910900C73F5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DB0914004595E4E6EB41596 /* Pods-BidmadCocos2dxSample-desktop.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";

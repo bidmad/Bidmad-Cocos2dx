@@ -168,11 +168,14 @@ endif()
 2. After adding the Classes/bidmad folder, please follow the import guide below.
 
 <details markdown="1">
-<summary>Import guide for Cocos2DX 4.X and above</summary>
+<summary>Import guide for Cocos2DX 4.X and above (Manual Library Import)</summary>
 <br>
 
 - Copy the /proj.ios_mac/libBidmad folder of the downloaded sample project to the game project and add it to Xcode.<br>
 *All frameworks in libBidmad are set to the Do not Embed option when adding Xcode.
+- Inside Xcode Project, under settings for mobile target, please set the following:
+    - Build Settings → Other Linker Flags → if no "-ObjC", add it.
+    - General → Deployment Info → iOS Minimum Requirement is set to "iOS 11".  
 - Add the following library: (Inside "Link Binary With Libraries" in Target Build Settings → Build Phases, add the following library) <br>
     - StoreKit.framework <br>
     - MobileCoreServices.framework <br>
@@ -197,7 +200,7 @@ endif()
 </details>
 
 <details markdown="1">
-<summary>Import guide for Cocos2DX 3.X</summary>
+<summary>Import guide for Cocos2DX 3.X (CocoaPods Library Import)</summary>
 <br>
 
 - After closing the Xcode Project, go to the folder containing the Xcode Project in the terminal and issue the pod init command. (If the command does not work, please install CocoaPods)
@@ -228,6 +231,7 @@ end
 - After saving the changed Podfile, go to the folder containing the Xcode Project in the terminal and issue the pod install command.
 - In the Xcode Project, in the build settings for mobile target, set the following values.
     - ENABLE_BITCODE → NO
+    - General → Deployment Info → iOS Minimum Requirement is set to "iOS 11".
 - Inside the Xcode Project, in the build settings for mobile target, add the following values:
     - GCC_PREPROCESSOR_DEFINITIONS → $(inherited)
     - LIBRARY_SEARCH_PATHS → $(inherited)

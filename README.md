@@ -167,11 +167,15 @@ endif()
 ```
 2. Classes/bidmad 폴더 추가 이후, 다음 임포트 가이드를 따라주십시오.
 <details markdown="1">
-<summary>Cocos2DX 4.X 이상 버전을 위한 임포트 가이드</summary>
+<summary>Cocos2DX 4.X 이상 버전을 위한 임포트 가이드 (수동 라이브러리 임포트)</summary>
 <br>
 
 - 다운로드 받은 샘플 프로젝트의 /proj.ios_mac/libBidmad 폴더를 게임 프로젝트로 복사, Xcode에 추가합니다.<br>
 *libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
+- Xcode Project 내부, mobile 타겟 용 세팅에서 다음 값을 설정하십시오.
+    - Build Settings → Other Linker Flags 내부, "-ObjC" 가 없을 경우, 추가
+    - General → Deployment Info 내부, iOS 최소버전을 "iOS 11" 로 설정  
+- 
 - 다음 라이브러리를 추가하십시오. ( 타겟 빌드 세팅 → Build Phases 의 "Link Binary With Libraries" 내부에, 다음 라이브러리를 추가해주십시오) <br>
     - StoreKit.framework <br>
     - MobileCoreServices.framework <br>
@@ -196,7 +200,7 @@ endif()
 </details>
 
 <details markdown="1">
-<summary>Cocos2DX 3.X 버전을 위한 임포트 가이드</summary>
+<summary>Cocos2DX 3.X 버전을 위한 임포트 가이드 (CocoPods 라이브러리 임포트)</summary>
 <br>
 
 - Xcode Project를 닫은 뒤, terminal 에서 Xcode Project 가 담긴 폴더로 이동해, pod init 커맨드를 내리십시오. (커맨드 작동이 되지 않는다면, CocoaPods 설치를 부탁드립니다)
@@ -227,6 +231,7 @@ end
 - 변경된 Podfile 저장 이후, terminal에서 Xcode Project 가 담긴 폴더 내부로 이동해, pod install 커맨드를 내리십시오.
 - Xcode Project 내부, mobile 타겟 용 빌드 세팅에서 다음 값을 설정해주십시오.
     - ENABLE_BITCODE → NO
+    - General → Deployment Info 내부, iOS 최소버전을 "iOS 11" 로 설정
 - Xcode Project 내부, mobile 타겟 용 빌드 세팅에서 다음 값을 추가해주십시오.
     - GCC_PREPROCESSOR_DEFINITIONS → $(inherited)
     - LIBRARY_SEARCH_PATHS → $(inherited)
