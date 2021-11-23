@@ -177,9 +177,12 @@ endif()
 
 - Copy the /proj.ios_mac/libBidmad folder of the downloaded sample project to the game project and add it to Xcode.<br>
 *All frameworks in libBidmad are set to the Do not Embed option when adding Xcode.
+- Inside Classes / bidmad / ios, BidmadSwiftSupport.swift file should be imported, and select "Don't Create" button.<br>
 - Inside Xcode Project, under settings for mobile target, please set the following:
     - Build Settings → Other Linker Flags → if no "-ObjC", add it.
     - General → Deployment Info → iOS Minimum Requirement is set to "iOS 11".  
+    - Build Settings → Bitcode Enable is set to NO.
+    - Build Settings → Swift Language Version is set to "Swift 5".
 - Add the following library: (Inside "Link Binary With Libraries" in Target Build Settings → Build Phases, add the following library) <br>
     - StoreKit.framework <br>
     - MobileCoreServices.framework <br>

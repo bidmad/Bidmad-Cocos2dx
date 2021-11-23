@@ -176,10 +176,12 @@ endif()
 
 - 다운로드 받은 샘플 프로젝트의 /proj.ios_mac/libBidmad 폴더를 게임 프로젝트로 복사, Xcode에 추가합니다.<br>
 *libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
+- Classes → bidmad → ios 내부 BidmadSwiftSupport.swift 임포트, 이후 "Don't Create" 버튼 선택.<br>
 - Xcode Project 내부, mobile 타겟 용 세팅에서 다음 값을 설정하십시오.
     - Build Settings → Other Linker Flags 내부, "-ObjC" 가 없을 경우, 추가
-    - General → Deployment Info 내부, iOS 최소버전을 "iOS 11" 로 설정  
-- 
+    - Build Settings → Bitcode Enable 을 NO 로 세팅
+    - Build Settings → Swift Language Version 을 "Swift 5" 로 세팅
+    - General → Deployment Info 내부, iOS 최소버전을 "iOS 11" 로 설정
 - 다음 라이브러리를 추가하십시오. ( 타겟 빌드 세팅 → Build Phases 의 "Link Binary With Libraries" 내부에, 다음 라이브러리를 추가해주십시오) <br>
     - StoreKit.framework <br>
     - MobileCoreServices.framework <br>
