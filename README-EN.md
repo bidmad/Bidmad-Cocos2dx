@@ -96,6 +96,10 @@ apply from: "bidmad.gradle"
         android:value="ca-app-pub-XXXXXX~XXXXXX"/>
 </application>
 ```
+
+5. Apps that target children and are vetted by the PlayStore require additional setup to use certified ad networks.<br> 
+If your app is targeting children, check out our [guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Additional-setup-guide-for-PlayStore-app-targeting-by-age.) for further setup.<br>
+
 *Bidmad uses the AndroidX library. If it is not an AndroidX project, please migrate to AndroidX.
 
 #### 1.2 iOS
