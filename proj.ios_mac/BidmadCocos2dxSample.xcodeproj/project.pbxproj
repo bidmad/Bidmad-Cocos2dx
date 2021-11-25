@@ -21,6 +21,7 @@
 		2670A2A5274CCD5500C75D58 /* GoogleGDPRBridgeCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2670A2A2274CCD5500C75D58 /* GoogleGDPRBridgeCpp.mm */; };
 		2670A2A6274CCD5500C75D58 /* GoogleGDPRBridgeObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2670A2A4274CCD5500C75D58 /* GoogleGDPRBridgeObjC.mm */; };
 		2670A2AB274CCD6400C75D58 /* GoogleGDPRInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2670A2A9274CCD6400C75D58 /* GoogleGDPRInterface.cpp */; };
+		269B24FF274F7CEE00BD8E4F /* BidmadSwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269B24FE274F7CEE00BD8E4F /* BidmadSwiftSupport.swift */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
@@ -155,6 +156,7 @@
 		2670A2A4274CCD5500C75D58 /* GoogleGDPRBridgeObjC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GoogleGDPRBridgeObjC.mm; sourceTree = "<group>"; };
 		2670A2A9274CCD6400C75D58 /* GoogleGDPRInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GoogleGDPRInterface.cpp; path = bidmad/GoogleGDPRInterface.cpp; sourceTree = "<group>"; };
 		2670A2AA274CCD6400C75D58 /* GoogleGDPRInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleGDPRInterface.h; path = bidmad/GoogleGDPRInterface.h; sourceTree = "<group>"; };
+		269B24FE274F7CEE00BD8E4F /* BidmadSwiftSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidmadSwiftSupport.swift; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		2E959E4BDFBF7C37FEE65DAA /* Pods_BidmadCocos2dxSample_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BidmadCocos2dxSample_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -483,6 +485,7 @@
 		9F8BF292263BDDEF00D64788 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				269B24FE274F7CEE00BD8E4F /* BidmadSwiftSupport.swift */,
 				26114EB9268AB02100A83EA5 /* BannerBridgeCpp.h */,
 				26114EBA268AB02100A83EA5 /* BannerBridgeCpp.mm */,
 				26114EBF268AB0F400A83EA5 /* BannerBridgeObjC.h */,
@@ -561,7 +564,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = MWF8UC94P5;
-						LastSwiftMigration = 1250;
+						LastSwiftMigration = 1310;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -785,6 +788,7 @@
 				9F8BF2AA263BDDEF00D64788 /* InterstitialInterface.cpp in Sources */,
 				9F8BF2AB263BDDEF00D64788 /* CommonInterface.cpp in Sources */,
 				9FAEC6F42667A1A600D9524C /* RewardSampleScene.cpp in Sources */,
+				269B24FF274F7CEE00BD8E4F /* BidmadSwiftSupport.swift in Sources */,
 				9F8BF2A5263BDDEF00D64788 /* RewardBridgeCpp.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
