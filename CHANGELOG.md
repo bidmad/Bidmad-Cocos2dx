@@ -1,3 +1,10 @@
+# Version 1.3.1
+#### Changes
+- Bug Fix
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx-g 2.0.1.0
+- iOS : BidmadSDK.framework 4.0.1.1
+
 # Version 1.3.0
 #### Changes
 - Add Interstitial / Reward AutoReload option

@@ -10,7 +10,7 @@
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #endif
 
-char* CommonInterface::pluginVersion = "1.3.0";
+char* CommonInterface::pluginVersion = "1.3.1";
 
 void CommonInterface::setDebugMode(bool isDebug){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -60,11 +60,13 @@ void CommonInterface::setGdprConsent(bool consent, bool useArea) {
 }
 
 int CommonInterface::getGdprConsent(bool useArea) {
+    int result = useArea ? -1 : -2;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    CommonBridgeCpp::getGdprConsent(useArea);
+    result = CommonBridgeCpp::getGdprConsent(useArea);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    CommonController::getGdprConsent(useArea);
+    result = CommonController::getGdprConsent(useArea);
 #endif
+    return result;
 }
 
 const char* CommonInterface::getPRIVACYURL() {
@@ -74,5 +76,5 @@ const char* CommonInterface::getPRIVACYURL() {
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     result = CommonController::getPRIVACYURL();
 #endif
-  return result;
+    return result;
 }
