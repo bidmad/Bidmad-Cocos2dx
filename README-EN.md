@@ -552,7 +552,7 @@ public bool onResume()|Restart banner ads. It is mainly called when the OnResume
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|If a function is registered, the registered function is executed when the banner ad is loaded.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|If a function is registered, the registered function is executed when the banner ad load fails.
 
-#### 4.4 기타 인터페이스
+#### 4.4 Other Interfaces
 Function|Description
 ---|---
 static char* pluginVersion|Get Bidmad Plugin Version.
