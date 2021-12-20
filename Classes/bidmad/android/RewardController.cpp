@@ -63,6 +63,17 @@ void RewardController::setAdInfo(char *zoneId) {
     deleteLocalRefMember();
 }
 
+void RewardController::setCUID(char *cuid) {
+    getInstance();
+
+    jstring _cuid = jniM.env->NewStringUTF(cuid);
+    jmethodID midGet = jniM.env->GetMethodID(jCls, "setCUID", "(Ljava/lang/String;)V");
+    jniM.env->CallVoidMethod(jObj, midGet, _cuid);
+
+    jniM.env->DeleteLocalRef(_cuid);
+    deleteLocalRefMember();
+}
+
 void RewardController::load() {
     getInstance();
 

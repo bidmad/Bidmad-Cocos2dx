@@ -110,3 +110,18 @@ const char* CommonController::getPRIVACYURL() {
 
     return result;
 }
+
+void CommonController::initializeSdk(){
+    JniMethodInfo jniM;
+    if (JniHelper::getStaticMethodInfo(
+            jniM,
+            coco2dxClass,
+            "initializeSdk",
+            "(Landroid/app/Activity;)V"
+    )) {
+        jniM.env->CallStaticVoidMethod(jniM.classID, jniM.methodID, JniHelper::getActivity());
+
+        jniM.env->DeleteLocalRef(jniM.classID);
+    }
+
+}

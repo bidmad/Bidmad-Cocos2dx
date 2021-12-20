@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BidmadAdapterFC
 import AdColony
 import AppLovinSDK
@@ -7,44 +7,44 @@ import AppLovinSDK
 import Swift
 import UIKit
 import UnityAds
+import _Concurrency
 @_inheritsConvenienceInitializers @objc public class BidmadAdapterFCUtility : ObjectiveC.NSObject {
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @objc open class BidmadAdapterFCAdEssential : ObjectiveC.NSObject {
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc public func setBidmadController(_ bidmadController: Swift.AnyObject)
   @objc deinit
-  @objc override dynamic public init()
 }
 @_inheritsConvenienceInitializers @objc open class BidmadAppLovinReward : BidmadAdapterFC.BidmadAdapterFCAdEssential {
   public static var PREFIX: Swift.String
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc deinit
 }
-extension BidmadAppLovinReward {
+extension BidmadAdapterFC.BidmadAppLovinReward {
   @objc dynamic public func load()
   @objc dynamic public func setIsDebug(_ isDebug: Swift.Bool)
   @objc dynamic public func show()
   @objc dynamic public func remove()
   @objc dynamic public func setIsRewardedAd(_ isRewardedAd: Swift.Bool)
 }
-extension BidmadAppLovinReward : AppLovinSDK.ALAdDisplayDelegate {
+extension BidmadAdapterFC.BidmadAppLovinReward : AppLovinSDK.ALAdDisplayDelegate {
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, wasDisplayedIn view: UIKit.UIView)
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, wasHiddenIn view: UIKit.UIView)
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, wasClickedIn view: UIKit.UIView)
 }
-extension BidmadAppLovinReward : AppLovinSDK.ALAdLoadDelegate {
+extension BidmadAdapterFC.BidmadAppLovinReward : AppLovinSDK.ALAdLoadDelegate {
   @objc dynamic public func adService(_ adService: AppLovinSDK.ALAdService, didLoad ad: AppLovinSDK.ALAd)
   @objc dynamic public func adService(_ adService: AppLovinSDK.ALAdService, didFailToLoadAdWithError code: Swift.Int32)
 }
-extension BidmadAppLovinReward : AppLovinSDK.ALAdRewardDelegate {
+extension BidmadAdapterFC.BidmadAppLovinReward : AppLovinSDK.ALAdRewardDelegate {
   @objc dynamic public func rewardValidationRequest(for ad: AppLovinSDK.ALAd, didSucceedWithResponse response: [Swift.AnyHashable : Any])
   @objc dynamic public func rewardValidationRequest(for ad: AppLovinSDK.ALAd, didExceedQuotaWithResponse response: [Swift.AnyHashable : Any])
   @objc dynamic public func rewardValidationRequest(for ad: AppLovinSDK.ALAd, wasRejectedWithResponse response: [Swift.AnyHashable : Any])
   @objc dynamic public func rewardValidationRequest(for ad: AppLovinSDK.ALAd, didFailWithError responseCode: Swift.Int)
 }
-extension BidmadAppLovinReward : AppLovinSDK.ALAdVideoPlaybackDelegate {
+extension BidmadAdapterFC.BidmadAppLovinReward : AppLovinSDK.ALAdVideoPlaybackDelegate {
   @objc dynamic public func videoPlaybackBegan(in ad: AppLovinSDK.ALAd)
   @objc dynamic public func videoPlaybackEnded(in ad: AppLovinSDK.ALAd, atPlaybackPercent percentPlayed: Foundation.NSNumber, fullyWatched wasFullyWatched: Swift.Bool)
 }
@@ -53,7 +53,7 @@ extension BidmadAppLovinReward : AppLovinSDK.ALAdVideoPlaybackDelegate {
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc deinit
 }
-extension BidmadAppLovinBanner {
+extension BidmadAdapterFC.BidmadAppLovinBanner {
   @objc dynamic public func load()
   @objc dynamic public func setIsDebug(_ isDebug: Swift.Bool)
   @objc dynamic public func setBannerSize(_ sizeString: Swift.String)
@@ -61,16 +61,16 @@ extension BidmadAppLovinBanner {
   @objc dynamic public func hide()
   @objc dynamic public func remove()
 }
-extension BidmadAppLovinBanner : AppLovinSDK.ALAdLoadDelegate {
+extension BidmadAdapterFC.BidmadAppLovinBanner : AppLovinSDK.ALAdLoadDelegate {
   @objc dynamic public func adService(_ adService: AppLovinSDK.ALAdService, didLoad ad: AppLovinSDK.ALAd)
   @objc dynamic public func adService(_ adService: AppLovinSDK.ALAdService, didFailToLoadAdWithError code: Swift.Int32)
 }
-extension BidmadAppLovinBanner : AppLovinSDK.ALAdDisplayDelegate {
+extension BidmadAdapterFC.BidmadAppLovinBanner : AppLovinSDK.ALAdDisplayDelegate {
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, wasDisplayedIn view: UIKit.UIView)
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, wasHiddenIn view: UIKit.UIView)
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, wasClickedIn view: UIKit.UIView)
 }
-extension BidmadAppLovinBanner : AppLovinSDK.ALAdViewEventDelegate {
+extension BidmadAdapterFC.BidmadAppLovinBanner : AppLovinSDK.ALAdViewEventDelegate {
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, didPresentFullscreenFor adView: AppLovinSDK.ALAdView)
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, willDismissFullscreenFor adView: AppLovinSDK.ALAdView)
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, didDismissFullscreenFor adView: AppLovinSDK.ALAdView)
@@ -83,22 +83,22 @@ extension BidmadAppLovinBanner : AppLovinSDK.ALAdViewEventDelegate {
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc deinit
 }
-extension BidmadAppLovinInterstitial {
+extension BidmadAdapterFC.BidmadAppLovinInterstitial {
   @objc dynamic public func load()
   @objc dynamic public func setIsDebug(_ isDebug: Swift.Bool)
   @objc dynamic public func show()
   @objc dynamic public func remove()
 }
-extension BidmadAppLovinInterstitial : AppLovinSDK.ALAdLoadDelegate {
+extension BidmadAdapterFC.BidmadAppLovinInterstitial : AppLovinSDK.ALAdLoadDelegate {
   @objc dynamic public func adService(_ adService: AppLovinSDK.ALAdService, didLoad ad: AppLovinSDK.ALAd)
   @objc dynamic public func adService(_ adService: AppLovinSDK.ALAdService, didFailToLoadAdWithError code: Swift.Int32)
 }
-extension BidmadAppLovinInterstitial : AppLovinSDK.ALAdDisplayDelegate {
+extension BidmadAdapterFC.BidmadAppLovinInterstitial : AppLovinSDK.ALAdDisplayDelegate {
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, wasDisplayedIn view: UIKit.UIView)
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, wasHiddenIn view: UIKit.UIView)
   @objc dynamic public func ad(_ ad: AppLovinSDK.ALAd, wasClickedIn view: UIKit.UIView)
 }
-extension BidmadAppLovinInterstitial : AppLovinSDK.ALAdVideoPlaybackDelegate {
+extension BidmadAdapterFC.BidmadAppLovinInterstitial : AppLovinSDK.ALAdVideoPlaybackDelegate {
   @objc dynamic public func videoPlaybackBegan(in ad: AppLovinSDK.ALAd)
   @objc dynamic public func videoPlaybackEnded(in ad: AppLovinSDK.ALAd, atPlaybackPercent percentPlayed: Foundation.NSNumber, fullyWatched wasFullyWatched: Swift.Bool)
 }
@@ -109,22 +109,22 @@ extension BidmadAppLovinInterstitial : AppLovinSDK.ALAdVideoPlaybackDelegate {
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc deinit
 }
-extension BidmadUnityAdsInterstitial : UnityAds.UnityAdsInitializationDelegate {
+extension BidmadAdapterFC.BidmadUnityAdsInterstitial : UnityAds.UnityAdsInitializationDelegate {
   @objc dynamic public func initializationComplete()
   @objc dynamic public func initializationFailed(_ error: UnityAds.UnityAdsInitializationError, withMessage message: Swift.String)
 }
-extension BidmadUnityAdsInterstitial {
+extension BidmadAdapterFC.BidmadUnityAdsInterstitial {
   @objc dynamic public func load()
   @objc dynamic public func setIsDebug(_ isDebug: Swift.Bool)
   @objc dynamic public func setIsRewardedAd(_ isRewardedAd: Swift.Bool)
   @objc dynamic public func show()
   @objc dynamic public func remove()
 }
-extension BidmadUnityAdsInterstitial : UnityAds.UnityAdsLoadDelegate {
+extension BidmadAdapterFC.BidmadUnityAdsInterstitial : UnityAds.UnityAdsLoadDelegate {
   @objc dynamic public func unityAdsAdLoaded(_ placementId: Swift.String)
   @objc dynamic public func unityAdsAdFailed(toLoad placementId: Swift.String, withError error: UnityAds.UnityAdsLoadError, withMessage message: Swift.String)
 }
-extension BidmadUnityAdsInterstitial : UnityAds.UnityAdsShowDelegate {
+extension BidmadAdapterFC.BidmadUnityAdsInterstitial : UnityAds.UnityAdsShowDelegate {
   @objc dynamic public func unityAdsShowComplete(_ placementId: Swift.String, withFinish state: UnityAds.UnityAdsShowCompletionState)
   @objc dynamic public func unityAdsShowFailed(_ placementId: Swift.String, withError error: UnityAds.UnityAdsShowError, withMessage message: Swift.String)
   @objc dynamic public func unityAdsShowStart(_ placementId: Swift.String)
@@ -134,14 +134,14 @@ extension BidmadUnityAdsInterstitial : UnityAds.UnityAdsShowDelegate {
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc deinit
 }
-extension BidmadAdColonyInterstitial {
+extension BidmadAdapterFC.BidmadAdColonyInterstitial {
   @objc dynamic public func load()
   @objc dynamic public func setIsDebug(_ isDebug: Swift.Bool)
   @objc dynamic public func setIsRewardedAd(_ isRewardedAd: Swift.Bool)
   @objc dynamic public func show()
   @objc dynamic public func remove()
 }
-extension BidmadAdColonyInterstitial : AdColony.AdColonyInterstitialDelegate {
+extension BidmadAdapterFC.BidmadAdColonyInterstitial : AdColony.AdColonyInterstitialDelegate {
   @objc dynamic public func adColonyInterstitialDidLoad(_ interstitial: AdColony.AdColonyInterstitial)
   @objc dynamic public func adColonyInterstitialDidFail(toLoad error: AdColony.AdColonyAdRequestError)
   @objc dynamic public func adColonyInterstitialExpired(_ interstitial: AdColony.AdColonyInterstitial)
@@ -156,11 +156,11 @@ extension BidmadAdColonyInterstitial : AdColony.AdColonyInterstitialDelegate {
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc deinit
 }
-extension BidmadUnityAdsBanner : UnityAds.UnityAdsInitializationDelegate {
+extension BidmadAdapterFC.BidmadUnityAdsBanner : UnityAds.UnityAdsInitializationDelegate {
   @objc dynamic public func initializationComplete()
   @objc dynamic public func initializationFailed(_ error: UnityAds.UnityAdsInitializationError, withMessage message: Swift.String)
 }
-extension BidmadUnityAdsBanner {
+extension BidmadAdapterFC.BidmadUnityAdsBanner {
   @objc dynamic public func load()
   @objc dynamic public func setIsDebug(_ isDebug: Swift.Bool)
   @objc dynamic public func setBannerSize(_ sizeString: Swift.String)
@@ -168,7 +168,7 @@ extension BidmadUnityAdsBanner {
   @objc dynamic public func hide()
   @objc dynamic public func remove()
 }
-extension BidmadUnityAdsBanner : UnityAds.UADSBannerViewDelegate {
+extension BidmadAdapterFC.BidmadUnityAdsBanner : UnityAds.UADSBannerViewDelegate {
   @objc dynamic public func bannerViewDidLoad(_ bannerView: UnityAds.UADSBannerView!)
   @objc dynamic public func bannerViewDidClick(_ bannerView: UnityAds.UADSBannerView!)
   @objc dynamic public func bannerViewDidLeaveApplication(_ bannerView: UnityAds.UADSBannerView!)
@@ -178,7 +178,7 @@ extension BidmadUnityAdsBanner : UnityAds.UADSBannerViewDelegate {
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc deinit
 }
-extension BidmadAdColonyBanner {
+extension BidmadAdapterFC.BidmadAdColonyBanner {
   @objc dynamic public func load()
   @objc dynamic public func setIsDebug(_ isDebug: Swift.Bool)
   @objc dynamic public func setBannerSize(_ sizeString: Swift.String)
@@ -186,7 +186,7 @@ extension BidmadAdColonyBanner {
   @objc dynamic public func hide()
   @objc dynamic public func remove()
 }
-extension BidmadAdColonyBanner : AdColony.AdColonyAdViewDelegate {
+extension BidmadAdapterFC.BidmadAdColonyBanner : AdColony.AdColonyAdViewDelegate {
   @objc dynamic public func adColonyAdViewDidLoad(_ adView: AdColony.AdColonyAdView)
   @objc dynamic public func adColonyAdViewDidFail(toLoad error: AdColony.AdColonyAdRequestError)
   @objc dynamic public func adColonyAdViewDidReceiveClick(_ adView: AdColony.AdColonyAdView)

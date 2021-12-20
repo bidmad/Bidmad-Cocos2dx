@@ -64,6 +64,14 @@ void BannerBridgeCpp::showBannerView() {
     [bidmadObject showBannerView];
 }
 
+void BannerBridgeCpp::setCUID(char* cuid) {
+    NSString *_cuid = [NSString stringWithUTF8String:cuid];
+    NSString* _zoneId = [NSString stringWithUTF8String: mZoneId];
+    
+    BannerBridgeObjC* bidmadObject = [BannerBridgeObjC getInstance:_zoneId];
+    [bidmadObject setCUID:_cuid];
+}
+
 void BannerBridgeCpp::setOnLoadCallback(void (*_onLoadCallback)( char *)){
     NSLog(@"BidmadSDK, setOnLoadCallback");
     

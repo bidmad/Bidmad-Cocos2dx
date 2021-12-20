@@ -48,3 +48,8 @@ int CommonBridgeCpp::getGdprConsent(bool useArea) {
 const char* CommonBridgeCpp::getPRIVACYURL() {
     return [[CommonBridgeObjC sharedInstance] getPRIVACYURL];
 }
+
+void CommonBridgeCpp::initializeSdk() {
+    [[CommonBridgeObjC sharedInstance] initializeSdk];
+    return;
+}

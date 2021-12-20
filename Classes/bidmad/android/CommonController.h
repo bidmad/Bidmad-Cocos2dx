@@ -6,6 +6,7 @@ USING_NS_CC;
 class CommonController{
 public:
     static void setDebugging(bool);
+    static void initializeSdk();
     static void setGgTestDeviceid(char*);
     static void setGdprConsent(bool, bool); // Parameters: Consent, UseArea
     static int getGdprConsent(bool);       // Parameter: UseArea

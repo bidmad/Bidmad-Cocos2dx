@@ -24,6 +24,7 @@ public:
     void removeBanner();
     void hideBannerView();
     void showBannerView();
+    void setCUID(char* cuid);
     void setOnLoadCallback(void (*_onLoadCallback)( char *));
     void setOnFailCallback(void (*_onFailCallback)( char *));
     void callCallback(char* callbackType, char* zoneId);

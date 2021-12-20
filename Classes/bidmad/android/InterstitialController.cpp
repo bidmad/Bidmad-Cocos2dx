@@ -62,6 +62,17 @@ void InterstitialController::setAdInfo(char *zoneId) {
     deleteLocalRefMember();
 }
 
+void InterstitialController::setCUID(char *cuid) {
+    getInstance();
+
+    jstring _cuid = jniM.env->NewStringUTF(cuid);
+    jmethodID midGet = jniM.env->GetMethodID(jCls, "setCUID", "(Ljava/lang/String;)V");
+    jniM.env->CallVoidMethod(jObj, midGet, _cuid);
+
+    jniM.env->DeleteLocalRef(_cuid);
+    deleteLocalRefMember();
+}
+
 void InterstitialController::load() {
     getInstance();
 

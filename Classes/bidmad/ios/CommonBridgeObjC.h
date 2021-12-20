@@ -23,6 +23,7 @@
 - (void)setGdprConsent:(bool)consent useArea:(bool)useArea;
 - (int)getGdprConsentWithUseArea:(bool)useArea;
 - (const char *)getPRIVACYURL;
+- (void)initializeSdk;
 @end
 
 

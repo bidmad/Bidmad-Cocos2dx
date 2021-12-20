@@ -29,6 +29,7 @@ static NSMutableDictionary* BidmadCocos2dxBannerDic;
 - (void)removeBanner;
 - (void)hideBannerView;
 - (void)showBannerView;
+- (void)setCUID:(NSString *)cuid;
 
 @end
 

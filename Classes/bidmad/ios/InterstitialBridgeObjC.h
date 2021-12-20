@@ -26,6 +26,7 @@ static NSMutableDictionary* BidmadCocos2dxInterstitialDic;
 - (void)showInterstitial;
 - (BOOL)isLoaded;
 - (void)setAutoReload:(bool)isAutoReload;
+- (void)setCUID:(NSString *)cuid;
 
 @end
 

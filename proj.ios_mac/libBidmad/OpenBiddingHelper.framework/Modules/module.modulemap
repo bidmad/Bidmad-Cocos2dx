@@ -9,3 +9,8 @@ framework module OpenBiddingHelper {
   header "OpenBiddingAppOpenAd.h"
   header "OpenBiddingRewardInterstitial.h"
 }
+
+module OpenBiddingHelper.Swift {
+    header "OpenBiddingHelper-Swift.h"
+    requires objc
+}

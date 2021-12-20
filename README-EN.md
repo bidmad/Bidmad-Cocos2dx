@@ -100,6 +100,8 @@ apply from: "bidmad.gradle"
 5. Apps that target children and are vetted by the PlayStore require additional setup to use certified ad networks.<br> 
 If your app is targeting children, check out our [guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Additional-setup-guide-for-PlayStore-app-targeting-by-age.) for further setup.<br>
 
+6. If targeting Android 12 version, please check [AD_ID Permission Guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/AD_ID-Permission-Guide%5BENG%5D).
+
 *Bidmad uses the AndroidX library. If it is not an AndroidX project, please migrate to AndroidX.
 
 #### 1.2 iOS
@@ -259,7 +261,19 @@ If you're looking for a guide to the privacy requirements of the Apple Store, [s
 
 ### 2. Using Plugin
 
-#### 2.1 Interstitial
+#### 2.1 BidmadSDK Initialization
+
+- Upon starting point of your app, please call initalizeSdk() Function from CommonInterface.
+- If initializeSdk is not being called, SDK will intialize itself upon loading your first ad, which subsequently may delay your first loading.
+```
+    CommonInterface::initializeSdk()
+```
+
+- For interstitial or rewarded ads, intead of calling initializeSdk(),
+at the starting point of your app, load your ad, and show it at the point of your choice.
+  
+
+#### 2.2 Interstitial
 
 - Create InterstitialInterface to request interstitial ad.
 - Before displaying an interstitial ad, check whether the ad is loaded through isLoaded.
@@ -294,7 +308,7 @@ void showInterstitial()
 }
 ```
 
-#### 2.2 Reward
+#### 2.3 Reward
 
 - RewardInterface is created to request a reward ad.
 - Before displaying an reward ad, check whether the ad is loaded through isLoaded.
@@ -330,7 +344,7 @@ void showReward()
 }
 ```
 
-#### 2.3 Banner
+#### 2.4 Banner
 
 - Create a BannerInterface to request banner ads.
 ```cpp
@@ -494,6 +508,7 @@ public void load()|Request an ad with the ZoneId entered in the constructor.
 public void show()|Display the loaded advertisement.
 public bool isLoaded()|Check if the ad is loaded.
 public void setAutoReload(bool isAutoReload)|Load the next ad after Show. This option defaults to true, and if a failCallback is received, the reload operation is not performed.
+public void setCUID(char*)|Setting CUID Property of each ad type
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|If an Function is registered, the registered Function is executed when the interstitial ad is loaded.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|If an Function is registered, the registered Function is executed when the interstitial ad is shown.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|If an Function is registered, the registered Function is executed when the load of interstitial ad through ZoneId fails.
@@ -510,6 +525,7 @@ public void load()|Request an ad with the ZoneId entered in the constructor.
 public void show()|Display the loaded advertisement.
 public bool isLoaded()|Check if the ad is loaded.
 public void setAutoReload(bool isAutoReload)|Load the next ad after Show. This option defaults to true, and if a failCallback is received, the reload operation is not performed.
+public void setCUID(char*)|Setting CUID Property of each ad type
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|If an Function is registered, the registered Function is executed when the reward ad is loaded.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|If an Function is registered, the registered Function is executed when the reward ad is shown.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|If an Function is registered, the registered Function is executed when the load of reward ad through ZoneId fails.
@@ -527,6 +543,7 @@ public BannerInterface(char* zoneId)|BidmadBanner constructor, Set ZoneId
 public void setInterval()|Set the banner refresh cycle.(60s~120s)
 public void load(int x)|Request an ad with the ZoneId entered in the constructor.
 public void load(int x, int y)|Request an ad with the ZoneId entered in the constructor. The banner is exposed based on the input x and y values.
+public void setCUID(char*)|Setting CUID Property of each ad type
 public void removeBanner()|Remove the loaded banner.
 public bool hideBannerView()|Hide the loaded banner view.
 public bool showBannerView()|Expose the loaded banner view.
@@ -535,7 +552,18 @@ public bool onResume()|Restart banner ads. It is mainly called when the OnResume
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|If a function is registered, the registered function is executed when the banner ad is loaded.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|If a function is registered, the registered function is executed when the banner ad load fails.
 
-#### 4.4 iOS14 AppTrackingTransparencyAuthorization
+#### 4.4 기타 인터페이스
+Function|Description
+---|---
+static char* pluginVersion|Get Bidmad Plugin Version.
+static void setDebugMode(bool)|Set whether to expose Debug Log.
+static void setGoogleTestId(char *)|Test Device Setting function for AdMob / AdManager
+static void setGdprConsent(bool, bool)|Set if user consented in regard to GDPR (1st Param: User Consent, 2nd Param: is EU Region)
+static int getGdprConsent(bool)|GDPR Consent Status (Param: is EU Region)
+static const char* getPRIVACYURL()|Get Bidmad Privacy URL.
+static void initializeSdk()|Perform BidmadSDK initialization.
+
+#### 4.5 iOS14 AppTrackingTransparencyAuthorization
 
 *AppTrackingTransparencyAuthorization functions are provided through BidmadCommon.
 

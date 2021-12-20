@@ -100,6 +100,8 @@ apply from: "bidmad.gradle"
 5. 아동을 타겟으로 하고 PlayStore에 심사를 받는 앱은 인증된 광고 네트워크를 사용을 위해 추가 설정이 필요합니다.<br> 
 앱이 아동을 타겟하고 있다면 추가 설정을 위해 [가이드](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/PlayStore-%EC%95%B1-%ED%83%80%EA%B2%9F%ED%8C%85-%EC%97%B0%EB%A0%B9%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%B6%94%EA%B0%80-%EC%84%A4%EC%A0%95.)를 확인하세요.<br>
 
+6. Android 12버전을 Target하는 경우 [AD_ID 권한 추가 선언 가이드](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/AD_ID-Permission-Guide%5BKOR%5D)를 확인바랍니다.
+
 *Bidmad는 AndroidX 라이브러리를 사용합니다. AndroidX 프로젝트가 아니라면 AndroidX로 마이그레이션 바랍니다.
 
 #### 1.2 iOS
@@ -258,6 +260,17 @@ end
 
 ### 2. Plugin 사용하기
 
+#### 2.1 BidmadSDK 초기화
+
+- 앱 시작 시 CommonInterface 에서 initializeSdk() 함수를 호출합니다.
+- initializeSdk를 호출하지 않는 경우, SDK 자체적으로 수행하기 때문에 초회 광고 로딩이 늦어질 수 있습니다.
+```
+    CommonInterface::initializeSdk()
+```
+
+- 전면 또는 보상형 광고를 사용하시는 경우에는 원활한 광고 노출을 위해 initializeSdk() 호출 대신
+아래 전면 / 보상형 광고 가이드에 따라 앱 시작 시점에서 광고를 Load 하시고 원하시는 시점에 Show하시기 바랍니다.
+
 #### 2.2 전면
 
 - 전면광고를 요청하기 위해 InterstitialInterface 생성합니다.
@@ -329,7 +342,7 @@ void showReward()
 }
 ```
 
-#### 2.3 배너
+#### 2.4 배너
 
 - 배너광고를 요청하기 위해 BannerInterface 생성합니다.
 ```cpp
@@ -493,6 +506,7 @@ public void load()|생성자에서 입력한 ZoneId로 광고를 요청합니다
 public void show()|Load한 광고를 노출 시킵니다.
 public bool isLoaded()|광고가 Load된 상태인지 체크합니다.
 public void setAutoReload(bool isAutoReload)|Show 이후 다음 광고를 Load 합니다. 해당 옵션은 기본 true로 적용되어있으며, failCallback을 수신한 경우에는 Reload 동작을 하지 않습니다.
+public void setCUID(char*)|전면 애드 타입용 CUID를 세팅합니다.
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|Function을 등록했다면 전면광고를 Load 했을 때 등록한 Function을 실행합니다.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|Function을 등록했다면 전면광고를 Show 했을 때 등록한 Function을 실행합니다.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|Function을 등록했다면 전면광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
@@ -509,6 +523,7 @@ public void load()|생성자에서 입력한 ZoneId로 광고를 요청합니다
 public void show()|Load한 광고를 노출 시킵니다.
 public bool isLoaded()|광고가 Load된 상태인지 체크합니다.
 public void setAutoReload(bool isAutoReload)|Show 이후 다음 광고를 Load 합니다. 해당 옵션은 기본 true로 적용되어있으며, failCallback을 수신한 경우에는 Reload 동작을 하지 않습니다.
+public void setCUID(char*)|보상형 비디오 애드 타입용 CUID를 세팅합니다.
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|Function을 등록했다면 보상형광고를 Load 했을 때 등록한 Function을 실행합니다.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|Function을 등록했다면 보상형광고를 Show 했을 때 등록한 Function을 실행합니다.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|Function을 등록했다면 보상형광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
@@ -526,6 +541,7 @@ public BannerInterface(char* zoneId)|BidmadBanner 생성자, ZoneId를 설정합
 public void setInterval()|Banner Refresh 주기를 설정합니다.(60s~120s)
 public void load(int x)|생성자에서 입력한 ZoneId로 광고를 요청합니다.
 public void load(int x, int y)|생성자에서 입력한 ZoneId로 광고를 요청합니다. 배너는 입력받은 x,y값을 기준으로 노출됩니다.
+public void setCUID(char*)|배너 애드 타입용 CUID를 세팅합니다.
 public void removeBanner()|Load된 배너를 제거합니다.
 public bool hideBannerView()|Load된 배너 View를 숨깁니다.
 public bool showBannerView()|Load된 배너 View를 노출시킵니다.
@@ -534,7 +550,18 @@ public bool onResume()|배너 광고를 다시 시작합니다. 주로 OnResume 
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|Function을 등록했다면 배너광고를 Load 했을 때 등록한 Function을 실행합니다.
 public void setOnFailCallback(void (*_onFailCallback) (char *))|Function을 등록했다면 배너광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
 
-#### 4.4 iOS14 앱 추적 투명성 승인 요청
+#### 4.4 기타 인터페이스
+Function|Description
+---|---
+static char* pluginVersion|Bidmad 플러그인 버전을 가져옵니다.
+static void setDebugMode(bool)|디버그 로그 출력을 세팅합니다.
+static void setGoogleTestId(char *)|구글 애드몹 / 애드매니저 용 테스트 디바이스 세팅
+static void setGdprConsent(bool, bool)|GDPR 동의 여부 세팅 (1st Param: 유저 동의여부, 2nd Param: EU 지역 여부)
+static int getGdprConsent(bool)|GDPR 동의 여부 (Param: EU 지역 여부)
+static const char* getPRIVACYURL()|Bidmad 개인정보 방침 웹 URL을 가져옵니다.
+static void initializeSdk()|BidmadSDK 초기화 작업을 수행합니다.
+
+#### 4.5 iOS14 앱 추적 투명성 승인 요청
 
 *앱 추적 투명성 승인 요청에 관한 함수는 CommonInterface을 통해 제공됩니다.
 

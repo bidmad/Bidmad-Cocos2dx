@@ -58,6 +58,16 @@ void BannerController::setAdInfo(char *zoneId) {
     deleteLocalRefMember();
 }
 
+void BannerController::setCUID(char *cuid) {
+    getInstance();
+
+    jstring _cuid = jniM.env->NewStringUTF(cuid);
+    jmethodID midGet = jniM.env->GetMethodID(jCls, "setCUID", "(Ljava/lang/String;)V");
+    jniM.env->CallVoidMethod(jObj, midGet, _cuid);
+
+    jniM.env->DeleteLocalRef(_cuid);
+    deleteLocalRefMember();
+}
 
 void BannerController::setInterval(int interval) {
     getInstance();
@@ -174,4 +184,6 @@ void BannerController::callCallback(char* callbackType, char* zoneId){
     }else if( (strcmp(callbackType, "onFail") == 0) && (callback->onFailCallback != nullptr) ){
         callback->onFailCallback(zoneId);
     }
+
+
 }

@@ -21,6 +21,7 @@
 - (void)removeBanner;
 - (void)hideBannerView;
 - (void)showBannerView;
+- (void)setCUID:(NSString *)cuid;
 
 - (void)BIDMADOpenBiddingBannerAllFail:(OpenBiddingBanner *)core;
 - (void)BIDMADOpenBiddingBannerClosed:(OpenBiddingBanner *)core;

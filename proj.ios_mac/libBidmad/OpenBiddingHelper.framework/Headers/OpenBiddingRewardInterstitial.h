@@ -40,7 +40,6 @@
     - (void)BIDMADRewardInterstitialSuccess:(BIDMADRewardInterstitial *)core;
     - (void)BIDMADRewardInterstitialClose:(BIDMADRewardInterstitial *)core;
     - (void)BIDMADRewardInterstitialSkipped:(BIDMADRewardInterstitial *)core;
-    - (void)BIDMADRewardInterstitialComplete:(BIDMADRewardInterstitial *)core;
 
     @end
 
@@ -53,7 +52,6 @@
     - (void)OpenBiddingRewardInterstitialLoad:(OpenBiddingRewardInterstitial *)core;
     - (void)OpenBiddingRewardInterstitialClose:(OpenBiddingRewardInterstitial *)core;
     - (void)OpenBiddingRewardInterstitialShow:(OpenBiddingRewardInterstitial *)core;
-    - (void)OpenBiddingRewardInterstitialComplete:(OpenBiddingRewardInterstitial *)core;
     - (void)OpenBiddingRewardInterstitialClick:(OpenBiddingRewardInterstitial *)core;
     - (void)OpenBiddingRewardInterstitialSuccess:(OpenBiddingRewardInterstitial *)core;
     - (void)OpenBiddingRewardInterstitialSkipped:(OpenBiddingRewardInterstitial *) core;

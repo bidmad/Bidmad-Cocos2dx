@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSDictionary*                 ads_dic;
 @property (nonatomic) NSString * zoneID;
 @property (nonatomic, strong) NSString* userId;
+@property (nonatomic, strong) NSString * _Nullable CUID;
 @property (nonatomic) BOOL                       testMode;
 @property (nonatomic) BOOL                       isComplete;
 @property (nonatomic) BOOL                       isLoaded;
@@ -32,6 +33,7 @@
 - (void) sendLog :(NSDictionary *)info : (NSString *)advertisementType : (NSString *)logType :(NSString *)sessionIdArg;
 - (void) registerForAppOpenAdForZoneID: (NSString *)zoneId;
 - (void) deregisterForAppOpenAd;
+- (void) UIApplicationDidBecomeActiveAction;
 
 - (void)BIDMADAppOpenAdAllFail:(BIDMADAppOpenAd *)core code:(NSString *)error;
 - (void)BIDMADAppOpenAdLoad:(BIDMADAppOpenAd *)core;
@@ -47,16 +49,17 @@
 - (void)OpenBiddingAppOpenAdLoad:(OpenBiddingAppOpenAd *)core;
 - (void)OpenBiddingAppOpenAdClose:(OpenBiddingAppOpenAd *)core;
 - (void)OpenBiddingAppOpenAdShow:(OpenBiddingAppOpenAd *)core;
+- (void)OpenBiddingAppOpenAdClick:(OpenBiddingAppOpenAd *)core;
 
 @end
 
 @protocol OpenBiddingAppOpenAdInnerDelegate <NSObject>
 @required
 
-- (void)onAppOpenAdLoad:(OpenBiddingAppOpenAd *)core       current:(NSDictionary*) currentDic;
+- (void)onAppOpenAdLoad:(OpenBiddingAppOpenAd *)core current:(NSDictionary*) currentDic;
 - (void)onAppOpenAdError:(OpenBiddingAppOpenAd *)core code:(NSString *)error failType:(NSString*)failType current:(NSDictionary*)currentDic passbackStr:(NSString*) passBackStr passback:(NSDictionary*) passbackDic;
-- (void)onAppOpenAdShow:(OpenBiddingAppOpenAd *)core       current:(NSDictionary*) currentDic;
-- (void)onAppOpenAdClick:(OpenBiddingAppOpenAd *)core      current:(NSDictionary*) currentDic;
-- (void)onAppOpenAdClose:(OpenBiddingAppOpenAd *)core      current:(NSDictionary*) currentDic;
+- (void)onAppOpenAdShow:(OpenBiddingAppOpenAd *)core current:(NSDictionary*) currentDic;
+- (void)onAppOpenAdClick:(OpenBiddingAppOpenAd *)core current:(NSDictionary*) currentDic;
+- (void)onAppOpenAdClose:(OpenBiddingAppOpenAd *)core current:(NSDictionary*) currentDic;
 
 @end

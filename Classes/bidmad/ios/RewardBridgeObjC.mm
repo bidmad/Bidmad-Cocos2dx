@@ -48,6 +48,11 @@
     [mRewardVideo setAutoReoad:isAutoReload];
 }
 
+
+- (void)setCUID:(NSString *)cuid {
+    [mRewardVideo setCUID:cuid];
+}
+
 - (void)BIDMADOpenBiddingRewardVideoLoad:(OpenBiddingRewardVideo *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onLoad" UTF8String];

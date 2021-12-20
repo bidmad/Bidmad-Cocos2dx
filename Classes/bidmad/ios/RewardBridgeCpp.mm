@@ -38,6 +38,13 @@ void RewardBridgeCpp::setAutoReload(bool isAutoReload) {
     [bidmadObject setAutoReload:isAutoReload];
 }
 
+void RewardBridgeCpp::setCUID(char* cuid) {
+    NSString *_cuid = [NSString stringWithUTF8String:cuid];
+    NSString* _zoneId = [NSString stringWithUTF8String: mZoneId];
+    RewardBridgeObjC* bidmadObject = [RewardBridgeObjC getInstance:_zoneId];
+    [bidmadObject setCUID:_cuid];
+}
+
 void RewardBridgeCpp::setOnLoadCallback(void (*_onLoadCallback)( char *)){
     onLoadCallback = _onLoadCallback;
 }

@@ -26,6 +26,7 @@ static NSMutableDictionary* BidmadCocos2dxRewardDic;
 - (void)showRewardVideo;
 - (BOOL)isLoaded;
 - (void)setAutoReload:(bool)isAutoReload;
+- (void)setCUID:(NSString *)cuid;
 
 @end
 

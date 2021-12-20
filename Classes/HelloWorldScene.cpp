@@ -73,6 +73,9 @@ bool HelloWorld::init()
         return false;
     }
 
+    // Please call the InitializeSdk method before calling Bidmad ads.
+    CommonInterface::initializeSdk();
+    
     CCLOG("BidmadPlugin Version : %s", CommonInterface::pluginVersion);
     CommonInterface::setDebugMode(true); //print Debug Log
     CommonInterface::reqAdTrackingAuthorization(onAdTrackingAuthorizationResponse); //iOS 14 ATT Call

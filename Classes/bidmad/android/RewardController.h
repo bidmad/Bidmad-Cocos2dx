@@ -20,6 +20,7 @@ public:
     void setActivity();
     void makeReward();
     void setAdInfo(char*);
+    void setCUID(char*);
     void load();
     void show();
     bool isLoaded();

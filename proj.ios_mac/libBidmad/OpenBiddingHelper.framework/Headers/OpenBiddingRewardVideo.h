@@ -78,15 +78,9 @@
 
 - (void)BIDMADOpenBiddingRewardVideoLoad:(OpenBiddingRewardVideo *)core;
 
-- (void)BIDMADOpenBiddingRewardVideoSuccessLoadLog:(NSDictionary*)currentDic;
-
-- (void)BIDMADOpenBiddingRewardVideoErrorLoadLog:(NSDictionary*)currentDic;
-
 - (void)BIDMADOpenBiddingRewardVideoClose:(OpenBiddingRewardVideo *)core;
 
 - (void)BIDMADOpenBiddingRewardVideoShow:(OpenBiddingRewardVideo *)core;
-
-- (void)BIDMADOpenBiddingRewardVideoComplete:(OpenBiddingRewardVideo *)core;
 
 - (void)BIDMADOpenBiddingRewardVideoClick:(OpenBiddingRewardVideo *)core;
 

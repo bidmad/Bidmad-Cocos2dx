@@ -10,7 +10,7 @@
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #endif
 
-char* CommonInterface::pluginVersion = "1.3.1";
+char* CommonInterface::pluginVersion = "1.4.0";
 
 void CommonInterface::setDebugMode(bool isDebug){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -77,4 +77,13 @@ const char* CommonInterface::getPRIVACYURL() {
     result = CommonController::getPRIVACYURL();
 #endif
     return result;
+}
+
+void CommonInterface::initializeSdk() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CommonBridgeCpp::initializeSdk();
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CommonController::initializeSdk();
+#endif
+    return;
 }

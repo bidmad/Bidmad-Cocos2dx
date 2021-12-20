@@ -48,6 +48,10 @@
     [mInterstitialVideo setAutoReoad:isAutoReload];
 }
 
+- (void)setCUID:(NSString *)cuid {
+    [mInterstitialVideo setCUID:cuid];
+}
+
 - (void)BIDMADOpenBiddingInterstitialLoad:(OpenBiddingInterstitial *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onLoad" UTF8String];

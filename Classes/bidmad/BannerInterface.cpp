@@ -44,6 +44,10 @@ void BannerInterface::showBannerView(){
     CCLOG("BidmadSDK, showBannerView");
     banner->showBannerView();
 }
+void BannerInterface::setCUID(char* cuid) {
+    CCLOG("BidmadSDK, setCUID");
+    banner->setCUID(cuid);
+}
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)

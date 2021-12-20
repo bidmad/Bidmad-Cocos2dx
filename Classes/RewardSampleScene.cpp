@@ -96,7 +96,13 @@ void RewardSampleScene::initReward()
     //Reward Create
     ri = new RewardInterface(reward);
 
+    
+    // Bidmad Reward Ads auto-reload after the reward ad is shown to the user.
+    // You can disable the auto-reload feature by giving "false" for setAutoReload method.
     // ri->setAutoReload(false); //Default true
+    
+    // Bidmad Reward Ads can be set with Custom Unique ID with the following method.
+    // ri->setCUID((char *)"SET CUID TEST REWARD");
 
     //Callback Setting
     ri->setOnLoadCallback(onRewardLoad);

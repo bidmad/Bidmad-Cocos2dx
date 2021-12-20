@@ -88,7 +88,12 @@ void InterstitialSampleScene::initInterstitial()
     //Interstitial Create
     ii = new InterstitialInterface(interstitial);
 
+    // Bidmad Interstitial Ads auto-reload after the interstitial ad is shown to the user.
+    // You can disable the auto-reload feature by giving "false" for setAutoReload method.
     // ii->setAutoReload(false); //Default true
+    
+    // Bidmad Interstitial Ads can be set with Custom Unique ID with the following method.
+//    ii->setCUID((char *)"SET CUID TEST INTERSTITIAL");
     
     //Callback Setting
     ii->setOnLoadCallback(onInterstitialLoad);

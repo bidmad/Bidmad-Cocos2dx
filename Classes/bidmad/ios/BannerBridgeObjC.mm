@@ -66,6 +66,10 @@
     [mBanner showBannerView];
 }
 
+- (void)setCUID:(NSString *)cuid {
+    [mBanner setCUID:cuid];
+}
+
 - (void)BIDMADOpenBiddingBannerAllFail:(OpenBiddingBanner *)core {
     char* zoneId = (char *)[core.zoneID UTF8String];
     char* type = (char *)[@"onFail" UTF8String];

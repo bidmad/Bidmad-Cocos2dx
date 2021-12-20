@@ -19,4 +19,5 @@ public:
     static void setGdprConsent(bool, bool); // Parameters: Consent, UseArea
     static int getGdprConsent(bool);       // Parameter: UseArea
     static const char* getPRIVACYURL();
+    static void initializeSdk();
 };

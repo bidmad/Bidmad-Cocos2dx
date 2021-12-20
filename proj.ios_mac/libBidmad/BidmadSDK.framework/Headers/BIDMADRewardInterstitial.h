@@ -54,7 +54,6 @@
     - (void)BIDMADRewardInterstitialLoad:(BIDMADRewardInterstitial *)core;
     - (void)BIDMADRewardInterstitialClose:(BIDMADRewardInterstitial *)core;
     - (void)BIDMADRewardInterstitialShow:(BIDMADRewardInterstitial *)core;
-    - (void)BIDMADRewardInterstitialComplete:(BIDMADRewardInterstitial *)core;
     - (void)BIDMADRewardInterstitialClick:(BIDMADRewardInterstitial *)core;
     - (void)BIDMADRewardInterstitialSuccess:(BIDMADRewardInterstitial *)core;
     - (void)BIDMADRewardInterstitialSkipped:(BIDMADRewardInterstitial *) core;

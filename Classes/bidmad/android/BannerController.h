@@ -20,6 +20,7 @@ public:
     void setActivity();
     void makeAdView();
     void setAdInfo(char*);
+    void setCUID(char*);
     void setInterval(int);
     void load(int);
     void load(int, int);

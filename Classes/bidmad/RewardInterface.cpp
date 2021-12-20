@@ -56,6 +56,10 @@ void RewardInterface::setAutoReload(bool isAutoReload) {
 #endif
 }
 
+void RewardInterface::setCUID(char* cuid) {
+    reward->setCUID(cuid);
+}
+
 void RewardInterface::setOnLoadCallback(void (*_onLoadCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     reward->setOnLoadCallback(_onLoadCallback);

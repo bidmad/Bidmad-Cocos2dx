@@ -73,4 +73,10 @@ return _sharedObject; \
     return [[Cocos2dxCommon sharedInstance] getPRIVACYURL];
 }
 
+- (void)initializeSdk {
+    [[BIDMADSetting sharedInstance] initializeSdk];
+    
+    return;
+}
+
 @end

@@ -24,6 +24,7 @@ public:
     void removeBanner();
     void hideBannerView();
     void showBannerView();
+    void setCUID(char*);
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)

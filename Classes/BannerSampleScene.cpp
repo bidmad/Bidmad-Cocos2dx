@@ -83,8 +83,10 @@ void BannerSampleScene::initBanner()
 
     //Banner Create
     bi = new BannerInterface(banner50);
-
     bi->setInterval(60);
+    
+    // Bidmad Banner Ads can be set with Custom Unique ID with the following method.
+    // bi->setCUID((char *)"SET CUID TEST BANNER");
 
     //Callback Setting
     bi->setOnLoadCallback(onBannerLoad);

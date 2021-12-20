@@ -132,23 +132,15 @@
 /// PREPARED INTERSTITIAL VIEW
 - (void)BIDMADRewardVideoLoad:(BIDMADRewardVideo *)core;
 
-/// For Display
-- (void)BIDMADRewardVideoSuccessLoadLog:(NSDictionary*)currentDic;
-
-- (void)BIDMADRewardVideoErrorLoadLog:(NSDictionary*)currentDic;
-
 - (void)BIDMADRewardVideoClose:(BIDMADRewardVideo *)core;
 
 /// SHOW INTERSTITIAL VIEW
 - (void)BIDMADRewardVideoShow:(BIDMADRewardVideo *)core;
 
-/// COMPLETE REWARD VIDEO
-- (void)BIDMADRewardVideoComplete:(BIDMADRewardVideo *)core;
-
 /// CLICK REWARD VIDEO
 - (void)BIDMADRewardVideoClick:(BIDMADRewardVideo *)core;
 
-/// CLICK REWARD VIDEO
+/// SUCCESS REWARD VIDEO
 - (void)BIDMADRewardVideoSucceed:(BIDMADRewardVideo *)core;
 
 /// SKIP RERWARD VIDEO

@@ -1,3 +1,11 @@
+# Version 1.4.0
+#### Changes
+- Add initializeSdk / CUID interface
+- Bug Fix
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx-g 2.1.0.0
+- iOS : BidmadSDK.framework 4.1.0.0
+
 # Version 1.3.1
 #### Changes
 - Bug Fix

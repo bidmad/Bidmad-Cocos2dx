@@ -24,6 +24,7 @@
 - (void)show;
 - (bool)isLoaded;
 - (void)setAutoReoad:(bool)isAutoReload;
+- (void)setCUID:(NSString *)cuid;
 
 @end
 
