@@ -97,10 +97,26 @@ apply from: "bidmad.gradle"
 </application>
 ```
 
-5. Apps that target children and are vetted by the PlayStore require additional setup to use certified ad networks.<br> 
+5. If you are using Proguard, add the rule below.
+```cpp
+-keep class com.adop.sdk.** { *; }
+-keep class ad.helper.openbidding.** { *; }
+-keepnames class * implements java.io.Serializable
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    !static !transient <fields>;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+```
+
+6. Apps that target children and are vetted by the PlayStore require additional setup to use certified ad networks.<br> 
 If your app is targeting children, check out our [guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Additional-setup-guide-for-PlayStore-app-targeting-by-age.) for further setup.<br>
 
-6. If targeting Android 12 version, please check [AD_ID Permission Guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/AD_ID-Permission-Guide%5BENG%5D).
+7. If targeting Android 12 version, please check [AD_ID Permission Guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/AD_ID-Permission-Guide%5BENG%5D).
 
 *Bidmad uses the AndroidX library. If it is not an AndroidX project, please migrate to AndroidX.
 
