@@ -188,6 +188,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import AVFoundation;
 @import BUAdSDK;
 @import Foundation;
 @import ObjectiveC;
@@ -209,8 +210,28 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-@class NSString;
 @class UIViewController;
+@class NSString;
+
+SWIFT_CLASS("_TtC16BidmadAdapterFNC17ATOMRewardedVideo")
+@interface ATOMRewardedVideo : NSObject
+- (nonnull instancetype)initWith:(UIViewController * _Nonnull)parentVC adData:(NSDictionary<NSString *, id> * _Nonnull)adData bidmad:(id _Nonnull)bidmad OBJC_DESIGNATED_INITIALIZER;
+- (void)loadAd;
+- (void)showAd;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface ATOMRewardedVideo (SWIFT_EXTENSION(BidmadAdapterFNC)) <AVAssetResourceLoaderDelegate>
+@end
+
+
+
+
+
+
+
 @class NSNumber;
 
 SWIFT_CLASS("_TtC16BidmadAdapterFNC20BIDMADPangleNativeAd")

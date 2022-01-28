@@ -245,10 +245,10 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '4.0.1.1'
-  pod 'OpenBiddingHelper', '4.0.1.1'
-  pod 'BidmadAdapterFNC/ForGame', '4.0.0.2'
-  pod 'BidmadAdapterFC', '4.0.0.0'
+  pod 'BidmadSDK', '4.1.1.0'
+  pod 'OpenBiddingHelper', '4.1.1.0'
+  pod 'BidmadAdapterFNC/ForGame', '4.1.1.0'
+  pod 'BidmadAdapterFC', '4.1.0.0'
 
 end
 

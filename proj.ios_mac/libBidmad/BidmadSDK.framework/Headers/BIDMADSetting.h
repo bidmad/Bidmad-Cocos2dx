@@ -31,7 +31,8 @@
 #define TAPJOY                  @"6c470ac8-6069-11eb-8e02-021baddf8c08"
 #define PANGLE                  @"640ab9f2-d8b8-11eb-8e02-021baddf8c08"
 #define ADMOB_OB                @"e2678be7-2fbf-11ec-8e02-021baddf8c08"
-
+#define NEW_ATOM                @"ee5efa3b-6dd9-11ec-8e02-021baddf8c08"
+#define FYBER                   @"b0745bea-6069-11eb-8e02-021baddf8c08"
 
 #define COMPASS_SERVING         @"https://compass.adop.cc/serving/ms.php"
 #define COMPASS_SERVING_TEST    @"https://compasstest.adop.cc/serving/ms.php"

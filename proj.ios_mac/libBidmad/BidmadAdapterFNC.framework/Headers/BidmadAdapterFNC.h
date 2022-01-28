@@ -2,7 +2,7 @@
 //  BidmadAdapterFNC.h
 //  BidmadAdapterFNC
 //
-//  Created by Seungsub Oh on 2021/09/13.
+//  Created by Seungsub Oh on 2022/01/21.
 //
 
 #import <Foundation/Foundation.h>
@@ -14,6 +14,8 @@ FOUNDATION_EXPORT double BidmadAdapterFNCVersionNumber;
 FOUNDATION_EXPORT const unsigned char BidmadAdapterFNCVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <BidmadAdapterFNC/PublicHeader.h>
+
 #import "BIDMADPangleBanner.h"
 #import "BIDMADPangleInterstitial.h"
 #import "BIDMADPangleReward.h"
+

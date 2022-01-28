@@ -1,3 +1,11 @@
+# Version 1.5.0
+#### Changes
+- Support Ad Network Fyber 
+- Bug Fix
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx-g 2.2.0.0
+- iOS : BidmadSDK.framework 4.1.1.0
+
 # Version 1.4.0
 #### Changes
 - Add initializeSdk / CUID interface

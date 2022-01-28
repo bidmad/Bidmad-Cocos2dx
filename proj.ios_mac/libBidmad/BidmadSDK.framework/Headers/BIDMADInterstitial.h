@@ -13,14 +13,6 @@
 #import "BIDMADAdmob.h"
 #import "BIDMADAtomInterstitial.h"
 
-#if __has_include(<BidmadAdapterFC/BidmadAdapterFC.h>) || __has_include("BidmadAdapterFC.h")
-#import <BidmadAdapterFC/BidmadAdapterFC.h>
-#endif
-
-#if __has_include(<BidmadAdapterFNC/BidmadAdapterFNC.h>) || __has_include("BidmadAdapterFNC.h")
-#import <BidmadAdapterFNC/BidmadAdapterFNC.h>
-#endif
-
 @protocol BIDMADInterstitialDelegate <NSObject>
 
 @optional

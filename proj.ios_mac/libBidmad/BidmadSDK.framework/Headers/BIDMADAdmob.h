@@ -16,7 +16,7 @@
 #import "BIDMADSetting.h"
 #import "BIDMADUtil.h"
 #import "BIDMADLabelView.h"
-#import "UIButton+circle.h"
+//#import "UIButton+circle.h"
 #if __has_include("GoogleMobileAds/GoogleMobileAds.h")
 #import "GoogleMobileAds/GoogleMobileAds.h"
 #define GOOGLESDK_EXIST

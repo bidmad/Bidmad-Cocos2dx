@@ -2,11 +2,10 @@
 //  BidmadSDK.h
 //  BidmadSDK
 //
-//  Created by 김선정 on 2015. 7. 14..
-//  Copyright (c) 2015년 ADOP Co., Ltd. All rights reserved.
+//  Created by Seungsub Oh on 2022/01/21.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for BidmadSDK.
 FOUNDATION_EXPORT double BidmadSDKVersionNumber;
@@ -54,3 +53,4 @@ FOUNDATION_EXPORT const unsigned char BidmadSDKVersionString[];
 #import "UnrealGDPRforGoogle.h"
 #import "UnrealInterstitial.h"
 #import "UnrealReward.h"
+#import "BIDMADNativeAdView.h"
