@@ -10,10 +10,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, BidmadTestEnvData) {
+    BidmadTestEnvDataBannerForSuccessCase_RAW,
+    BidmadTestEnvDataBannerForSuccessCase,
+    BidmadTestEnvDataBannerForFailCase,
+    BidmadTestEnvDataInterstitialForSuccessCase,
+    BidmadTestEnvDataInterstitialForFailCase,
+    BidmadTestEnvDataRewardVideoForSuccessCase,
+    BidmadTestEnvDataADOPRewardVideoForSuccessCase,
+    BidmadTestEnvDataADOPRewardVideoForFailCase
+};
+
 @interface OpenBiddingUtility : NSObject
 
 + (NSString *)SDKVersion;
 + (NSURLSessionDataTask *)openBiddingDataFetcherWithZoneId: (NSString *)zoneId completionBlock:(void (^)(NSDictionary * _Nullable, NSError * _Nullable, NSDictionary * _Nullable, NSString * _Nullable, NSString * _Nullable, NSNumber * _Nullable, NSNumber * _Nullable, NSString * _Nullable))completionBlock;
++ (void)openBiddingDataFetcherForTesting:(BidmadTestEnvData)testDataCase completionBlock:(void (^)(NSDictionary * _Nullable, NSError * _Nullable, NSDictionary * _Nullable, NSString * _Nullable, NSString * _Nullable, NSNumber * _Nullable, NSNumber * _Nullable, NSString * _Nullable))completionBlock;
 
 @end
 

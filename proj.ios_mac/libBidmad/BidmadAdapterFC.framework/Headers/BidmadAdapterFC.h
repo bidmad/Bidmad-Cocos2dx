@@ -2,7 +2,7 @@
 //  BidmadAdapterFC.h
 //  BidmadAdapterFC
 //
-//  Created by Seungsub Oh on 2021/09/07.
+//  Created by Seungsub Oh on 2022/01/21.
 //
 
 #import <Foundation/Foundation.h>
@@ -14,3 +14,8 @@ FOUNDATION_EXPORT double BidmadAdapterFCVersionNumber;
 FOUNDATION_EXPORT const unsigned char BidmadAdapterFCVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <BidmadAdapterFC/PublicHeader.h>
+
+#import "BidmadIronSourceBridge.h"
+#import "BidmadVungleBridge.h"
+#import <BidmadAdapterFC/BidmadAdColonyInterface.h>
+#import <BidmadAdapterFC/BidmadInMobiInterface.h>

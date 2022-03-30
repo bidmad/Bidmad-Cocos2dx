@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		091D4087DF525481B5C01CCA /* Pods_BidmadCocos2dxSample_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E959E4BDFBF7C37FEE65DAA /* Pods_BidmadCocos2dxSample_mobile.framework */; };
+		157A333B57F9C77D49B84A54 /* Pods_BidmadCocos2dxSample_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA03592D55AFCFC84AF3792 /* Pods_BidmadCocos2dxSample_mobile.framework */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -71,7 +71,7 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
-		545F60299F40FD90BAAE39D8 /* Pods_BidmadCocos2dxSample_desktop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5513589E82546628E6F826 /* Pods_BidmadCocos2dxSample_desktop.framework */; };
+		7FE7DB85C260A46E8038B35D /* Pods_BidmadCocos2dxSample_desktop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57957C2D69C9F7F3FC998B43 /* Pods_BidmadCocos2dxSample_desktop.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		9F8BF2A3263BDDEF00D64788 /* RewardInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BF291263BDDEF00D64788 /* RewardInterface.cpp */; };
 		9F8BF2A4263BDDEF00D64788 /* RewardBridgeObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F8BF294263BDDEF00D64788 /* RewardBridgeObjC.mm */; };
@@ -137,6 +137,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C209142770C7B605AC02419 /* Pods-BidmadCocos2dxSample-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-mobile.debug.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,9 +160,8 @@
 		269B24FE274F7CEE00BD8E4F /* BidmadSwiftSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidmadSwiftSupport.swift; sourceTree = "<group>"; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		2E959E4BDFBF7C37FEE65DAA /* Pods_BidmadCocos2dxSample_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BidmadCocos2dxSample_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DB01577FE02A81C6A087DB2 /* Pods-BidmadCocos2dxSample-desktop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-desktop.debug.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-desktop/Pods-BidmadCocos2dxSample-desktop.debug.xcconfig"; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
-		4633824143D775EF1A5E1634 /* Pods-BidmadCocos2dxSample-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-mobile.debug.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		46880B7A19C43A67006E1F66 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
@@ -205,10 +205,8 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		6DB0914004595E4E6EB41596 /* Pods-BidmadCocos2dxSample-desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-desktop.release.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-desktop/Pods-BidmadCocos2dxSample-desktop.release.xcconfig"; sourceTree = "<group>"; };
-		7F1606C78687ED6186F9428D /* Pods-BidmadCocos2dxSample-desktop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-desktop.debug.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-desktop/Pods-BidmadCocos2dxSample-desktop.debug.xcconfig"; sourceTree = "<group>"; };
+		57957C2D69C9F7F3FC998B43 /* Pods_BidmadCocos2dxSample_desktop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BidmadCocos2dxSample_desktop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		8B5513589E82546628E6F826 /* Pods_BidmadCocos2dxSample_desktop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BidmadCocos2dxSample_desktop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8BF28D263BDDEF00D64788 /* RewardInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RewardInterface.h; path = bidmad/RewardInterface.h; sourceTree = "<group>"; };
 		9F8BF291263BDDEF00D64788 /* RewardInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RewardInterface.cpp; path = bidmad/RewardInterface.cpp; sourceTree = "<group>"; };
 		9F8BF293263BDDEF00D64788 /* InterstitialBridgeCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterstitialBridgeCpp.h; sourceTree = "<group>"; };
@@ -239,13 +237,15 @@
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CC0BD5ED4E91003A6469FBC0 /* Pods-BidmadCocos2dxSample-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-mobile.release.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		E0B5C7D678859CD0CF3A066B /* Pods-BidmadCocos2dxSample-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-mobile.release.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile.release.xcconfig"; sourceTree = "<group>"; };
+		DF985CD048C2B9F54665324F /* Pods-BidmadCocos2dxSample-desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BidmadCocos2dxSample-desktop.release.xcconfig"; path = "Target Support Files/Pods-BidmadCocos2dxSample-desktop/Pods-BidmadCocos2dxSample-desktop.release.xcconfig"; sourceTree = "<group>"; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		FCA03592D55AFCFC84AF3792 /* Pods_BidmadCocos2dxSample_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BidmadCocos2dxSample_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,7 +272,7 @@
 				D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */,
 				D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */,
 				2670A274274CCC3500C75D58 /* GameController.framework in Frameworks */,
-				091D4087DF525481B5C01CCA /* Pods_BidmadCocos2dxSample_mobile.framework in Frameworks */,
+				157A333B57F9C77D49B84A54 /* Pods_BidmadCocos2dxSample_mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +292,7 @@
 				5087E76917EB910900C73F5D /* OpenAL.framework in Frameworks */,
 				5087E76A17EB910900C73F5D /* AVFoundation.framework in Frameworks */,
 				5087E76B17EB910900C73F5D /* AudioToolbox.framework in Frameworks */,
-				545F60299F40FD90BAAE39D8 /* Pods_BidmadCocos2dxSample_desktop.framework in Frameworks */,
+				7FE7DB85C260A46E8038B35D /* Pods_BidmadCocos2dxSample_desktop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,10 +317,10 @@
 		0AD30598FC90F51AE3D68188 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7F1606C78687ED6186F9428D /* Pods-BidmadCocos2dxSample-desktop.debug.xcconfig */,
-				6DB0914004595E4E6EB41596 /* Pods-BidmadCocos2dxSample-desktop.release.xcconfig */,
-				4633824143D775EF1A5E1634 /* Pods-BidmadCocos2dxSample-mobile.debug.xcconfig */,
-				E0B5C7D678859CD0CF3A066B /* Pods-BidmadCocos2dxSample-mobile.release.xcconfig */,
+				2DB01577FE02A81C6A087DB2 /* Pods-BidmadCocos2dxSample-desktop.debug.xcconfig */,
+				DF985CD048C2B9F54665324F /* Pods-BidmadCocos2dxSample-desktop.release.xcconfig */,
+				0C209142770C7B605AC02419 /* Pods-BidmadCocos2dxSample-mobile.debug.xcconfig */,
+				CC0BD5ED4E91003A6469FBC0 /* Pods-BidmadCocos2dxSample-mobile.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -387,8 +387,8 @@
 				BF170DB012928DE900B8313A /* OpenGLES.framework */,
 				BF1C47EA1293683800B63C5D /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
-				8B5513589E82546628E6F826 /* Pods_BidmadCocos2dxSample_desktop.framework */,
-				2E959E4BDFBF7C37FEE65DAA /* Pods_BidmadCocos2dxSample_mobile.framework */,
+				57957C2D69C9F7F3FC998B43 /* Pods_BidmadCocos2dxSample_desktop.framework */,
+				FCA03592D55AFCFC84AF3792 /* Pods_BidmadCocos2dxSample_mobile.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -518,12 +518,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "BidmadCocos2dxSample-mobile" */;
 			buildPhases = (
-				4CE5037E1692311021D424F7 /* [CP] Check Pods Manifest.lock */,
+				A9547748258BC81FF4213479 /* [CP] Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				EE42668D3EA058B220D16D38 /* [CP] Embed Pods Frameworks */,
-				90EA2C301F5389D89E348D02 /* [CP] Copy Pods Resources */,
+				EACA07EE912072B4F9532459 /* [CP] Embed Pods Frameworks */,
+				8EC47AED9B784B0A0BC0AAD4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -539,7 +539,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5087E76C17EB910900C73F5D /* Build configuration list for PBXNativeTarget "BidmadCocos2dxSample-desktop" */;
 			buildPhases = (
-				CC9BBF991BCBFBF8A1F5051B /* [CP] Check Pods Manifest.lock */,
+				0F59DF18EF9A09CC1AA57086 /* [CP] Check Pods Manifest.lock */,
 				5087E74817EB910900C73F5D /* Resources */,
 				5087E75617EB910900C73F5D /* Sources */,
 				5087E75C17EB910900C73F5D /* Frameworks */,
@@ -667,53 +667,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4CE5037E1692311021D424F7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BidmadCocos2dxSample-mobile-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		90EA2C301F5389D89E348D02 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile-resources.sh",
-				"${PODS_ROOT}/Ads-Global/PangleSDK/LICENSE",
-				"${PODS_ROOT}/Ads-Global/PangleSDK/BUAdSDK.bundle",
-				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-10.3.6/AppLovinSDKResources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/BidmadSDK/bidmad_asset.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LICENSE",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BUAdSDK.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppLovinSDKResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bidmad_asset.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC9BBF991BCBFBF8A1F5051B /* [CP] Check Pods Manifest.lock */ = {
+		0F59DF18EF9A09CC1AA57086 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -735,7 +689,55 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EE42668D3EA058B220D16D38 /* [CP] Embed Pods Frameworks */ = {
+		8EC47AED9B784B0A0BC0AAD4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile-resources.sh",
+				"${PODS_ROOT}/Ads-Global/PangleSDK/LICENSE",
+				"${PODS_ROOT}/Ads-Global/PangleSDK/BUAdSDK.bundle",
+				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-10.3.6/AppLovinSDKResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/BidmadSDK/bidmad_asset.bundle",
+				"${PODS_ROOT}/Fyber_Marketplace_SDK/IASDKCore/IASDKCore.xcframework/IASDKResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LICENSE",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BUAdSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppLovinSDKResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/bidmad_asset.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IASDKResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9547748258BC81FF4213479 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BidmadCocos2dxSample-mobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EACA07EE912072B4F9532459 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -821,14 +823,14 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4633824143D775EF1A5E1634 /* Pods-BidmadCocos2dxSample-mobile.debug.xcconfig */;
+			baseConfigurationReference = 0C209142770C7B605AC02419 /* Pods-BidmadCocos2dxSample-mobile.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
-				CURRENT_PROJECT_VERSION = 1.2.3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MWF8UC94P5;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = armv7;
@@ -852,14 +854,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adop.mnctest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adop.Cocos2dxSample;
 				PROVISIONING_PROFILE_SPECIFIER = MNCTEST_DEV;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
@@ -873,14 +875,14 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0B5C7D678859CD0CF3A066B /* Pods-BidmadCocos2dxSample-mobile.release.xcconfig */;
+			baseConfigurationReference = CC0BD5ED4E91003A6469FBC0 /* Pods-BidmadCocos2dxSample-mobile.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
-				CURRENT_PROJECT_VERSION = 1.2.3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MWF8UC94P5;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = armv7;
@@ -903,14 +905,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.2.3;
+				MARKETING_VERSION = 1.5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adop.mnctest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adop.Cocos2dxSample;
 				PROVISIONING_PROFILE_SPECIFIER = MNCTEST_DEV;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
@@ -923,7 +925,7 @@
 		};
 		5087E76D17EB910900C73F5D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F1606C78687ED6186F9428D /* Pods-BidmadCocos2dxSample-desktop.debug.xcconfig */;
+			baseConfigurationReference = 2DB01577FE02A81C6A087DB2 /* Pods-BidmadCocos2dxSample-desktop.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -955,7 +957,7 @@
 		};
 		5087E76E17EB910900C73F5D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DB0914004595E4E6EB41596 /* Pods-BidmadCocos2dxSample-desktop.release.xcconfig */;
+			baseConfigurationReference = DF985CD048C2B9F54665324F /* Pods-BidmadCocos2dxSample-desktop.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";

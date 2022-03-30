@@ -2,10 +2,10 @@
 //  OpenBiddingHelper.h
 //  OpenBiddingHelper
 //
-//  Created by ADOP_Mac on 2021/03/09.
+//  Created by Seungsub Oh on 2022/01/21.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for OpenBiddingHelper.
 FOUNDATION_EXPORT double OpenBiddingHelperVersionNumber;

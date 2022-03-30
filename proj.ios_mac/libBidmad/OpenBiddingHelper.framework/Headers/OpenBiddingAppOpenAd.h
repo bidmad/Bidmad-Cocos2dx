@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <BidmadSDK/BIDMADUtil.h>
 #import <BidmadSDK/BIDMADSetting.h>
+#import <BidmadSDK/BIDMADAppOpenAd.h>
 #import "OpenBiddingAdmobAppOpenAd.h"
 
 @protocol OpenBiddingAppOpenAdDelegate;

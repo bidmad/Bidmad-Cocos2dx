@@ -4,6 +4,191 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AppLovinSDKResources.bundle/ALConsentFlowATT.json</key>
+		<data>
+		B68lBq++BAY+jMXppPQMeodKf6Y=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALConsentFlowPrivacyPolicy.json</key>
+		<data>
+		nT03ZvpbEayYedsJXuWC0pXcd48=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALConsentFlowPrivacyPolicyAndATT.json</key>
+		<data>
+		tCokhaRrq5bD54pS8n2zoUUgeBo=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALConsentFlowTermsOfServiceAndPrivacyPolicy.json</key>
+		<data>
+		k/2cBTstvpec6TttYT49S4ZzCMI=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALConsentFlowTermsOfServiceAndPrivacyPolicyAndATT.json</key>
+		<data>
+		+++hYolM3a6cnj+sm6wBdnzuO94=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALDDetailTableViewCell.nib</key>
+		<data>
+		d04CXMm+6+g6iKaixYCOclpuUsw=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/3jf-B1-XNL-view-Iqa-CO-DFs.nib/objects-11.0+.nib</key>
+		<data>
+		dpN9vYoY3edXdVdGEmscYPGnwzA=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/3jf-B1-XNL-view-Iqa-CO-DFs.nib/runtime.nib</key>
+		<data>
+		hw5WXi5gvVhi5DgIpPXycbfHff8=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/ALDMultiAdViewController.nib/objects-11.0+.nib</key>
+		<data>
+		dXr69RYvxdDB+b+DT78yJPYu4hU=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/ALDMultiAdViewController.nib/runtime.nib</key>
+		<data>
+		j42AS/2xvdwbwmpnd5IUq1A+2zw=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/Info.plist</key>
+		<data>
+		xijY85+UClEbMFNODNsBsfMLfPk=
+		</data>
+		<key>AppLovinSDKResources.bundle/ALDRightDetailTableViewCell.nib</key>
+		<data>
+		e9odNXDJVnd1+z3qcfC3dDupqWU=
+		</data>
+		<key>AppLovinSDKResources.bundle/Assets.car</key>
+		<data>
+		D71tBn4neF7YojN2kD0KK4th4jI=
+		</data>
+		<key>AppLovinSDKResources.bundle/Base.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			j8DZJYYFEMOywJktvdf2xcaKIqc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/Info.plist</key>
+		<data>
+		F3Id7CMFVDWWF2gVZ7v3LsENiTc=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdBannerView.nib/objects-11.0+.nib</key>
+		<data>
+		W38h7hmC2/Zaec/Wqu5fE9PU45Q=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdBannerView.nib/runtime.nib</key>
+		<data>
+		NyZaS33zWm33q+FVfkZx3JcNzdA=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdLeaderView.nib/objects-11.0+.nib</key>
+		<data>
+		mP6aEhHWMnjJP0JGEJJ4A8qDoyQ=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdLeaderView.nib/runtime.nib</key>
+		<data>
+		3kBRk3X+UVvRJTSqfyuPPDY5CZs=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdMRecView.nib/objects-11.0+.nib</key>
+		<data>
+		YkxxexjE1Qq3L3pQY5FaZoEHU44=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdMRecView.nib/runtime.nib</key>
+		<data>
+		ZXbDYYsYePVUyYf91Uykz6Yb/ZA=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdMediaBannerView.nib/objects-11.0+.nib</key>
+		<data>
+		owT4RKbrXW2IuruZZyAKTzrwDko=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdMediaBannerView.nib/runtime.nib</key>
+		<data>
+		HHYBTz1V4pfWpk93Vzk4hu/Yqdw=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdVerticalBannerView.nib</key>
+		<data>
+		3ewtb7c1EBz4WOcSDeZjNZ2mtJQ=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdVerticalLeaderView.nib</key>
+		<data>
+		XNYp39JQgObO3LjfY690bZUNyjw=
+		</data>
+		<key>AppLovinSDKResources.bundle/MANativeAdVerticalMediaBannerView.nib</key>
+		<data>
+		/2LU1bwS9i6A+L/Xr/8+GAlzU5g=
+		</data>
+		<key>AppLovinSDKResources.bundle/de.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			KF/DmoOxA4svATKFS6G3qW9mXIk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			j8DZJYYFEMOywJktvdf2xcaKIqc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/es.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ena+JpeG2oDdSX5YFKGnjTWJDk8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/fr.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			m1BNBfmAH7SWvRs5s8VnGxYkFlU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ja.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VEXQWZq+BP4EUqOnXK4svq44kaE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ko.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IkLMprVxTKFBtpBJGIB8IEmPenU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/mute.aiff</key>
+		<data>
+		xrLmOHGKRkA1PdlxjX8QdhUlYC8=
+		</data>
+		<key>AppLovinSDKResources.bundle/zh-Hans.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8sC65RBSHqeCfqoipJ1hxUM0g0k=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/zh-Hant.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jnQt30OCVRD8nj9xVh8EXsmhMwE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>BUAdSDK.bundle/Assets.car</key>
 		<data>
 		fdbfX5sBUAviWp0yGIyiazX6pZs=
@@ -182,7 +367,7 @@
 		</data>
 		<key>Headers/BidmadAdapterFNC-Swift.h</key>
 		<data>
-		JJUXDPEZUKUFPrRUSubOFONv/e4=
+		LxBI1rqVw/E4KQvUX2MPIOvtPwg=
 		</data>
 		<key>Headers/BidmadAdapterFNC.h</key>
 		<data>
@@ -278,7 +463,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		9SyJ7HFUZD2jsJfuA3dZkuJo0Bc=
+		fxdRjK3Q0CX5RSMQL9S9RUY94yY=
 		</data>
 		<key>LICENSE</key>
 		<data>
@@ -286,27 +471,35 @@
 		</data>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		Ul4K5GwpoAlAkfj1xqIY3rqIedY=
+		io3F90Ge5rgpeN+gzJlSZUlxJAw=
 		</data>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		Ul4K5GwpoAlAkfj1xqIY3rqIedY=
+		io3F90Ge5rgpeN+gzJlSZUlxJAw=
 		</data>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		2lHHBz8T5ewnVHCjHhmPHLBDmso=
+		3VJbiRH9eUHlj/Z5dSDkyF0ILbU=
+		</data>
+		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<data>
+		9yaUGTbo0K6sIojnJi0az5nft6c=
 		</data>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		N1kDR91o8WoGx2Ed8zAg6gcZzrQ=
+		Pee7DblHCLrgYk+ESh26jeAeTao=
 		</data>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		2lHHBz8T5ewnVHCjHhmPHLBDmso=
+		3VJbiRH9eUHlj/Z5dSDkyF0ILbU=
+		</data>
+		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64.swiftinterface</key>
+		<data>
+		9yaUGTbo0K6sIojnJi0az5nft6c=
 		</data>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		N1kDR91o8WoGx2Ed8zAg6gcZzrQ=
+		Pee7DblHCLrgYk+ESh26jeAeTao=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -315,6 +508,409 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AppLovinSDKResources.bundle/ALConsentFlowATT.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			B68lBq++BAY+jMXppPQMeodKf6Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			I8MC8PiNfLd6AniG/Eh/oN+UTAXcJtpbvta9wCZsxdo=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALConsentFlowPrivacyPolicy.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nT03ZvpbEayYedsJXuWC0pXcd48=
+			</data>
+			<key>hash2</key>
+			<data>
+			8Jsj93imYh+b9BTChkb7aOqWNpJFJkQte8wpEWA8Zmo=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALConsentFlowPrivacyPolicyAndATT.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tCokhaRrq5bD54pS8n2zoUUgeBo=
+			</data>
+			<key>hash2</key>
+			<data>
+			A0n45GmJ7eMRxdNrWfJbRxLIa+Spog/UV0/WXOlCPCw=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALConsentFlowTermsOfServiceAndPrivacyPolicy.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			k/2cBTstvpec6TttYT49S4ZzCMI=
+			</data>
+			<key>hash2</key>
+			<data>
+			Xq6TlVQ1jlRKaqXTj9ZyMD/BR6kvKtqxT3uA1Dk1lCA=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALConsentFlowTermsOfServiceAndPrivacyPolicyAndATT.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+++hYolM3a6cnj+sm6wBdnzuO94=
+			</data>
+			<key>hash2</key>
+			<data>
+			dGOdEk/NzfrIbc9rEgvVLwrwulTrr5UCtyNc0SfqYTc=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALDDetailTableViewCell.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			d04CXMm+6+g6iKaixYCOclpuUsw=
+			</data>
+			<key>hash2</key>
+			<data>
+			oTEYMpvm3L3VDUQMMm3bn3L1Zn4+Yv3hEtpT8v9WM4A=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/3jf-B1-XNL-view-Iqa-CO-DFs.nib/objects-11.0+.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dpN9vYoY3edXdVdGEmscYPGnwzA=
+			</data>
+			<key>hash2</key>
+			<data>
+			tsrmutNlSNwH2tbMo/if3onSo3vqNqiVVtJ+2qyjgq0=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/3jf-B1-XNL-view-Iqa-CO-DFs.nib/runtime.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hw5WXi5gvVhi5DgIpPXycbfHff8=
+			</data>
+			<key>hash2</key>
+			<data>
+			ldS9vD2SmKFsO/bG9HsVEarZIf91O56kVZgSW+UI594=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/ALDMultiAdViewController.nib/objects-11.0+.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dXr69RYvxdDB+b+DT78yJPYu4hU=
+			</data>
+			<key>hash2</key>
+			<data>
+			UJwLjyOenZytiGWN+wWgI4387zJ+SbullYeaE8vttYc=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/ALDMultiAdViewController.nib/runtime.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			j42AS/2xvdwbwmpnd5IUq1A+2zw=
+			</data>
+			<key>hash2</key>
+			<data>
+			1g8C4iTCNjS+CPKZAsaSJUVhLvx2bo/T9+mpPVythvA=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALDMultiAdViewController.storyboardc/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xijY85+UClEbMFNODNsBsfMLfPk=
+			</data>
+			<key>hash2</key>
+			<data>
+			rkcLG/PDdYWwCEmB6Nq/+enWbY+G4PCOQyMEkOP6KA4=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ALDRightDetailTableViewCell.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			e9odNXDJVnd1+z3qcfC3dDupqWU=
+			</data>
+			<key>hash2</key>
+			<data>
+			9NOwxqwa2v2PmOw1LGajQEp1A9PhQ52T8yjLaJVJ/Ag=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/Assets.car</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			D71tBn4neF7YojN2kD0KK4th4jI=
+			</data>
+			<key>hash2</key>
+			<data>
+			mSuqDVpAqM4pnMpdYMJOIBwLAYJuh7kpxyOT5qKGpcE=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/Base.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			j8DZJYYFEMOywJktvdf2xcaKIqc=
+			</data>
+			<key>hash2</key>
+			<data>
+			pxjcTFGJfZEW9fe6u7a0KyHQ+b4xM0zOVsXQqAw8qSI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			F3Id7CMFVDWWF2gVZ7v3LsENiTc=
+			</data>
+			<key>hash2</key>
+			<data>
+			IWdY1/k/O5teGNCbTFXgYBPwmR7MpHCeDF+vZu7MWjI=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdBannerView.nib/objects-11.0+.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			W38h7hmC2/Zaec/Wqu5fE9PU45Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			EIs9Je80Ix7U73GxCRZLewallbeXxOQqkhF0iwWQtSQ=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdBannerView.nib/runtime.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NyZaS33zWm33q+FVfkZx3JcNzdA=
+			</data>
+			<key>hash2</key>
+			<data>
+			Qyy6fcXAzB3+cJ/3KwfaLlLfDojyMeYopm3zbRjmYP4=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdLeaderView.nib/objects-11.0+.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mP6aEhHWMnjJP0JGEJJ4A8qDoyQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			ao1y8+JEbixcjTSbxithQtJtZ/ZHSSIPSadZqCDG4mg=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdLeaderView.nib/runtime.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3kBRk3X+UVvRJTSqfyuPPDY5CZs=
+			</data>
+			<key>hash2</key>
+			<data>
+			tz7szJyeaFvEDYJUrqZ8n/0CbyioQX5TvuzXdwh3cJg=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdMRecView.nib/objects-11.0+.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YkxxexjE1Qq3L3pQY5FaZoEHU44=
+			</data>
+			<key>hash2</key>
+			<data>
+			vxYAAJOHCjNjdo6BCIc+EZIQlQBfmZH3HPR+xSN8vkg=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdMRecView.nib/runtime.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZXbDYYsYePVUyYf91Uykz6Yb/ZA=
+			</data>
+			<key>hash2</key>
+			<data>
+			Da7A+IMgYMh6R+Stq+MmGYXNkm7yBL7xTb0cW+/CKeA=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdMediaBannerView.nib/objects-11.0+.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			owT4RKbrXW2IuruZZyAKTzrwDko=
+			</data>
+			<key>hash2</key>
+			<data>
+			+3IEbIgWOqm2oE9LgkkYBn+dEXzr1IMtHLpDjsgNX4U=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdMediaBannerView.nib/runtime.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HHYBTz1V4pfWpk93Vzk4hu/Yqdw=
+			</data>
+			<key>hash2</key>
+			<data>
+			qUAHp3hyrn+2VUDuEMAAmCOfabkhAEWY7kLY/Kqb/80=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdVerticalBannerView.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3ewtb7c1EBz4WOcSDeZjNZ2mtJQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			RDb9SEVDB2sD/Y2ltX5u0jS6xqnFDzS9VGI5XRIyIcs=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdVerticalLeaderView.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XNYp39JQgObO3LjfY690bZUNyjw=
+			</data>
+			<key>hash2</key>
+			<data>
+			r3dZ9O+tHc+6ZNpe2+RyOiQPije54WAEyikV+2vxWwE=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/MANativeAdVerticalMediaBannerView.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/2LU1bwS9i6A+L/Xr/8+GAlzU5g=
+			</data>
+			<key>hash2</key>
+			<data>
+			f2lilkJfZrAOXFp5qLv8AJHOihnb3R9VeqKAaTywdCc=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/de.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			KF/DmoOxA4svATKFS6G3qW9mXIk=
+			</data>
+			<key>hash2</key>
+			<data>
+			jMO1sAOi7lR1WjkJknQLb+x8xMm1baff8u3zZSoM2yY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			j8DZJYYFEMOywJktvdf2xcaKIqc=
+			</data>
+			<key>hash2</key>
+			<data>
+			pxjcTFGJfZEW9fe6u7a0KyHQ+b4xM0zOVsXQqAw8qSI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/es.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ena+JpeG2oDdSX5YFKGnjTWJDk8=
+			</data>
+			<key>hash2</key>
+			<data>
+			F/4wcgMM45OR7UhN8HgdFCgvRbKYLFnCwzl3cTYao0Q=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/fr.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			m1BNBfmAH7SWvRs5s8VnGxYkFlU=
+			</data>
+			<key>hash2</key>
+			<data>
+			gAO7PkcGR16o4GZe4su5WlH3DXROcmJmrthdcvCgGbY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ja.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VEXQWZq+BP4EUqOnXK4svq44kaE=
+			</data>
+			<key>hash2</key>
+			<data>
+			6x/itXsQ4J1UOAqrBlmqg1vDbGzuIZKVJ1c/IVitnlw=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/ko.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IkLMprVxTKFBtpBJGIB8IEmPenU=
+			</data>
+			<key>hash2</key>
+			<data>
+			UyWxt8SzqgyO0gCYgaiprpqp5h1G0p5a8Bly415cA4Q=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/mute.aiff</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xrLmOHGKRkA1PdlxjX8QdhUlYC8=
+			</data>
+			<key>hash2</key>
+			<data>
+			WUTtOynoFPERt7tbMpqwDPv3YX9EfZjQDLz1X3hRVww=
+			</data>
+		</dict>
+		<key>AppLovinSDKResources.bundle/zh-Hans.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8sC65RBSHqeCfqoipJ1hxUM0g0k=
+			</data>
+			<key>hash2</key>
+			<data>
+			KKGhMfpLkoeF8u3sjE0Y63Azw9Is56GZlt5PsJkUE6I=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>AppLovinSDKResources.bundle/zh-Hant.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jnQt30OCVRD8nj9xVh8EXsmhMwE=
+			</data>
+			<key>hash2</key>
+			<data>
+			5MbKinvQPDw14pOcVWUQqMmBscv6KI/bnfWijOnKb2o=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>BUAdSDK.bundle/Assets.car</key>
 		<dict>
 			<key>hash</key>
@@ -615,11 +1211,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JJUXDPEZUKUFPrRUSubOFONv/e4=
+			LxBI1rqVw/E4KQvUX2MPIOvtPwg=
 			</data>
 			<key>hash2</key>
 			<data>
-			tF4X7G4UrN1MXztrbnleItdjXwv047xF53q+RaHt14o=
+			PjKy3El3TMauleWNUH0VJMF3wUFmKVMdkgUvPWo+tRY=
 			</data>
 		</dict>
 		<key>Headers/BidmadAdapterFNC.h</key>
@@ -890,66 +1486,88 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ul4K5GwpoAlAkfj1xqIY3rqIedY=
+			io3F90Ge5rgpeN+gzJlSZUlxJAw=
 			</data>
 			<key>hash2</key>
 			<data>
-			2ZfD2Xqqpy0R8U0T9Ejj5LusdCQlW7OcItiLYa1S0xA=
+			rOxbbno4glMftG6ehXk2vJLPrZ2zEgJVoaWyuWWQCxo=
 			</data>
 		</dict>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ul4K5GwpoAlAkfj1xqIY3rqIedY=
+			io3F90Ge5rgpeN+gzJlSZUlxJAw=
 			</data>
 			<key>hash2</key>
 			<data>
-			2ZfD2Xqqpy0R8U0T9Ejj5LusdCQlW7OcItiLYa1S0xA=
+			rOxbbno4glMftG6ehXk2vJLPrZ2zEgJVoaWyuWWQCxo=
 			</data>
 		</dict>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2lHHBz8T5ewnVHCjHhmPHLBDmso=
+			3VJbiRH9eUHlj/Z5dSDkyF0ILbU=
 			</data>
 			<key>hash2</key>
 			<data>
-			bIi3nZQ/PWGoFfHLihOCbaYN5HMXbZLR9TsEHs5j15I=
+			GsuYrB9wY61AYtCGv7pKLzAv2Y7EHj40SpmCGUaKdN4=
+			</data>
+		</dict>
+		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9yaUGTbo0K6sIojnJi0az5nft6c=
+			</data>
+			<key>hash2</key>
+			<data>
+			0Z+s5cm3m5npY53XxNRA6iQwhjCnJQrkevNH2D4HNug=
 			</data>
 		</dict>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			N1kDR91o8WoGx2Ed8zAg6gcZzrQ=
+			Pee7DblHCLrgYk+ESh26jeAeTao=
 			</data>
 			<key>hash2</key>
 			<data>
-			qtv74g0uoV0+o38wh0JtlECKLed9LdPkAcWYjS0qMYA=
+			R2OBBjkZkayXCXw8/eNlOR5henBlV0kechyx2EmdCp4=
 			</data>
 		</dict>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2lHHBz8T5ewnVHCjHhmPHLBDmso=
+			3VJbiRH9eUHlj/Z5dSDkyF0ILbU=
 			</data>
 			<key>hash2</key>
 			<data>
-			bIi3nZQ/PWGoFfHLihOCbaYN5HMXbZLR9TsEHs5j15I=
+			GsuYrB9wY61AYtCGv7pKLzAv2Y7EHj40SpmCGUaKdN4=
+			</data>
+		</dict>
+		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9yaUGTbo0K6sIojnJi0az5nft6c=
+			</data>
+			<key>hash2</key>
+			<data>
+			0Z+s5cm3m5npY53XxNRA6iQwhjCnJQrkevNH2D4HNug=
 			</data>
 		</dict>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			N1kDR91o8WoGx2Ed8zAg6gcZzrQ=
+			Pee7DblHCLrgYk+ESh26jeAeTao=
 			</data>
 			<key>hash2</key>
 			<data>
-			qtv74g0uoV0+o38wh0JtlECKLed9LdPkAcWYjS0qMYA=
+			R2OBBjkZkayXCXw8/eNlOR5henBlV0kechyx2EmdCp4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

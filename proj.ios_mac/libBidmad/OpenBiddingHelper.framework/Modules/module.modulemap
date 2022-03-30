@@ -1,13 +1,8 @@
 framework module OpenBiddingHelper {
   umbrella header "OpenBiddingHelper.h"
+
   export *
   module * { export * }
-  
-  header "OpenBiddingBanner.h"
-  header "OpenBiddingInterstitial.h"
-  header "OpenBiddingRewardVideo.h"
-  header "OpenBiddingAppOpenAd.h"
-  header "OpenBiddingRewardInterstitial.h"
 }
 
 module OpenBiddingHelper.Swift {

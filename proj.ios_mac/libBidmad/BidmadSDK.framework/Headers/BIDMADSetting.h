@@ -33,6 +33,9 @@
 #define ADMOB_OB                @"e2678be7-2fbf-11ec-8e02-021baddf8c08"
 #define NEW_ATOM                @"ee5efa3b-6dd9-11ec-8e02-021baddf8c08"
 #define FYBER                   @"b0745bea-6069-11eb-8e02-021baddf8c08"
+#define APPLOVIN_MAX            @"31534d43-944a-11ec-8e02-021baddf8c08"
+#define INMOBI                  @"f32a2be4-476b-4ddb-85dc-27e98e81e111"
+#define VUNGLE                  @"1e1947d2-eff2-11e9-9e1d-02c31b446301"
 
 #define COMPASS_SERVING         @"https://compass.adop.cc/serving/ms.php"
 #define COMPASS_SERVING_TEST    @"https://compasstest.adop.cc/serving/ms.php"

@@ -111,6 +111,27 @@ apply from: "bidmad.gradle"
     java.lang.Object writeReplace();
     java.lang.Object readResolve();
 }
+
+# Tapjoy
+-keep class com.tapjoy.** { *; }
+-keep class com.moat.** { *; }
+-keepattributes JavascriptInterface
+-keepattributes *Annotation*
+-keep class * extends java.util.ListResourceBundle {
+protected Object[][] getContents();
+}
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+public static final *** NULL;
+}
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+@com.google.android.gms.common.annotation.KeepName *;
+}
+-keepnames class * implements android.os.Parcelable {
+public static final ** CREATOR;
+}
+-keep class com.google.android.gms.ads.identifier.** { *; }
+-dontwarn com.tapjoy.**
 ```
 
 6. 아동을 타겟으로 하고 PlayStore에 심사를 받는 앱은 인증된 광고 네트워크를 사용을 위해 추가 설정이 필요합니다.<br> 
@@ -244,10 +265,10 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '4.1.1.0'
-  pod 'OpenBiddingHelper', '4.1.1.0'
-  pod 'BidmadAdapterFNC/ForGame', '4.1.1.0'
-  pod 'BidmadAdapterFC', '4.1.0.0'
+  pod 'BidmadSDK', '4.2.0.0'
+  pod 'OpenBiddingHelper', '4.2.0.0'
+  pod 'BidmadAdapterFNC/ForGame', '4.2.0.0'
+  pod 'BidmadAdapterFC', '4.2.0.0'
 
 end
 
