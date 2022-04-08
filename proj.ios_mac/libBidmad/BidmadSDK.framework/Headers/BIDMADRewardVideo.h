@@ -71,6 +71,7 @@
 @property (nonatomic) BOOL isInterstitialBackfill;
 @property (nonatomic, strong) BIDMADInterstitial* interstitial;
 
+@property (nonatomic, strong) NSString * _Nullable currentAdNetwork;
 
 ///inititalize
 - (id)init;

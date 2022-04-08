@@ -463,7 +463,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		fxdRjK3Q0CX5RSMQL9S9RUY94yY=
+		zpRVb4RPPC0DQpJR5BsXJET2o+o=
 		</data>
 		<key>LICENSE</key>
 		<data>
@@ -487,7 +487,7 @@
 		</data>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		Pee7DblHCLrgYk+ESh26jeAeTao=
+		IecD4stVuMhk2RZbLutV2w+AFX0=
 		</data>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -499,7 +499,7 @@
 		</data>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		Pee7DblHCLrgYk+ESh26jeAeTao=
+		IecD4stVuMhk2RZbLutV2w+AFX0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -1530,11 +1530,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Pee7DblHCLrgYk+ESh26jeAeTao=
+			IecD4stVuMhk2RZbLutV2w+AFX0=
 			</data>
 			<key>hash2</key>
 			<data>
-			R2OBBjkZkayXCXw8/eNlOR5henBlV0kechyx2EmdCp4=
+			kq+pXEdo1ygfbUZRu9V78SXEjQNsEthMX9TZ+tNKN8o=
 			</data>
 		</dict>
 		<key>Modules/BidmadAdapterFNC.swiftmodule/arm64.swiftdoc</key>
@@ -1563,11 +1563,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Pee7DblHCLrgYk+ESh26jeAeTao=
+			IecD4stVuMhk2RZbLutV2w+AFX0=
 			</data>
 			<key>hash2</key>
 			<data>
-			R2OBBjkZkayXCXw8/eNlOR5henBlV0kechyx2EmdCp4=
+			kq+pXEdo1ygfbUZRu9V78SXEjQNsEthMX9TZ+tNKN8o=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

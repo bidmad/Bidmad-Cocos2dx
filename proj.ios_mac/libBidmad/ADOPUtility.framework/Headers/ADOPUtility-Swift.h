@@ -207,6 +207,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
+SWIFT_CLASS("_TtC11ADOPUtility15ADOPObjCUtility")
+@interface ADOPObjCUtility : NSObject
++ (BOOL)shouldNetworkReqWithCriterion:(id _Nullable)adWeight SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nullable)identifierForAdvertising SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIViewController;
 @class UIView;
 @class NSNumber;
@@ -260,9 +268,18 @@ SWIFT_PROTOCOL("_TtP11ADOPUtility29BidmadAdapterRewardAdditional_")
 - (void)setIsRewardedAd:(BOOL)isRewardedAd;
 @end
 
+@class NSString;
 
 SWIFT_CLASS("_TtC11ADOPUtility21BidmadTestEnvironment")
 @interface BidmadTestEnvironment : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL testMode;)
++ (BOOL)testMode SWIFT_WARN_UNUSED_RESULT;
++ (void)setTestMode:(BOOL)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSString * _Nullable testOverrideJSON;)
++ (NSString * _Nullable)testOverrideJSON SWIFT_WARN_UNUSED_RESULT;
++ (void)setTestOverrideJSON:(NSString * _Nullable)value;
++ (void)displayText:(NSString * _Nonnull)text;
++ (UIViewController * _Nullable)topViewControllerWithBase:(UIViewController * _Nullable)base SWIFT_WARN_UNUSED_RESULT;
 + (NSData * _Nonnull)getTestADOPRewardVideoForSuccessCase SWIFT_WARN_UNUSED_RESULT;
 + (NSData * _Nonnull)getTestADOPRewardVideoForFailCase SWIFT_WARN_UNUSED_RESULT;
 + (NSData * _Nonnull)getTestRewardVideoForSuccessCase SWIFT_WARN_UNUSED_RESULT;

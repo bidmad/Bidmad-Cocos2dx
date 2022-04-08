@@ -282,6 +282,11 @@ SWIFT_CLASS("_TtC17OpenBiddingHelper12BidmadCommon")
 /// Setting for CCPA User Consent Status. If nil, the app does not have to be compliant to CCPA.
 + (NSNumber * _Nullable)isUserConsentCCPA SWIFT_WARN_UNUSED_RESULT;
 + (void)initializeSdk;
+/// This property must only be set when testing UnityAds and AppLovin.
+/// Please set testMode to false before releasing your app.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL testMode;)
++ (BOOL)testMode SWIFT_WARN_UNUSED_RESULT;
++ (void)setTestMode:(BOOL)newValue;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

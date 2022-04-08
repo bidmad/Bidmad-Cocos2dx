@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/ADOPUtility-Swift.h</key>
 		<data>
-		XpyGaPqRpdQIStGhodchz4SRfFE=
+		ctJhTsgt1RhggniZSq40yRFIVto=
 		</data>
 		<key>Headers/ADOPUtility.h</key>
 		<data>
@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VEBK8MfVd0AvdRAy8nFEhPdQv3E=
+		FA+XnwCtf5TTvLEPhLxWYWC74R4=
 		</data>
 		<key>Modules/ADOPUtility.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		ca+KsTdpmtsw/GVRVn9YQ4JYYUU=
+		V3i9dQ3FTojNPHDllXj2xJECxIU=
 		</data>
 		<key>Modules/ADOPUtility.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		ca+KsTdpmtsw/GVRVn9YQ4JYYUU=
+		V3i9dQ3FTojNPHDllXj2xJECxIU=
 		</data>
 		<key>Modules/ADOPUtility.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -30,11 +30,11 @@
 		</data>
 		<key>Modules/ADOPUtility.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		+6i9vopQfxWXhwBF9ChG17CD+Rs=
+		irGyw0hnuZ1v+3RhBCnNF3O2JNM=
 		</data>
 		<key>Modules/ADOPUtility.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		TXyjQCrQndC0qPZ6Pc33nPo249U=
+		9ePYok3GPa15y+tfncq8QWZc4p4=
 		</data>
 		<key>Modules/ADOPUtility.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -42,11 +42,11 @@
 		</data>
 		<key>Modules/ADOPUtility.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		+6i9vopQfxWXhwBF9ChG17CD+Rs=
+		irGyw0hnuZ1v+3RhBCnNF3O2JNM=
 		</data>
 		<key>Modules/ADOPUtility.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		TXyjQCrQndC0qPZ6Pc33nPo249U=
+		9ePYok3GPa15y+tfncq8QWZc4p4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -59,11 +59,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XpyGaPqRpdQIStGhodchz4SRfFE=
+			ctJhTsgt1RhggniZSq40yRFIVto=
 			</data>
 			<key>hash2</key>
 			<data>
-			IGTl9DucP1AUxBd8d6IUW6MUyaegnV7t3WRAcmhTekk=
+			F52PRiDtqdKLSQAqCBT7M2hvUjgZbrheXnIvEnBNFpw=
 			</data>
 		</dict>
 		<key>Headers/ADOPUtility.h</key>
@@ -81,22 +81,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ca+KsTdpmtsw/GVRVn9YQ4JYYUU=
+			V3i9dQ3FTojNPHDllXj2xJECxIU=
 			</data>
 			<key>hash2</key>
 			<data>
-			6ymveASkOkvgtL287fmqHsnYrm91J6pW160mkd+ak9I=
+			nGx8IFGvjbMbdyXof+c8YHA2knfWFFcwh6xnAHqIuy4=
 			</data>
 		</dict>
 		<key>Modules/ADOPUtility.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ca+KsTdpmtsw/GVRVn9YQ4JYYUU=
+			V3i9dQ3FTojNPHDllXj2xJECxIU=
 			</data>
 			<key>hash2</key>
 			<data>
-			6ymveASkOkvgtL287fmqHsnYrm91J6pW160mkd+ak9I=
+			nGx8IFGvjbMbdyXof+c8YHA2knfWFFcwh6xnAHqIuy4=
 			</data>
 		</dict>
 		<key>Modules/ADOPUtility.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -114,22 +114,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+6i9vopQfxWXhwBF9ChG17CD+Rs=
+			irGyw0hnuZ1v+3RhBCnNF3O2JNM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Dx39lI6vyX5V2rBJcz5uxEhHKRQYkVWD+KrvWP6Tg1o=
+			LKYQ2dnqEUzf80/RtbGoYlYqenQ882s317gDTP9dDK4=
 			</data>
 		</dict>
 		<key>Modules/ADOPUtility.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TXyjQCrQndC0qPZ6Pc33nPo249U=
+			9ePYok3GPa15y+tfncq8QWZc4p4=
 			</data>
 			<key>hash2</key>
 			<data>
-			uW7SnogcIJPYVQp6nyaKX2KtdB8S8ayGHsuZLlbO/Rs=
+			PjeaXLB7pOIzUmxQ4t09otCBZS3yM6G1AQ9wpWblGBI=
 			</data>
 		</dict>
 		<key>Modules/ADOPUtility.swiftmodule/arm64.swiftdoc</key>
@@ -147,22 +147,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+6i9vopQfxWXhwBF9ChG17CD+Rs=
+			irGyw0hnuZ1v+3RhBCnNF3O2JNM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Dx39lI6vyX5V2rBJcz5uxEhHKRQYkVWD+KrvWP6Tg1o=
+			LKYQ2dnqEUzf80/RtbGoYlYqenQ882s317gDTP9dDK4=
 			</data>
 		</dict>
 		<key>Modules/ADOPUtility.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TXyjQCrQndC0qPZ6Pc33nPo249U=
+			9ePYok3GPa15y+tfncq8QWZc4p4=
 			</data>
 			<key>hash2</key>
 			<data>
-			uW7SnogcIJPYVQp6nyaKX2KtdB8S8ayGHsuZLlbO/Rs=
+			PjeaXLB7pOIzUmxQ4t09otCBZS3yM6G1AQ9wpWblGBI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

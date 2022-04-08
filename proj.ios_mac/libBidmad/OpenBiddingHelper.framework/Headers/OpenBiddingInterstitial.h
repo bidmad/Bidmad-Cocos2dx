@@ -69,6 +69,8 @@
 
 @property (nonatomic, strong) NSString * _Nullable CUID;
 
+@property (nonatomic, strong) NSString * _Nullable currentAdNetwork;
+
 ///inititalize
 - (id)init;
 

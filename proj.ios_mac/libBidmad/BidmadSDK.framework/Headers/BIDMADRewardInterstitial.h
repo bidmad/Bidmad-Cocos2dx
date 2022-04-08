@@ -21,6 +21,7 @@
     @property (nonatomic) NSString *zoneID;
     @property (nonatomic) BOOL isLoaded;
     @property (nonatomic, strong) NSString * _Nullable CUID;
+    @property (nonatomic, strong) NSString * _Nullable currentAdNetwork;
 
     - (void) requestRewardInterstitial;
     - (void) showRewardInterstitialView;

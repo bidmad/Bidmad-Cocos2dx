@@ -26,6 +26,7 @@
     @property (nonatomic) BOOL justLoading;
     @property (nonatomic) BOOL preventARCKill;
     @property (nonatomic, strong) NSString * _Nullable CUID;
+    @property (nonatomic, strong) NSString * _Nullable currentAdNetwork;
 
     - (void) requestRewardInterstitial;
     - (void) showRewardInterstitialView;
