@@ -1,3 +1,10 @@
+# Version 1.7.1
+#### Changes
+- Fix Android Build Error
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx 2.4.0.0
+- iOS : BidmadSDK.framework 4.2.1.0
+
 # Version 1.7.0
 #### Changes
 - Advertisement processing logic stabilization
