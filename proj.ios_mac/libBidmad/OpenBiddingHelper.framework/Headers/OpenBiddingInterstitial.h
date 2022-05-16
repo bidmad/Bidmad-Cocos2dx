@@ -45,31 +45,20 @@
 
 @interface OpenBiddingInterstitial : NSObject <BIDMADOpenBiddingInterstitialInnerDelegate, BIDMADInterstitialDelegate>
 
-@property (nonatomic, strong) id<BIDMADOpenBiddingInterstitialDelegate> delegate;
-
+@property (nonatomic, strong) id<BIDMADOpenBiddingInterstitialDelegate>      delegate;
 @property (nonatomic, strong) id<BIDMADOpenBiddingInterstitialInnerDelegate> innerDelegate;
-
-@property (nonatomic, strong) UIViewController* parentViewController;
-
-@property (strong, nonatomic) NSDictionary*             ads_dic;
-
-@property (strong, nonatomic) NSDictionary*                      ecmp_rev_info;
-@property (strong, nonatomic) NSDictionary*                      area_info;
-
-@property (strong, nonatomic) NSDictionary*                    change_info;
-@property (strong, nonatomic) NSDictionary*                    date;
-
-@property (nonatomic) NSString * zoneID;
-
-@property (nonatomic) bool justLoading;
-
-@property (nonatomic) NSString *                 realZoneId;
-
-@property (nonatomic) BOOL                       isLoaded;
-
-@property (nonatomic, strong) NSString * _Nullable CUID;
-
-@property (nonatomic, strong) NSString * _Nullable currentAdNetwork;
+@property (nonatomic, strong) UIViewController*                              parentViewController;
+@property (strong, nonatomic) NSDictionary*                                  ads_dic;
+@property (strong, nonatomic) NSDictionary*                                  ecmp_rev_info;
+@property (strong, nonatomic) NSDictionary*                                  area_info;
+@property (strong, nonatomic) NSDictionary*                                  change_info;
+@property (strong, nonatomic) NSDictionary*                                  date;
+@property (nonatomic)         NSString*                                      zoneID;
+@property (nonatomic)         bool                                           justLoading;
+@property (nonatomic)         NSString*                                      realZoneId;
+@property (nonatomic)         BOOL                                           isLoaded;
+@property (nonatomic, strong) NSString* _Nullable                            CUID;
+@property (nonatomic, strong) NSString* _Nullable                            currentAdNetwork;
 
 ///inititalize
 - (id)init;

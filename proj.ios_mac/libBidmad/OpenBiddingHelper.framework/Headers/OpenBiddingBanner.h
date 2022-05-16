@@ -29,25 +29,18 @@
 
 @interface OpenBiddingBanner : UIView<BIDMADOpenBiddingBannerInnerDelegate, BIDMADBannerDelegate>
 
-@property (strong, nonatomic) NSDictionary* ads_dic;
-@property (nonatomic) bannerSizeType bannerType;
+@property (strong, nonatomic) NSDictionary*                       ads_dic;
+@property (nonatomic)         bannerSizeType                      bannerType;
 @property (strong, nonatomic) id<BIDMADOpenBiddingBannerDelegate> delegate;
-
-@property (strong, nonatomic) NSDictionary* ecmp_rev_info;
-@property (strong, nonatomic) NSDictionary* area_info;
-
-@property (strong, nonatomic) NSDictionary* change_info;
-@property (strong, nonatomic) NSDictionary* date;
-
-@property (nonatomic) NSString* realZoneId;
-
-@property (nonatomic) NSString* zoneID;
-
-@property (nonatomic, assign) int refreshInterval;
-
-@property (nonatomic, strong) NSString* currentAdNetwork;
-
-@property (nonatomic, strong) NSString * _Nullable CUID;
+@property (strong, nonatomic) NSDictionary*                       ecmp_rev_info;
+@property (strong, nonatomic) NSDictionary*                       area_info;
+@property (strong, nonatomic) NSDictionary*                       change_info;
+@property (strong, nonatomic) NSDictionary*                       date;
+@property (nonatomic)         NSString*                           realZoneId;
+@property (nonatomic)         NSString*                           zoneID;
+@property (nonatomic, assign) int                                 refreshInterval;
+@property (nonatomic, strong) NSString*                           currentAdNetwork;
+@property (nonatomic, strong) NSString* _Nullable                 CUID;
 
 /// Banner Size Parameter is no longer supported, Please use initWithParentViewController:(UIViewController *):(CGPoint)
 - (id)initWithParentViewController:(UIViewController *)parentVC adsPosition:(CGPoint)pointn bannerSize:(bannerSizeType) bannerTypeParam __deprecated;
@@ -61,7 +54,7 @@
 - (void)requestBannerView;
 /// DELETE ADS
 - (void)removeAds;
-- (void)selectAds:(NSDictionary *)lv_dic isAdsExist:(BOOL)isAds;
+- (void)selectAds:(NSDictionary *)lv_dic;
 - (void)runAds;
 - (void)setParentController:(UIViewController *)parentVC;
 - (void)hideView;

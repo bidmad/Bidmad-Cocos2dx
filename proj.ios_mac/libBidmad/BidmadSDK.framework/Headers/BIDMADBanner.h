@@ -93,7 +93,6 @@
 /// If success, it lastly calls selectAds with the first ad with the highest floor price.
 - (NSError * _Nullable)sortBasedOnFloorPriceAndSelectFirstAd;
 - (NSError * _Nullable)withoutSortingJustSelectFirstAd;
-- (void)selectAds:(NSDictionary *)lv_dic isAdsExist:(BOOL)isAds;
 - (void)runAds;
 - (void)setParentController:(UIViewController *)parentVC;
 - (void)hideView;

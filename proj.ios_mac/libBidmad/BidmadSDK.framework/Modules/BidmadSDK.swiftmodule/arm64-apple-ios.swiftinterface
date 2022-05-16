@@ -1,176 +1,95 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BidmadSDK
+import ADOPUtility
+import AppTrackingTransparency
 @_exported import BidmadSDK
 import Foundation
 import GoogleMobileAds
 import Swift
 import UIKit
-@objc public protocol BIDMADNativeAdCommonInterface {
-  @objc init(with appid: Swift.String, placementId: Swift.String?, nativeAdMediationManager: Swift.AnyObject, rootViewController: UIKit.UIViewController, nativeAdView: Swift.AnyObject, isDebug: Swift.Bool, isChildDirectedAds: Foundation.NSNumber?)
-  @objc func loadNativeAd()
-  @objc func showNativeAd()
-  @objc func hideNativeAd()
-  @objc func remove()
-}
-@objc public protocol BidmadAdCommon {
-  @objc init(with zoneID: Swift.String, on rootViewController: UIKit.UIViewController)
-  @objc func request()
-  @objc func select(ad: BidmadSDK.ReceivedAd)
-  @objc func remove()
-}
-@objc public protocol BIDMADNativeAdDelegate {
-  @objc func bidmadNativeAdLoad()
-  @objc func bidmadNativeAdShow()
-  @objc func bidmadNativeAdClick()
-  @objc func bidmadNativeAdAllFail(_ error: Foundation.NSError)
-}
-@objc public protocol BIDMADNativeAdInnerDelegate {
-  @objc func onLoad()
-  @objc func onShow()
-  @objc func onClick()
-  @objc func onFail(_ errorString: Swift.String)
-}
-public struct BIDMADNativeAdError {
-}
-@objc open class BIDMADNativeAd : ObjectiveC.NSObject {
-  @objc public static var AD_TYPE: Swift.String
-  @objc public static var TEST_NATIVEAD_ZONEID: Swift.String
-  @objc final public let zoneID: Swift.String
-  @objc final public let rootViewController: UIKit.UIViewController
-  @objc weak public var delegate: BidmadSDK.BIDMADNativeAdDelegate?
-  @objc public var userCreatedNativeAdView: BidmadSDK.BIDMADNativeAdView?
-  @objc public var starRatingImage: [Swift.String : UIKit.UIImage]?
-  @objc required public init(with zoneID: Swift.String, on rootViewController: UIKit.UIViewController)
-  @objc deinit
-  @objc override dynamic public init()
-}
-extension BIDMADNativeAd : BidmadSDK.CompassDataRequestDelegate {
-  @objc dynamic public func DataRequestSuccess()
-  @objc dynamic public func DataRequestFail(_ errorReason: Swift.String)
-}
-extension BIDMADNativeAd : BidmadSDK.BidmadAdCommon {
-  @objc dynamic public func request()
-  @objc dynamic public func select(ad: BidmadSDK.ReceivedAd)
-  @objc dynamic public func remove()
-  @objc dynamic public func show()
-  @objc dynamic public func hide()
-}
-extension BIDMADNativeAd : BidmadSDK.BIDMADNativeAdInnerDelegate {
-  @objc dynamic public func onLoad()
-  @objc dynamic public func onShow()
-  @objc dynamic public func onFail(_ errorString: Swift.String)
-  @objc dynamic public func onClick()
-}
-@objc open class BIDMADAdmobNativeAd : ObjectiveC.NSObject {
-  @objc public static var TEST_ADMOB_NATIVEAD: Swift.String
-  @objc public static var TEST_ADX_NATIVEAD: Swift.String
-  public var appid: Swift.String!
-  public var bidmadNativeAd: BidmadSDK.BIDMADNativeAd?
+import _Concurrency
+@objc @objcMembers open class BIDMADAdmobNativeAd : ObjectiveC.NSObject, ADOPUtility.BIDMADNativeAdCommonInterface, ADOPUtility.BIDMADNativeAdCallbacks, GoogleMobileAds.GADNativeAdLoaderDelegate {
+  @objc public static let TEST_ADMOB_NATIVEAD: Swift.String
+  @objc public static let TEST_ADX_NATIVEAD: Swift.String
+  @objc final public let appid: Swift.String
   @objc public var isAdMob: Swift.Bool
-  @objc public var nativeAdView: BidmadSDK.BIDMADNativeAdView?
-  @objc required public init(with appid: Swift.String, placementId: Swift.String?, nativeAdMediationManager: Swift.AnyObject, rootViewController: UIKit.UIViewController, nativeAdView: Swift.AnyObject, isDebug: Swift.Bool, isChildDirectedAds: Foundation.NSNumber?)
+  @objc final public let loadCallback: ((ADOPUtility.BidmadNativeAdDataInterface?) -> Swift.Void)
+  @objc final public let clickCallback: ((ADOPUtility.BidmadNativeAdDataInterface) -> Swift.Void)
+  @objc required public init(with appid: Swift.String, placementId: Swift.String?, bidmadController: Swift.AnyObject, isDebug: Swift.Bool, isChildDirectedAds: Foundation.NSNumber?, loadCallback: @escaping ((ADOPUtility.BidmadNativeAdDataInterface?) -> Swift.Void), clickCallback: @escaping ((ADOPUtility.BidmadNativeAdDataInterface?) -> Swift.Void))
+  @objc public func loadNativeAd()
+  @objc public func remove()
+  @objc public func adLoader(_ adLoader: GoogleMobileAds.GADAdLoader, didFailToReceiveAdWithError error: Swift.Error)
+  @objc public func adLoader(_ adLoader: GoogleMobileAds.GADAdLoader, didReceive nativeAd: GoogleMobileAds.GADNativeAd)
   @objc deinit
-  @objc override dynamic public init()
 }
-extension BIDMADAdmobNativeAd : BidmadSDK.BIDMADNativeAdCommonInterface {
-  @objc dynamic public func loadNativeAd()
-  @objc dynamic public func showNativeAd()
-  @objc dynamic public func hideNativeAd()
-  @objc dynamic public func remove()
-}
-extension BIDMADAdmobNativeAd : GoogleMobileAds.GADAdLoaderDelegate {
-  @objc dynamic public func adLoader(_ adLoader: GoogleMobileAds.GADAdLoader, didFailToReceiveAdWithError error: Swift.Error)
-  @objc dynamic public func adLoaderDidFinishLoading(_ adLoader: GoogleMobileAds.GADAdLoader)
-}
-extension BIDMADAdmobNativeAd : GoogleMobileAds.GADNativeAdLoaderDelegate {
-  @objc dynamic public func adLoader(_ adLoader: GoogleMobileAds.GADAdLoader, didReceive nativeAd: GoogleMobileAds.GADNativeAd)
-}
-extension BIDMADAdmobNativeAd : GoogleMobileAds.GADNativeAdDelegate {
+extension BidmadSDK.BIDMADAdmobNativeAd : GoogleMobileAds.GADNativeAdDelegate {
   @objc dynamic public func nativeAdDidRecordImpression(_ nativeAd: GoogleMobileAds.GADNativeAd)
   @objc dynamic public func nativeAdDidRecordClick(_ nativeAd: GoogleMobileAds.GADNativeAd)
   @objc dynamic public func nativeAdWillPresentScreen(_ nativeAd: GoogleMobileAds.GADNativeAd)
   @objc dynamic public func nativeAdWillDismissScreen(_ nativeAd: GoogleMobileAds.GADNativeAd)
   @objc dynamic public func nativeAdDidDismissScreen(_ nativeAd: GoogleMobileAds.GADNativeAd)
-  public func nativeAdWillLeaveApplication(_ nativeAd: GoogleMobileAds.GADNativeAd)
+  @objc dynamic public func nativeAdWillLeaveApplication(_ nativeAd: GoogleMobileAds.GADNativeAd)
 }
-extension BIDMADAdmobNativeAd : GoogleMobileAds.GADVideoControllerDelegate {
+extension BidmadSDK.BIDMADAdmobNativeAd : GoogleMobileAds.GADVideoControllerDelegate {
   @objc dynamic public func videoControllerDidPlayVideo(_ videoController: GoogleMobileAds.GADVideoController)
   @objc dynamic public func videoControllerDidEndVideoPlayback(_ videoController: GoogleMobileAds.GADVideoController)
 }
-@_inheritsConvenienceInitializers @objc open class BidmadParentUIView : UIKit.UIView {
-  @objc override dynamic open func hitTest(_ point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> UIKit.UIView?
+@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) open class BidmadParentUIView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func hitTest(_ point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
 }
-@objc public protocol CompassDataRequestDelegate : AnyObject {
+@objc public protocol BIDMADNativeAdDelegate {
+  @objc func bidmadNativeAd(loadedAd: BidmadSDK.BIDMADNativeAd)
+  @objc func bidmadNativeAd(clickedAd: BidmadSDK.BIDMADNativeAd)
+  @objc func bidmadNativeAdAllFail(_ error: Foundation.NSError)
+}
+public struct BIDMADNativeAdError {
+}
+@_inheritsConvenienceInitializers @objc open class BIDMADNativeAdLoader : ObjectiveC.NSObject {
+  @objc weak public var delegate: BidmadSDK.BIDMADNativeAdDelegate?
+  @objc required override dynamic public init()
+  @objc deinit
+  @objc public func request(for zoneID: Swift.String)
+  public static func nativeAdSetup(for nativeAd: BidmadSDK.BIDMADNativeAd, viewController: UIKit.UIViewController, adView: BidmadSDK.BIDMADNativeAdView)
+  public static func cleanUp(for nativeAd: BidmadSDK.BIDMADNativeAd, adView: BidmadSDK.BIDMADNativeAdView)
+}
+@objc public protocol CompassDataRequestDelegate {
   @objc func DataRequestSuccess()
   @objc func DataRequestFail(_ errorReason: Swift.String)
 }
-@objc open class BidmadNetwork : ObjectiveC.NSObject {
-  public var urlSessionTask: Foundation.URLSessionDataTask?
-  public var isDebug: Swift.Bool?
-  @objc public var realZoneID: Swift.String?
-  @objc public var adData: BidmadSDK.CompassReceivedData?
-  weak public var delegate: BidmadSDK.CompassDataRequestDelegate?
-  public var isLabelService: Swift.Bool
-  public var isLabelServiceAdmin: Swift.Bool
-  @objc public init(withDelegate delegateArg: BidmadSDK.CompassDataRequestDelegate)
-  @objc public func objcCompatible() -> [Swift.String : Any]?
-  @objc public func request(forZoneID zoneID: Swift.String)
-  @objc public func remove()
-  @objc deinit
-  @objc override dynamic public init()
+public enum BidmadNetworkError : Swift.Error {
+  case invalidURL, noData, networkError, jsonDecodeFail, noAd, noFirstAd
+  public static func == (a: BidmadSDK.BidmadNetworkError, b: BidmadSDK.BidmadNetworkError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
-@objc public class CompassReceivedData : ObjectiveC.NSObject, Swift.Codable {
-  required public init(from decoder: Swift.Decoder) throws
-  @objc deinit
+@_inheritsConvenienceInitializers @objc open class BidmadNetwork : ObjectiveC.NSObject {
   @objc override dynamic public init()
-  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
 }
-@objc public class ReceivedAd : ObjectiveC.NSObject, Swift.Codable {
-  required public init(from decoder: Swift.Decoder) throws
-  @objc deinit
-  @objc override dynamic public init()
-  public func encode(to encoder: Swift.Encoder) throws
-}
-@objc public class ECPMRevInfo : ObjectiveC.NSObject, Swift.Codable {
-  required public init(from decoder: Swift.Decoder) throws
-  @objc deinit
-  @objc override dynamic public init()
-  public func encode(to encoder: Swift.Encoder) throws
-}
-@objc public class ChangeInfo : ObjectiveC.NSObject, Swift.Codable {
-  required public init(from decoder: Swift.Decoder) throws
-  @objc deinit
-  @objc override dynamic public init()
-  public func encode(to encoder: Swift.Encoder) throws
-}
-@objc public class LabelService : ObjectiveC.NSObject, Swift.Codable {
-  required public init(from decoder: Swift.Decoder) throws
-  @objc deinit
-  @objc override dynamic public init()
-  public func encode(to encoder: Swift.Encoder) throws
-}
-@objc public class DateInfo : ObjectiveC.NSObject, Swift.Codable {
-  required public init(from decoder: Swift.Decoder) throws
-  @objc deinit
-  @objc override dynamic public init()
-  public func encode(to encoder: Swift.Encoder) throws
-}
-@objc public class AreaInfo : ObjectiveC.NSObject, Swift.Codable {
-  required public init(from decoder: Swift.Decoder) throws
-  @objc deinit
-  @objc override dynamic public init()
-  public func encode(to encoder: Swift.Encoder) throws
+public enum BidmadSendLogType : Swift.String {
+  case req
+  case load
+  case nofill
+  case click
+  case noshow
+  case close
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
 }
 @_inheritsConvenienceInitializers @objc open class BidmadUtility : ObjectiveC.NSObject {
-  public static func sendLog(adtype: Swift.String?, adcode: Swift.String?, pubid: Swift.String?, areaidx: Swift.String?, order: Swift.Int?, adv_price: Swift.Int?, advertisementType: Swift.String?, logType: Swift.String, sessionId: Swift.String, realZoneId: Swift.String, completionHandler: @escaping (Swift.Bool) -> Swift.Void)
   @objc public static func gdprSettingToOptionalBool() -> Foundation.NSNumber?
   @objc public static func bidmadSwiftSort(_ adInfoArray: [BidmadSDK.BidmadAdInfo]) -> [BidmadSDK.BidmadAdInfo]
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @objc open class BidmadAdInfo : ObjectiveC.NSObject {
   @objc public var adInfoDict: Swift.Dictionary<Swift.String, Any>
@@ -186,21 +105,49 @@ extension BIDMADAdmobNativeAd : GoogleMobileAds.GADVideoControllerDelegate {
     @objc get
   }
   @objc deinit
-  @objc override dynamic public init()
 }
-extension UIDevice {
-  @objc public static var bidmadModelNameChecker: Swift.String
+extension UIKit.UIDevice {
+  @objc @_Concurrency.MainActor(unsafe) public static let bidmadModelNameChecker: Swift.String
 }
-@objc open class MediationTableView : UIKit.UIView {
-  @objc public init(frame: CoreGraphics.CGRect, adOrder: [Swift.String], adEcpm: [Swift.String], adFill: [Swift.String], tableViewCellHeight: Swift.Int)
-  @objc required dynamic public init?(coder: Foundation.NSCoder)
+@objc @objcMembers open class BIDMADNativeAd : ObjectiveC.NSObject, Swift.Identifiable, ADOPUtility.BidmadNativeAdDataInterface {
+  @objc public var id: Swift.Int
+  @objc required public init(identifier: Swift.Int)
+  @objc public var headline: Swift.String?
+  @objc public var body: Swift.String?
+  @objc public var callToAction: Swift.String?
+  @objc public var icon: UIKit.UIImage?
+  @objc public var starRating: Foundation.NSDecimalNumber?
+  @objc public var store: Swift.String?
+  @objc public var price: Swift.String?
+  @objc public var advertiser: Swift.String?
+  @objc public var nativeAdAdMob: Swift.AnyObject?
+  @objc public var nativeAdPangle: Swift.AnyObject?
+  @objc public var mediaContent: GoogleMobileAds.GADMediaContent?
+  @objc public var mediaView: GoogleMobileAds.GADMediaView?
+  @objc public var pangleMediaImageURL: Swift.String?
+  @objc public var pangleMediaVideoView: UIKit.UIView?
+  @objc public var pangleMediaImageView: UIKit.UIImageView?
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc public func remove()
+  public typealias ID = Swift.Int
   @objc deinit
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
-extension MediationTableView : UIKit.UITableViewDelegate {
-  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
+@objc @_Concurrency.MainActor(unsafe) open class MediationTableView : UIKit.UIView {
+  @objc @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, adOrder: [Swift.String], adEcpm: [Swift.String], adFill: [Swift.String], tableViewCellHeight: Swift.Int)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
 }
-extension MediationTableView : UIKit.UITableViewDataSource {
-  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
-  @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+extension BidmadSDK.MediationTableView : UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat
 }
+extension BidmadSDK.MediationTableView : UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+}
+extension BidmadSDK.BidmadNetworkError : Swift.Equatable {}
+extension BidmadSDK.BidmadNetworkError : Swift.Hashable {}
+extension BidmadSDK.BidmadSendLogType : Swift.Equatable {}
+extension BidmadSDK.BidmadSendLogType : Swift.Hashable {}
+extension BidmadSDK.BidmadSendLogType : Swift.RawRepresentable {}

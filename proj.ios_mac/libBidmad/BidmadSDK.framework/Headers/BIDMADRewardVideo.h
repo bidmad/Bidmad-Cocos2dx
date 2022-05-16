@@ -18,24 +18,9 @@
 
 @protocol BIDMADRewardVideoDelegate;
 
-@protocol BIDMADRewardVideoInnerDelegate <NSObject>
-@required
-
-- (void)onVideoLoad;
-- (void)onVideoError:(NSString *)error failType:(NSString *)failType;
-- (void)onVideoShow;
-- (void)onVideoClick;
-- (void)onVideoSuccess;
-- (void)onVideoSkipped;
-- (void)onVideoClose;
-
-@end
-
-@interface BIDMADRewardVideo : NSObject <BIDMADRewardVideoInnerDelegate>
+@interface BIDMADRewardVideo : NSObject
 
 @property (nonatomic, strong) id<BIDMADRewardVideoDelegate> delegate;
-
-@property (nonatomic, strong) id<BIDMADRewardVideoInnerDelegate> innerDelegate;
 
 @property (nonatomic, strong) UIViewController*             parentViewController;
 
@@ -105,14 +90,22 @@
 
 - (void)selectAds:(NSDictionary *)lv_dic;
 
-- (void) sendLog :(NSDictionary *) info :(NSString *) advertisementType :(NSString *) logType;
+- (void)sendLog :(NSDictionary *) info :(NSString *) advertisementType :(NSString *) logType;
 
-- (void) sendLog :(NSDictionary *) info :(NSString *) advertisementType :(NSString *) logType :(NSString *)recvSessionId;
+- (void)sendLog :(NSDictionary *) info :(NSString *) advertisementType :(NSString *) logType :(NSString *)recvSessionId;
 
-- (void) releaseBidmadResource;
+- (void)releaseBidmadResource;
+- (void)removeRewardADS;
 
-- (void) removeRewardADS;
+// MARK: INNER DELEGATE
 
+- (void)onVideoLoad;
+- (void)onVideoError:(NSString *)error failType:(NSString *)failType;
+- (void)onVideoShow;
+- (void)onVideoClick;
+- (void)onVideoSuccess;
+- (void)onVideoSkipped;
+- (void)onVideoClose;
 
 @end
 

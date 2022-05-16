@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name OpenBiddingHelper
 import ADOPUtility
 import BidmadSDK
@@ -7,8 +7,10 @@ import Foundation
 @_exported import OpenBiddingHelper
 import Swift
 import UIKit
+import _Concurrency
 @objc open class BidmadAppOpenAd : ObjectiveC.NSObject {
   @objc public var delegate: OpenBiddingHelper.OpenBiddingAppOpenAdDelegate?
+  @objc public var isAutoReload: Swift.Bool
   @objc required public init(with parentViewController: UIKit.UIViewController, zoneID: Swift.String)
   @objc public func load()
   @objc public func show()
@@ -16,14 +18,13 @@ import UIKit
   @objc public func deregisterForAppOpenAd()
   @objc public func isLoaded() -> Swift.Bool
   @objc deinit
-  @objc override dynamic public init()
 }
-extension BidmadAppOpenAd : OpenBiddingHelper.OpenBiddingAppOpenAdDelegate {
-  @objc dynamic public func openBiddingAppOpenAdLoad(_ core: OpenBiddingHelper.OpenBiddingAppOpenAd!)
-  @objc dynamic public func openBiddingAppOpenAdShow(_ core: OpenBiddingHelper.OpenBiddingAppOpenAd!)
-  @objc dynamic public func openBiddingAppOpenAdClick(_ core: OpenBiddingHelper.OpenBiddingAppOpenAd!)
-  @objc dynamic public func openBiddingAppOpenAdClose(_ core: OpenBiddingHelper.OpenBiddingAppOpenAd!)
-  @objc dynamic public func openBiddingAppOpenAdAllFail(_ core: OpenBiddingHelper.OpenBiddingAppOpenAd!, code error: Swift.String!)
+extension OpenBiddingHelper.BidmadAppOpenAd : OpenBiddingHelper.OpenBiddingAppOpenAdDelegate {
+  @objc dynamic public func openBiddingAppOpenAdLoad(_ core: OpenBiddingHelper.OpenBiddingAppOpenAd)
+  @objc dynamic public func openBiddingAppOpenAdShow(_ core: OpenBiddingHelper.OpenBiddingAppOpenAd)
+  @objc dynamic public func openBiddingAppOpenAdClick(_ core: OpenBiddingHelper.OpenBiddingAppOpenAd)
+  @objc dynamic public func openBiddingAppOpenAdClose(_ core: OpenBiddingHelper.OpenBiddingAppOpenAd)
+  @objc dynamic public func openBiddingAppOpenAdAllFail(_ core: OpenBiddingHelper.OpenBiddingAppOpenAd)
 }
 @objc open class BidmadBannerAd : ObjectiveC.NSObject {
   @objc public var delegate: OpenBiddingHelper.BIDMADOpenBiddingBannerDelegate?
@@ -35,13 +36,23 @@ extension BidmadAppOpenAd : OpenBiddingHelper.OpenBiddingAppOpenAdDelegate {
   @objc public func show()
   @objc public func remove()
   @objc deinit
-  @objc override dynamic public init()
 }
-extension BidmadBannerAd : OpenBiddingHelper.BIDMADOpenBiddingBannerDelegate {
+extension OpenBiddingHelper.BidmadBannerAd : OpenBiddingHelper.BIDMADOpenBiddingBannerDelegate {
   @objc dynamic public func bidmadOpenBiddingBannerLoad(_ core: OpenBiddingHelper.OpenBiddingBanner!)
   @objc dynamic public func bidmadOpenBiddingBannerClick(_ core: OpenBiddingHelper.OpenBiddingBanner!)
   @objc dynamic public func bidmadOpenBiddingBannerAllFail(_ core: OpenBiddingHelper.OpenBiddingBanner!)
   @objc dynamic public func bidmadOpenBiddingBannerClosed(_ core: OpenBiddingHelper.OpenBiddingBanner!)
+}
+@objc @_inheritsConvenienceInitializers @objcMembers open class BidmadNativeAdLoader : ObjectiveC.NSObject, BidmadSDK.BIDMADNativeAdDelegate {
+  @objc weak public var delegate: BidmadSDK.BIDMADNativeAdDelegate?
+  @objc required override dynamic public init()
+  @objc public func load(for zoneID: Swift.String)
+  @objc public static func setup(for nativeAd: BidmadSDK.BIDMADNativeAd, viewController: UIKit.UIViewController, adView: BidmadSDK.BIDMADNativeAdView)
+  @objc public static func cleanUp(for nativeAd: BidmadSDK.BIDMADNativeAd, adView: BidmadSDK.BIDMADNativeAdView)
+  @objc public func bidmadNativeAd(loadedAd: BidmadSDK.BIDMADNativeAd)
+  @objc public func bidmadNativeAd(clickedAd: BidmadSDK.BIDMADNativeAd)
+  @objc public func bidmadNativeAdAllFail(_ error: Foundation.NSError)
+  @objc deinit
 }
 @objc @objcMembers open class BidmadRewardAd : ObjectiveC.NSObject, OpenBiddingHelper.BIDMADOpenBiddingRewardVideoDelegate {
   @objc public var delegate: OpenBiddingHelper.BIDMADOpenBiddingRewardVideoDelegate?
@@ -61,7 +72,6 @@ extension BidmadBannerAd : OpenBiddingHelper.BIDMADOpenBiddingBannerDelegate {
   @objc public func bidmadOpenBiddingRewardVideoErrorLoadLog(_ currentDic: [Swift.AnyHashable : Any]!)
   @objc public func bidmadOpenBiddingRewardVideoSuccessLoadLog(_ currentDic: [Swift.AnyHashable : Any]!)
   @objc deinit
-  @objc override dynamic public init()
 }
 @objc @objcMembers open class BidmadInterstitialAd : ObjectiveC.NSObject, OpenBiddingHelper.BIDMADOpenBiddingInterstitialDelegate {
   @objc public var delegate: OpenBiddingHelper.BIDMADOpenBiddingInterstitialDelegate?
@@ -76,7 +86,6 @@ extension BidmadBannerAd : OpenBiddingHelper.BIDMADOpenBiddingBannerDelegate {
   @objc public func bidmadOpenBiddingInterstitialClose(_ core: OpenBiddingHelper.OpenBiddingInterstitial!)
   @objc public func bidmadOpenBiddingInterstitialAllFail(_ core: OpenBiddingHelper.OpenBiddingInterstitial!)
   @objc deinit
-  @objc override dynamic public init()
 }
 @objc @objcMembers open class BidmadRewardInterstitialAd : ObjectiveC.NSObject, OpenBiddingHelper.OpenBiddingRewardInterstitialDelegate {
   @objc public var delegate: OpenBiddingHelper.OpenBiddingRewardInterstitialDelegate?
@@ -94,7 +103,6 @@ extension BidmadBannerAd : OpenBiddingHelper.BIDMADOpenBiddingBannerDelegate {
   @objc public func openBiddingRewardInterstitialSuccess(_ core: OpenBiddingHelper.OpenBiddingRewardInterstitial!)
   @objc public func openBiddingRewardInterstitialAllFail(_ core: OpenBiddingHelper.OpenBiddingRewardInterstitial!)
   @objc deinit
-  @objc override dynamic public init()
 }
 @objc open class BidmadOfferwallAd : ObjectiveC.NSObject {
   @objc public var delegate: BidmadSDK.BIDMADOfferwallDelegate?
@@ -103,12 +111,11 @@ extension BidmadBannerAd : OpenBiddingHelper.BIDMADOpenBiddingBannerDelegate {
   @objc public func show()
   @objc public func setCUID(_ cuid: Swift.String)
   @objc public func isLoaded() -> Swift.Bool
-  @objc public func getCurrency(currencyReceivalCompletion: @escaping (Swift.Bool, Swift.Int) -> Swift.Void)
-  @objc public func spendCurrency(_ amount: Swift.Int, currencySpenditureCompletion: @escaping (Swift.Bool, Swift.Int) -> Swift.Void)
+  @objc public func getCurrency(currencyReceivalCompletion: @escaping (_ isSuccess: Swift.Bool, _ currencyAmount: Swift.Int) -> Swift.Void)
+  @objc public func spendCurrency(_ amount: Swift.Int, currencySpenditureCompletion: @escaping (_ isSuccess: Swift.Bool, _ currencyAmount: Swift.Int) -> Swift.Void)
   @objc deinit
-  @objc override dynamic public init()
 }
-extension BidmadOfferwallAd : BidmadSDK.BIDMADOfferwallDelegate {
+extension OpenBiddingHelper.BidmadOfferwallAd : BidmadSDK.BIDMADOfferwallDelegate {
   @objc dynamic public func bidmadOfferwallLoadAd(_ core: BidmadSDK.BIDMADOfferwall!)
   @objc dynamic public func bidmadOfferwallShowAd(_ core: BidmadSDK.BIDMADOfferwall!)
   @objc dynamic public func bidmadOfferwallCloseAd(_ core: BidmadSDK.BIDMADOfferwall!)
@@ -116,7 +123,7 @@ extension BidmadOfferwallAd : BidmadSDK.BIDMADOfferwallDelegate {
   @objc dynamic public func bidmadOfferwallInitSuccess(_ core: BidmadSDK.BIDMADOfferwall!)
   @objc dynamic public func bidmadOfferwallInitFail(_ core: BidmadSDK.BIDMADOfferwall!, error: Swift.String!)
 }
-extension BidmadOfferwallAd : BidmadSDK.BIDMADOfferwallCurrencyDelegate {
+extension OpenBiddingHelper.BidmadOfferwallAd : BidmadSDK.BIDMADOfferwallCurrencyDelegate {
   @objc dynamic public func bidmadOfferwallSpendCurrencyFail(_ core: BidmadSDK.BIDMADOfferwall!, error: Swift.String!)
   @objc dynamic public func bidmadOfferwallGetCurrencyBalanceFail(_ core: BidmadSDK.BIDMADOfferwall!, error: Swift.String!)
   @objc dynamic public func bidmadOfferwallSpendCurrencySuccess(_ core: BidmadSDK.BIDMADOfferwall!, currencyName: Swift.String!, balance: Swift.Int32)
@@ -125,7 +132,7 @@ extension BidmadOfferwallAd : BidmadSDK.BIDMADOfferwallCurrencyDelegate {
 @_inheritsConvenienceInitializers @objc open class BidmadCommon : ObjectiveC.NSObject {
   @objc public static func setAdvertiserTrackingEnabled(_ enable: Swift.Bool)
   @objc public static func getAdvertiserTrackingEnabled() -> Swift.Bool
-  @objc public static func reqAdTrackingAuthorization(with completionHandler: @escaping (BidmadSDK.BidmadTrackingAuthorizationStatus) -> Swift.Void)
+  @objc public static func reqAdTrackingAuthorization(with completionHandler: @escaping (_ status: BidmadSDK.BidmadTrackingAuthorizationStatus) -> Swift.Void)
   @objc public static func setIsChildDirectedAds(_ isChildDirectedAdsNeeded: Swift.Bool)
   @objc public static func setUserConsentStatusForCCPACompliance(_ isUserConsent: Swift.Bool)
   @objc public static func setIsDebug(_ isDebug: Swift.Bool)
@@ -138,8 +145,8 @@ extension BidmadOfferwallAd : BidmadSDK.BIDMADOfferwallCurrencyDelegate {
   @objc public static func initializeSdk()
   @objc public static var testMode: Swift.Bool {
     @objc get
-    @objc set(newValue)
+    @objc set
   }
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }

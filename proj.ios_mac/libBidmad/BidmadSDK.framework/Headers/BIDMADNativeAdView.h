@@ -16,16 +16,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak, nullable) IBOutlet UIImageView* iconViewCustom;
 @property(nonatomic, weak, nullable) IBOutlet UILabel* headlineViewCustom;
 @property(nonatomic, weak, nullable) IBOutlet UILabel* advertiserViewCustom;
-@property(nonatomic, weak, nullable) IBOutlet UIImageView* starRatingViewCustom;
+@property(nonatomic, weak, nullable) IBOutlet UIView* starRatingViewCustom;
 @property(nonatomic, weak, nullable) IBOutlet UILabel* bodyViewCustom;
 @property(nonatomic, weak, nullable) IBOutlet UIView* mediaViewCustom;
 @property(nonatomic, weak, nullable) IBOutlet UILabel* priceViewCustom;
 @property(nonatomic, weak, nullable) IBOutlet UILabel* storeViewCustom;
 @property(nonatomic, weak, nullable) IBOutlet UIButton* callToActionViewCustom;
-@property(nonatomic, weak, nullable) IBOutlet UIView* dislikeButtonContainerCustom;
 
 - (void)setup;
-- (void)setupForGoogleAd;
+- (void)cleanUp:(NSString *)adNetworkNm;
+- (GADMediaView* _Nonnull)setupForGoogleAd:(GADMediaView* _Nullable)mediaViewToSetup;
 
 @end
 

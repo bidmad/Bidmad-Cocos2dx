@@ -17,23 +17,9 @@
 
 @protocol BIDMADOpenBiddingRewardVideoDelegate;
 
-@protocol BIDMADOpenBiddingRewardVideoInnerDelegate <NSObject>
-@required
-
-- (void)onVideoLoad:(OpenBiddingRewardVideo *)core       current:(NSDictionary*) currentDic;
-- (void)onVideoError:(OpenBiddingRewardVideo *)core code:(NSString *)error failType:(NSString*) failType current:(NSDictionary*)currentDic passbackStr:(NSString*) passBackStr passback:(NSDictionary*) passbackDic;
-- (void)onVideoShow:(OpenBiddingRewardVideo *)core       current:(NSDictionary*) currentDic;
-- (void)onVideoClick:(OpenBiddingRewardVideo *)core      current:(NSDictionary*) currentDic;
-- (void)onVideoSuccess:(OpenBiddingRewardVideo *)core    current:(NSDictionary*) currentDic;
-- (void)onVideoSkipped:(OpenBiddingRewardVideo *) core   current:(NSDictionary*) currentDic;
-
-@end
-
-@interface OpenBiddingRewardVideo : NSObject <BIDMADOpenBiddingRewardVideoInnerDelegate, BIDMADRewardVideoDelegate>
+@interface OpenBiddingRewardVideo : NSObject <BIDMADRewardVideoDelegate>
 
 @property (nonatomic, strong) id<BIDMADOpenBiddingRewardVideoDelegate> delegate;
-
-@property (nonatomic, strong) id<BIDMADOpenBiddingRewardVideoInnerDelegate> innerDelegate;
 
 @property (nonatomic, strong) UIViewController*             parentViewController;
 
@@ -71,6 +57,15 @@
 - (void)selectAds:(NSDictionary *)lv_dic;
 
 - (void)onVideoClose;
+
+// MARK: INNER DELEGATE
+
+- (void)onVideoLoad:(OpenBiddingRewardVideo *)core       current:(NSDictionary*) currentDic;
+- (void)onVideoError:(OpenBiddingRewardVideo *)core code:(NSString *)error failType:(NSString*) failType current:(NSDictionary*)currentDic passbackStr:(NSString*) passBackStr passback:(NSDictionary*) passbackDic;
+- (void)onVideoShow:(OpenBiddingRewardVideo *)core       current:(NSDictionary*) currentDic;
+- (void)onVideoClick:(OpenBiddingRewardVideo *)core      current:(NSDictionary*) currentDic;
+- (void)onVideoSuccess:(OpenBiddingRewardVideo *)core    current:(NSDictionary*) currentDic;
+- (void)onVideoSkipped:(OpenBiddingRewardVideo *) core   current:(NSDictionary*) currentDic;
 
 @end
 

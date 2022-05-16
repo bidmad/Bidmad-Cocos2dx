@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/BIDMADAppOpenAd.h</key>
 		<data>
-		UgpYqufs+U7cEo7sZS+3UdKfUlg=
+		zoMqtYzdwkKbTed8Db9p7U0diNY=
 		</data>
 		<key>Headers/BIDMADAtom.h</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/BIDMADBanner.h</key>
 		<data>
-		djCaCsxR+pTaFrM7eMlBqL9YzHI=
+		btpJWc4mqj9d78cWAWPoXwHxH5o=
 		</data>
 		<key>Headers/BIDMADFlutterBanner.h</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Headers/BIDMADNativeAdView.h</key>
 		<data>
-		UL4Roy9blXno9bRXLiyuj0uF0zM=
+		JPJVH8ZhXqqbOaJDSYp0MCGc4vI=
 		</data>
 		<key>Headers/BIDMADOfferwall.h</key>
 		<data>
@@ -90,7 +90,7 @@
 		</data>
 		<key>Headers/BIDMADRewardVideo.h</key>
 		<data>
-		MBWz3xbPBy6xFrZZa7pjA8IGXs8=
+		evhqdbNxTCzbAvYWOJ4diqxyDW8=
 		</data>
 		<key>Headers/BIDMADSetting.h</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Headers/BidmadSDK-Swift.h</key>
 		<data>
-		GVE5RhYIe4UhsJE0GvqO+0wg2L4=
+		46jLfVclu/KMiEt9KqAwNL7Rjms=
 		</data>
 		<key>Headers/BidmadSDK.h</key>
 		<data>
@@ -178,39 +178,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		7UvPRmRMjUcsvXs3jPVvRv1PqkE=
+		4ARFfRhPu/b4F/bO2aj3bdzZwnw=
 		</data>
 		<key>Modules/BidmadSDK.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		xxoD0Cs/NV/OOTnOa1PozTKCx2E=
-		</data>
-		<key>Modules/BidmadSDK.swiftmodule/Project/arm64.swiftsourceinfo</key>
-		<data>
-		xxoD0Cs/NV/OOTnOa1PozTKCx2E=
+		8tsr0u24jqC8ep7fTnf5G5jBHw8=
 		</data>
 		<key>Modules/BidmadSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		WzFJ2N+M34uvaE0Srzy4TifQyh0=
+		dH5o/IpXd0IOhQAB0PqBLYCVq5w=
 		</data>
 		<key>Modules/BidmadSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		MJHOmuBo4PJhuRWj9iYypZ2VCcY=
+		U2BDZQPhPSW+reiDHaOnq0UGPzY=
 		</data>
 		<key>Modules/BidmadSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		MiDfChGh9gKUj/2x9Ic2XL7s2LY=
-		</data>
-		<key>Modules/BidmadSDK.swiftmodule/arm64.swiftdoc</key>
-		<data>
-		WzFJ2N+M34uvaE0Srzy4TifQyh0=
-		</data>
-		<key>Modules/BidmadSDK.swiftmodule/arm64.swiftinterface</key>
-		<data>
-		MJHOmuBo4PJhuRWj9iYypZ2VCcY=
-		</data>
-		<key>Modules/BidmadSDK.swiftmodule/arm64.swiftmodule</key>
-		<data>
-		MiDfChGh9gKUj/2x9Ic2XL7s2LY=
+		ArWGCm5LSlzN3e33m0wjbOltYaU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -256,11 +240,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UgpYqufs+U7cEo7sZS+3UdKfUlg=
+			zoMqtYzdwkKbTed8Db9p7U0diNY=
 			</data>
 			<key>hash2</key>
 			<data>
-			OnHdSFb3PXLXES6LCCGIBMDQAo91NQxq9uQAWeHDrOo=
+			2AMq8+F4u8b0nxv7hGfk0GKYumW/SVvJScnMZiOE/y8=
 			</data>
 		</dict>
 		<key>Headers/BIDMADAtom.h</key>
@@ -300,11 +284,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			djCaCsxR+pTaFrM7eMlBqL9YzHI=
+			btpJWc4mqj9d78cWAWPoXwHxH5o=
 			</data>
 			<key>hash2</key>
 			<data>
-			wDQYtRLtTB/6Q0tindxHvfwr/+TlSaD61xMOH0hdC6A=
+			sRv9ZkIxkH6ok6HPyt9pIpnUFMVLDD8baFbvNd/ECmM=
 			</data>
 		</dict>
 		<key>Headers/BIDMADFlutterBanner.h</key>
@@ -421,11 +405,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UL4Roy9blXno9bRXLiyuj0uF0zM=
+			JPJVH8ZhXqqbOaJDSYp0MCGc4vI=
 			</data>
 			<key>hash2</key>
 			<data>
-			MqoJIiZi2WvjzPndrMry8kj5BXFFS8VBihPAsB9NaN0=
+			HVpo1TRj/56pQz1LpMjz+vlUT70O3Jq750p7fzeaNL4=
 			</data>
 		</dict>
 		<key>Headers/BIDMADOfferwall.h</key>
@@ -454,11 +438,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MBWz3xbPBy6xFrZZa7pjA8IGXs8=
+			evhqdbNxTCzbAvYWOJ4diqxyDW8=
 			</data>
 			<key>hash2</key>
 			<data>
-			3WFf98KaJ5F4uAbUeHoODvBHwOh32CTW5Y4I4BvmJBU=
+			Opzad/hpke5WRIvcvrRNQXeoJAUFIfPXBprHNOTwOTw=
 			</data>
 		</dict>
 		<key>Headers/BIDMADSetting.h</key>
@@ -498,11 +482,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GVE5RhYIe4UhsJE0GvqO+0wg2L4=
+			46jLfVclu/KMiEt9KqAwNL7Rjms=
 			</data>
 			<key>hash2</key>
 			<data>
-			gC54DMH3p5O+JU6G4V5RKpqHMZkljRpBlFm1vBXVjg4=
+			WJyNWES70HdWb8wkYCZzOMLei3aXoTrLx88LI2TaS30=
 			</data>
 		</dict>
 		<key>Headers/BidmadSDK.h</key>
@@ -696,88 +680,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xxoD0Cs/NV/OOTnOa1PozTKCx2E=
+			8tsr0u24jqC8ep7fTnf5G5jBHw8=
 			</data>
 			<key>hash2</key>
 			<data>
-			3NbBs/TqD/Q8Ax6YgmPAfayVfsB7ipwGiPCqz0/UI1I=
-			</data>
-		</dict>
-		<key>Modules/BidmadSDK.swiftmodule/Project/arm64.swiftsourceinfo</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			xxoD0Cs/NV/OOTnOa1PozTKCx2E=
-			</data>
-			<key>hash2</key>
-			<data>
-			3NbBs/TqD/Q8Ax6YgmPAfayVfsB7ipwGiPCqz0/UI1I=
+			v3TVCPZhmucWv3JJNFrxga24zbY3IqmSADf4mM+Yl68=
 			</data>
 		</dict>
 		<key>Modules/BidmadSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WzFJ2N+M34uvaE0Srzy4TifQyh0=
+			dH5o/IpXd0IOhQAB0PqBLYCVq5w=
 			</data>
 			<key>hash2</key>
 			<data>
-			TNZTyefS5MQxomXO5bEVHhrI0KPXbUJ8920Tg91chlQ=
+			eQaBBXh4lpgMZ8ww4OJCKuH4cDuLIxhSJ09a4UlrkQE=
 			</data>
 		</dict>
 		<key>Modules/BidmadSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MJHOmuBo4PJhuRWj9iYypZ2VCcY=
+			U2BDZQPhPSW+reiDHaOnq0UGPzY=
 			</data>
 			<key>hash2</key>
 			<data>
-			vT0fct7DY47z/CIFjNAOWz2fVBV7SfJJSjklZZpDF7g=
+			6UqFQ+KCMoK6tTi/vaJ53YSp/SXufwt6XuPHr52FGHY=
 			</data>
 		</dict>
 		<key>Modules/BidmadSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MiDfChGh9gKUj/2x9Ic2XL7s2LY=
+			ArWGCm5LSlzN3e33m0wjbOltYaU=
 			</data>
 			<key>hash2</key>
 			<data>
-			WeuMEVexS0NsYAsj5jtdIWFaEa0YH990Yeo7x+pWvGw=
-			</data>
-		</dict>
-		<key>Modules/BidmadSDK.swiftmodule/arm64.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WzFJ2N+M34uvaE0Srzy4TifQyh0=
-			</data>
-			<key>hash2</key>
-			<data>
-			TNZTyefS5MQxomXO5bEVHhrI0KPXbUJ8920Tg91chlQ=
-			</data>
-		</dict>
-		<key>Modules/BidmadSDK.swiftmodule/arm64.swiftinterface</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MJHOmuBo4PJhuRWj9iYypZ2VCcY=
-			</data>
-			<key>hash2</key>
-			<data>
-			vT0fct7DY47z/CIFjNAOWz2fVBV7SfJJSjklZZpDF7g=
-			</data>
-		</dict>
-		<key>Modules/BidmadSDK.swiftmodule/arm64.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MiDfChGh9gKUj/2x9Ic2XL7s2LY=
-			</data>
-			<key>hash2</key>
-			<data>
-			WeuMEVexS0NsYAsj5jtdIWFaEa0YH990Yeo7x+pWvGw=
+			DqX/0lFI2dupg2jBjTBPByV3Vhtjq/DoQgo5VsHivrc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

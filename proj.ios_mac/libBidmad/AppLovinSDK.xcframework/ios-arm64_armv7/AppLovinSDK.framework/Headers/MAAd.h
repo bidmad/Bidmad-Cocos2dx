@@ -7,11 +7,13 @@
 //
 
 #import "MAAdFormat.h"
+#import "MAMediatedNetworkInfo.h"
+#import "MAAdWaterfallInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * This class represents an ad that has been served by AppLovin’s mediation server and that should be displayed to the user.
+ * This class represents an ad that has been served by AppLovin MAX.
  */
 @interface MAAd : NSObject
 
@@ -47,14 +49,30 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly, nullable) NSString *creativeIdentifier;
 
 /**
- * The ad’s revenue amount, or −1 if no revenue amount exists.
+ * The ad’s revenue amount, or 0 if no revenue amount exists.
  */
 @property (nonatomic, assign, readonly) double revenue;
+
+/**
+ * The precision of the revenue value for this ad.
+ *
+ * Possible values are:
+ * - "publisher_defined" - If the revenue is the price assigned to the line item by the publisher.
+ * - "exact" - If the revenue is the resulting price of a real-time auction.
+ * - "estimated" - If the revenue is the price obtained by auto-CPM.
+ * - "undisclosed" - If we do not have permission from the ad network to share impression-level data.
+ */
+@property (nonatomic, copy, readonly) NSString *revenuePrecision;
 
 /**
  * The placement name that you assign when you integrate each ad format, for granular reporting in postbacks (e.g. "Rewarded_Store", "Rewarded_LevelEnd").
  */
 @property (atomic, copy, readonly, nullable) NSString *placement;
+
+/**
+ * The underlying waterfall of ad responses.
+ */
+@property (nonatomic, strong, readonly) MAAdWaterfallInfo *waterfall;
 
 /**
  * Gets the ad value for a given key.
@@ -68,13 +86,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Gets the ad value for a given key.
  *
- * @param key          The key for the value you want to retrieve.
+ * @param key                     The key for the value you want to retrieve.
  * @param defaultValue The default value to return if the value for @c key does not exist or is @c nil.
  *
  * @return The ad value corresponding to @c key, or the default value if no value for that key exists.
  */
 - (nullable NSString *)adValueForKey:(NSString *)key defaultValue:(nullable NSString *)defaultValue;
 
+- (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
 @end

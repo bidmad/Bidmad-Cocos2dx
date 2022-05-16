@@ -1,3 +1,12 @@
+# Version 1.8.0
+#### Changes
+- AOS / IOS AdNetwork Library Update
+- Remove AppLovin Max Network
+- Bug Fix
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx 2.4.0.0
+- iOS : BidmadSDK.framework 4.2.1.0
+
 # Version 1.7.1
 #### Changes
 - Fix Android Build Error

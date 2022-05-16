@@ -12,53 +12,101 @@
 #import "BIDMADAtomReward.h"
 #import "BIDMADAdmanager.h"
 #import "BIDMADInterstitial.h"
-#import "BIDMADAdMobAppOpenAd.h"
+#import "BIDMADAdmobAppOpenAd.h"
 
 @protocol BIDMADAppOpenAdDelegate;
-@protocol BIDMADAppOpenAdInnerDelegate;
+@protocol OpenBiddingAppOpenAdDelegateProtocol;
+@protocol OpenBiddingAppOpenAdProtocol;
 
-@interface BIDMADAppOpenAd : NSObject<BIDMADAppOpenAdInnerDelegate>
+@interface BIDMADAppOpenAd : NSObject
 
-@property (nonatomic, strong) id<BIDMADAppOpenAdDelegate> delegate;
-@property (nonatomic, strong) id<BIDMADAppOpenAdInnerDelegate> innerDelegate;
-@property (strong, nonatomic) NSDictionary*                 ads_dic;
-@property (nonatomic) NSString * zoneID;
-@property (nonatomic, strong) NSString* userId;
-@property (nonatomic, strong) NSString * _Nullable CUID;
-@property (nonatomic) BOOL                       isLabelService;
-@property (nonatomic) BOOL                       isLabelServiceAdmin;
-@property (nonatomic) BOOL                       testMode;
-@property (nonatomic) BOOL                       isComplete;
-@property (nonatomic) BOOL                       isLoaded;
+@property (nonatomic, strong) id<BIDMADAppOpenAdDelegate> _Nullable delegate;
+@property (strong, nonatomic) NSDictionary*               _Nullable ads_dic;
+@property (nonatomic)         NSString*                   _Nullable zoneID;
+@property (nonatomic, strong) NSString* 	              _Nullable userId;
+@property (nonatomic, strong) NSString*                   _Nullable CUID;
+@property (nonatomic) BOOL                          isLabelService;
+@property (nonatomic) BOOL                          isLabelServiceAdmin;
+@property (nonatomic) BOOL                          testMode;
+@property (nonatomic) BOOL                          isComplete;
+@property (nonatomic) BOOL                          isLoaded;
+@property (nonatomic, strong) id<OpenBiddingAppOpenAdProtocol> _Nullable instanceOBH;
 
-- (id)      init;
-- (void)    showAppOpenAd;
-- (void) requestAppOpenAd;
-- (void)    selectAds:(NSDictionary *)lv_dic;
-- (void) registerForAppOpenAdForZoneID: (NSString *)zoneId;
-- (void) deregisterForAppOpenAd;
-- (void) UIApplicationDidBecomeActiveAction;
+- (id _Nonnull)init;
+- (instancetype _Nonnull)initWithZoneID:(NSString * _Nonnull)zoneID
+                   instanceOBH:(id _Nullable)instanceOBH
+                     sessionID:(NSString * _Nonnull)sessionID
+                       adsDict:(NSDictionary * _Nullable)adsDict
+                   revInfoECPM:(NSDictionary * _Nullable)revInfoECPM
+                      areaInfo:(NSDictionary * _Nullable)areaInfo
+                    changeInfo:(NSDictionary * _Nullable)changeInfo
+                          date:(NSDictionary * _Nullable)date
+                isLabelService:(NSNumber * _Nullable)isLabelService
+           isLabelServiceAdmin:(NSNumber * _Nullable)isLabelServiceAdmin
+                      mediType:(NSString * _Nullable)mediationType
+                    realZoneID:(NSString * _Nonnull)realZoneID;
+- (void)showAppOpenAd;
+- (void)requestAppOpenAd;
+- (void)selectAds:(NSDictionary * _Nullable)lv_dic;
+- (void)registerForAppOpenAdForZoneID:(NSString * _Nonnull)zoneId;
+- (void)deregisterForAppOpenAd;
+- (void)UIApplicationDidBecomeActiveAction;
+- (NSError * _Nullable)sortBasedOnFloorPriceAndSelectFirstAd;
+- (NSError * _Nullable)withoutSortingJustSelectFirstAd;
+
+- (void)onAppOpenAdLoad:(BIDMADAppOpenAd * _Nonnull)core  current:(NSDictionary* _Nullable) currentDic;
+- (void)onAppOpenAdError;
+- (void)onAppOpenAdShow:(BIDMADAppOpenAd * _Nonnull)core  current:(NSDictionary* _Nullable) currentDic;
+- (void)onAppOpenAdClick:(BIDMADAppOpenAd * _Nonnull)core current:(NSDictionary* _Nullable) currentDic;
+- (void)onAppOpenAdClose:(BIDMADAppOpenAd * _Nonnull)core current:(NSDictionary* _Nullable) currentDic;
 
 @end
 
 @protocol BIDMADAppOpenAdDelegate <NSObject>
 @optional
 
-- (void)BIDMADAppOpenAdAllFail:(BIDMADAppOpenAd *)core code:(NSString *)error;
-- (void)BIDMADAppOpenAdLoad:(BIDMADAppOpenAd *)core;
-- (void)BIDMADAppOpenAdClose:(BIDMADAppOpenAd *)core;
-- (void)BIDMADAppOpenAdShow:(BIDMADAppOpenAd *)core;
-- (void)BIDMADAppOpenAdClick:(BIDMADAppOpenAd *)core;
+- (void)BIDMADAppOpenAdAllFail:(BIDMADAppOpenAd * _Nonnull)core;
+- (void)BIDMADAppOpenAdLoad:(BIDMADAppOpenAd * _Nonnull)core;
+- (void)BIDMADAppOpenAdClose:(BIDMADAppOpenAd * _Nonnull)core;
+- (void)BIDMADAppOpenAdShow:(BIDMADAppOpenAd * _Nonnull)core;
+- (void)BIDMADAppOpenAdClick:(BIDMADAppOpenAd * _Nonnull)core;
 
 @end
 
-@protocol BIDMADAppOpenAdInnerDelegate <NSObject>
-@required
+@protocol OpenBiddingAppOpenAdDelegateProtocol <NSObject>
 
-- (void)onAppOpenAdLoad:(BIDMADAppOpenAd *)core       current:(NSDictionary*) currentDic;
-- (void)onAppOpenAdError:(NSString *)error failType:(NSString*)failType;
-- (void)onAppOpenAdShow:(BIDMADAppOpenAd *)core       current:(NSDictionary*) currentDic;
-- (void)onAppOpenAdClick:(BIDMADAppOpenAd *)core      current:(NSDictionary*) currentDic;
-- (void)onAppOpenAdClose:(BIDMADAppOpenAd *)core      current:(NSDictionary*) currentDic;
+- (void)OpenBiddingAppOpenAdAllFail:(id _Nonnull)core;
+- (void)OpenBiddingAppOpenAdLoad:(id _Nonnull)core;
+- (void)OpenBiddingAppOpenAdClose:(id _Nonnull)core;
+- (void)OpenBiddingAppOpenAdShow:(id _Nonnull)core;
+- (void)OpenBiddingAppOpenAdClick:(id _Nonnull)core;
+
+@end
+
+@protocol OpenBiddingAppOpenAdProtocol <NSObject>
+
+@property (nonatomic, strong) id<OpenBiddingAppOpenAdDelegateProtocol> _Nullable delegate;
+@property (strong, nonatomic) NSDictionary*                    _Nullable ads_dic;
+@property (nonatomic)         NSString*                        _Nullable zoneID;
+@property (nonatomic, strong) NSString*                        _Nullable userId;
+@property (nonatomic, strong) NSString*                        _Nullable CUID;
+@property (nonatomic)         BOOL                                       testMode;
+@property (nonatomic)         BOOL                                       isComplete;
+@property (nonatomic)         BOOL                                       isLoaded;
+@property (nonatomic)         BOOL                                       isBidmadLoaded;
+
+- (id _Nonnull) init;
+- (void) showAppOpenAd;
+- (void) requestAppOpenAd;
+- (void) selectAds:(NSDictionary * _Nullable)lv_dic;
+- (void) sendLog :(NSDictionary * _Nonnull)info : (NSString * _Nonnull)advertisementType : (NSString * _Nonnull)logType :(NSString * _Nonnull)sessionIdArg;
+- (void) registerForAppOpenAdForZoneID:(NSString * _Nonnull)zoneId;
+- (void) deregisterForAppOpenAd;
+- (void) UIApplicationDidBecomeActiveAction;
+
+- (void)BIDMADAppOpenAdAllFail:(BIDMADAppOpenAd * _Nonnull)core;
+- (void)BIDMADAppOpenAdLoad:(BIDMADAppOpenAd * _Nonnull)core;
+- (void)BIDMADAppOpenAdClose:(BIDMADAppOpenAd * _Nonnull)core;
+- (void)BIDMADAppOpenAdShow:(BIDMADAppOpenAd * _Nonnull)core;
 
 @end
