@@ -21,8 +21,10 @@
 #define TJ_DEPRECATED_CLASS     __attribute__((deprecated("TapjoyConnect Class is deprecated, use Tapjoy Class")))
 #define TJC_HIGHEST_UNSUPPORTED_SYSTEM_VERISON	@"4.3.5"
 
-typedef void (^currencyCompletion)(NSDictionary *parameters, NSError *error);
-typedef void (^networkCompletion)(BOOL success, NSError *error);
+NS_ASSUME_NONNULL_BEGIN
+
+typedef void (^currencyCompletion)(NSDictionary * _Nullable parameters, NSError * _Nullable error);
+typedef void (^networkCompletion)(BOOL success, NSError * _Nullable error);
 
 @class TJCCurrencyManager;
 @class TJCVideoManager;
@@ -38,35 +40,35 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
 @interface Tapjoy :  NSObject
 
 /** The application SDK key unique to this app. */
-@property (nonatomic, copy) NSString *sdkKey;
+@property (nullable, nonatomic, copy) NSString *sdkKey;
 
 /** The application ID unique to this app. */
-@property (nonatomic, copy) NSString *appID;
+@property (nullable, nonatomic, copy) NSString *appID;
 
 /** The Tapjoy secret key for this applicaiton. */
-@property (nonatomic, copy) NSString *secretKey;
+@property (nullable, nonatomic, copy) NSString *secretKey;
 
 /** The user ID, a custom ID set by the developer of an app to keep track of its unique users. */
-@property (nonatomic, copy) NSString *userID;
+@property (nullable, nonatomic, copy) NSString *userID;
 
 /** The name of the plugin used. If no plugin is used, this value is set to "native" by default. */
-@property (nonatomic, copy) NSString *plugin;
+@property (nullable, nonatomic, copy) NSString *plugin;
 
 /** The currency multiplier value, used to adjust currency earned. */
 @property (nonatomic, assign) float currencyMultiplier;
 
-@property (nonatomic, copy) NSString *appGroupID;
-@property (nonatomic, copy) NSString *store;
-@property (nonatomic, copy) NSString *analyticsApiKey;
-@property (nonatomic, copy) NSString *managedDeviceID;
-@property (nonatomic, copy) NSDictionary *userTokenConfig;
-@property (nonatomic, copy) NSString *customParameter;
+@property (nullable, nonatomic, copy) NSString *appGroupID;
+@property (nullable, nonatomic, copy) NSString *store;
+@property (nullable, nonatomic, copy) NSString *analyticsApiKey;
+@property (nullable, nonatomic, copy) NSString *managedDeviceID;
+@property (nullable, nonatomic, copy) NSDictionary *userTokenConfig;
+@property (nullable, nonatomic, copy) NSString *customParameter;
 
-@property (nonatomic, strong) TJCCurrencyManager *currencyManager;
-@property (nonatomic, strong) TJCVideoManager *videoManager;
-@property (nonatomic, strong) TJCViewHandler *viewHandler;
-@property (nonatomic, strong) TJCUtil *util;
-@property (nonatomic, strong) TJCLog *log;
+@property (nullable, nonatomic, strong) TJCCurrencyManager *currencyManager;
+@property (nullable, nonatomic, strong) TJCVideoManager *videoManager;
+@property (nullable, nonatomic, strong) TJCViewHandler *viewHandler;
+@property (nullable, nonatomic, strong) TJCUtil *util;
+@property (nullable, nonatomic, strong) TJCLog *log;
 
 
 /**
@@ -75,7 +77,6 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * This method should be called upon app delegate initialization in the applicationDidFinishLaunching method.
  *
  * @param sdkKey The application SDK Key. Retrieved from the app dashboard in your Tapjoy account.
- * @return n/a
  */
 + (void)connect:(NSString *)sdkKey;
 
@@ -93,9 +94,8 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  *
  * TJC_OPTION_DISABLE_GENERIC_ERROR_ALERT : BOOL to disable our default error dialogs
  *
- * @return n/a
  */
-+ (void)connect:(NSString *)sdkKey options:(NSDictionary *)optionsDict;
++ (void)connect:(NSString *)sdkKey options:(nullable NSDictionary *)options;
 
 /**
  * Helper function to check if SDK is initialized
@@ -107,7 +107,7 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  *
  * @return URL of Tapjoy support web page
  */
-+ (NSString*)getSupportURL;
++ (nullable NSString *)getSupportURL;
 
 /**
  * This method returns the URL to Tapjoy support web page for specified currency
@@ -117,32 +117,29 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  *
  * @return URL of Tapjoy support web page for specified currency
  */
-+ (NSString*)getSupportURL:(NSString*)currencyID;
++ (nullable NSString *)getSupportURL:(nullable NSString *)currencyID;
 
 /**
  * This method returns a user token for programmatic mediation.
  *
  */
-+ (NSString*)getUserToken;
++ (nullable NSString *)getUserToken;
 
 /**
  *
  * This method enables/disables the debug mode of the SDK.
  * @param enabled true to enable, false to disable
- * @return n/a
  */
 + (void)setDebugEnabled:(BOOL)enabled; // default NO
 
 /**
  * This method is called to track the session manually. If this method called, automatic session tracking will be disabled.
  *
- * @return n/a
  */
 + (void)startSession;
 /**
  * This method is called to track the session manually. If this method called, automatic session tracking will be disabled.
  *
- * @return n/a
  */
 + (void)endSession;
 
@@ -150,9 +147,8 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * This method is called to set data version of your application.
  *
  * @param appDataVersion The application data version.
- * @return n/a
  */
-+ (void)setAppDataVersion:(NSString *)appDataVarsion TJC_DEPRECATION_WARNING(11.11.1);
++ (void)setAppDataVersion:(nullable NSString *)appDataVersion TJC_DEPRECATION_WARNING(11.11.1);
 
 /**
  * This method is called to set LaunchOptions.
@@ -161,7 +157,7 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  *
  * @param launchOptions the same parameter that passed on application:didFinishLaunchingWithOptions:
  */
-+ (void)setApplicationLaunchingOptions:(NSDictionary *)launchOptions TJC_DEPRECATION_WARNING(11.2.2);
++ (void)setApplicationLaunchingOptions:(nullable NSDictionary *)launchOptions TJC_DEPRECATION_WARNING(11.2.2);
 
 /**
  * This method is called to set RemoteNotificationUserInfo.
@@ -169,29 +165,27 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  *
  * @param userInfo the same parameter that passed on application:didReceiveRemoteNotification:
  */
-+ (void)setReceiveRemoteNotification:(NSDictionary *)userInfo;
++ (void)setReceiveRemoteNotification:(nullable NSDictionary *)userInfo;
 
 /** 
  * This method is called to send APN device token to Tapjoy server.
  * 
  * @param deviceToken the same parameter that passed on application:didRegisterForRemoteNotificationsWithDeviceToken:
- * @return n/a
  */
-+ (void)setDeviceToken:(NSData *)deviceToken;
++ (void)setDeviceToken:(nullable NSData *)deviceToken;
 
 /**
  * Sets the default UIViewController to show a content of the placement having no specific view controller given.
  *
  * @warning This is **experimental** and only applicable to contents of "Push to Earn" or the default placements so far.
  */
-+ (void)setDefaultViewController:(UIViewController*)viewController;
++ (void)setDefaultViewController:(nullable UIViewController *)viewController;
 
 /**
  * This method is called to set the level of the user.
  *
  * @param userLevel
  *        the level of the user
- * @return n/a
  */
 + (void)setUserLevel:(int)userLevel;
 
@@ -199,7 +193,6 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * This method is callled to sets the friends count of the user.
  *
  * @param friendCount the number of friends
- * @return n/a
  */
 + (void)setUserFriendCount:(int)friendCount;
 
@@ -208,16 +201,15 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  *
  * @param index the index of the cohort to set (1,2,3,4,5)
  * @param value the value of the property to set
- * @return n/a
  */
-+ (void)setUserCohortVariable:(int)index value:(NSString *)value;
++ (void)setUserCohortVariable:(int)index value:(nullable NSString *)value;
 
 /**
  * Returns a string set which contains tags on the user.
  *
  * @return set of string
  */
-+ (NSSet*)getUserTags;
++ (nullable NSSet *)getUserTags;
 
 /**
  * Sets tags for the user.
@@ -225,7 +217,7 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * @param tags the tags to be set
  *             can have up to 200 tags where each tag can have 200 characters
  */
-+ (void)setUserTags:(NSSet *)tags;
++ (void)setUserTags:(nullable NSSet *)tags;
 
 /**
  * Removes all tags from the user.
@@ -254,12 +246,22 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * @param price the price of product
  * @param campaignId the campaign id of the purchase request which initiated this purchase, can be nil
  * @param transactionId the identifier of iap transaction, if this is given, we will check receipt validation. (Available in iOS 7.0 and later)
- * @return n/a
  */
-+ (void)trackPurchase:(NSString *)productIdentifier currencyCode:(NSString *)currencyCode price:(double)price campaignId:(NSString *)campaignId transactionId:(NSString *)transactionId;
++ (void)trackPurchase:(nullable NSString *)productIdentifier currencyCode:(nullable NSString *)currencyCode price:(double)price campaignId:(nullable NSString *)campaignId transactionId:(nullable NSString *)transactionId;
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// it will be improve/change API in Oct 2014
+/**
+ * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
+ *
+ * @param name the name of event
+ * @param category the category of event, can be nil
+ * @param parameter1 the parameter of event, string type, can be nil
+ * @param parameter2 the parameter of event, string type, can be nil
+ */
++ (void)trackEvent:(NSString *)name
+          category:(nullable NSString *)category
+        parameter1:(nullable NSString *)parameter1
+        parameter2:(nullable NSString *)parameter2;
+
 /**
  * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
  *
@@ -268,58 +270,119 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * @param parameter1 the parameter of event, string type, can be nil
  * @param parameter2 the parameter of event, string type, can be nil
  * @param value the value of event
+ */
++ (void)trackEvent:(NSString *)name
+          category:(nullable NSString *)category
+        parameter1:(nullable NSString *)parameter1
+        parameter2:(nullable NSString *)parameter2
+             value:(int64_t)value;
+
+/**
+ * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
+ *
+ * @param name the name of event
+ * @param category the category of event, can be nil
+ * @param parameter1 the parameter of event, string type, can be nil
+ * @param parameter2 the parameter of event, string type, can be nil
+ * @param value1name the name of value1 of event
+ * @param value1 the value of value1name
+ */
++ (void)trackEvent:(NSString *)name
+          category:(nullable NSString *)category
+        parameter1:(nullable NSString *)parameter1
+        parameter2:(nullable NSString *)parameter2
+        value1name:(nullable NSString *)value1name
+            value1:(int64_t)value1;
+
+/**
+ * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
+ *
+ * @param name the name of event
+ * @param category the category of event, can be nil
+ * @param parameter1 the parameter of event, string type, can be nil
+ * @param parameter2 the parameter of event, string type, can be nil
+ * @param value1name the name of value1 of event
+ * @param value1 the value of value1name
+ * @param value2name the name of value2 of event
+ * @param value2 the value of value2name
+ */
++ (void)trackEvent:(NSString *)name
+          category:(nullable NSString *)category
+        parameter1:(nullable NSString *)parameter1
+        parameter2:(nullable NSString *)parameter2
+        value1name:(nullable NSString *)value1name
+            value1:(int64_t)value1
+        value2name:(nullable NSString *)value2name
+            value2:(int64_t)value2;
+
+/**
+ * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
+ *
+ * @param name the name of event
+ * @param category the category of event, can be nil
+ * @param parameter1 the parameter of event, string type, can be nil
+ * @param parameter2 the parameter of event, string type, can be nil
  * @param value1name the name of value1 of event
  * @param value1 the value of value1name
  * @param value2name the name of value2 of event
  * @param value2 the value of value2name
  * @param value3name the name of value3 of event
  * @param value3 the value of value3name
- * @param values NSDictionary that contains values of event (key must be string & value must be number)
- * @return n/a
  */
-+ (void)trackEvent:(NSString *)name category:(NSString *)category parameter1:(NSString *)parameter1 parameter2:(NSString *)parameter2;
-+ (void)trackEvent:(NSString *)name category:(NSString *)category parameter1:(NSString *)parameter1 parameter2:(NSString *)parameter2 value:(int64_t)value;
-+ (void)trackEvent:(NSString *)name category:(NSString *)category parameter1:(NSString *)parameter1 parameter2:(NSString *)parameter2
-        value1name:(NSString *)value1name value1:(int64_t)value1;
-+ (void)trackEvent:(NSString *)name category:(NSString *)category parameter1:(NSString *)parameter1 parameter2:(NSString *)parameter2
-        value1name:(NSString *)value1name value1:(int64_t)value1 value2name:(NSString *)value2name value2:(int64_t)value2;
-+ (void)trackEvent:(NSString *)name category:(NSString *)category parameter1:(NSString *)parameter1 parameter2:(NSString *)parameter2
-        value1name:(NSString *)value1name value1:(int64_t)value1 value2name:(NSString *)value2name value2:(int64_t)value2 value3name:(NSString *)value3name value3:(int64_t)value3;
-+ (void)trackEvent:(NSString *)name category:(NSString *)category parameter1:(NSString *)parameter1 parameter2:(NSString *)parameter2 values:(NSDictionary *)values;
++ (void)trackEvent:(NSString *)name
+          category:(nullable NSString *)category
+        parameter1:(nullable NSString *)parameter1
+        parameter2:(nullable NSString *)parameter2
+        value1name:(nullable NSString *)value1name
+            value1:(int64_t)value1
+        value2name:(nullable NSString *)value2name
+            value2:(int64_t)value2
+        value3name:(nullable NSString *)value3name
+            value3:(int64_t)value3;
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * This method is called to track an event of the given name with category, parameter1, parameter2 and values.
+ *
+ * @param name the name of event
+ * @param category the category of event, can be nil
+ * @param parameter1 the parameter of event, string type, can be nil
+ * @param parameter2 the parameter of event, string type, can be nil
+ * @param values the dictionary of values
+ */
++ (void)trackEvent:(NSString *)name
+          category:(nullable NSString *)category
+        parameter1:(nullable NSString *)parameter1
+        parameter2:(nullable NSString *)parameter2
+            values:(nullable NSDictionary *)values;
+
 
 /**
  * Informs the Tapjoy server that the specified Pay-Per-Action was completed. Should be called whenever a user completes an in-game action.
  *
  * @param actionID The action ID of the completed action
- * @return n/a
  */
-+ (void)actionComplete:(NSString*)actionID;
++ (void)actionComplete:(NSString *)actionID;
 
 /**	
  * Retrieves the globally accessible Tapjoy singleton object.
  *
  * @return The globally accessible Tapjoy singleton object.
  */
-+ (id)sharedTapjoyConnect;
++ (instancetype)sharedTapjoyConnect;
 
 /**
  * Assigns a user ID for this user/device. This is used to identify the user in your application
  *
  * @param theUserID The user ID you wish to assign to this device.
- * @return n/a
  */
-+ (void)setUserID:(NSString*)theUserID;
++ (void)setUserID:(nullable NSString*)theUserID;
 /**
  * Assigns a user ID for this user/device. This is used to identify the user in your application
  *
  * @param theUserID The user ID you wish to assign to this device.
  * @param completion The completion block that is invoked after a response is received from the server.
- * @return n/a
  */
-+ (void)setUserIDWithCompletion:(NSString*)theUserID completion:(networkCompletion)completion;
++ (void)setUserIDWithCompletion:(nullable NSString*)theUserID completion:(nullable networkCompletion)completion;
 
 //Disabled appledoc generation for this method until it is supported by the backend
 //
@@ -330,7 +393,7 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
 // @param customParam The custom parameter to assign to this device
 // @return n/a
 //
-+ (void)setCustomParameter:(NSString *)customParam;
++ (void)setCustomParameter:(nullable NSString *)customParam;
 
 //Disabled appledoc generation for this method until it is supported by the backend
 //
@@ -338,7 +401,7 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
 //
 // @return the value of the currently set custom parameter
 //
-+ (NSString*)getCustomParameter;
++ (nullable NSString *)getCustomParameter;
 
 /**
  * Sets the currency multiplier for virtual currency to be earned. The default is 1.0.
@@ -346,7 +409,6 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * Only used for non-managed (by Tapjoy) currency.
  * 
  * @param mult The currency multiplier.
- * @return n/a
  */
 + (void)setCurrencyMultiplier:(float)mult TJC_DEPRECATION_WARNING(11.4.0);
 
@@ -361,7 +423,6 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * Toggle logging to the console.
  *
  * @param enable YES to enable logging, NO otherwise.
- * @return n/a
  */
 + (void)enableLogging:(BOOL)enable;
 
@@ -370,13 +431,13 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  *
  * @return The Tapjoy SDK version.
  */
-+ (NSString*)getVersion;
++ (NSString *)getVersion;
 
 /** Used by limited SDK only **/
-@property (nonatomic, copy) NSString *limitedSdkKey;
-@property (nonatomic, copy) NSString *limitedAppID;
-@property (nonatomic, copy) NSString *limitedSecretKey;
-@property (nonatomic, copy) NSString *limitedAppGroupID;
+@property (nullable, nonatomic, copy) NSString *limitedSdkKey;
+@property (nullable, nonatomic, copy) NSString *limitedAppID;
+@property (nullable, nonatomic, copy) NSString *limitedSecretKey;
+@property (nullable, nonatomic, copy) NSString *limitedAppGroupID;
 + (BOOL)isLimitedConnected;
 + (void)limitedConnect:(NSString *)sdkKey;
 
@@ -392,21 +453,18 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
 /**
  * Called when a video starts playing.
  *
- * @return n/a
  */
 - (void)videoAdBegan;
 
 /**
  * Called when a video ad is closed.
  *
- * @return n/a
  */
 - (void)videoAdClosed;
 
 /**
  * Called when a video has completed playing.
  *
- * @return n/a
  */
 - (void)videoAdCompleted;
 
@@ -414,9 +472,8 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * Called when a video related error occurs.
  *
  * @param errorMsg Error message.
- * @return n/a
  */
-- (void)videoAdError:(NSString*)errorMsg;
+- (void)videoAdError:(nullable NSString *)errorMsg;
 
 @end
 
@@ -425,7 +482,6 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
 /**
  * Requests for virtual currency balance notify via TJC_GET_CURRENCY_RESPONSE_NOTIFICATION notification.
  *
- * @return n/a
  */
 + (void)getCurrencyBalance;
 
@@ -433,16 +489,14 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * Requests for virtual currency balance information.
  *
  * @param completion The completion block that is invoked after a response is received from the server.
- * @return n/a
  */
-+ (void)getCurrencyBalanceWithCompletion:(currencyCompletion)completion;
++ (void)getCurrencyBalanceWithCompletion:(nullable currencyCompletion)completion;
 
 /**
  * Updates the virtual currency for the user with the given spent amount of currency.
  *
  * If the spent amount exceeds the current amount of currency the user has, nothing will happen.
- * @param points The amount of currency to subtract from the current total amount of currency the user has.
- * @return n/a
+ * @param amount The amount of currency to subtract from the current total amount of currency the user has.
  */
 + (void)spendCurrency:(int)amount;
 
@@ -452,15 +506,13 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * If the spent amount exceeds the current amount of currency the user has, nothing will happen.
  * @param amount The amount of currency to subtract from the current total amount of currency the user has.
  * @param completion The completion block that is invoked after a response is received from the server.
- * @return n/a
  */
-+ (void)spendCurrency:(int)amount completion:(currencyCompletion)completion;
++ (void)spendCurrency:(int)amount completion:(nullable currencyCompletion)completion;
 
 /**
  * Updates the virtual currency for the user with the given awarded amount of currency.
  *
  * @param amount The amount of currency to add to the current total amount of currency the user has.
- * @return n/a
  */
 + (void)awardCurrency:(int)amount;
 
@@ -469,14 +521,12 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  *
  * @param amount The amount of currency to add to the current total amount of currency the user has.
  * @param completion The completion block that is invoked after a response is received from the server.
- * @return n/a
  */
-+ (void)awardCurrency:(int)amount completion:(currencyCompletion)completion;
++ (void)awardCurrency:(int)amount completion:(nullable currencyCompletion)completion;
 
 /**
  * Shows a UIAlert that tells the user how much currency they just earned.
  *
- * @return n/a
  */
 + (void)showDefaultEarnedCurrencyAlert;
 
@@ -520,7 +570,7 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * 
  * @return The globally accessible TJPrivacyPolicy singleton object.
  */
-+(id)getPrivacyPolicy;
++(TJPrivacyPolicy *)getPrivacyPolicy;
 
 @end
 
@@ -531,9 +581,8 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
  * Sets the class that implements the TJCVideoAdDelegate protocol.
  *
  * @param delegate The class that implements the TJCVideoAdDelegate protocol.
- * @return n/a
  */
-+ (void)setVideoAdDelegate:(id<TJCVideoAdDelegate>)delegate;
++ (void)setVideoAdDelegate:(nullable id<TJCVideoAdDelegate>)delegate;
 
 @end
 
@@ -543,3 +592,6 @@ typedef void (^networkCompletion)(BOOL success, NSError *error);
 @end
 
 #endif
+
+
+NS_ASSUME_NONNULL_END

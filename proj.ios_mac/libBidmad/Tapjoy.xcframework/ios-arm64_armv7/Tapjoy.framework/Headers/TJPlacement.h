@@ -11,6 +11,8 @@
 
 #define TJC_DEPRECATION_WARNING(VERSION) __attribute__((deprecated("Go to dev.tapjoy.com for instructions on how to fix this warning")))
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef enum TJCActionRequestTypeEnum {
 	TJActionRequestInAppPurchase = 1,
 	TJActionRequestVirtualGood,
@@ -28,7 +30,7 @@ typedef enum TJCActionRequestTypeEnum {
 /**
  * The type of the request
  */
-@property (nonatomic,assign) TJCActionRequestType type;
+@property (nonatomic, assign) TJCActionRequestType type;
 
 /**
  * Called by your app to indicate that the request was processed successfully.
@@ -40,17 +42,17 @@ typedef enum TJCActionRequestTypeEnum {
  */
 - (void)cancelled;
 
-@property (nonatomic, copy) id callback;
+@property (nullable, nonatomic, copy) id callback;
 
 /**
  * The identifier associated with the request.
  */
-@property (nonatomic, copy) NSString* requestId;
+@property (nullable, nonatomic, copy) NSString *requestId;
 
 /**
  * The identifier associated with the request.
  */
-@property (nonatomic, copy) NSString* token;
+@property (nullable, nonatomic, copy) NSString *token;
 
 @end
 
@@ -76,45 +78,40 @@ typedef enum TJCActionRequestTypeEnum {
 
 /**
  * Callback issued by TJ to publisher to state that placement request is successful
- * @param TJPlacement that was sent
- * @return n/a
+ * @param placement The TJPlacement that was sent
  */
-- (void)requestDidSucceed:(TJPlacement*)placement;
+- (void)requestDidSucceed:(TJPlacement *)placement;
 
 /**
  * Called when an error occurs while sending the placement
  * @param placement The TJPlacement that was sent
  * @error error code
- * @return n/a
  */
-- (void)requestDidFail:(TJPlacement*)placement error:(NSError*)error;
+- (void)requestDidFail:(TJPlacement *)placement error:(nullable NSError *)error;
 
 /**
  * Called when content for an placement is successfully cached
  * @param placement The TJPlacement that was sent
  */
-- (void)contentIsReady:(TJPlacement*)placement;
+- (void)contentIsReady:(TJPlacement *)placement;
 
 /**
  * Called when placement content did appear
  * @param placement The TJPlacement that was sent
- * @return n/a
  */
-- (void)contentDidAppear:(TJPlacement*)placement;
+- (void)contentDidAppear:(TJPlacement *)placement;
 
 /**
  * Called when placement content did disappear
  * @param placement The TJPlacement that was sent
- * @return n/a
  */
-- (void)contentDidDisappear:(TJPlacement*)placement;
+- (void)contentDidDisappear:(TJPlacement *)placement;
 
 /**
  * Called when a click event has occurred
  * @param placement The TJPlacement that was sent
- * @return n/a
  */
-- (void)didClick:(TJPlacement*)placement;
+- (void)didClick:(TJPlacement *)placement;
 
 
 /**
@@ -122,7 +119,9 @@ typedef enum TJCActionRequestTypeEnum {
  * @param request - The TJActionRequest object
  * @param productId - the id of the offer that sent the request
  */
-- (void)placement:(TJPlacement*)placement didRequestPurchase:(TJActionRequest*)request productId:(NSString*)productId;
+- (void)placement:(TJPlacement *)placement
+didRequestPurchase:(nullable TJActionRequest *)request
+        productId:(nullable NSString *)productId;
 
 /**
  * Callback issued by TJ to publisher when the user has successfully requests a reward
@@ -132,7 +131,10 @@ typedef enum TJCActionRequestTypeEnum {
  * @param quantity  - The quantity of the reward for the requested itemId
  */
 
-- (void)placement:(TJPlacement*)placement didRequestReward:(TJActionRequest*)request itemId:(NSString*)itemId quantity:(int)quantity;
+- (void)placement:(TJPlacement *)placement
+ didRequestReward:(nullable TJActionRequest *)request
+           itemId:(nullable NSString *)itemId
+         quantity:(int)quantity;
 
 
 @end
@@ -147,24 +149,21 @@ typedef enum TJCActionRequestTypeEnum {
 /**
  * Called when a placement video starts playing.
  *
- * @return n/a
  */
-- (void)videoDidStart:(TJPlacement*)placement;
+- (void)videoDidStart:(TJPlacement *)placement;
 
 /**
  * Called when a placement video has completed playing.
  *
- * @return n/a
  */
-- (void)videoDidComplete:(TJPlacement*)placement;
+- (void)videoDidComplete:(TJPlacement *)placement;
 
 /**
  * Called when a placement video related error occurs.
  *
  * @param errorMsg Error message.
- * @return n/a
  */
-- (void)videoDidFail:(TJPlacement*)placement error:(NSString*)errorMsg;
+- (void)videoDidFail:(TJPlacement *)placement error:(nullable NSString *)errorMsg;
 @end
 
 /**
@@ -189,10 +188,10 @@ typedef enum TJCActionRequestTypeEnum {
 @interface TJPlacement : NSObject
 
 /** The TJPlacementDelegate used to handle responses that are received upon sending this placement*/
-@property (nonatomic, weak) id<TJPlacementDelegate> delegate;
+@property (nullable, nonatomic, weak) id<TJPlacementDelegate> delegate;
 
 /** The delegate that implements the TJPlacementVideoDelegate protocol */
-@property (nonatomic, weak) id<TJPlacementVideoDelegate> videoDelegate;
+@property (nullable, nonatomic, weak) id<TJPlacementVideoDelegate> videoDelegate;
 
 /** The name of the placement */
 @property (nonatomic, copy) NSString *placementName;
@@ -204,48 +203,55 @@ typedef enum TJCActionRequestTypeEnum {
 @property (nonatomic, assign, readonly, getter=isContentAvailable) BOOL contentAvailable;
 
 /** The UIViewController to show the content in */
-@property (nonatomic, retain) UIViewController* presentationViewController;
+@property (nullable, nonatomic, retain) UIViewController* presentationViewController;
 
 /** Allows plugins to specify a topViewController class (currently only used by Unity) */
-@property (nonatomic, copy) NSString *topViewControllerClassName;
+@property (nullable, nonatomic, copy) NSString *topViewControllerClassName;
 
 /**
  * Creates a new instance of TJPlacement
  * @param placementName The name of the placement
  * @param delegate The class that implements the TJPlacementDelegate protocol
  */
-+ (id)placementWithName:(NSString*)placementName delegate:(id<TJPlacementDelegate>)delegate;
++ (nullable instancetype)placementWithName:(NSString *)placementName delegate:(nullable id<TJPlacementDelegate>)delegate;
 
 /**
  * Sends the placement request to the server
  *
- * @return n/a
  */
 - (void)requestContent;
 
 /**
  * Shows the content that was received from the server after sending this placement
- * @return n/a
  */
-- (void)showContentWithViewController:(UIViewController*)viewController;
+- (void)showContentWithViewController:(UIViewController *)viewController;
 
 /**
  * Dismiss the content
- * @return n/a
  */
 + (void)dismissContent;
 
 /** Mediation params(used by mediation adapters only) */
-@property (nonatomic, copy) NSString *mediationAgent;
-@property (nonatomic, copy) NSString *mediationId;
-+ (id)placementWithName:(NSString*)placementName mediationAgent:(NSString*)mediationAgent mediationId:(NSString*)mediationId delegate:(id<TJPlacementDelegate>)delegate;
+@property (nullable, nonatomic, copy) NSString *mediationAgent;
+@property (nullable, nonatomic, copy) NSString *mediationId;
 
-@property (nonatomic, copy) NSString *adapterVersion;
++ (nullable instancetype)placementWithName:(NSString *)placementName
+                   mediationAgent:(nullable NSString *)mediationAgent
+                      mediationId:(nullable NSString *)mediationId
+                         delegate:(nullable id<TJPlacementDelegate>)delegate;
+
+@property (nullable, nonatomic, copy) NSString *adapterVersion;
 
 /** Programmatic mediation */
-@property (nonatomic, copy) NSDictionary *auctionData;
+@property (nullable, nonatomic, copy) NSDictionary *auctionData;
 
 /** Used by limited SDK request Only **/
 @property (nonatomic, assign) BOOL isLimited;
-+ (id)limitedPlacementWithName:(NSString*)placementName mediationAgent:(NSString*)mediationAgent delegate:(id<TJPlacementDelegate>)delegate;
+
++ (nullable instancetype)limitedPlacementWithName:(NSString *)placementName
+                          mediationAgent:(nullable NSString *)mediationAgent
+                                delegate:(nullable id<TJPlacementDelegate>)delegate;
 @end
+
+
+NS_ASSUME_NONNULL_END

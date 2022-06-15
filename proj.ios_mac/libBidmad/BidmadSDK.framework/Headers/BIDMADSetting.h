@@ -9,6 +9,7 @@
 //@import GoogleMobileAds;
 
 #import <Foundation/Foundation.h>
+#import <ADOPUtility/BidmadSendLogDelegate.h>
 
 #define GOOGLE_ADMANAGER        @"41350b05-4415-44b2-8e17-b5fe52d1bd6e"
 #define GOOGLE_ADMOB            @"ce56da00-1a18-11e9-9ed2-02c31b446301"
@@ -174,5 +175,7 @@ extern NSString* _Nonnull const BIDMAD_CCPA_CONSENT;
 
 /// Setting for CCPA User Consent Status. If nil, the app does not have to be compliant to CCPA.
 @property (nonatomic, strong) NSNumber* __nullable isUserConsentCCPA;
+
+@property (nonatomic, strong) id<BidmadSendLogDelegate> __nullable bidmadLogDelegate;
 
 @end

@@ -5,9 +5,11 @@
 //  Copyright © 2020 Tapjoy. All rights reserved.
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TJPrivacyPolicy : NSObject
 
-+ (id)sharedInstance;
++ (instancetype)sharedInstance;
 
 /**
  * This is used for sending User's consent to behavioral advertising such as in the context of GDPR
@@ -16,7 +18,7 @@
  *
  * @param value "0" (User has not provided consent), "1" (User has provided consent) or a daisybit string as suggested in IAB's Transparency and Consent Framework
  **/
-- (void)setUserConsent:(NSString*) value;
+- (void)setUserConsent:(NSString *)value;
 
 /**
  * This can be used by the integrating App to indicate if the user falls in any of the GDPR applicable countries
@@ -26,7 +28,7 @@
  *
  * @param gdprApplicability YES if the user is affected by GDPR, NO if they are not.
  */
-- (void)setSubjectToGDPR:(BOOL) gdprApplicability;
+- (void)setSubjectToGDPR:(BOOL)gdprApplicability;
 
 /**
  * In the US, the Children’s Online Privacy Protection Act (COPPA) imposes certain requirements on operators of online services that (a)
@@ -42,7 +44,7 @@
  *
  * @param isBelowConsentAge YES if the user is affected by COPPA, NO if they are not.
  */
-- (void)setBelowConsentAge:(BOOL) isBelowConsentAge;
+- (void)setBelowConsentAge:(BOOL)isBelowConsentAge;
 
 /**
  * This is used for sending US Privacy value to behavioral advertising such as in the context of GDPR
@@ -52,6 +54,8 @@
  *
  * @param privacyValue The us privacy value string
  */
-- (void)setUSPrivacy:(NSString*) privacyValue;
+- (void)setUSPrivacy:(NSString *)privacyValue;
 
 @end;
+
+NS_ASSUME_NONNULL_END

@@ -344,7 +344,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+		29B97314FDCFA39411CA2CEA = {
 			isa = PBXGroup;
 			children = (
 				46880B8319C43A87006E1F66 /* Classes */,
@@ -579,7 +579,7 @@
 				French,
 				German,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			mainGroup = 29B97314FDCFA39411CA2CEA;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -698,7 +698,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile-resources.sh",
 				"${PODS_ROOT}/Ads-Global/PangleSDK/LICENSE",
 				"${PODS_ROOT}/Ads-Global/PangleSDK/BUAdSDK.bundle",
-				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-10.3.6/AppLovinSDKResources.bundle",
+				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-11.0.0/AppLovinSDKResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/BidmadSDK/bidmad_asset.bundle",
 				"${PODS_ROOT}/Fyber_Marketplace_SDK/IASDKCore/IASDKCore.xcframework/IASDKResources.bundle",
 			);
@@ -744,14 +744,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BidmadCocos2dxSample-mobile/Pods-BidmadCocos2dxSample-mobile-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -861,7 +859,7 @@
 					"$(_COCOS_LIB_IOS_END)",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adop.Cocos2dxSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adop.mnctest;
 				PROVISIONING_PROFILE_SPECIFIER = MNCTEST_DEV;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
@@ -912,7 +910,7 @@
 					"$(_COCOS_LIB_IOS_END)",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adop.Cocos2dxSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adop.mnctest;
 				PROVISIONING_PROFILE_SPECIFIER = MNCTEST_DEV;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;

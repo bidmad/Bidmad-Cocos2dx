@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ADOPUtility
 @_exported import ADOPUtility
 import AdSupport
@@ -8,7 +8,6 @@ import Foundation
 import Network
 import Swift
 import UIKit
-import _Concurrency
 public enum BidmadAppLovinFailCases : Swift.Int {
   case fetch_ad_timeout
   case no_network
@@ -25,8 +24,8 @@ public enum BidmadAppLovinFailCases : Swift.Int {
   case incentivized_user_closed_video
   case invalid_url
   case unknown
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
@@ -47,10 +46,10 @@ public enum AdStatus {
   case isLoaded
   case isPlaying
   public static func == (a: ADOPUtility.AdStatus, b: ADOPUtility.AdStatus) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 public struct AdClassStatus : Swift.CustomStringConvertible {
   public var isInitProcess: [Foundation.UUID : Swift.Bool]
@@ -78,22 +77,22 @@ public enum bidmadSupportedBannerSize : Swift.String {
   case banner320x90
   case banner320x100
   case banner300x250
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
 }
-extension UIKit.UIView {
-  @_Concurrency.MainActor(unsafe) public func bidmadSetCenter(of viewToCenter: UIKit.UIView, withSize bannerSize: CoreGraphics.CGSize)
+extension UIView {
+  public func bidmadSetCenter(of viewToCenter: UIKit.UIView, withSize bannerSize: CoreGraphics.CGSize)
 }
 public struct ADOPScheduler {
   public init(_ dispatchQueue: Dispatch.DispatchQueue)
 }
-extension ADOPUtility.ADOPScheduler {
+extension ADOPScheduler {
   public func async(_ execute: @escaping () -> Swift.Void)
 }
-extension ADOPUtility.ADOPScheduler {
+extension ADOPScheduler {
   public static let main: ADOPUtility.ADOPScheduler
   public static let userInitiated: ADOPUtility.ADOPScheduler
   public static let background: ADOPUtility.ADOPScheduler
@@ -123,20 +122,20 @@ extension ADOPUtility.ADOPScheduler {
   @objc public static func identifierForAdvertising() -> Swift.String?
   @objc public static func repeatAction(_ action: @escaping () -> Swift.Void, for seconds: Swift.Double, _ shouldStop: ADOPUtility.ADOPRepeatStopper? = nil) -> ADOPUtility.ADOPRepeatStopper
   @objc public static func logger(_ stringToPrint: [Swift.String])
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 @objc @_inheritsConvenienceInitializers @objcMembers open class ADOPRepeatStopper : ObjectiveC.NSObject {
   @objc public var shouldStop: Foundation.NSNumber
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 @frozen public enum ADOPEvent<E> {
   case next(E)
   case error(Swift.Error)
   case completed
 }
-extension ADOPUtility.ADOPEvent : Swift.CustomStringConvertible {
+extension ADOPEvent : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -152,10 +151,10 @@ public enum BidmadInnerCallbackCases {
   case INIT
   case INIT_FAIL
   public static func == (a: ADOPUtility.BidmadInnerCallbackCases, b: ADOPUtility.BidmadInnerCallbackCases) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum BidmadFailCase : Swift.String {
   case unsupportedbannersize
@@ -170,8 +169,8 @@ public enum BidmadFailCase : Swift.String {
   case timeout
   case noresponse
   case cannotLoadWhilePlaying
-  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
   public var rawValue: Swift.String {
     get
   }
@@ -192,6 +191,7 @@ public enum BidmadFailCase : Swift.String {
   public static func initialLoadabilityCheck<T>(classToCheck: T.Type) -> Swift.Bool where T : ADOPUtility.BidmadLoadabilityChecker
   public static func reasonForLoadabilityCheckFail<T>(classToCheck: T.Type) -> Swift.String where T : ADOPUtility.BidmadLoadabilityChecker
   @objc deinit
+  @objc override dynamic public init()
 }
 public class ADOPPublishSubject<E> : ADOPUtility.ADOPObservableType, ADOPUtility.ADOPObserverType {
   public init()
@@ -220,7 +220,7 @@ public class ADOPDisposer : ADOPUtility.ADOPDisposable {
   public func setDispose(_ dispose: @escaping () -> Swift.Void)
   @objc deinit
 }
-extension ADOPUtility.ADOPObservableType {
+extension ADOPObservableType {
   public func timeout(_ dueTime: Dispatch.DispatchTime) -> ADOPUtility.ADOPObservable<Self.Element>
 }
 @objc public protocol BIDMADNativeAdCommonInterface {
@@ -235,7 +235,7 @@ public protocol BIDMADNativeAdCallbacks {
 @objc @_inheritsConvenienceInitializers @objcMembers open class BidmadTestEnvironment : ObjectiveC.NSObject {
   @objc public static var testMode: Swift.Bool
   @objc public static var testOverrideJSON: Foundation.NSString?
-  @objc public static func displayText(_ text: Swift.String)
+  @objc public static func displayText(_ text: Swift.String, bottomPosition: Swift.Bool = false)
   @objc public static func topViewController(base: UIKit.UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIKit.UIViewController?
   @objc public static func getTestADOPRewardVideoForSuccessCase() -> Foundation.Data
   @objc public static func getTestADOPRewardVideoForFailCase() -> Foundation.Data
@@ -245,8 +245,8 @@ public protocol BIDMADNativeAdCallbacks {
   @objc public static func getTestBannerForSuccessCase() -> Foundation.Data
   @objc public static func getTestBannerForFailCase() -> Foundation.Data
   @objc public static func getTestBannerForSuccessCase_RAW() -> Foundation.Data
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 public protocol ADOPObservableType {
   associatedtype Element
@@ -259,19 +259,19 @@ public class ADOPObservable<E> : ADOPUtility.ADOPObservableType {
   public func subscribe<Observer>(_ observer: Observer) -> ADOPUtility.ADOPDisposable where E == Observer.Element, Observer : ADOPUtility.ADOPObserverType
   @objc deinit
 }
-extension ADOPUtility.ADOPObservable {
+extension ADOPObservable {
   public static func create(_ subscribe: @escaping (ADOPUtility.ADOPObserver<E>) -> ADOPUtility.ADOPDisposable) -> ADOPUtility.ADOPObservable<E>
 }
-extension ADOPUtility.ADOPObservableType {
+extension ADOPObservableType {
   public func asObservable() -> ADOPUtility.ADOPObservable<Self.Element>
 }
-extension ADOPUtility.ADOPObservableType {
+extension ADOPObservableType {
   public func subscribeOn(_ scheduler: ADOPUtility.ADOPScheduler) -> ADOPUtility.ADOPObservable<Self.Element>
 }
-extension ADOPUtility.ADOPObservableType {
+extension ADOPObservableType {
   public func observeOn(_ scheduler: ADOPUtility.ADOPScheduler) -> ADOPUtility.ADOPObservable<Self.Element>
 }
-extension ADOPUtility.ADOPObservableType {
+extension ADOPObservableType {
   public func map<R>(_ transform: @escaping (Self.Element) -> R) -> ADOPUtility.ADOPObservable<R>
   public func flatMap<R>(_ transform: @escaping (Self.Element) -> ADOPUtility.ADOPObservable<R>) -> ADOPUtility.ADOPObservable<R>
 }

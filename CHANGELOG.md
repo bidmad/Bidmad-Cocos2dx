@@ -1,3 +1,14 @@
+# Version 1.9.0
+#### Changes
+- Remove Cauly Network
+- AOS RewardInterstitial ad processing update
+- AOS Proguard Role Update
+- iOS Tapjoy Network Depedency Update
+- Bug Fix
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx 2.6.0.0
+- iOS : BidmadSDK.framework 4.3.1.0
+
 # Version 1.8.0
 #### Changes
 - AOS / IOS AdNetwork Library Update

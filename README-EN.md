@@ -101,6 +101,8 @@ apply from: "bidmad.gradle"
 ```cpp
 -keep class com.adop.sdk.** { *; }
 -keep class ad.helper.openbidding.** { *; }
+-keep class com.adop.adapter.fc.** { *; }
+-keep class com.adop.adapter.fnc.** { *; }
 -keepnames class * implements java.io.Serializable
 -keepclassmembers class * implements java.io.Serializable {
     static final long serialVersionUID;
@@ -111,6 +113,13 @@ apply from: "bidmad.gradle"
     java.lang.Object writeReplace();
     java.lang.Object readResolve();
 }
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+
+# Pangle
+-keep class com.bytedance.sdk.** { *; }
+-keep class com.bykv.vk.openvk.component.video.api.** { *; }
 
 # Tapjoy
 -keep class com.tapjoy.** { *; }
@@ -266,10 +275,10 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '4.3.0.0'
-  pod 'OpenBiddingHelper', '4.3.0.1'
-  pod 'BidmadAdapterFNC/ForGame', '4.3.0.0'
-  pod 'BidmadAdapterFC', '4.3.0.0'
+  pod 'BidmadSDK', '4.3.1.0'
+  pod 'OpenBiddingHelper', '4.3.1.0'
+  pod 'BidmadAdapterFNC/ForGame', '4.3.1.0'
+  pod 'BidmadAdapterFC', '4.3.1.0'
 
 end
 

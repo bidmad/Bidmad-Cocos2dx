@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BidmadAdapterFC
 import ADOPUtility
 import AppLovinSDK
@@ -8,10 +8,9 @@ import Foundation
 import Swift
 import UIKit
 import UnityAds
-import _Concurrency
 @_inheritsConvenienceInitializers @objc public class BidmadAdapterFCUtility : ObjectiveC.NSObject {
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 @_inheritsConvenienceInitializers @objcMembers open class BidmadAdColonyBanner : ADOPUtility.BidmadAdapterAdEssential, BidmadAdapterFC.BidmadADCAdViewDelegate {
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
@@ -49,7 +48,7 @@ import _Concurrency
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objcMembers open class BidmadInMobiInterstitial : BidmadAdapterFC.BidmadInMobiEssential, BidmadAdapterFC.BidmadIMInterstitialDelegate {
-  @objc public static let PREFIX: Swift.String
+  @objc public static var PREFIX: Swift.String
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc public func load()
   @objc public func shouldLoadAd()
@@ -69,7 +68,7 @@ import _Concurrency
 @_inheritsConvenienceInitializers @objcMembers open class BidmadAppLovinInterstitial : ADOPUtility.BidmadAdapterAdEssential, AppLovinSDK.ALAdLoadDelegate, AppLovinSDK.ALAdDisplayDelegate, AppLovinSDK.ALAdVideoPlaybackDelegate, ADOPUtility.BidmadLoadabilityChecker {
   @objc public var adIdentifier: Foundation.UUID
   public static var adClassStatus: ADOPUtility.AdClassStatus
-  @objc public static let PREFIX: Swift.String
+  @objc public static var PREFIX: Swift.String
   public static var loadableConditions: ADOPUtility.LoadableConditions
   @objc public var loadableConditionsPassed: Swift.Bool
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
@@ -89,7 +88,7 @@ import _Concurrency
 @_inheritsConvenienceInitializers @objcMembers open class BidmadAppLovinReward : ADOPUtility.BidmadAdapterAdEssential, AppLovinSDK.ALAdDisplayDelegate, AppLovinSDK.ALAdLoadDelegate, AppLovinSDK.ALAdRewardDelegate, AppLovinSDK.ALAdVideoPlaybackDelegate, ADOPUtility.BidmadLoadabilityChecker {
   @objc public var adIdentifier: Foundation.UUID
   public static var adClassStatus: ADOPUtility.AdClassStatus
-  @objc public static let PREFIX: Swift.String
+  @objc public static var PREFIX: Swift.String
   public static var loadableConditions: ADOPUtility.LoadableConditions
   @objc public var loadableConditionsPassed: Swift.Bool
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
@@ -112,8 +111,8 @@ import _Concurrency
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objcMembers open class BidmadInMobiEssential : ADOPUtility.BidmadAdapterAdEssential {
-  @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc deinit
+  @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
 }
 @_inheritsConvenienceInitializers @objcMembers open class BidmadIronSourceBanner : ADOPUtility.BidmadAdapterAdEssential, BidmadAdapterFC.BidmadISLogDelegate, BidmadAdapterFC.BidmadBridgeISBannerDelegate, ADOPUtility.BidmadLoadabilityChecker {
   @objc public var adIdentifier: Foundation.UUID
@@ -137,9 +136,9 @@ import _Concurrency
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objcMembers open class BidmadUnityAdsInterstitial : ADOPUtility.BidmadAdapterAdEssential, UnityAds.UnityAdsInitializationDelegate, UnityAds.UnityAdsLoadDelegate, UnityAds.UnityAdsShowDelegate {
-  @objc public static let UNITYADS_TEST_APPID: Swift.String
+  @objc public static var UNITYADS_TEST_APPID: Swift.String
   @objc public static func UNITYADS_TEST_PUBID(_ isRewardedAd: Swift.Bool) -> Swift.String
-  @objc public static let PREFIX: Swift.String
+  @objc public static var PREFIX: Swift.String
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc public func initializationComplete()
   @objc public func initializationFailed(_ error: UnityAds.UnityAdsInitializationError, withMessage message: Swift.String)
@@ -205,9 +204,9 @@ import _Concurrency
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objcMembers open class BidmadUnityAdsBanner : ADOPUtility.BidmadAdapterAdEssential, UnityAds.UnityAdsInitializationDelegate, UnityAds.UADSBannerViewDelegate {
-  @objc public static let UNITYADS_TEST_APPID: Swift.String
-  @objc public static let UNITYADS_TEST_PUBID: Swift.String
-  @objc public static let PREFIX: Swift.String
+  @objc public static var UNITYADS_TEST_APPID: Swift.String
+  @objc public static var UNITYADS_TEST_PUBID: Swift.String
+  @objc public static var PREFIX: Swift.String
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
   @objc public func initializationComplete()
   @objc public func initializationFailed(_ error: UnityAds.UnityAdsInitializationError, withMessage message: Swift.String)
@@ -226,7 +225,7 @@ import _Concurrency
 @_inheritsConvenienceInitializers @objcMembers open class BidmadAppLovinBanner : ADOPUtility.BidmadAdapterAdEssential, AppLovinSDK.ALAdLoadDelegate, AppLovinSDK.ALAdDisplayDelegate, AppLovinSDK.ALAdViewEventDelegate, ADOPUtility.BidmadLoadabilityChecker {
   @objc public var adIdentifier: Foundation.UUID
   public static var adClassStatus: ADOPUtility.AdClassStatus
-  @objc public static let PREFIX: Swift.String
+  @objc public static var PREFIX: Swift.String
   public static var loadableConditions: ADOPUtility.LoadableConditions
   @objc public var loadableConditionsPassed: Swift.Bool
   @objc required public init(appID: Swift.String, pubID: Swift.String?, rootVC: UIKit.UIViewController, parentView: UIKit.UIView?, isChild: Foundation.NSNumber?, isGDPRConsent: Foundation.NSNumber?, isCCPAConsent: Foundation.NSNumber?)
