@@ -3,6 +3,7 @@
 - Remove Cauly Network
 - AOS RewardInterstitial ad processing update
 - AOS Proguard Role Update
+- AOS Minsdk version changed to 21
 - iOS Tapjoy Network Depedency Update
 - Bug Fix
 #### Integrated BidmadSDK Version
