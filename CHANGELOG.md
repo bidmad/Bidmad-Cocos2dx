@@ -1,3 +1,12 @@
+# Version 1.10.0
+#### Changes
+- Update logic related to GDPR consent function by Ad Network.  
+- Update Ad Network Library Version
+- Bug Fix
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx 2.7.0.0
+- iOS : BidmadSDK.framework 4.5.0.0
+
 # Version 1.9.0
 #### Changes
 - Remove Cauly Network

@@ -223,7 +223,7 @@ endif()
 <summary>Import guide for Cocos2DX 4.X and above (Manual Library Import)</summary>
 <br>
 
-- Copy the /proj.ios_mac/libBidmad folder of the downloaded sample project to the game project and add it to Xcode.<br>
+- For the manual linking of iOS frameworks, go to the [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases), download iOS_Frameworks_Cocos2DX_1.10.0.zip, and copy the libBidmad folder into proj.ios_mac folder. Lastly, drag and drop /proj.ios_mac/libBidmad folder into your Xcode project folder tree.
 *All frameworks in libBidmad are set to the Do not Embed option when adding Xcode.
 - Inside Classes / bidmad / ios, BidmadSwiftSupport.swift file should be imported, and select "Don't Create" button.<br>
 - Inside Xcode Project, under settings for mobile target, please set the following:
@@ -275,10 +275,10 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '4.3.1.0'
-  pod 'OpenBiddingHelper', '4.3.1.0'
-  pod 'BidmadAdapterFNC/ForGame', '4.3.1.0'
-  pod 'BidmadAdapterFC', '4.3.1.0'
+  pod 'BidmadSDK', '4.5.0.0'
+  pod 'OpenBiddingHelper', '4.5.0.0'
+  pod 'BidmadAdapterFNC/ForGame', '4.5.0.0'
+  pod 'BidmadAdapterFC', '4.5.0.0'
 
 end
 

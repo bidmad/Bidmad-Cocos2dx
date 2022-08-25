@@ -222,7 +222,7 @@ endif()
 <summary>Cocos2DX 4.X 이상 버전을 위한 임포트 가이드 (수동 라이브러리 임포트)</summary>
 <br>
 
-- 다운로드 받은 샘플 프로젝트의 /proj.ios_mac/libBidmad 폴더를 게임 프로젝트로 복사, Xcode에 추가합니다.<br>
+- Framework 수동 연동을 위해 [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases) 에서 iOS_Frameworks_Cocos2DX_1.10.0.zip 를 다운로드 받아 /proj.ios_mac 폴더 안에 libBidmad 폴더를 포함시킨 뒤, /proj.ios_mac/libBidmad 폴더를 Xcode 프로젝트로 복사해 Framework 를 추가합니다.  
 *libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
 - Classes → bidmad → ios 내부 BidmadSwiftSupport.swift 임포트, 이후 "Don't Create" 버튼 선택.<br>
 - Xcode Project 내부, mobile 타겟 용 세팅에서 다음 값을 설정하십시오.
@@ -274,10 +274,10 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '4.3.1.0'
-  pod 'OpenBiddingHelper', '4.3.1.0'
-  pod 'BidmadAdapterFNC/ForGame', '4.3.1.0'
-  pod 'BidmadAdapterFC', '4.3.1.0'
+  pod 'BidmadSDK', '4.5.0.0'
+  pod 'OpenBiddingHelper', '4.5.0.0'
+  pod 'BidmadAdapterFNC/ForGame', '4.5.0.0'
+  pod 'BidmadAdapterFC', '4.5.0.0'
 
 end
 
