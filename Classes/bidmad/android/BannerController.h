@@ -1,5 +1,6 @@
 #include "cocos2d.h"
 #include "BannerCallback.h"
+#include "../AdPosition.h"
 
 USING_NS_CC;
 
@@ -15,13 +16,13 @@ private:
 public:
     BannerCallback* callback;
     char* mZoneId;
-
     BannerController(char *);
+
     void setActivity();
     void makeAdView();
-    void setAdInfo(char*);
-    void setCUID(char*);
     void setInterval(int);
+
+    void load(AdPosition);
     void load(int);
     void load(int, int);
     void removeBanner();
@@ -30,6 +31,6 @@ public:
     void onPause();
     void onResume();
     void setOnLoadCallback(void (*_onLoadCallback) (char *));
-    void setOnFailCallback(void (*_onFailCallback) (char *));
-    static void callCallback(char* callbackType, char* zoneId);
+    void setOnFailCallback(void (*_onFailCallback) (char *, char* errorInfo));
+    static void callCallback(char* callbackType, char* zoneId, char* errorInfo);
 };

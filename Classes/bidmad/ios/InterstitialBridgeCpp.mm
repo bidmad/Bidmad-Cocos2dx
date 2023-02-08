@@ -11,7 +11,7 @@
 InterstitialBridgeCpp::InterstitialBridgeCpp(char* zoneId){
     mZoneId = zoneId;
     NSString* _zoneId = [NSString stringWithUTF8String: zoneId];
-    [[InterstitialBridgeObjC alloc] initWithZoneId:_zoneId controller:this];
+    [InterstitialBridgeObjC initialSetupWithZoneId:_zoneId controller:this];
 }
 
 void InterstitialBridgeCpp::loadInterstitial() {
@@ -38,13 +38,6 @@ void InterstitialBridgeCpp::setAutoReload(bool isAutoReload) {
     [bidmadObject setAutoReload:isAutoReload];
 }
 
-void InterstitialBridgeCpp::setCUID(char* cuid) {
-    NSString *_cuid = [NSString stringWithUTF8String:cuid];
-    NSString* _zoneId = [NSString stringWithUTF8String: mZoneId];
-    InterstitialBridgeObjC* bidmadObject = [InterstitialBridgeObjC getInstance:_zoneId];
-    [bidmadObject setCUID:_cuid];
-}
-
 void InterstitialBridgeCpp::setOnLoadCallback(void (*_onLoadCallback)( char *)){
     onLoadCallback = _onLoadCallback;
 }
@@ -53,7 +46,7 @@ void InterstitialBridgeCpp::setOnShowCallback(void (*_onShowCallback)( char *)){
     onShowCallback = _onShowCallback;
 }
 
-void InterstitialBridgeCpp::setOnFailCallback(void (*_onFailCallback)( char *)){
+void InterstitialBridgeCpp::setOnFailCallback(void (*_onFailCallback)(char *, char *)) {
     onFailCallback = _onFailCallback;
 }
 
@@ -61,7 +54,7 @@ void InterstitialBridgeCpp::setOnCloseCallback(void (*_onCloseCallback)( char *)
     onCloseCallback = _onCloseCallback;
 }
 
-void InterstitialBridgeCpp::callCallback(char* callbackType, char* zoneId){
+void InterstitialBridgeCpp::callCallback(char* callbackType, char* zoneId, char* errorReason) {
     CCLOG("BidmadSDK callCallback : %s  ", callbackType);
     CCLOG("BidmadSDK zoneId : %s  ", zoneId);
     if( (strcmp(callbackType, "onLoad") == 0) && (onLoadCallback != nullptr) ){
@@ -69,7 +62,7 @@ void InterstitialBridgeCpp::callCallback(char* callbackType, char* zoneId){
     }else if( (strcmp(callbackType, "onShow") == 0) && (onShowCallback != nullptr) ){
         onShowCallback(zoneId);
     }else if( (strcmp(callbackType, "onFail") == 0) && (onFailCallback != nullptr) ){
-        onFailCallback(zoneId);
+        onFailCallback(zoneId, errorReason);
     }else if( (strcmp(callbackType, "onClose") == 0) && (onCloseCallback != nullptr) ){
         onCloseCallback(zoneId);
     }

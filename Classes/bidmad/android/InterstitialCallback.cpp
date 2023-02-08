@@ -17,7 +17,7 @@ void InterstitialCallback::setOnShowCallback(void (*_onShowCallback) (char *)) {
     onShowCallback = _onShowCallback;
 }
 
-void InterstitialCallback::setOnFailCallback(void (*_onFailCallback) (char *)) {
+void InterstitialCallback::setOnFailCallback(void (*_onFailCallback) (char *, char *)) {
     onFailCallback = _onFailCallback;
 }
 
@@ -31,7 +31,7 @@ extern "C"{
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
-        InterstitialController::callCallback("onLoad", (char *)zoneId);
+        InterstitialController::callCallback("onLoad", (char *)zoneId, nullptr);
 
         env->ReleaseStringUTFChars(str, zoneId);
     }
@@ -41,19 +41,21 @@ extern "C"{
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
-        InterstitialController::callCallback("onShow", (char *)zoneId);
+        InterstitialController::callCallback("onShow", (char *)zoneId, nullptr);
 
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onFailedAdCb(JNIEnv *env, jobject obj, jstring str){
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onFailedAdCb(JNIEnv *env, jobject obj, jstring str, jstring error){
         LOGD("Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onFailedAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
+        const char *errorInfo = env->GetStringUTFChars(error, NULL);
 
-        InterstitialController::callCallback("onFail", (char *)zoneId);
+        InterstitialController::callCallback("onFail", (char *)zoneId, (char *)errorInfo);
 
         env->ReleaseStringUTFChars(str, zoneId);
+        env->ReleaseStringUTFChars(error, errorInfo);
     }
 
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onCloseAdCb(JNIEnv *env, jobject obj, jstring str){
@@ -61,7 +63,7 @@ extern "C"{
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
-        InterstitialController::callCallback("onClose", (char *)zoneId);
+        InterstitialController::callCallback("onClose", (char *)zoneId, nullptr);
 
         env->ReleaseStringUTFChars(str, zoneId);
     }

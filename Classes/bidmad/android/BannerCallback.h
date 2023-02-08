@@ -6,14 +6,14 @@
 class BannerCallback{
 public:
     void (*onLoadCallback) (char *) = nullptr;
-    void (*onFailCallback) (char *) = nullptr;
+    void (*onFailCallback) (char *, char*) = nullptr;
 
     void setOnLoadCallback(void (*_onLoadCallback) (char *));
-    void setOnFailCallback(void (*_onFailCallback) (char *));
+    void setOnFailCallback(void (*_onFailCallback) (char *, char*));
 };
 
 extern "C"{
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_adview_Cocos2dxAdView_onLoadAdCb(JNIEnv *, jobject, jstring);
-    JNIEXPORT void JNICALL Java_ad_helper_openbidding_adview_Cocos2dxAdView_onFailedAdCb(JNIEnv *, jobject, jstring);
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_adview_Cocos2dxAdView_onLoadFailAdCb(JNIEnv *, jobject, jstring, jstring);
 }
 #endif //PROJ_ANDROID_BANNERCALLBACK_H

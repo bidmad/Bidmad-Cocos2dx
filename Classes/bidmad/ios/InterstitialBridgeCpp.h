@@ -13,7 +13,7 @@ class InterstitialBridgeCpp{
 private:
     void (*onLoadCallback) (char *) = nullptr;
     void (*onShowCallback) (char *) = nullptr;
-    void (*onFailCallback) (char *) = nullptr;
+    void (*onFailCallback) (char *, char *) = nullptr;
     void (*onCloseCallback) (char *) = nullptr;
     
     char* mZoneId;
@@ -23,12 +23,11 @@ public:
     void showInterstitial();
     bool isLoaded();
     void setAutoReload(bool isAutoReload);
-    void setCUID(char* cuid);
     void setOnLoadCallback(void (*_onLoadCallback) (char *));
     void setOnShowCallback(void (*_onShowCallback) (char *));
-    void setOnFailCallback(void (*_onFailCallback) (char *));
+    void setOnFailCallback(void (*_onFailCallback)(char *, char *));
     void setOnCloseCallback(void (*_onCloseCallback) (char *));
-    void callCallback(char* callbackType, char* zoneId);
+    void callCallback(char* callbackType, char* zoneId, char* errorReason);
     
 };
 

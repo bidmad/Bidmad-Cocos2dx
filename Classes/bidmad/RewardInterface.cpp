@@ -17,7 +17,6 @@ RewardInterface::RewardInterface(char* zoneId){
     reward = new RewardController(zoneId);
     reward->setActivity();
     reward->makeReward();
-    reward->setAdInfo(zoneId);
 #endif
 }
 
@@ -56,10 +55,6 @@ void RewardInterface::setAutoReload(bool isAutoReload) {
 #endif
 }
 
-void RewardInterface::setCUID(char* cuid) {
-    reward->setCUID(cuid);
-}
-
 void RewardInterface::setOnLoadCallback(void (*_onLoadCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     reward->setOnLoadCallback(_onLoadCallback);
@@ -76,7 +71,7 @@ void RewardInterface::setOnShowCallback(void (*_onShowCallback) (char *)){
 #endif
 }
 
-void RewardInterface::setOnFailCallback(void (*_onFailCallback) (char *)){
+void RewardInterface::setOnFailCallback(void (*_onFailCallback) (char *, char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     reward->setOnFailCallback(_onFailCallback);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)

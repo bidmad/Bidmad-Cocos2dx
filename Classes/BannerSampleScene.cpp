@@ -1,6 +1,6 @@
 #include "BannerSampleScene.h"
 #include "HelloWorldScene.h"
-//#include "SimpleAudioEngine.h"
+///#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -15,7 +15,7 @@ void onBannerLoad(char* zoneId)
 {
     bannerCallbackLabel->setString("onBannerLoad");
 }
-void onBannerFail(char* zoneId)
+void onBannerFail(char* zoneId, char* errorInfo)
 {
     bannerCallbackLabel->setString("BannerFail");
 }
@@ -84,9 +84,9 @@ void BannerSampleScene::initBanner()
     //Banner Create
     bi = new BannerInterface(banner50);
     bi->setInterval(60);
-    
-    // Bidmad Banner Ads can be set with Custom Unique ID with the following method.
-    // bi->setCUID((char *)"SET CUID TEST BANNER");
+
+    // CommonInterface can be set with Custom Unique ID with the following method.
+    // CommonInterface::setCUID((char *)"SET CUID TEST");
 
     //Callback Setting
     bi->setOnLoadCallback(onBannerLoad);
@@ -96,9 +96,10 @@ void BannerSampleScene::loadBanner()
 {
 //    int posX = 80;
 //    int posY = 70;
-
     bi->load(0);
 //    bi->load(posX, posY);
+//    bi->load(AdPosition::Bottom);
+
 }
 void BannerSampleScene::removeBanner()
 {

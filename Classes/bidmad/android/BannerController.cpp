@@ -1,6 +1,5 @@
 #include "BannerController.h"
 #include <map>
-
 #define LOG_TAG "bidmad"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #define coco2dxClass "ad.helper.openbidding.adview.Cocos2dxAdView"
@@ -47,33 +46,23 @@ void BannerController::makeAdView() {
     deleteLocalRefMember();
 }
 
-void BannerController::setAdInfo(char *zoneId) {
-    getInstance();
-
-    jstring _zoneId = jniM.env->NewStringUTF(zoneId);
-    jmethodID midGet = jniM.env->GetMethodID(jCls, "setAdInfo", "(Ljava/lang/String;)V");
-    jniM.env->CallVoidMethod(jObj, midGet, _zoneId);
-
-    jniM.env->DeleteLocalRef(_zoneId);
-    deleteLocalRefMember();
-}
-
-void BannerController::setCUID(char *cuid) {
-    getInstance();
-
-    jstring _cuid = jniM.env->NewStringUTF(cuid);
-    jmethodID midGet = jniM.env->GetMethodID(jCls, "setCUID", "(Ljava/lang/String;)V");
-    jniM.env->CallVoidMethod(jObj, midGet, _cuid);
-
-    jniM.env->DeleteLocalRef(_cuid);
-    deleteLocalRefMember();
-}
-
 void BannerController::setInterval(int interval) {
     getInstance();
 
     jmethodID midGet = jniM.env->GetMethodID(jCls, "setInterval", "(I)V");
     jniM.env->CallVoidMethod(jObj, midGet, interval);
+
+    deleteLocalRefMember();
+}
+
+void BannerController::load(AdPosition position) {
+    getInstance();
+
+    jmethodID midGet = jniM.env->GetMethodID(jCls, "setAdPosition", "(I)V");
+    jniM.env->CallVoidMethod(jObj, midGet, position);
+
+    midGet = jniM.env->GetMethodID(jCls, "loadWithAdPosition", "()V");
+    jniM.env->CallVoidMethod(jObj, midGet);
 
     deleteLocalRefMember();
 }
@@ -159,11 +148,11 @@ void BannerController::deleteLocalRefMember(){
 void BannerController::setOnLoadCallback(void (*_onLoadCallback) (char *)){
     callback->setOnLoadCallback(_onLoadCallback);
 }
-void BannerController::setOnFailCallback(void (*_onFailCallback) (char *)){
-    callback->setOnLoadCallback(_onFailCallback);
+void BannerController::setOnFailCallback(void (*_onFailCallback) (char *, char*)){
+    callback->setOnFailCallback(_onFailCallback);
 }
 
-void BannerController::callCallback(char* callbackType, char* zoneId){
+void BannerController::callCallback(char* callbackType, char* zoneId, char* errorInfo){
     std::string _zoneId = zoneId;
     BannerController* controller = icm.find(_zoneId)->second;
 
@@ -182,7 +171,8 @@ void BannerController::callCallback(char* callbackType, char* zoneId){
     if( (strcmp(callbackType, "onLoad") == 0) && (callback->onLoadCallback != nullptr) ){
         callback->onLoadCallback(zoneId);
     }else if( (strcmp(callbackType, "onFail") == 0) && (callback->onFailCallback != nullptr) ){
-        callback->onFailCallback(zoneId);
+        LOGD("callCallback error : %s", errorInfo);
+        callback->onFailCallback(zoneId, errorInfo);
     }
 
 

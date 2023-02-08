@@ -4,6 +4,7 @@
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include "android/BannerController.h"
 #endif
+#include "AdPosition.h"
 
 USING_NS_CC;
 
@@ -19,13 +20,13 @@ public:
     BannerInterface(char*);
 
     void setInterval(int);
+    void load(AdPosition);
     void load(int);
     void load(int, int);
     void removeBanner();
     void hideBannerView();
     void showBannerView();
-    void setCUID(char*);
-    
+
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     void onPause();
@@ -33,5 +34,5 @@ public:
 #endif
 
     void setOnLoadCallback(void (*_onLoadCallback) (char *));
-    void setOnFailCallback(void (*_onFailCallback) (char *));
+    void setOnFailCallback(void (*_onFailCallback) (char *, char *));
 };

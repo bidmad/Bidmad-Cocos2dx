@@ -19,8 +19,6 @@ public:
     InterstitialController(char *);
     void setActivity();
     void makeInterstitial();
-    void setAdInfo(char*);
-    void setCUID(char*);
     void load();
     void show();
     bool isLoaded();
@@ -32,5 +30,5 @@ public:
     void setOnSkipCallback(void (*_onSkipCallback) (char *));
     void setOnCloseCallback(void (*_onCloseCallback) (char *));
     void setOnClickCallback(void (*_onClickCallback) (char *));
-    static void callCallback(char* callbackType, char* zoneId);
+    static void callCallback(char* callbackType, char* zoneId, char* errorInfo);
 };

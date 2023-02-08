@@ -11,7 +11,7 @@
 RewardBridgeCpp::RewardBridgeCpp(char* zoneId){
     mZoneId = zoneId;
     NSString* _zoneId = [NSString stringWithUTF8String: zoneId];
-    [[RewardBridgeObjC alloc] initWithZoneId:_zoneId controller:this];
+    [RewardBridgeObjC initialSetupWithZoneId:_zoneId controller:this];
 }
 
 void RewardBridgeCpp::loadRewardVideo() {
@@ -38,13 +38,6 @@ void RewardBridgeCpp::setAutoReload(bool isAutoReload) {
     [bidmadObject setAutoReload:isAutoReload];
 }
 
-void RewardBridgeCpp::setCUID(char* cuid) {
-    NSString *_cuid = [NSString stringWithUTF8String:cuid];
-    NSString* _zoneId = [NSString stringWithUTF8String: mZoneId];
-    RewardBridgeObjC* bidmadObject = [RewardBridgeObjC getInstance:_zoneId];
-    [bidmadObject setCUID:_cuid];
-}
-
 void RewardBridgeCpp::setOnLoadCallback(void (*_onLoadCallback)( char *)){
     onLoadCallback = _onLoadCallback;
 }
@@ -53,7 +46,7 @@ void RewardBridgeCpp::setOnShowCallback(void (*_onShowCallback)( char *)){
     onShowCallback = _onShowCallback;
 }
 
-void RewardBridgeCpp::setOnFailCallback(void (*_onFailCallback)( char *)){
+void RewardBridgeCpp::setOnFailCallback(void (*_onFailCallback)(char *, char *)) {
     onFailCallback = _onFailCallback;
 }
 
@@ -69,7 +62,7 @@ void RewardBridgeCpp::setOnCloseCallback(void (*_onCloseCallback)( char *)){
     onCloseCallback = _onCloseCallback;
 }
 
-void RewardBridgeCpp::callCallback(char* callbackType, char* zoneId){
+void RewardBridgeCpp::callCallback(char* callbackType, char* zoneId, char* errorReason) {
     CCLOG("BidmadSDK callCallback : %s  ", callbackType);
     CCLOG("BidmadSDK zoneId : %s  ", zoneId);
     if( (strcmp(callbackType, "onLoad") == 0) && (onLoadCallback != nullptr) ){
@@ -77,7 +70,7 @@ void RewardBridgeCpp::callCallback(char* callbackType, char* zoneId){
     }else if( (strcmp(callbackType, "onShow") == 0) && (onShowCallback != nullptr) ){
         onShowCallback(zoneId);
     }else if( (strcmp(callbackType, "onFail") == 0) && (onFailCallback != nullptr) ){
-        onFailCallback(zoneId);
+        onFailCallback(zoneId, errorReason);
     }else if( (strcmp(callbackType, "onComplete") == 0) && (onCompleteCallback != nullptr) ){
         onCompleteCallback(zoneId);
     }else if( (strcmp(callbackType, "onSkip") == 0) && (onSkipCallback != nullptr) ){

@@ -1,3 +1,12 @@
+# Version 2.0.0
+#### Changes
+- Support AdPosition
+- Interface changes (setCUID / initializeSdk / fail callback)
+- AOS Add Coupang Network
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx 3.3.0
+- iOS : BidmadSDK.framework 5.3.0
+
 # Version 1.10.0
 #### Changes
 - Update logic related to GDPR consent function by Ad Network.  

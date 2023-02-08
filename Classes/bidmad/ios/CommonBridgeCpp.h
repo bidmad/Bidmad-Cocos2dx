@@ -20,7 +20,8 @@ public:
     static void setGdprConsent(bool, bool);
     static int getGdprConsent(bool);
     static const char* getPRIVACYURL();
-    static void initializeSdk();
+    static void setCUID(char *);
+    static void initializeSdk(char *);
 };
 
 #endif /* CommonBridgeCpp_h */

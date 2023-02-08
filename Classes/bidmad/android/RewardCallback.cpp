@@ -17,7 +17,7 @@ void RewardCallback::setOnShowCallback(void (*_onShowCallback) (char *)) {
     onShowCallback = _onShowCallback;
 }
 
-void RewardCallback::setOnFailCallback(void (*_onFailCallback) (char *)) {
+void RewardCallback::setOnFailCallback(void (*_onFailCallback) (char *, char *)) {
     onFailCallback = _onFailCallback;
 }
 
@@ -39,7 +39,7 @@ extern "C"{
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
-        RewardController::callCallback("onLoad", (char *)zoneId);
+        RewardController::callCallback("onLoad", (char *)zoneId, nullptr);
 
         env->ReleaseStringUTFChars(str, zoneId);
     }
@@ -49,19 +49,21 @@ extern "C"{
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
-        RewardController::callCallback("onShow", (char *)zoneId);
+        RewardController::callCallback("onShow", (char *)zoneId, nullptr);
 
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onFailedAdCb(JNIEnv *env, jobject obj, jstring str){
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onFailedAdCb(JNIEnv *env, jobject obj, jstring str, jstring error){
         LOGD("Java_ad_helper_openbidding_reward_Cocos2dxReward_onFailedAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
+        const char *errorInfo = env->GetStringUTFChars(error, NULL);
 
-        RewardController::callCallback("onFail", (char *)zoneId);
+        RewardController::callCallback("onFail", (char *)zoneId, (char *)errorInfo);
 
         env->ReleaseStringUTFChars(str, zoneId);
+        env->ReleaseStringUTFChars(error, errorInfo);
     }
 
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onCompleteAdCb(JNIEnv *env, jobject obj, jstring str){
@@ -69,7 +71,7 @@ extern "C"{
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
-        RewardController::callCallback("onComplete", (char *)zoneId);
+        RewardController::callCallback("onComplete", (char *)zoneId , nullptr);
 
         env->ReleaseStringUTFChars(str, zoneId);
     }
@@ -79,7 +81,7 @@ extern "C"{
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
-        RewardController::callCallback("onClose", (char *)zoneId);
+        RewardController::callCallback("onClose", (char *)zoneId, nullptr);
 
         env->ReleaseStringUTFChars(str, zoneId);
     }
@@ -89,7 +91,7 @@ extern "C"{
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
-        RewardController::callCallback("onSkip", (char *)zoneId);
+        RewardController::callCallback("onSkip", (char *)zoneId, nullptr);
 
         env->ReleaseStringUTFChars(str, zoneId);
     }

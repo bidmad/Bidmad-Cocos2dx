@@ -49,7 +49,11 @@ const char* CommonBridgeCpp::getPRIVACYURL() {
     return [[CommonBridgeObjC sharedInstance] getPRIVACYURL];
 }
 
-void CommonBridgeCpp::initializeSdk() {
-    [[CommonBridgeObjC sharedInstance] initializeSdk];
+void CommonBridgeCpp::setCUID(char *cuid) {
+    [BIDMADSetting.sharedInstance setCuid:[NSString stringWithUTF8String:(const char *)cuid]];
+}
+
+void CommonBridgeCpp::initializeSdk(char *appKey) {
+    [[CommonBridgeObjC sharedInstance] initializeSdkWithAppKey:[NSString stringWithUTF8String:(const char *)appKey]];
     return;
 }

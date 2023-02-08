@@ -17,7 +17,6 @@ InterstitialInterface::InterstitialInterface(char* zoneId){
     interstitial = new InterstitialController(zoneId);
     interstitial->setActivity();
     interstitial->makeInterstitial();
-    interstitial->setAdInfo(zoneId);
 #endif
 }
 
@@ -52,10 +51,6 @@ void InterstitialInterface::setAutoReload(bool isAutoReload) {
     interstitial->setAutoReload(isAutoReload);
 }
 
-void InterstitialInterface::setCUID(char* cuid) {
-    interstitial->setCUID(cuid);
-}
-
 void InterstitialInterface::setOnLoadCallback(void (*_onLoadCallback) (char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     interstitial->setOnLoadCallback(_onLoadCallback);
@@ -70,7 +65,7 @@ void InterstitialInterface::setOnShowCallback(void (*_onShowCallback) (char *)){
     interstitial->callback->setOnShowCallback(_onShowCallback);
 #endif
 }
-void InterstitialInterface::setOnFailCallback(void (*_onFailCallback) (char *)){
+void InterstitialInterface::setOnFailCallback(void (*_onFailCallback) (char *, char *)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     interstitial->setOnFailCallback(_onFailCallback);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)

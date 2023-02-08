@@ -31,7 +31,7 @@ void onRewardClose(char* zoneId)
 {
     rewardCallbackLabel->setString("onRewardClose");
 }
-void onRewardFail(char* zoneId)
+void onRewardFail(char* zoneId, char* errorInfo)
 {
     rewardCallbackLabel->setString("onRewardFail");
 }
@@ -101,8 +101,8 @@ void RewardSampleScene::initReward()
     // You can disable the auto-reload feature by giving "false" for setAutoReload method.
     // ri->setAutoReload(false); //Default true
     
-    // Bidmad Reward Ads can be set with Custom Unique ID with the following method.
-    // ri->setCUID((char *)"SET CUID TEST REWARD");
+    // CommonInterface can be set with Custom Unique ID with the following method.
+    // CommonInterface::setCUID((char *)"SET CUID TEST");
 
     //Callback Setting
     ri->setOnLoadCallback(onRewardLoad);

@@ -51,28 +51,6 @@ void InterstitialController::makeInterstitial() {
     deleteLocalRefMember();
 }
 
-void InterstitialController::setAdInfo(char *zoneId) {
-    getInstance();
-
-    jstring _zoneId = jniM.env->NewStringUTF(zoneId);
-    jmethodID midGet = jniM.env->GetMethodID(jCls, "setAdInfo", "(Ljava/lang/String;)V");
-    jniM.env->CallVoidMethod(jObj, midGet, _zoneId);
-
-    jniM.env->DeleteLocalRef(_zoneId);
-    deleteLocalRefMember();
-}
-
-void InterstitialController::setCUID(char *cuid) {
-    getInstance();
-
-    jstring _cuid = jniM.env->NewStringUTF(cuid);
-    jmethodID midGet = jniM.env->GetMethodID(jCls, "setCUID", "(Ljava/lang/String;)V");
-    jniM.env->CallVoidMethod(jObj, midGet, _cuid);
-
-    jniM.env->DeleteLocalRef(_cuid);
-    deleteLocalRefMember();
-}
-
 void InterstitialController::load() {
     getInstance();
 
@@ -132,7 +110,7 @@ void InterstitialController::setOnCloseCallback(void (*_onCloseCallback)(char *)
     callback->setOnCloseCallback(_onCloseCallback);
 }
 
-void InterstitialController::callCallback(char* callbackType, char* zoneId){
+void InterstitialController::callCallback(char* callbackType, char* zoneId, char* errorInfo){
     std::string _zoneId = zoneId;
     InterstitialController* controller = icm.find(_zoneId)->second;
 
@@ -153,7 +131,7 @@ void InterstitialController::callCallback(char* callbackType, char* zoneId){
     }else if( (strcmp(callbackType, "onShow") == 0) && (callback->onShowCallback != nullptr) ){
         callback->onShowCallback(zoneId);
     }else if( (strcmp(callbackType, "onFail") == 0) && (callback->onFailCallback != nullptr) ){
-        callback->onFailCallback(zoneId);
+        callback->onFailCallback(zoneId, errorInfo);
     }else if( (strcmp(callbackType, "onClose") == 0) && (callback->onCloseCallback != nullptr) ){
         callback->onCloseCallback(zoneId);
     }

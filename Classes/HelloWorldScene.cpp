@@ -74,8 +74,12 @@ bool HelloWorld::init()
     }
 
     // Please call the InitializeSdk method before calling Bidmad ads.
-    CommonInterface::initializeSdk();
-    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CommonInterface::initializeSdk("6b097551-7f78-11ed-a117-026864a21938");
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CommonInterface::initializeSdk("6933aab2-7f78-11ed-a117-026864a21938");
+#endif
+
     CCLOG("BidmadPlugin Version : %s", CommonInterface::pluginVersion);
     CommonInterface::setDebugMode(true); //print Debug Log
     CommonInterface::reqAdTrackingAuthorization(onAdTrackingAuthorizationResponse); //iOS 14 ATT Call

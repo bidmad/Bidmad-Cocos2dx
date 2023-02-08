@@ -23,7 +23,7 @@ void InterstitialClose(char* zoneId)
 {
     interstitialCallbackLabel->setString("InterstitialClose");
 }
-void InterstitialFail(char* zoneId)
+void InterstitialFail(char* zoneId, char* errorInfo)
 {
     interstitialCallbackLabel->setString("InterstitialFail");
 }
@@ -91,9 +91,9 @@ void InterstitialSampleScene::initInterstitial()
     // Bidmad Interstitial Ads auto-reload after the interstitial ad is shown to the user.
     // You can disable the auto-reload feature by giving "false" for setAutoReload method.
     // ii->setAutoReload(false); //Default true
-    
-    // Bidmad Interstitial Ads can be set with Custom Unique ID with the following method.
-//    ii->setCUID((char *)"SET CUID TEST INTERSTITIAL");
+
+    // CommonInterface can be set with Custom Unique ID with the following method.
+    // CommonInterface::setCUID((char *)"SET CUID TEST");
     
     //Callback Setting
     ii->setOnLoadCallback(onInterstitialLoad);

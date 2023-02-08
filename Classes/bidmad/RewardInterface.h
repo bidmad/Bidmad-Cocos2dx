@@ -21,11 +21,10 @@ public:
     void show();
     bool isLoaded();
     void setAutoReload(bool);
-    void setCUID(char*);
 
     void setOnLoadCallback(void (*_onLoadCallback) (char *));
     void setOnShowCallback(void (*_onShowCallback) (char *));
-    void setOnFailCallback(void (*_onFailCallback) (char *));
+    void setOnFailCallback(void (*_onFailCallback) (char *, char *));
     void setOnCompleteCallback(void (*_onCompleteCallback) (char *));
     void setOnSkipCallback(void (*_onSkipCallback) (char *));
     void setOnCloseCallback(void (*_onCloseCallback) (char *));

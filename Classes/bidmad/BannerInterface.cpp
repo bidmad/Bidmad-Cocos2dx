@@ -16,7 +16,6 @@ BannerInterface::BannerInterface(char* zoneId){
     banner = new BannerController(zoneId);
     banner->setActivity();
     banner->makeAdView();
-    banner->setAdInfo(zoneId);
 #endif
 }
 
@@ -24,6 +23,16 @@ void BannerInterface::setInterval(int interval){
     CCLOG("BidmadSDK, setInterval");
     banner->setInterval(interval);
 }
+
+void BannerInterface::load(AdPosition position){
+    CCLOG("BidmadSDK, load");
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    banner->loadWithPosition((int)position);
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    banner->load(position);
+#endif
+}
+
 void BannerInterface::load(int y){
     CCLOG("BidmadSDK, load");
     banner->load(y);
@@ -44,10 +53,6 @@ void BannerInterface::showBannerView(){
     CCLOG("BidmadSDK, showBannerView");
     banner->showBannerView();
 }
-void BannerInterface::setCUID(char* cuid) {
-    CCLOG("BidmadSDK, setCUID");
-    banner->setCUID(cuid);
-}
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
@@ -67,7 +72,7 @@ void BannerInterface::setOnLoadCallback(void (*_onLoadCallback) (char *)){
     banner->callback->setOnLoadCallback(_onLoadCallback);
 #endif
 }
-void BannerInterface::setOnFailCallback(void (*_onFailCallback) (char *)){
+void BannerInterface::setOnFailCallback(void (*_onFailCallback) (char *, char*)){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     banner->setOnFailCallback(_onFailCallback);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)

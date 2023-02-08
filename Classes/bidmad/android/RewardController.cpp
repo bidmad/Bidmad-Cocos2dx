@@ -52,28 +52,6 @@ void RewardController::makeReward() {
     deleteLocalRefMember();
 }
 
-void RewardController::setAdInfo(char *zoneId) {
-    getInstance();
-
-    jstring _zoneId = jniM.env->NewStringUTF(zoneId);
-    jmethodID midGet = jniM.env->GetMethodID(jCls, "setAdInfo", "(Ljava/lang/String;)V");
-    jniM.env->CallVoidMethod(jObj, midGet, _zoneId);
-
-    jniM.env->DeleteLocalRef(_zoneId);
-    deleteLocalRefMember();
-}
-
-void RewardController::setCUID(char *cuid) {
-    getInstance();
-
-    jstring _cuid = jniM.env->NewStringUTF(cuid);
-    jmethodID midGet = jniM.env->GetMethodID(jCls, "setCUID", "(Ljava/lang/String;)V");
-    jniM.env->CallVoidMethod(jObj, midGet, _cuid);
-
-    jniM.env->DeleteLocalRef(_cuid);
-    deleteLocalRefMember();
-}
-
 void RewardController::load() {
     getInstance();
 
@@ -139,7 +117,7 @@ void RewardController::setOnCloseCallback(void (*_onCloseCallback)(char *)){
     callback->setOnCloseCallback(_onCloseCallback);
 }
 
-void RewardController::callCallback(char* callbackType, char* zoneId){
+void RewardController::callCallback(char* callbackType, char* zoneId, char* errorInfo){
     std::string _zoneId(zoneId);
     RewardController* controller = rcm.find(_zoneId)->second;
 
@@ -160,7 +138,7 @@ void RewardController::callCallback(char* callbackType, char* zoneId){
     }else if( (strcmp(callbackType, "onShow") == 0) && (callback->onShowCallback != nullptr) ){
         callback->onShowCallback(zoneId);
     }else if( (strcmp(callbackType, "onFail") == 0) && (callback->onFailCallback != nullptr) ){
-        callback->onFailCallback(zoneId);
+        callback->onFailCallback(zoneId, errorInfo);
     }else if( (strcmp(callbackType, "onComplete") == 0) && (callback->onCompleteCallback != nullptr) ){
         callback->onCompleteCallback(zoneId);
     }else if( (strcmp(callbackType, "onSkip") == 0) && (callback->onSkipCallback != nullptr) ){

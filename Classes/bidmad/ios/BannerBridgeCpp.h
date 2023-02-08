@@ -13,21 +13,21 @@
 class BannerBridgeCpp{
 private:
     void (*onLoadCallback) (char *) = nullptr;
-    void (*onFailCallback) (char *) = nullptr;
+    void (*onFailCallback) (char *, char *) = nullptr;
     
     char* mZoneId;
 public:
     BannerBridgeCpp(char* zoneId);
     void load(int y);
     void load(int x, int y);
+    void loadWithPosition(int adPosition);
     void setInterval(int interval);
     void removeBanner();
     void hideBannerView();
     void showBannerView();
-    void setCUID(char* cuid);
     void setOnLoadCallback(void (*_onLoadCallback)( char *));
-    void setOnFailCallback(void (*_onFailCallback)( char *));
-    void callCallback(char* callbackType, char* zoneId);
+    void setOnFailCallback(void (*_onFailCallback)(char *, char *));
+    void callCallback(char* callbackType, char* zoneId, char* errorReason);
 };
 
 #endif /* InterstitialBridgeCpp_h */

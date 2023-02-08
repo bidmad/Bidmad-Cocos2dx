@@ -45,6 +45,7 @@ list(APPEND GAME_SOURCE
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
+     Classes/bidmad/AdPosition.h
      Classes/bidmad/CommonInterface.h
      Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
@@ -167,6 +168,7 @@ list(APPEND GAME_SOURCE
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
+     Classes/bidmad/AdPosition.h
      Classes/bidmad/CommonInterface.h
      Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
@@ -190,6 +192,7 @@ elseif(APPLE)
              Classes/bidmad/ios/RewardBridgeObjC.h
              Classes/bidmad/ios/GoogleGDPRBridgeCpp.h
              Classes/bidmad/ios/GoogleGDPRBridgeObjC.h
+             Classes/bidmad/ios/BidmadCocos2DXSharedState.h
              )
         set(APP_UI_RES
             proj.ios_mac/ios/LaunchScreen.storyboard
@@ -212,6 +215,7 @@ elseif(APPLE)
              Classes/bidmad/ios/RewardBridgeObjC.mm
              Classes/bidmad/ios/GoogleGDPRBridgeCpp.mm
              Classes/bidmad/ios/GoogleGDPRBridgeObjC.mm
+             Classes/bidmad/ios/BidmadCocos2DXSharedState.m
              )
     elseif(MACOSX)
     ...
@@ -224,7 +228,8 @@ endif()
 <br>
 
 - For the manual linking of iOS frameworks, go to the [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases), download iOS_Frameworks_Cocos2DX_1.10.0.zip, and copy the libBidmad folder into proj.ios_mac folder. Lastly, drag and drop /proj.ios_mac/libBidmad folder into your Xcode project folder tree.
-*All frameworks in libBidmad are set to the Do not Embed option when adding Xcode.
+- Inside Frameworks, Libraries, and Embedded Content, please set OMSDK_Pubmatic.xcframework / AdFitSDK.framework to Embed & Sign option.
+*All frameworks except for OMSDK_Pubmatic and AdFitSDK in libBidmad are set to the Do not Embed option when adding Xcode.
 - Inside Classes / bidmad / ios, BidmadSwiftSupport.swift file should be imported, and select "Don't Create" button.<br>
 - Inside Xcode Project, under settings for mobile target, please set the following:
     - Build Settings → Other Linker Flags → if no "-ObjC", add it.
@@ -232,6 +237,7 @@ endif()
     - Build Settings → Bitcode Enable is set to NO.
     - Build Settings → Swift Language Version is set to "Swift 5".
 - Add the following library: (Inside "Link Binary With Libraries" in Target Build Settings → Build Phases, add the following library) <br>
+    - AppTrackingTransparency.framework <br>
     - StoreKit.framework <br>
     - MobileCoreServices.framework <br>
     - WebKit.framework <br>
@@ -252,6 +258,9 @@ endif()
     - libiconv.tbd <br>
     - libc++abi.tbd (newly required from sdk v3.5.0.0) <br>
     - Security.framework <br>
+    - JavaScriptCore.framework <br>
+    - AudioToolbox.framework <br>
+    - DeviceCheck.framework <br>
 </details>
 
 <details markdown="1">
@@ -275,10 +284,10 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '4.5.0.0'
-  pod 'OpenBiddingHelper', '4.5.0.0'
-  pod 'BidmadAdapterFNC/ForGame', '4.5.0.0'
-  pod 'BidmadAdapterFC', '4.5.0.0'
+  pod 'BidmadSDK', '5.3.0'
+  pod 'OpenBiddingHelper', '5.3.0'
+  pod 'BidmadAdapterFNC', '5.3.0'
+  pod 'BidmadAdapterFC', '5.3.0'
 
 end
 
@@ -307,19 +316,23 @@ If you're looking for a guide to the privacy requirements of the Apple Store, [s
 
 ### 2. Using Plugin
 
-#### 2.1 BidmadSDK Initialization
+#### 2.1 Migration (In case of updating from 1.10.0 or lower version to 2.0.0 or higher)
+Before configuring your app initially, for all users who are updating from 1.10.0 or lower to 2.0.0 or higher, please refer to [API Migration Guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/v2.0.0-Migration-Guide) for updates on your interfaces. Afterward, please proceed to adding the intializeSdk method call shown below.<br>
 
-- Upon starting point of your app, please call initalizeSdk() Function from CommonInterface.
-- If initializeSdk is not being called, SDK will intialize itself upon loading your first ad, which subsequently may delay your first loading.
+#### 2.2 BidmadSDK Initialization
+Performs tasks required to run BidmadSDK. The SDK won't allow ads to load unless you call the initializeSdk method.<br>
+The initializeSdk method receives the App Key as a parameter, and the App Key can be copied from ADOP Insight. You can get the App Key by referring to the [Find your App Key](https://github.com/bidmad/SDK/wiki/Find-your-app-key%5BEN%5D) guide.<br>
+Before loading ads, call the initializeSdk method as shown in the following example at the beginning of app.
+
+```cpp
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CommonInterface::initializeSdk("IOS APP KEY");
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CommonInterface::initializeSdk("ANDROID APP KEY");
+#endif
 ```
-    CommonInterface::initializeSdk()
-```
 
-- For interstitial or rewarded ads, intead of calling initializeSdk(),
-at the starting point of your app, load your ad, and show it at the point of your choice.
-  
-
-#### 2.2 Interstitial
+#### 2.3 Interstitial
 
 - Create InterstitialInterface to request interstitial ad.
 - Before displaying an interstitial ad, check whether the ad is loaded through isLoaded.
@@ -354,7 +367,7 @@ void showInterstitial()
 }
 ```
 
-#### 2.3 Reward
+#### 2.4 Reward
 
 - RewardInterface is created to request a reward ad.
 - Before displaying an reward ad, check whether the ad is loaded through isLoaded.
@@ -390,7 +403,7 @@ void showReward()
 }
 ```
 
-#### 2.4 Banner
+#### 2.5 Banner
 
 - Create a BannerInterface to request banner ads.
 ```cpp
@@ -456,6 +469,20 @@ void BannerSampleScene::applicationWillEnterForeground() {
         bi->onResume();
 }
 ```
+- If you are using Bidmad Plugin with 2.0.0 or higher version, setting the ad position instead of Y coordinate is also supported. The ad position values include Center, Top, Bottom, Left, Right, TopLeft, TopRight, BottomLeft, BottomRight. Refer to the following example for setting the ad position for your banner ads.
+```cpp
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    char *zoneId = (char*)"1c3e3085-333f-45af-8427-2810c26a72fc";
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    char *zoneId = (char*)"944fe870-fa3a-4d1b-9cc2-38e50b2aed43";
+#endif
+
+    // Banner Create
+    bi = new BannerInterface(zoneId);
+    
+    // Load the banner with ad position from bottom
+    bi->load(AdPosition::Bottom);
+```
 
 ### 3 Callback
 
@@ -476,7 +503,7 @@ void InterstitialClose(char* zoneId)
 {
     CCLOG("InterstitialClose");
 }
-void InterstitialFail(char* zoneId)
+void InterstitialFail(char* zoneId, char* errorInfo)
 {
     CCLOG("InterstitialFail");
 }
@@ -509,7 +536,7 @@ void onRewardClose(char* zoneId)
 {
     CCLOG("onRewardClose");
 }
-void onRewardFail(char* zoneId)
+void onRewardFail(char* zoneId, char* errorInfo)
 {
     CCLOG("onRewardFail");
 }
@@ -530,7 +557,7 @@ void onBannerLoad(char* zoneId)
 {
     CCLOG("onBannerLoad");
 }
-void onBannerFail(char* zoneId)
+void onBannerFail(char* zoneId, char* errorInfo)
 {
     CCLOG("onBannerFail");
 }
@@ -554,10 +581,9 @@ public void load()|Request an ad with the ZoneId entered in the constructor.
 public void show()|Display the loaded advertisement.
 public bool isLoaded()|Check if the ad is loaded.
 public void setAutoReload(bool isAutoReload)|Load the next ad after Show. This option defaults to true, and if a failCallback is received, the reload operation is not performed.
-public void setCUID(char*)|Setting CUID Property of each ad type
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|If an Function is registered, the registered Function is executed when the interstitial ad is loaded.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|If an Function is registered, the registered Function is executed when the interstitial ad is shown.
-public void setOnFailCallback(void (*_onFailCallback) (char *))|If an Function is registered, the registered Function is executed when the load of interstitial ad through ZoneId fails.
+public void setOnFailCallback(void (*_onFailCallback) (char *, char *))|If an Function is registered, the registered Function is executed when the load of interstitial ad through ZoneId fails.
 public void setOnCloseCallback(void (*_onCloseCallback) (char *))|If an Function is registered, the registered Function is executed when the interstitial ad is closed.
 
 #### 4.2 Reward
@@ -571,10 +597,9 @@ public void load()|Request an ad with the ZoneId entered in the constructor.
 public void show()|Display the loaded advertisement.
 public bool isLoaded()|Check if the ad is loaded.
 public void setAutoReload(bool isAutoReload)|Load the next ad after Show. This option defaults to true, and if a failCallback is received, the reload operation is not performed.
-public void setCUID(char*)|Setting CUID Property of each ad type
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|If an Function is registered, the registered Function is executed when the reward ad is loaded.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|If an Function is registered, the registered Function is executed when the reward ad is shown.
-public void setOnFailCallback(void (*_onFailCallback) (char *))|If an Function is registered, the registered Function is executed when the load of reward ad through ZoneId fails.
+public void setOnFailCallback(void (*_onFailCallback) (char *, char *))|If an Function is registered, the registered Function is executed when the load of reward ad through ZoneId fails.
 public void setOnCompleteCallback(void (*_onCompleteCallback) (char *))|If an Function is registered, the registered Function is executed when the reward payment criteria of the reward ad are met.
 public void setOnSkipCallback(void (*_onSkipCallback) (char *))|If an Function is registered, the registered Function is executed when the reward payment standard of the reward ad is not met.
 public void setOnCloseCallback(void (*_onCloseCallback) (char *))|If an Function is registered, the registered Function is executed when the reward ad is closed.
@@ -589,14 +614,14 @@ public BannerInterface(char* zoneId)|BidmadBanner constructor, Set ZoneId
 public void setInterval()|Set the banner refresh cycle.(60s~120s)
 public void load(int x)|Request an ad with the ZoneId entered in the constructor.
 public void load(int x, int y)|Request an ad with the ZoneId entered in the constructor. The banner is exposed based on the input x and y values.
-public void setCUID(char*)|Setting CUID Property of each ad type
+public void load(AdPosition position)|Request an ad with the ZoneId entered in the constructor. Banners are displayed based on the given ad position.
 public void removeBanner()|Remove the loaded banner.
 public bool hideBannerView()|Hide the loaded banner view.
 public bool showBannerView()|Expose the loaded banner view.
 public bool onPause()|Banner ads are stopped. It is mainly called when the OnPause event occurs. Only Android is supported.
 public bool onResume()|Restart banner ads. It is mainly called when the OnResume event occurs. Only Android is supported.
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|If a function is registered, the registered function is executed when the banner ad is loaded.
-public void setOnFailCallback(void (*_onFailCallback) (char *))|If a function is registered, the registered function is executed when the banner ad load fails.
+public void setOnFailCallback(void (*_onFailCallback) (char *, char *))|If a function is registered, the registered function is executed when the banner ad load fails.
 
 #### 4.4 Other Interfaces
 Function|Description
@@ -607,7 +632,8 @@ static void setGoogleTestId(char *)|Test Device Setting function for AdMob / AdM
 static void setGdprConsent(bool, bool)|Set if user consented in regard to GDPR (1st Param: User Consent, 2nd Param: is EU Region)
 static int getGdprConsent(bool)|GDPR Consent Status (Param: is EU Region)
 static const char* getPRIVACYURL()|Get Bidmad Privacy URL.
-static void initializeSdk()|Perform BidmadSDK initialization.
+static void setCUID(char *)|This method sets the CUID for all ads.
+static void initializeSdk(char *)|Perform BidmadSDK initialization.
 
 #### 4.5 iOS14 AppTrackingTransparencyAuthorization
 

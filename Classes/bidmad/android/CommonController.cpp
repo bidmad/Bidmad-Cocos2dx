@@ -7,6 +7,8 @@
 #define LOG_TAG "bidmad"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #define coco2dxClass "com.adop.sdk.Common"
+#define cocos2dxBidmadCommonClass "ad.helper.openbidding.BidmadCommon"
+#define coco2dxAdOptionClass "com.adop.sdk.AdOption"
 #define coco2dxConsentClass "com.adop.sdk.userinfo.consent.Consent"
 
 void CommonController::setDebugging(bool isDebug) {
@@ -111,15 +113,36 @@ const char* CommonController::getPRIVACYURL() {
     return result;
 }
 
-void CommonController::initializeSdk(){
+void CommonController::setCUID(char * id){
+    JniMethodInfo jniM;
+    jobject jObj;
+        if (JniHelper::getStaticMethodInfo(
+                jniM,
+                coco2dxAdOptionClass,
+                "getInstance",
+                "()Lcom/adop/sdk/AdOption;"
+        )) {
+            jstring _cuid = jniM.env->NewStringUTF(id);
+            jObj = jniM.env->CallStaticObjectMethod(jniM.classID, jniM.methodID);
+
+            jmethodID midGet = jniM.env->GetMethodID(jniM.classID, "setCuid", "(Ljava/lang/String;)V");
+            jniM.env->CallVoidMethod(jObj, midGet, _cuid);
+
+            jniM.env->DeleteLocalRef(jniM.classID);
+        }
+}
+
+void CommonController::initializeSdk(char * appKey){
     JniMethodInfo jniM;
     if (JniHelper::getStaticMethodInfo(
             jniM,
-            coco2dxClass,
+            cocos2dxBidmadCommonClass,
             "initializeSdk",
-            "(Landroid/app/Activity;)V"
+            "(Landroid/app/Activity;Ljava/lang/String;)V"
     )) {
-        jniM.env->CallStaticVoidMethod(jniM.classID, jniM.methodID, JniHelper::getActivity());
+
+        jstring _appkey = jniM.env->NewStringUTF(appKey);
+        jniM.env->CallStaticVoidMethod(jniM.classID, jniM.methodID, JniHelper::getActivity(), _appkey);
 
         jniM.env->DeleteLocalRef(jniM.classID);
     }

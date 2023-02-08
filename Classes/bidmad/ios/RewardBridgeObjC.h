@@ -10,23 +10,22 @@
 #include "RewardBridgeCpp.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <OpenBiddingHelper/OpenBiddingRewardVideo.h>
-#import <OpenBiddingHelper/OpenBiddingCocos2dxReward.h>
+#import <OpenBiddingHelper/BidmadRewardAdForGame.h>
 
 static NSMutableDictionary* BidmadCocos2dxRewardDic;
 
 @interface RewardBridgeObjC : NSObject <BIDMADOpenBiddingRewardVideoDelegate>{
-    NSString* mZoneId;
-    OpenBiddingCocos2dxReward* mRewardVideo;
     RewardBridgeCpp* mController;
 }
-- (id)initWithZoneId:(NSString *)zoneId controller:(RewardBridgeCpp*) controller;
+
+@property (nonatomic, strong) NSString * _Nonnull mZoneId;
+
++ (void)initialSetupWithZoneId:(NSString *)zoneId controller:(RewardBridgeCpp *)controller;
 + (id)getInstance:(NSString*) zoneId;
 - (void)loadRewardVideo;
 - (void)showRewardVideo;
 - (BOOL)isLoaded;
 - (void)setAutoReload:(bool)isAutoReload;
-- (void)setCUID:(NSString *)cuid;
 
 @end
 

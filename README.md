@@ -45,6 +45,7 @@ list(APPEND GAME_SOURCE
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
+     Classes/bidmad/AdPosition.h
      Classes/bidmad/CommonInterface.h
      Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
@@ -167,6 +168,7 @@ list(APPEND GAME_SOURCE
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
+     Classes/bidmad/AdPosition.h
      Classes/bidmad/CommonInterface.h
      Classes/bidmad/BannerInterface.h
      Classes/bidmad/InterstitialInterface.h
@@ -190,6 +192,7 @@ elseif(APPLE)
              Classes/bidmad/ios/RewardBridgeObjC.h
              Classes/bidmad/ios/GoogleGDPRBridgeCpp.h
              Classes/bidmad/ios/GoogleGDPRBridgeObjC.h
+             Classes/bidmad/ios/BidmadCocos2DXSharedState.h
              )
         set(APP_UI_RES
             proj.ios_mac/ios/LaunchScreen.storyboard
@@ -212,6 +215,7 @@ elseif(APPLE)
              Classes/bidmad/ios/RewardBridgeObjC.mm
              Classes/bidmad/ios/GoogleGDPRBridgeCpp.mm
              Classes/bidmad/ios/GoogleGDPRBridgeObjC.mm
+             Classes/bidmad/ios/BidmadCocos2DXSharedState.m
              )
     elseif(MACOSX)
     ...
@@ -222,8 +226,9 @@ endif()
 <summary>Cocos2DX 4.X 이상 버전을 위한 임포트 가이드 (수동 라이브러리 임포트)</summary>
 <br>
 
-- Framework 수동 연동을 위해 [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases) 에서 iOS_Frameworks_Cocos2DX_1.10.0.zip 를 다운로드 받아 /proj.ios_mac 폴더 안에 libBidmad 폴더를 포함시킨 뒤, /proj.ios_mac/libBidmad 폴더를 Xcode 프로젝트로 복사해 Framework 를 추가합니다.  
-*libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
+- Framework 수동 연동을 위해 [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases) 에서 iOS_Frameworks_Cocos2DX_1.10.0.zip 를 다운로드 받아 /proj.ios_mac 폴더 안에 libBidmad 폴더를 포함시킨 뒤, /proj.ios_mac/libBidmad 폴더를 Xcode 프로젝트로 복사해 Framework 를 추가합니다.
+- Frameworks, Libraries, and Embedded Content 내부 OMSDK_Pubmatic.xcframework / AdFitSDK.framework 는 Embed & Sign 옵션으로 체크합니다.
+*OMSDK_Pubmatic 과 AdFitSDK 를 제외한 libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
 - Classes → bidmad → ios 내부 BidmadSwiftSupport.swift 임포트, 이후 "Don't Create" 버튼 선택.<br>
 - Xcode Project 내부, mobile 타겟 용 세팅에서 다음 값을 설정하십시오.
     - Build Settings → Other Linker Flags 내부, "-ObjC" 가 없을 경우, 추가
@@ -231,6 +236,7 @@ endif()
     - Build Settings → Swift Language Version 을 "Swift 5" 로 세팅
     - General → Deployment Info 내부, iOS 최소버전을 "iOS 11" 로 설정
 - 다음 라이브러리를 추가하십시오. ( 타겟 빌드 세팅 → Build Phases 의 "Link Binary With Libraries" 내부에, 다음 라이브러리를 추가해주십시오) <br>
+    - AppTrackingTransparency.framework <br>
     - StoreKit.framework <br>
     - MobileCoreServices.framework <br>
     - WebKit.framework <br>
@@ -251,6 +257,9 @@ endif()
     - libiconv.tbd <br>
     - libc++abi.tbd (newly required from sdk v3.5.0.0) <br>
     - Security.framework <br>
+    - JavaScriptCore.framework <br>
+    - AudioToolbox.framework <br>
+    - DeviceCheck.framework <br>
 </details>
 
 <details markdown="1">
@@ -274,10 +283,10 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '4.5.0.0'
-  pod 'OpenBiddingHelper', '4.5.0.0'
-  pod 'BidmadAdapterFNC/ForGame', '4.5.0.0'
-  pod 'BidmadAdapterFC', '4.5.0.0'
+  pod 'BidmadSDK', '5.3.0'
+  pod 'OpenBiddingHelper', '5.3.0'
+  pod 'BidmadAdapterFNC', '5.3.0'
+  pod 'BidmadAdapterFC', '5.3.0'
 
 end
 
@@ -306,18 +315,23 @@ end
 
 ### 2. Plugin 사용하기
 
-#### 2.1 BidmadSDK 초기화
+#### 2.1 Migration (Bidmad Cocos2DX Plugin 1.10.0 이하 버전에서 2.0.0 버전 이상으로 업데이트 할 경우)
+앱 초기 구성에 앞서, 1.10.0 이하 버전에서 2.0.0 버전으로 업데이트하는 경우 [API Migration Guide](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/v2.0.0-Migration-Guide) 를 참고해 앱 업데이트를 진행하십시오. 이후, 아래 initializeSdk 메서드 추가 과정도 거치십시오.<br>
 
-- 앱 시작 시 CommonInterface 에서 initializeSdk() 함수를 호출합니다.
-- initializeSdk를 호출하지 않는 경우, SDK 자체적으로 수행하기 때문에 초회 광고 로딩이 늦어질 수 있습니다.
+#### 2.2 BidmadSDK 초기화
+BidmadSDK 실행에 필요한 작업을 수행합니다. SDK는 initializeSdk 메서드를 호출하지 않은 경우 광고 로드를 허용하지 않습니다.<br>
+initializeSdk 메서드는 ADOP Insight 에서 확인가능한 App Key 를 인자값으로 받고 있습니다. App Key 는 [App Key 찾기](https://github.com/bidmad/SDK/wiki/Find-your-app-key%5BKR%5D) 가이드를 참고해 가져올 수 있습니다.<br>
+광고를 로드하기 전, 앱 실행 초기에 다음 예시와 같이 initializeSdk 메서드를 호출해주십시오.
+
+```cpp
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CommonInterface::initializeSdk("IOS APP KEY");
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CommonInterface::initializeSdk("ANDROID APP KEY");
+#endif
 ```
-    CommonInterface::initializeSdk()
-```
 
-- 전면 또는 보상형 광고를 사용하시는 경우에는 원활한 광고 노출을 위해 initializeSdk() 호출 대신
-아래 전면 / 보상형 광고 가이드에 따라 앱 시작 시점에서 광고를 Load 하시고 원하시는 시점에 Show하시기 바랍니다.
-
-#### 2.2 전면
+#### 2.3 전면
 
 - 전면광고를 요청하기 위해 InterstitialInterface 생성합니다.
 - 전면광고를 노출하기전에 isLoaded를 통해 광고 로드 여부를 체크합니다.
@@ -352,7 +366,7 @@ void showInterstitial()
 }
 ```
 
-#### 2.3 보상형
+#### 2.4 보상형
 
 - 보상형광고를 요청하기 위해 RewardInterface 생성합니다.
 - 보상형광고를 노출하기전에 isLoaded를 통해 광고 로드 여부를 체크합니다.
@@ -388,7 +402,7 @@ void showReward()
 }
 ```
 
-#### 2.4 배너
+#### 2.5 배너
 
 - 배너광고를 요청하기 위해 BannerInterface 생성합니다.
 ```cpp
@@ -454,6 +468,20 @@ void BannerSampleScene::applicationWillEnterForeground() {
         bi->onResume();
 }
 ```
+- 2.0.0 이상 버전의 Bidmad Plugin을 사용하는 경우, Y 좌표 대신 광고 위치를 설정하는 것도 지원됩니다. 광고 위치 값에는 Center, Top, Bottom, Left, Right, TopLeft, TopRight, BottomLeft, BottomRight가 포함됩니다. 배너 광고의 광고 위치 설정은 다음 예시를 참고하세요.
+```cpp
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    char *zoneId = (char*)"1c3e3085-333f-45af-8427-2810c26a72fc";
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    char *zoneId = (char*)"944fe870-fa3a-4d1b-9cc2-38e50b2aed43";
+#endif
+
+    // Banner Create
+    bi = new BannerInterface(zoneId);
+    
+    // Load the banner with ad position from bottom
+    bi->load(AdPosition::Bottom);
+```
 
 ### 3. Callback 사용하기
 
@@ -474,7 +502,7 @@ void InterstitialClose(char* zoneId)
 {
     CCLOG("InterstitialClose");
 }
-void InterstitialFail(char* zoneId)
+void InterstitialFail(char* zoneId, char* errorInfo)
 {
     CCLOG("InterstitialFail");
 }
@@ -507,7 +535,7 @@ void onRewardClose(char* zoneId)
 {
     CCLOG("onRewardClose");
 }
-void onRewardFail(char* zoneId)
+void onRewardFail(char* zoneId, char* errorInfo)
 {
     CCLOG("onRewardFail");
 }
@@ -528,7 +556,7 @@ void onBannerLoad(char* zoneId)
 {
     CCLOG("onBannerLoad");
 }
-void onBannerFail(char* zoneId)
+void onBannerFail(char* zoneId, char* errorInfo)
 {
     CCLOG("onBannerFail");
 }
@@ -552,10 +580,9 @@ public void load()|생성자에서 입력한 ZoneId로 광고를 요청합니다
 public void show()|Load한 광고를 노출 시킵니다.
 public bool isLoaded()|광고가 Load된 상태인지 체크합니다.
 public void setAutoReload(bool isAutoReload)|Show 이후 다음 광고를 Load 합니다. 해당 옵션은 기본 true로 적용되어있으며, failCallback을 수신한 경우에는 Reload 동작을 하지 않습니다.
-public void setCUID(char*)|전면 애드 타입용 CUID를 세팅합니다.
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|Function을 등록했다면 전면광고를 Load 했을 때 등록한 Function을 실행합니다.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|Function을 등록했다면 전면광고를 Show 했을 때 등록한 Function을 실행합니다.
-public void setOnFailCallback(void (*_onFailCallback) (char *))|Function을 등록했다면 전면광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
+public void setOnFailCallback(void (*_onFailCallback) (char *, char *))|Function을 등록했다면 전면광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
 public void setOnCloseCallback(void (*_onCloseCallback) (char *))|Function을 등록했다면 전면광고를 Close 했을 때 등록한 Function을 실행합니다.
 
 #### 4.2 보상형
@@ -569,10 +596,9 @@ public void load()|생성자에서 입력한 ZoneId로 광고를 요청합니다
 public void show()|Load한 광고를 노출 시킵니다.
 public bool isLoaded()|광고가 Load된 상태인지 체크합니다.
 public void setAutoReload(bool isAutoReload)|Show 이후 다음 광고를 Load 합니다. 해당 옵션은 기본 true로 적용되어있으며, failCallback을 수신한 경우에는 Reload 동작을 하지 않습니다.
-public void setCUID(char*)|보상형 비디오 애드 타입용 CUID를 세팅합니다.
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|Function을 등록했다면 보상형광고를 Load 했을 때 등록한 Function을 실행합니다.
 public void setOnShowCallback(void (*_onShowCallback) (char *))|Function을 등록했다면 보상형광고를 Show 했을 때 등록한 Function을 실행합니다.
-public void setOnFailCallback(void (*_onFailCallback) (char *))|Function을 등록했다면 보상형광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
+public void setOnFailCallback(void (*_onFailCallback) (char *, char *))|Function을 등록했다면 보상형광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
 public void setOnCompleteCallback(void (*_onCompleteCallback) (char *))|Function을 등록했다면 보상형광고의 리워드 지급기준을 충족 했을 때 등록한 Function을 실행합니다.
 public void setOnSkipCallback(void (*_onSkipCallback) (char *))|Function을 등록했다면 보상형광고의 리워드 지급기준에 미달 했을 때 등록한 Function을 실행합니다.
 public void setOnCloseCallback(void (*_onCloseCallback) (char *))|Function을 등록했다면 보상형광고를 Close 했을 때 등록한 Function을 실행합니다.
@@ -587,14 +613,14 @@ public BannerInterface(char* zoneId)|BidmadBanner 생성자, ZoneId를 설정합
 public void setInterval()|Banner Refresh 주기를 설정합니다.(60s~120s)
 public void load(int x)|생성자에서 입력한 ZoneId로 광고를 요청합니다.
 public void load(int x, int y)|생성자에서 입력한 ZoneId로 광고를 요청합니다. 배너는 입력받은 x,y값을 기준으로 노출됩니다.
-public void setCUID(char*)|배너 애드 타입용 CUID를 세팅합니다.
+public void load(AdPosition position)|생성자에서 입력한 ZoneId로 광고를 요청합니다. 배너는 입력받은 위치를 기준으로 노출됩니다.
 public void removeBanner()|Load된 배너를 제거합니다.
 public bool hideBannerView()|Load된 배너 View를 숨깁니다.
 public bool showBannerView()|Load된 배너 View를 노출시킵니다.
 public bool onPause()|배너 광고를 정지 시킵니다. 주로 OnPause 이벤트 발생 시 호출하며, Android만 지원합니다.
 public bool onResume()|배너 광고를 다시 시작합니다. 주로 OnResume 이벤트 발생 시 호출하며, Android만 지원합니다.
 public void setOnLoadCallback(void (*_onLoadCallback) (char *))|Function을 등록했다면 배너광고를 Load 했을 때 등록한 Function을 실행합니다.
-public void setOnFailCallback(void (*_onFailCallback) (char *))|Function을 등록했다면 배너광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
+public void setOnFailCallback(void (*_onFailCallback) (char *, char *))|Function을 등록했다면 배너광고 Load가 실패 했을 때 등록한 Function을 실행합니다.
 
 #### 4.4 기타 인터페이스
 Function|Description
@@ -605,7 +631,8 @@ static void setGoogleTestId(char *)|구글 애드몹 / 애드매니저 용 테�
 static void setGdprConsent(bool, bool)|GDPR 동의 여부 세팅 (1st Param: 유저 동의여부, 2nd Param: EU 지역 여부)
 static int getGdprConsent(bool)|GDPR 동의 여부 (Param: EU 지역 여부)
 static const char* getPRIVACYURL()|Bidmad 개인정보 방침 웹 URL을 가져옵니다.
-static void initializeSdk()|BidmadSDK 초기화 작업을 수행합니다.
+static void setCUID(char *)|모든 광고에 CUID를 세팅합니다.
+static void initializeSdk(char *)|BidmadSDK 초기화 작업을 수행합니다.
 
 #### 4.5 iOS14 앱 추적 투명성 승인 요청
 

@@ -19,8 +19,6 @@ public:
     RewardController(char *);
     void setActivity();
     void makeReward();
-    void setAdInfo(char*);
-    void setCUID(char*);
     void load();
     void show();
     bool isLoaded();
@@ -31,5 +29,5 @@ public:
     void setOnCompleteCallback(void (*_onCompleteCallback) (char *));
     void setOnSkipCallback(void (*_onSkipCallback) (char *));
     void setOnCloseCallback(void (*_onCloseCallback) (char *));
-    static void callCallback(char* callbackType, char* zoneId);
+    static void callCallback(char* callbackType, char* zoneId, char* errorInfo);
 };
