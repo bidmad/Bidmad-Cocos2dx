@@ -227,8 +227,8 @@ endif()
 <br>
 
 - Framework 수동 연동을 위해 [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases) 에서 iOS_Frameworks_Cocos2DX_1.10.0.zip 를 다운로드 받아 /proj.ios_mac 폴더 안에 libBidmad 폴더를 포함시킨 뒤, /proj.ios_mac/libBidmad 폴더를 Xcode 프로젝트로 복사해 Framework 를 추가합니다.
-- Frameworks, Libraries, and Embedded Content 내부 OMSDK_Pubmatic.xcframework / AdFitSDK.framework 는 Embed & Sign 옵션으로 체크합니다.
-*OMSDK_Pubmatic 과 AdFitSDK 를 제외한 libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
+- Frameworks, Libraries, and Embedded Content 내부 OMSDK_Pubmatic.xcframework / AdFitSDK.framework / PrebidMobile.framework 는 Embed & Sign 옵션으로 체크합니다.
+*OMSDK_Pubmatic, AdFitSDK, PrebidMobile 를 제외한 libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
 - Classes → bidmad → ios 내부 BidmadSwiftSupport.swift 임포트, 이후 "Don't Create" 버튼 선택.<br>
 - Xcode Project 내부, mobile 타겟 용 세팅에서 다음 값을 설정하십시오.
     - Build Settings → Other Linker Flags 내부, "-ObjC" 가 없을 경우, 추가

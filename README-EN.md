@@ -228,8 +228,8 @@ endif()
 <br>
 
 - For the manual linking of iOS frameworks, go to the [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases), download iOS_Frameworks_Cocos2DX_1.10.0.zip, and copy the libBidmad folder into proj.ios_mac folder. Lastly, drag and drop /proj.ios_mac/libBidmad folder into your Xcode project folder tree.
-- Inside Frameworks, Libraries, and Embedded Content, please set OMSDK_Pubmatic.xcframework / AdFitSDK.framework to Embed & Sign option.
-*All frameworks except for OMSDK_Pubmatic and AdFitSDK in libBidmad are set to the Do not Embed option when adding Xcode.
+- Inside Frameworks, Libraries, and Embedded Content, please set OMSDK_Pubmatic.xcframework / AdFitSDK.framework / PrebidMobile.framework to Embed & Sign option.
+*All frameworks except for OMSDK_Pubmatic, AdFitSDK, and PrebidMobile in libBidmad are set to the Do not Embed option when adding Xcode.
 - Inside Classes / bidmad / ios, BidmadSwiftSupport.swift file should be imported, and select "Don't Create" button.<br>
 - Inside Xcode Project, under settings for mobile target, please set the following:
     - Build Settings → Other Linker Flags → if no "-ObjC", add it.
