@@ -23,7 +23,7 @@ public:
 extern "C"{
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onLoadAdCb(JNIEnv *, jobject, jstring);
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onShowAdCb(JNIEnv *, jobject, jstring);
-    JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onFailedAdCb(JNIEnv *, jobject, jstring, jstring);
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onLoadFailAdCb(JNIEnv *, jobject, jstring, jstring);
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onCloseAdCb(JNIEnv *, jobject, jstring);
 }
 #endif //PROJ_ANDROID_INTERSTITIALCALLBACK_H

@@ -104,8 +104,8 @@ void RewardController::setOnLoadCallback(void (*_onLoadCallback) (char *)){
 void RewardController::setOnShowCallback(void (*_onShowCallback) (char *)){
     callback->setOnShowCallback(_onShowCallback);
 }
-void RewardController::setOnFailCallback(void (*_onFailCallback) (char *)){
-    callback->setOnLoadCallback(_onFailCallback);
+void RewardController::setOnFailCallback(void (*_onFailCallback) (char *, char *)){
+    callback->setOnFailCallback(_onFailCallback);
 }
 void RewardController::setOnCompleteCallback(void (*_onCompleteCallback) (char *)){
     callback->setOnCompleteCallback(_onCompleteCallback);

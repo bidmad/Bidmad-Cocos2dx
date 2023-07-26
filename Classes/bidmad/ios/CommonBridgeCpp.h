@@ -22,6 +22,12 @@ public:
     static const char* getPRIVACYURL();
     static void setCUID(char *);
     static void initializeSdk(char *);
+    static void initializeSdkWithCallback(char *appKey);
+    static bool isAdFree();
+    
+    // callback setting
+    static void setInitializeCallback(void (*_onInitializedCallback) (bool));
+    static void setAdFreeEventCallback(void (*_onAdFreeCallback) (bool));
 };
 
 #endif /* CommonBridgeCpp_h */

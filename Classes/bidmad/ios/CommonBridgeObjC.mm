@@ -15,7 +15,14 @@ return _sharedObject; \
 
 #include "CommonBridgeObjC.h"
 
-@implementation CommonBridgeObjC
+@interface CommonBridgeObjC () <BidmadAdFreeInformationDelegate>
+
+@end
+
+@implementation CommonBridgeObjC {
+    void (*onAdFreeCallback)(bool);
+    void (*onInitializedCallback)(bool);
+}
 
 -(id)init
 {
@@ -75,6 +82,47 @@ return _sharedObject; \
 
 - (void)initializeSdkWithAppKey:(NSString *)appKey {
     [BIDMADSetting.sharedInstance initializeSdkWithKey:appKey];
+}
+
+- (void)initializeSdkWithCallbackForAppKey:(NSString *)appKey {
+    [BIDMADSetting.sharedInstance initializeSdkWithKey:appKey completionHandler:^(BOOL initStatus) {
+        if (onInitializedCallback != nil) {
+            if (initStatus == YES) {
+                onInitializedCallback(true);
+            } else {
+                onInitializedCallback(false);
+            }
+        }
+    }];
+}
+
+- (bool)isAdFree {
+    if ([BidmadAdFreeInformation status] == BidmadAdFreeInformationStatusBlocked) {
+        return true; // Free of ads
+    } else {
+        return false; // ads must be displayed
+    }
+}
+
+- (void)setInitializeCallback:(void (*)(bool))_onInitializedCallback {
+    onInitializedCallback = _onInitializedCallback;
+}
+
+- (void)setAdFreeEventCallback:(void (*)(bool))_onAdFreeCallback {
+    onAdFreeCallback = _onAdFreeCallback;
+    [BidmadAdFreeInformation setDelegate:self];
+}
+
+- (void)didAdFreeInformationStatusChange:(BidmadAdFreeInformationStatus)status {
+    if (status == BidmadAdFreeInformationStatusBlocked) {
+        if (onAdFreeCallback != nil) {
+            onAdFreeCallback(true); // Free of ads
+        }
+    } else {
+        if (onAdFreeCallback != nil) {
+            onAdFreeCallback(false); // ads must be displayed
+        }
+    }
 }
 
 @end

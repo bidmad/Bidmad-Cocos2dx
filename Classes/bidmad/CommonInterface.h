@@ -21,4 +21,9 @@ public:
     static const char* getPRIVACYURL();
     static void setCUID(char *);
     static void initializeSdk(char *);
+    static void initializeSdkWithCallback(char *appKey, void (*_onInitialized) (bool));
+    static bool isAdFree();
+
+    // callback setting
+    static void setAdFreeEventCallback(void (*_onAdFree) (bool));
 };

@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <BidmadSDK/Cocos2dxCommon.h>
+#import <OpenBiddingHelper/BidmadAdFreeInformation.h>
 
 @interface CommonBridgeObjC : NSObject <BIDMADCocos2dxCommonDelegate>
 
@@ -24,6 +25,13 @@
 - (int)getGdprConsentWithUseArea:(bool)useArea;
 - (const char *)getPRIVACYURL;
 - (void)initializeSdkWithAppKey:(NSString *)appKey;
+- (void)initializeSdkWithCallbackForAppKey:(NSString *)appKey;
+- (bool)isAdFree;
+
+// callback setting
+- (void)setInitializeCallback:(void (*)(bool))_onInitializedCallback;
+- (void)setAdFreeEventCallback:(void (*)(bool))_onAdFreeCallback;
+
 @end
 
 

@@ -10,7 +10,7 @@
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #endif
 
-char* CommonInterface::pluginVersion = "2.0.0";
+char* CommonInterface::pluginVersion = "2.1.0";
 
 void CommonInterface::setDebugMode(bool isDebug){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -95,4 +95,31 @@ void CommonInterface::initializeSdk(char *appKey) {
     CommonController::initializeSdk(appKey);
 #endif
     return;
+}
+
+void CommonInterface::initializeSdkWithCallback(char *appKey, void (*_onInitialized) (bool)) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CommonBridgeCpp::setInitializeCallback(_onInitialized);
+    CommonBridgeCpp::initializeSdkWithCallback(appKey);
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CommonController::initializeSdkWithCallback(appKey, _onInitialized);
+#endif
+    return;
+}
+
+void CommonInterface::setAdFreeEventCallback(void (*_onAdFree) (bool)) {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CommonBridgeCpp::setAdFreeEventCallback(_onAdFree);
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CommonController::setAdFreeEventCallback(_onAdFree);
+#endif
+    return;
+}
+
+bool CommonInterface::isAdFree() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    return CommonBridgeCpp::isAdFree();
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    return CommonController::isAdFree();
+#endif
 }

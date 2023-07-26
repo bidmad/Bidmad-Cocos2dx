@@ -27,9 +27,9 @@ public:
 extern "C"{
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onLoadAdCb(JNIEnv *, jobject, jstring);
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onShowAdCb(JNIEnv *, jobject, jstring);
-    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onFailedAdCb(JNIEnv *, jobject, jstring, jstring);
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onLoadFailAdCb(JNIEnv *, jobject, jstring, jstring);
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onCompleteAdCb(JNIEnv *, jobject, jstring);
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onCloseAdCb(JNIEnv *, jobject, jstring);
-    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onSkippedAdCb(JNIEnv *, jobject, jstring);
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onSkipAdCb(JNIEnv *, jobject, jstring);
 }
 #endif //PROJ_ANDROID_REWARDCALLBACK_H

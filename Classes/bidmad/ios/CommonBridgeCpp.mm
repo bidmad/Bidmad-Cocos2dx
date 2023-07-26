@@ -57,3 +57,21 @@ void CommonBridgeCpp::initializeSdk(char *appKey) {
     [[CommonBridgeObjC sharedInstance] initializeSdkWithAppKey:[NSString stringWithUTF8String:(const char *)appKey]];
     return;
 }
+
+void CommonBridgeCpp::initializeSdkWithCallback(char *appKey) {
+    [CommonBridgeObjC.sharedInstance initializeSdkWithCallbackForAppKey:[NSString stringWithUTF8String:(const char *)appKey]];
+}
+
+bool CommonBridgeCpp::isAdFree() {
+    return [[CommonBridgeObjC sharedInstance] isAdFree];
+}
+
+void CommonBridgeCpp::setInitializeCallback(void (*_onInitializedCallback) (bool)) {
+    [[CommonBridgeObjC sharedInstance] setInitializeCallback:_onInitializedCallback];
+    return;
+}
+
+void CommonBridgeCpp::setAdFreeEventCallback(void (*_onAdFreeCallback) (bool)) {
+    [[CommonBridgeObjC sharedInstance] setAdFreeEventCallback:_onAdFreeCallback];
+    return;
+}

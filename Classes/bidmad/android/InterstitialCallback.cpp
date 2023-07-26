@@ -46,8 +46,8 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onFailedAdCb(JNIEnv *env, jobject obj, jstring str, jstring error){
-        LOGD("Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onFailedAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onLoadFailAdCb(JNIEnv *env, jobject obj, jstring str, jstring error){
+        LOGD("Java_ad_helper_openbidding_interstitial_Cocos2dxInterstitial_onLoadFailAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
         const char *errorInfo = env->GetStringUTFChars(error, NULL);

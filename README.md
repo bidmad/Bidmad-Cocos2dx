@@ -227,8 +227,9 @@ endif()
 <br>
 
 - Framework 수동 연동을 위해 [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases) 에서 iOS_Frameworks_Cocos2DX_1.10.0.zip 를 다운로드 받아 /proj.ios_mac 폴더 안에 libBidmad 폴더를 포함시킨 뒤, /proj.ios_mac/libBidmad 폴더를 Xcode 프로젝트로 복사해 Framework 를 추가합니다.
-- Frameworks, Libraries, and Embedded Content 내부 OMSDK_Pubmatic.xcframework / AdFitSDK.framework / PrebidMobile.framework 는 Embed & Sign 옵션으로 체크합니다.
-*OMSDK_Pubmatic, AdFitSDK, PrebidMobile 를 제외한 libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
+- Frameworks, Libraries, and Embedded Content 내부 AdFitSDK.framework / ADOPUtility.framework / BidmadAdapterDynamic.framework / FBAudienceNetwork.framework / FBLPromises.framework / GoogleUtilities.framework / nanopb.framework / OMSDK_Pubmatic.framework / OMSDK_Teadstv.framework / TeadsSDK.framework 는 Embed & Sign 옵션으로 체크합니다.
+*나머지 libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
+- Build Settings 내 "Runpath Search Paths" 필드 값이 비어있을 경우, "@executable_path/Frameworks" 값 입력.
 - Classes → bidmad → ios 내부 BidmadSwiftSupport.swift 임포트, 이후 "Don't Create" 버튼 선택.<br>
 - Xcode Project 내부, mobile 타겟 용 세팅에서 다음 값을 설정하십시오.
     - Build Settings → Other Linker Flags 내부, "-ObjC" 가 없을 경우, 추가
@@ -283,10 +284,9 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '5.3.0'
-  pod 'OpenBiddingHelper', '5.3.0'
-  pod 'BidmadAdapterFNC', '5.3.0'
-  pod 'BidmadAdapterFC', '5.3.0'
+  pod 'BidmadSDK', '6.3.0'
+  pod 'OpenBiddingHelper', '6.3.1'
+  pod 'BidmadAdapterDynamic', '6.3.0'
 
 end
 
@@ -329,6 +329,30 @@ initializeSdk 메서드는 ADOP Insight 에서 확인가능한 App Key 를 인�
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     CommonInterface::initializeSdk("ANDROID APP KEY");
 #endif
+```
+
+혹은, 2.1.0 이상 버전의 Bidmad Plugin을 사용하는 경우, bool 타입을 인자값으로 받는 함수를 initializeSdk 메서드의 인자값으로 넣어 초기화 여부를 확인할 수 있습니다.
+
+```cpp
+void initializeBidmadPlugin()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CommonInterface::initializeSdkWithCallback("IOS APP KEY", onInitialized);
+    
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CommonInterface::initializeSdkWithCallback("ANDROID APP KEY", onInitialized);
+
+#endif
+}
+
+// get callback checking whether the sdk is initialized
+void onInitialized(bool isInitialized) {
+    if (isInitialized == true) {
+        CCLOG("Initialized? YES");
+    } else {
+        CCLOG("Initialized? NO");
+    }
+}
 ```
 
 #### 2.3 전면
@@ -633,6 +657,9 @@ static int getGdprConsent(bool)|GDPR 동의 여부 (Param: EU 지역 여부)
 static const char* getPRIVACYURL()|Bidmad 개인정보 방침 웹 URL을 가져옵니다.
 static void setCUID(char *)|모든 광고에 CUID를 세팅합니다.
 static void initializeSdk(char *)|BidmadSDK 초기화 작업을 수행합니다.
+static void initializeSdkWithCallback(char *appKey, void (*_onInitialized) (bool)) |BidmadSDK 환경 설정을 초기화하고, 전면 및 리워드 광고를 프리로드합니다. 콜백 함수로 초기화 여부를 받습니다.
+static bool isAdFree()|쿠팡 광고네트워크에 의한 광고 차단 여부를 확인합니다.
+static void setAdFreeEventCallback(void (*_onAdFree) (bool))|쿠팡 광고네트워크에 의한 광고차단 상태 변경 정보를 받기 위해 콜백 함수를 설정합니다.
 
 #### 4.5 iOS14 앱 추적 투명성 승인 요청
 
@@ -648,3 +675,4 @@ public static bool getAdvertiserTrackingEnabled()|설정된 앱 추적 투명성
 ### 참고사항
 
 - [GDPR 가이드](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/Cocos2dx-GDPR-Guide-%5BKOR%5D)
+- [쿠팡 네트워크 광고 차단 인터페이스 가이드](https://github.com/bidmad/Bidmad-Cocos2dx/wiki/쿠팡-네트워크-광고-차단-인터페이스-가이드)

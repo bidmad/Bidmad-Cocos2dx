@@ -3,6 +3,7 @@
 //
 
 #include "CommonController.h"
+#include <cstring>
 
 #define LOG_TAG "bidmad"
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
@@ -10,6 +11,10 @@
 #define cocos2dxBidmadCommonClass "ad.helper.openbidding.BidmadCommon"
 #define coco2dxAdOptionClass "com.adop.sdk.AdOption"
 #define coco2dxConsentClass "com.adop.sdk.userinfo.consent.Consent"
+#define coco2dxAdFreeInformationClass "ad.helper.openbidding.AdFreeInformation"
+
+void (*CommonController::onAdFree)(bool) = nullptr;
+void (*CommonController::onInitialized) (bool) = nullptr;
 
 void CommonController::setDebugging(bool isDebug) {
     JniMethodInfo jniM;
@@ -55,6 +60,7 @@ void CommonController::setGdprConsent(bool consent, bool useArea) {
         jmethodID midGet = jniM.env->GetMethodID(jniM.classID, "setGdprConsent", "(Z)V");
         jniM.env->CallVoidMethod(jObj, midGet, consent);
 
+        jniM.env->DeleteLocalRef(jObj);
         jniM.env->DeleteLocalRef(jniM.classID);
     }
 }
@@ -107,6 +113,7 @@ const char* CommonController::getPRIVACYURL() {
         result = jniM.env->GetStringUTFChars(url, NULL);
         jniM.env->ReleaseStringUTFChars(url, result);
 
+        jniM.env->DeleteLocalRef(url);
         jniM.env->DeleteLocalRef(jniM.classID);
     }
 
@@ -128,6 +135,8 @@ void CommonController::setCUID(char * id){
             jmethodID midGet = jniM.env->GetMethodID(jniM.classID, "setCuid", "(Ljava/lang/String;)V");
             jniM.env->CallVoidMethod(jObj, midGet, _cuid);
 
+            jniM.env->DeleteLocalRef(jObj);
+            jniM.env->DeleteLocalRef(_cuid);
             jniM.env->DeleteLocalRef(jniM.classID);
         }
 }
@@ -144,7 +153,104 @@ void CommonController::initializeSdk(char * appKey){
         jstring _appkey = jniM.env->NewStringUTF(appKey);
         jniM.env->CallStaticVoidMethod(jniM.classID, jniM.methodID, JniHelper::getActivity(), _appkey);
 
+        jniM.env->DeleteLocalRef(_appkey);
         jniM.env->DeleteLocalRef(jniM.classID);
     }
 
+}
+
+void CommonController::initializeSdkWithCallback(char * appKey, void (*_onInitialized) (bool)){
+    JniMethodInfo jniM;
+    if (JniHelper::getStaticMethodInfo(
+            jniM,
+            cocos2dxBidmadCommonClass,
+            "initializeSdkWithCbListener",
+            "(Landroid/app/Activity;Ljava/lang/String;)V"
+    )) {
+        LOGD("CommonController::initializeSdkWithCbListener");
+
+        onInitialized = _onInitialized;
+
+        jstring _appkey = jniM.env->NewStringUTF(appKey);
+        jniM.env->CallStaticVoidMethod(jniM.classID, jniM.methodID, JniHelper::getActivity(), _appkey);
+
+        jniM.env->DeleteLocalRef(_appkey);
+        jniM.env->DeleteLocalRef(jniM.classID);
+    }
+
+}
+
+void CommonController::setAdFreeEventCallback(void (*_onAdFree) (bool)){
+    JniMethodInfo jniM;
+    jobject jObj;
+    if (JniHelper::getStaticMethodInfo(
+            jniM,
+            coco2dxAdFreeInformationClass,
+            "getInstance",
+            "(Landroid/content/Context;)Lad/helper/openbidding/AdFreeInformation;"
+    )) {
+        LOGD("CommonController::setAdFreeEventCallback");
+        onAdFree = _onAdFree;
+
+        jObj = jniM.env->CallStaticObjectMethod(jniM.classID, jniM.methodID, JniHelper::getActivity());
+        jmethodID  midGet = jniM.env->GetMethodID(jniM.classID, "setOnAdFreeCbListener", "()V");
+
+        jniM.env->CallVoidMethod(jObj, midGet);
+
+        jniM.env->DeleteLocalRef(jObj);
+        jniM.env->DeleteLocalRef(jniM.classID);
+    }
+}
+
+bool CommonController::isAdFree(){
+    JniMethodInfo jniM;
+    jobject jObj;
+    if (JniHelper::getStaticMethodInfo(
+            jniM,
+            coco2dxAdFreeInformationClass,
+            "getInstance",
+            "(Landroid/content/Context;)Lad/helper/openbidding/AdFreeInformation;"
+    )) {
+        //getAdFreeStatus
+        jObj = jniM.env->CallStaticObjectMethod(jniM.classID, jniM.methodID, JniHelper::getActivity());
+        jmethodID  midGet = jniM.env->GetMethodID(jniM.classID, "getAdFreeStatus", "()I");
+
+        int result = jniM.env->CallIntMethod(jObj, midGet);
+
+        jniM.env->DeleteLocalRef(jObj);
+        jniM.env->DeleteLocalRef(jniM.classID);
+
+        return (result==0)? true : false;
+    }
+    return false;
+}
+
+extern "C"{
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_BidmadCommon_onInitializedCb(JNIEnv *env, jobject obj, jstring isComplete){ //jboolean 과 java boolean 호환이 되지 않는 이슈로 jstring 으로 사용
+        if(nullptr != CommonController::onInitialized) {
+
+            const char *isCompletedStr = env->GetStringUTFChars(isComplete, NULL);
+            if(std::strncmp(isCompletedStr, "true", 4) == 0) {
+                CommonController::onInitialized(true);
+            }else {
+                CommonController::onInitialized(false);
+            }
+            env->ReleaseStringUTFChars(isComplete, isCompletedStr);
+        }
+    }
+    
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_AdFreeInformation_onAdFreeCb(JNIEnv *env, jobject obj, jstring isAdFree){
+        if(nullptr != CommonController::onAdFree) {
+            
+            const char *isAdFreeStr = env->GetStringUTFChars(isAdFree, NULL);
+            
+            if(std::strncmp(isAdFreeStr, "true", 4) == 0) {
+                CommonController::onAdFree(true);
+            }else {
+                CommonController::onAdFree(false);
+            }
+            
+            env->ReleaseStringUTFChars(isAdFree, isAdFreeStr);
+        }
+    }
 }

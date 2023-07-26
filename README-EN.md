@@ -228,8 +228,9 @@ endif()
 <br>
 
 - For the manual linking of iOS frameworks, go to the [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases), download iOS_Frameworks_Cocos2DX_1.10.0.zip, and copy the libBidmad folder into proj.ios_mac folder. Lastly, drag and drop /proj.ios_mac/libBidmad folder into your Xcode project folder tree.
-- Inside Frameworks, Libraries, and Embedded Content, please set OMSDK_Pubmatic.xcframework / AdFitSDK.framework / PrebidMobile.framework to Embed & Sign option.
-*All frameworks except for OMSDK_Pubmatic, AdFitSDK, and PrebidMobile in libBidmad are set to the Do not Embed option when adding Xcode.
+- Inside Frameworks, Libraries, and Embedded Content, please set AdFitSDK.framework / ADOPUtility.framework / BidmadAdapterDynamic.framework / FBAudienceNetwork.framework / FBLPromises.framework / GoogleUtilities.framework / nanopb.framework / OMSDK_Pubmatic.framework / OMSDK_Teadstv.framework / TeadsSDK.framework to Embed & Sign option.
+*All other frameworks in libBidmad are set to the Do not Embed option when adding Xcode.
+- If the "Runpath Search Paths" field value in Build Settings is empty, enter "@executable_path/Frameworks" value.
 - Inside Classes / bidmad / ios, BidmadSwiftSupport.swift file should be imported, and select "Don't Create" button.<br>
 - Inside Xcode Project, under settings for mobile target, please set the following:
     - Build Settings → Other Linker Flags → if no "-ObjC", add it.
@@ -284,10 +285,9 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '5.3.0'
-  pod 'OpenBiddingHelper', '5.3.0'
-  pod 'BidmadAdapterFNC', '5.3.0'
-  pod 'BidmadAdapterFC', '5.3.0'
+  pod 'BidmadSDK', '6.3.0'
+  pod 'OpenBiddingHelper', '6.3.1'
+  pod 'BidmadAdapterDynamic', '6.3.0'
 
 end
 
@@ -330,6 +330,30 @@ Before loading ads, call the initializeSdk method as shown in the following exam
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     CommonInterface::initializeSdk("ANDROID APP KEY");
 #endif
+```
+
+Alternatively, if you are using Bidmad Plugin version 2.1.0 or higher, you can check whether it is initialized by putting a callback function that receives a bool type as a parameter value of the initializeSdk method.
+
+```cpp
+void initializeBidmadPlugin()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    CommonInterface::initializeSdkWithCallback("IOS APP KEY", onInitialized);
+    
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CommonInterface::initializeSdkWithCallback("ANDROID APP KEY", onInitialized);
+
+#endif
+}
+
+// get callback checking whether the sdk is initialized
+void onInitialized(bool isInitialized) {
+    if (isInitialized == true) {
+        CCLOG("Initialized? YES");
+    } else {
+        CCLOG("Initialized? NO");
+    }
+}
 ```
 
 #### 2.3 Interstitial
@@ -634,6 +658,9 @@ static int getGdprConsent(bool)|GDPR Consent Status (Param: is EU Region)
 static const char* getPRIVACYURL()|Get Bidmad Privacy URL.
 static void setCUID(char *)|This method sets the CUID for all ads.
 static void initializeSdk(char *)|Perform BidmadSDK initialization.
+static void initializeSdkWithCallback(char *appKey, void (*_onInitialized) (bool)) |initialize the BidmadSDK configurations and preload the interstitial and reward ads. Receive Callback Function for Initialize Status.
+static bool isAdFree()|Checks whether ads are blocked by the Coupang advertising network.
+static void setAdFreeEventCallback(void (*_onAdFree) (bool))|Set a callback function to receive information about changes to the ad blocking status by the Coupang advertising network.
 
 #### 4.5 iOS14 AppTrackingTransparencyAuthorization
 

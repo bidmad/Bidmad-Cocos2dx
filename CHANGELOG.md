@@ -1,3 +1,16 @@
+# Version 2.1.0
+#### Changes
+- Support Initialize Callback
+- Support Coupang Ad Network Banner Ad Type
+- Support Ad Block callback
+- Improve Monitoring related functions
+- Refined Banner Refresh functions
+- AOS AdNetwork Library Update
+- Bug fix
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx 3.7.1
+- iOS : BidmadSDK.framework 6.3.0
+
 # Version 2.0.0
 #### Changes
 - Support AdPosition

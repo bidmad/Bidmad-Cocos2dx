@@ -25,7 +25,7 @@ public:
     void setAutoReload(bool);
     void setOnLoadCallback(void (*_onLoadCallback) (char *));
     void setOnShowCallback(void (*_onShowCallback) (char *));
-    void setOnFailCallback(void (*_onFailCallback) (char *));
+    void setOnFailCallback(void (*_onFailCallback) (char *, char *));
     void setOnCompleteCallback(void (*_onCompleteCallback) (char *));
     void setOnSkipCallback(void (*_onSkipCallback) (char *));
     void setOnCloseCallback(void (*_onCloseCallback) (char *));

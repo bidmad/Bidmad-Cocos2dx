@@ -28,7 +28,7 @@ extern "C"{
     }
 
     JNIEXPORT void JNICALL Java_ad_helper_openbidding_adview_Cocos2dxAdView_onLoadFailAdCb(JNIEnv *env, jobject obj, jstring str, jstring errorInfo){
-        LOGD("Java_ad_helper_openbidding_adview_Cocos2dxAdView_onFailedAdCb");
+        LOGD("Java_ad_helper_openbidding_adview_Cocos2dxAdView_onLoadFailAdCb");
 
         const char *info = env->GetStringUTFChars(errorInfo, NULL);
         const char *zoneId = env->GetStringUTFChars(str, NULL);

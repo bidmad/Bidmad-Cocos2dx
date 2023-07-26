@@ -54,7 +54,7 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onFailedAdCb(JNIEnv *env, jobject obj, jstring str, jstring error){
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onLoadFailAdCb(JNIEnv *env, jobject obj, jstring str, jstring error){
         LOGD("Java_ad_helper_openbidding_reward_Cocos2dxReward_onFailedAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
@@ -86,8 +86,8 @@ extern "C"{
         env->ReleaseStringUTFChars(str, zoneId);
     }
 
-    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onSkippedAdCb(JNIEnv *env, jobject obj, jstring str){
-        LOGD("Java_ad_helper_openbidding_reward_Cocos2dxReward_onSkippedAdCb");
+    JNIEXPORT void JNICALL Java_ad_helper_openbidding_reward_Cocos2dxReward_onSkipAdCb(JNIEnv *env, jobject obj, jstring str){
+        LOGD("Java_ad_helper_openbidding_reward_Cocos2dxReward_onSkipAdCb");
 
         const char *zoneId = env->GetStringUTFChars(str, NULL);
 
