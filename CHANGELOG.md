@@ -1,3 +1,10 @@
+# Version 2.1.1
+#### Changes
+- Bug Fix Ad Network Coupang Orientation (Interstitial / Reward)
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx 3.7.1
+- iOS : BidmadSDK.framework 6.3.0
+
 # Version 2.1.0
 #### Changes
 - Support Initialize Callback
