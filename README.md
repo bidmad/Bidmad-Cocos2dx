@@ -222,55 +222,19 @@ elseif(APPLE)
 endif()
 ```
 2. Classes/bidmad 폴더 추가 이후, 다음 임포트 가이드를 따라주십시오.
-<details markdown="1">
-<summary>Cocos2DX 4.X 이상 버전을 위한 임포트 가이드 (수동 라이브러리 임포트)</summary>
-<br>
 
-- Framework 수동 연동을 위해 [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases) 에서 iOS_Frameworks_Cocos2DX_1.10.0.zip 를 다운로드 받아 /proj.ios_mac 폴더 안에 libBidmad 폴더를 포함시킨 뒤, /proj.ios_mac/libBidmad 폴더를 Xcode 프로젝트로 복사해 Framework 를 추가합니다.
-- Frameworks, Libraries, and Embedded Content 내부 AdFitSDK.framework / ADOPUtility.framework / BidmadAdapterDynamic.framework / FBAudienceNetwork.framework / FBLPromises.framework / GoogleUtilities.framework / nanopb.framework / OMSDK_Pubmatic.framework / OMSDK_Teadstv.framework / TeadsSDK.framework 는 Embed & Sign 옵션으로 체크합니다.
-*나머지 libBidmad 내 모든 프레임워크는 Xcode 추가 시 Do not Embed 옵션으로 세팅합니다.
-- Build Settings 내 "Runpath Search Paths" 필드 값이 비어있을 경우, "@executable_path/Frameworks" 값 입력.
-- Classes → bidmad → ios 내부 BidmadSwiftSupport.swift 임포트, 이후 "Don't Create" 버튼 선택.<br>
-- Xcode Project 내부, mobile 타겟 용 세팅에서 다음 값을 설정하십시오.
-    - Build Settings → Other Linker Flags 내부, "-ObjC" 가 없을 경우, 추가
-    - Build Settings → Bitcode Enable 을 NO 로 세팅
-    - Build Settings → Swift Language Version 을 "Swift 5" 로 세팅
-    - General → Deployment Info 내부, iOS 최소버전을 "iOS 11" 로 설정
-- 다음 라이브러리를 추가하십시오. ( 타겟 빌드 세팅 → Build Phases 의 "Link Binary With Libraries" 내부에, 다음 라이브러리를 추가해주십시오) <br>
-    - AppTrackingTransparency.framework <br>
-    - StoreKit.framework <br>
-    - MobileCoreServices.framework <br>
-    - WebKit.framework <br>
-    - MediaPlayer.framework <br>
-    - CoreMedia.framework <br>
-    - AVFoundation.framework <br>
-    - CoreTelephony.framework <br>
-    - SystemConfiguration.framework <br>
-    - AdSupport.framework <br>
-    - CoreMotion.framework <br>
-    - Accelerate.framework <br>
-    - libresolv.9.tbd <br>
-    - libc++.tbd <br>
-    - libz.tbd <br>
-    - libsqlite3.tbd <br>
-    - libbz2.tbd <br>
-    - libxml2.tbd <br>
-    - libiconv.tbd <br>
-    - libc++abi.tbd (newly required from sdk v3.5.0.0) <br>
-    - Security.framework <br>
-    - JavaScriptCore.framework <br>
-    - AudioToolbox.framework <br>
-    - DeviceCheck.framework <br>
-</details>
-
-<details markdown="1">
-<summary>Cocos2DX 3.X 버전을 위한 임포트 가이드 (CocoPods 라이브러리 임포트)</summary>
-<br>
+#### Bidmad Plugin 임포트 가이드
 
 - Xcode Project를 닫은 뒤, terminal 에서 Xcode Project 가 담긴 폴더로 이동해, pod init 커맨드를 내리십시오. (커맨드 작동이 되지 않는다면, CocoaPods 설치를 부탁드립니다)
 - 이후 Podfile 내부에 다음과 같이 작성해주십시오.
+2. Classes/bidmad 폴더 추가 이후, 다음 임포트 가이드를 따라주십시오.
+
+<details markdown="1">
+<summary>Cocos2DX 3.X 버전 Podfile</summary>
+<br>
+
 ```
-platform :ios, '11.0'
+platform :ios, '12.0'
 
 target 'MyGame-desktop' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -284,22 +248,116 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '6.3.0'
-  pod 'OpenBiddingHelper', '6.3.1'
-  pod 'BidmadAdapterDynamic', '6.3.0'
+  pod 'BidmadSDK', '6.3.1'
+  pod 'OpenBiddingHelper', '6.3.2'
+  pod 'BidmadAdapterDynamic', '6.3.1'
+
+end
+```
+
+</details>
+
+<details markdown="1">
+<summary>Cocos2DX 4.X 버전 Podfile</summary>
+<br>
+
+```
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.0'
+
+target 'cocos2d' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for cocos2d
 
 end
 
+target 'CocosSampleProject' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for CocosSampleProject
+  pod 'BidmadSDK', '6.3.1'
+  pod 'OpenBiddingHelper', '6.3.2'
+  pod 'BidmadAdapterDynamic', '6.3.1'
+
+end
+
+...
 ```
+
+</details>
+
 - 변경된 Podfile 저장 이후, terminal에서 Xcode Project 가 담긴 폴더 내부로 이동해, pod install 커맨드를 내리십시오.
+- 이후, 사용하시는 Cocos2DX 버전에 맞게 아래 세팅을 진행하세요.
+    
+<details markdown="1">
+<summary>Cocos2DX 3.X 버전 Xcode Build 세팅</summary>
+<br>
+
 - Xcode Project 내부, mobile 타겟 용 빌드 세팅에서 다음 값을 설정해주십시오.
     - ENABLE_BITCODE → NO
-    - General → Deployment Info 내부, iOS 최소버전을 "iOS 11" 로 설정
+    - General → Deployment Info 내부, iOS 최소버전을 "iOS 12" 로 설정
 - Xcode Project 내부, mobile 타겟 용 빌드 세팅에서 다음 값을 추가해주십시오.
     - GCC_PREPROCESSOR_DEFINITIONS → $(inherited)
     - LIBRARY_SEARCH_PATHS → $(inherited)
     - OTHER_LDFLAGS → $(inherited)
     - SWIFT_VERSION → Swift 5
+    
+</details>
+
+<details markdown="1">
+<summary>Cocos2DX 4.X 버전 Xcode Build 세팅</summary>
+<br>
+
+- Xcode Project iOS Deployment Target 12.0 으로 세팅
+![XCODEBUILD1](https://i.imgur.com/AhqGPXn.png)
+- Xcode Project iOS 앱 타겟 클릭 -> Build Settings 클릭 -> Debug / Release용 Framework Search Path에 ${PODS_CONFIGURATION_BUILD_DIR}를 기입
+![XCODEBUILD2](https://i.imgur.com/QWB7TlM.png)
+- Xcode Project 폴더 -> Pods 폴더 -> Target Support Files 폴더 -> Pods-#프로젝트명# 폴더 -> Pods-#프로젝트명#-frameworks.sh 파일 내 아래 기존 스크립트를 다음과 같이 수정:
+![XCODEBUILD3](https://i.imgur.com/TCkGszP.png)
+
+**기존 스크립트** (30번째 줄 ~ 42번째 줄)
+```
+# This protects against multiple targets copying the same framework dependency at the same time. The solution
+# was originally proposed here: https://lists.samba.org/archive/rsync/2008-February/020158.html
+RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
+
+# Copies and strips a vendored framework
+install_framework()
+{
+  if [ -r "${BUILT_PRODUCTS_DIR}/$1" ]; then
+    local source="${BUILT_PRODUCTS_DIR}/$1"
+  elif [ -r "${BUILT_PRODUCTS_DIR}/$(basename "$1")" ]; then
+    local source="${BUILT_PRODUCTS_DIR}/$(basename "$1")"
+  elif [ -r "$1" ]; then
+    local source="$1"
+  fi
+```
+
+**수정 스크립트** (위 기존 스크립트를 아래 수정 스크립트로 수정해주세요)
+```
+# This protects against multiple targets copying the same framework dependency at the same time. The solution
+# was originally proposed here: https://lists.samba.org/archive/rsync/2008-February/020158.html
+RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
+
+# Copies and strips a vendored framework
+install_framework()
+{
+  if [ -r "${BUILT_PRODUCTS_DIR}/$1" ]; then
+    local source="${BUILT_PRODUCTS_DIR}/$1"
+  elif [ -r "${BUILT_PRODUCTS_DIR}/$(basename "$1")" ]; then
+    local source="${BUILT_PRODUCTS_DIR}/$(basename "$1")"
+  elif [ -r "${PODS_CONFIGURATION_BUILD_DIR}/$(basename "$1" .framework)/$(basename "$1")" ]; then
+    local source="${PODS_CONFIGURATION_BUILD_DIR}/$(basename "$1" .framework)/$(basename "$1")"
+  elif [ "$(basename "$1")" = "FBLPromises.framework" ] && [ -r "${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework" ]; then
+    local source="${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework"
+  elif [ -r "$1" ]; then
+    local source="$1"
+  fi
+```
+    
 </details>
 
 3. Cocos2DX 버전에 따른 임포트 가이드 수행 이후, info.plist에 GADApplicationIdentifier를 추가합니다.<br>

@@ -223,55 +223,17 @@ endif()
 ```
 2. After adding the Classes/bidmad folder, please follow the import guide below.
 
-<details markdown="1">
-<summary>Import guide for Cocos2DX 4.X and above (Manual Library Import)</summary>
-<br>
-
-- For the manual linking of iOS frameworks, go to the [GitHub Release](https://github.com/bidmad/Bidmad-Cocos2dx/releases), download iOS_Frameworks_Cocos2DX_1.10.0.zip, and copy the libBidmad folder into proj.ios_mac folder. Lastly, drag and drop /proj.ios_mac/libBidmad folder into your Xcode project folder tree.
-- Inside Frameworks, Libraries, and Embedded Content, please set AdFitSDK.framework / ADOPUtility.framework / BidmadAdapterDynamic.framework / FBAudienceNetwork.framework / FBLPromises.framework / GoogleUtilities.framework / nanopb.framework / OMSDK_Pubmatic.framework / OMSDK_Teadstv.framework / TeadsSDK.framework to Embed & Sign option.
-*All other frameworks in libBidmad are set to the Do not Embed option when adding Xcode.
-- If the "Runpath Search Paths" field value in Build Settings is empty, enter "@executable_path/Frameworks" value.
-- Inside Classes / bidmad / ios, BidmadSwiftSupport.swift file should be imported, and select "Don't Create" button.<br>
-- Inside Xcode Project, under settings for mobile target, please set the following:
-    - Build Settings → Other Linker Flags → if no "-ObjC", add it.
-    - General → Deployment Info → iOS Minimum Requirement is set to "iOS 11".  
-    - Build Settings → Bitcode Enable is set to NO.
-    - Build Settings → Swift Language Version is set to "Swift 5".
-- Add the following library: (Inside "Link Binary With Libraries" in Target Build Settings → Build Phases, add the following library) <br>
-    - AppTrackingTransparency.framework <br>
-    - StoreKit.framework <br>
-    - MobileCoreServices.framework <br>
-    - WebKit.framework <br>
-    - MediaPlayer.framework <br>
-    - CoreMedia.framework <br>
-    - AVFoundation.framework <br>
-    - CoreTelephony.framework <br>
-    - SystemConfiguration.framework <br>
-    - AdSupport.framework <br>
-    - CoreMotion.framework <br>
-    - Accelerate.framework <br>
-    - libresolv.9.tbd <br>
-    - libc++.tbd <br>
-    - libz.tbd <br>
-    - libsqlite3.tbd <br>
-    - libbz2.tbd <br>
-    - libxml2.tbd <br>
-    - libiconv.tbd <br>
-    - libc++abi.tbd (newly required from sdk v3.5.0.0) <br>
-    - Security.framework <br>
-    - JavaScriptCore.framework <br>
-    - AudioToolbox.framework <br>
-    - DeviceCheck.framework <br>
-</details>
-
-<details markdown="1">
-<summary>Import guide for Cocos2DX 3.X (CocoaPods Library Import)</summary>
-<br>
+#### Bidmad Plugin Import Guide
 
 - After closing the Xcode Project, go to the folder containing the Xcode Project in the terminal and issue the pod init command. (If the command does not work, please install CocoaPods)
 - After that, write the following inside the Podfile.
+
+<details markdown="1">
+<summary>Cocos2DX 3.X Version Podfile</summary>
+<br>
+
 ```
-platform :ios, '11.0'
+platform :ios, '12.0'
 
 target 'MyGame-desktop' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -285,22 +247,119 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '6.3.0'
-  pod 'OpenBiddingHelper', '6.3.1'
-  pod 'BidmadAdapterDynamic', '6.3.0'
+  pod 'BidmadSDK', '6.3.1'
+  pod 'OpenBiddingHelper', '6.3.2'
+  pod 'BidmadAdapterDynamic', '6.3.1'
 
 end
 
 ```
+
+</details>
+
+<details markdown="1">
+<summary>Cocos2DX 4.X Version Podfile</summary>
+<br>
+
+```
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.0'
+
+target 'cocos2d' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for cocos2d
+
+end
+
+target 'CocosSampleProject' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for CocosSampleProject
+  pod 'BidmadSDK', '6.3.1'
+  pod 'OpenBiddingHelper', '6.3.2'
+  pod 'BidmadAdapterDynamic', '6.3.1'
+
+end
+
+...
+```
+
+</details>
+
+- After saving the revised Podfile, go to the folder containing the Xcode Project in the terminal and write the "pod install" command and press enter.
+- After that, please proceed with the settings by the appropriate versions below.
+    
+<details markdown="1">
+<summary>Cocos2DX 3.X Version Xcode Build Settings</summary>
+<br>
+
+
 - After saving the changed Podfile, go to the folder containing the Xcode Project in the terminal and issue the pod install command.
 - In the Xcode Project, in the build settings for mobile target, set the following values.
     - ENABLE_BITCODE → NO
-    - General → Deployment Info → iOS Minimum Requirement is set to "iOS 11".
+    - General → Deployment Info → iOS Minimum Requirement is set to "iOS 12".
 - Inside the Xcode Project, in the build settings for mobile target, add the following values:
     - GCC_PREPROCESSOR_DEFINITIONS → $(inherited)
     - LIBRARY_SEARCH_PATHS → $(inherited)
     - OTHER_LDFLAGS → $(inherited)
     - SWIFT_VERSION → Swift 5
+
+</details>
+
+<details markdown="1">
+<summary>Cocos2DX 4.X Version Xcode Build Settings</summary>
+<br>
+
+- Set Xcode Project iOS Deployment Target to 12.0
+![XCODEBUILD1](https://i.imgur.com/AhqGPXn.png)
+- Click Xcode Project iOS App Target -> Click Build Settings -> Add ${PODS_CONFIGURATION_BUILD_DIR} to Framework Search Path For Debug / Release
+![XCODEBUILD2](https://i.imgur.com/QWB7TlM.png)
+- Xcode Project Folder -> Pods Folder -> Target Support Files Folder -> Pods-#Project_name# Folder -> In the Pods-#Project-name#-frameworks.sh file, alter the part of the script by referring to the following scripts:
+![XCODEBUILD3](https://i.imgur.com/TCkGszP.png)
+
+**ORIGINAL SCRIPT** (Written in 30 ~ 42 lines)
+```
+# This protects against multiple targets copying the same framework dependency at the same time. The solution
+# was originally proposed here: https://lists.samba.org/archive/rsync/2008-February/020158.html
+RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
+
+# Copies and strips a vendored framework
+install_framework()
+{
+  if [ -r "${BUILT_PRODUCTS_DIR}/$1" ]; then
+    local source="${BUILT_PRODUCTS_DIR}/$1"
+  elif [ -r "${BUILT_PRODUCTS_DIR}/$(basename "$1")" ]; then
+    local source="${BUILT_PRODUCTS_DIR}/$(basename "$1")"
+  elif [ -r "$1" ]; then
+    local source="$1"
+  fi
+```
+
+**REVISED SCRIPT** (Please revise the original script above to the following revised script)
+```
+# This protects against multiple targets copying the same framework dependency at the same time. The solution
+# was originally proposed here: https://lists.samba.org/archive/rsync/2008-February/020158.html
+RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
+
+# Copies and strips a vendored framework
+install_framework()
+{
+  if [ -r "${BUILT_PRODUCTS_DIR}/$1" ]; then
+    local source="${BUILT_PRODUCTS_DIR}/$1"
+  elif [ -r "${BUILT_PRODUCTS_DIR}/$(basename "$1")" ]; then
+    local source="${BUILT_PRODUCTS_DIR}/$(basename "$1")"
+  elif [ -r "${PODS_CONFIGURATION_BUILD_DIR}/$(basename "$1" .framework)/$(basename "$1")" ]; then
+    local source="${PODS_CONFIGURATION_BUILD_DIR}/$(basename "$1" .framework)/$(basename "$1")"
+  elif [ "$(basename "$1")" = "FBLPromises.framework" ] && [ -r "${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework" ]; then
+    local source="${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises.framework"
+  elif [ -r "$1" ]; then
+    local source="$1"
+  fi
+```
+    
 </details>
 
 3. After performing the import guide according to the Cocos2DX version, add GADApplicationIdentifier to info.plist.<br>

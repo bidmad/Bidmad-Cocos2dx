@@ -1,3 +1,10 @@
+# Version 2.1.2
+#### Changes
+- Coupang network ad block interface bug fix
+#### Integrated BidmadSDK Version
+- Android : bidmad-androidx 3.7.1
+- iOS : BidmadSDK.framework 6.3.1
+
 # Version 2.1.1
 #### Changes
 - Bug Fix Ad Network Coupang Orientation (Interstitial / Reward)
