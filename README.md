@@ -227,7 +227,6 @@ endif()
 
 - Xcode Project를 닫은 뒤, terminal 에서 Xcode Project 가 담긴 폴더로 이동해, pod init 커맨드를 내리십시오. (커맨드 작동이 되지 않는다면, CocoaPods 설치를 부탁드립니다)
 - 이후 Podfile 내부에 다음과 같이 작성해주십시오.
-2. Classes/bidmad 폴더 추가 이후, 다음 임포트 가이드를 따라주십시오.
 
 <details markdown="1">
 <summary>Cocos2DX 3.X 버전 Podfile</summary>
