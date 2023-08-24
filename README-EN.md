@@ -290,7 +290,7 @@ end
 </details>
 
 - After saving the revised Podfile, go to the folder containing the Xcode Project in the terminal and write the "pod install" command and press enter.
-- After that, please proceed with the settings by the appropriate versions below.
+- After that, open the project file with the file extension named "xcworkspace", and please proceed with the settings by the appropriate versions below.
     
 <details markdown="1">
 <summary>Cocos2DX 3.X Version Xcode Build Settings</summary>

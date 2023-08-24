@@ -289,7 +289,7 @@ end
 </details>
 
 - 변경된 Podfile 저장 이후, terminal에서 Xcode Project 가 담긴 폴더 내부로 이동해, pod install 커맨드를 내리십시오.
-- 이후, 사용하시는 Cocos2DX 버전에 맞게 아래 세팅을 진행하세요.
+- 이후, iOS 프로젝트 폴더에 생성된 "xcworkspace" 확장자를 가진 프로젝트 파일을 오픈한 뒤, 사용하시는 Cocos2DX 버전에 맞게 아래 세팅을 진행하세요.
     
 <details markdown="1">
 <summary>Cocos2DX 3.X 버전 Xcode Build 세팅</summary>
