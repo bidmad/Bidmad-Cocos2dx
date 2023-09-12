@@ -14,7 +14,7 @@ target 'BidmadCocos2dxSample-mobile' do
   use_frameworks!
 
   # Pods for BidmadCocos2dxSample-mobile
-  pod 'BidmadSDK', '6.3.1'
+  pod 'BidmadSDK', '6.3.2'
   pod 'OpenBiddingHelper', '6.3.2'
   pod 'BidmadAdapterDynamic', '6.3.1'
 

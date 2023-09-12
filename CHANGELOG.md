@@ -1,3 +1,10 @@
+# Version 2.1.3
+#### Changes
+- iOS UnityAds Bug Fix
+#### Integrated BidmadSDK Version
+- Android: bidmad-androidx 3.7.1
+- iOS : BidmadSDK.framework 6.3.2 
+
 # Version 2.1.2
 #### Changes
 - Coupang network ad block interface bug fix

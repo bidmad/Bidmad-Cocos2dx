@@ -247,7 +247,7 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # Pods for MyGame-mobile
-  pod 'BidmadSDK', '6.3.1'
+  pod 'BidmadSDK', '6.3.2'
   pod 'OpenBiddingHelper', '6.3.2'
   pod 'BidmadAdapterDynamic', '6.3.1'
 
@@ -277,7 +277,7 @@ target 'CocosSampleProject' do
   use_frameworks!
 
   # Pods for CocosSampleProject
-  pod 'BidmadSDK', '6.3.1'
+  pod 'BidmadSDK', '6.3.2'
   pod 'OpenBiddingHelper', '6.3.2'
   pod 'BidmadAdapterDynamic', '6.3.1'
 
