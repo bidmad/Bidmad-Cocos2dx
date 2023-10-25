@@ -1,3 +1,14 @@
+# Version 2.2.0
+#### Changes
+- Supports Mediation Adapter dependency by advertising network
+- AOS Applovin reward payment bug fix
+- AOS Banner Refresh bug fix
+- AOS Fix Pangle network SSC Deprecated code
+- AOS Ad Network SDK Update(Admob / Applovin / Pangle / Fyber)
+#### Integrated BidmadSDK Version
+- Android: bidmad-androidx 3.10.0
+- iOS : BidmadSDK.framework 6.4.0
+
 # Version 2.1.3
 #### Changes
 - iOS UnityAds Bug Fix

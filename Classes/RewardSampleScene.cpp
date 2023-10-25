@@ -1,6 +1,5 @@
 #include "RewardSampleScene.h"
 #include "HelloWorldScene.h"
-#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
