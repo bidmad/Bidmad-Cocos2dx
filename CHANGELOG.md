@@ -1,3 +1,10 @@
+# Version 2.2.1
+#### Changes
+- iOS DAU collection bug fixed
+#### Integrated BidmadSDK Version
+- Android: bidmad-androidx 3.10.0
+- iOS : BidmadSDK.framework 6.4.1
+
 # Version 2.2.0
 #### Changes
 - Supports Mediation Adapter dependency by advertising network
