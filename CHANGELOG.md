@@ -1,3 +1,11 @@
+# Version 2.2.2
+#### Changes
+- Android : Fix Pangle Target SDK 34 crash issue.
+- iOS : Dependency Update
+#### Integrated BidmadSDK Version
+- Android: bidmad-androidx 3.11.0
+- iOS : BidmadSDK.framework 6.5.0
+
 # Version 2.2.1
 #### Changes
 - iOS DAU collection bug fixed
