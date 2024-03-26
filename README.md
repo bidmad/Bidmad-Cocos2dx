@@ -12,25 +12,6 @@ Plugin을 사용하여 Cocos2dx 모바일 앱에서 전면 / 보상형 광고를
 
 1. 다운로드 받은 샘플 프로젝트의 Classes/bidmad 폴더를 게임 프로젝트로 복사합니다.<br>
 
-*Android.mk를 사용하는 경우 bidmad source를 추가합니다.
-```cpp
-LOCAL_SRC_FILES := $(LOCAL_PATH)/hellocpp/main.cpp \
-                   ...
-                   $(LOCAL_PATH)/../../../Classes/bidmad/RewardInterface.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/InterstitialInterface.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/BannerInterface.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/CommonInterface.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/GoogleGDPRInterface.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardController.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardCallback.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialController.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialCallback.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerController.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerCallback.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/CommonController.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/GoogleGDPRController.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/GoogleGDPRCallback.cpp
-```
 *Cmake List를 사용하는 경우 아래와 같이 bidmad source를 추가합니다.
 ```cpp
 list(APPEND GAME_SOURCE
@@ -224,7 +205,21 @@ endif()
 
 #### Bidmad Plugin 임포트 가이드
 
-- Xcode Project를 닫은 뒤, terminal 에서 Xcode Project 가 담긴 폴더로 이동해, pod init 커맨드를 내리십시오. (커맨드 작동이 되지 않는다면, CocoaPods 설치를 부탁드립니다)
+- Cocos2DX 4.X 버전 사용 시, 다음과 같은 Xcode Project 생성 터미널 커맨드가 필요합니다.
+
+<details markdown="1">
+<summary>Cocos2DX 4.X 버전 Xcode Project 생성 터미널 커맨드</summary>
+<br>
+
+1. 터미널 앱을 실행하세요.
+2. 게임 프로젝트 루트 폴더로 cd (change directory) 하세요.
+3. 다음 커맨드를 실행하십시오: mkdir ios-build && cd ios-build
+4. 다음 커맨드를 실행하십시오: cmake .. -GXcode -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphoneos
+5. 아래 가이드된 CocoaPods 섹션을 따라하십시오.
+
+</details>
+
+- 터미널에서 Xcode Project 가 담긴 폴더로 이동해, pod init 커맨드를 내리십시오. (커맨드 작동이 되지 않는다면, CocoaPods 설치를 부탁드립니다)
 - 이후 Podfile 내부에 다음과 같이 작성해주십시오.
 
 <details markdown="1">
@@ -246,25 +241,24 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # NECESSARY
-  pod 'BidmadSDK', '6.5.0'
-  pod 'OpenBiddingHelper', '6.5.0'
-  pod 'BidmadGoogleAdMobAdapter', '10.12.0.1'
-  pod 'BidmadGoogleAdManagerAdapter', '10.12.0.1'
-  pod 'BidmadAppLovinAdapter', '11.11.3.1'
-  pod 'BidmadUnityAdsAdapter', '4.8.0.1'
-  pod 'BidmadPangleAdapter', '5.3.1.0.1'
-  pod 'BidmadFyberAdapter', '8.2.4.1'
-  pod 'BidmadVungleAdapter', '7.1.0.1'
-  pod 'BidmadPubmaticAdapter', '3.2.0.1'
-  pod 'BidmadAdColonyAdapter', '4.9.0.1'
-  pod 'BidmadADOPCoupangAdapter', '1.0.0.1'
-  pod 'BidmadPartners/AdMobBidding', '1.0.2'
+  pod 'BidmadSDK', '6.6.1'
+  pod 'OpenBiddingHelper', '6.6.1'
+  pod 'BidmadGoogleAdMobAdapter', '11.2.0.0'
+  pod 'BidmadGoogleAdManagerAdapter', '11.2.0.0'
+  pod 'BidmadAppLovinAdapter', '12.2.1.0'
+  pod 'BidmadUnityAdsAdapter', '4.9.3.0'
+  pod 'BidmadPangleAdapter', '5.8.0.7.0'
+  pod 'BidmadFyberAdapter', '8.2.6.0'
+  pod 'BidmadVungleAdapter', '7.2.2.0'
+  pod 'BidmadPubmaticAdapter', '3.2.0.3'
+  pod 'BidmadADOPCoupangAdapter', '1.0.0.3'
+  pod 'BidmadPartners/AdMobBidding', '1.0.3'
   
   # OPTIONAL
-  pod 'BidmadTeadsAdapter', '5.0.27.1'
-  pod 'BidmadAtomAdapter', '1.0.0.1'
-  pod 'BidmadAdFitAdapter', '3.12.7.1'
-  pod 'BidmadIronSourceAdapter', '7.5.0.0.1'
+  pod 'BidmadTeadsAdapter', '5.0.27.3'
+  pod 'BidmadAtomAdapter', '1.0.0.3'
+  pod 'BidmadAdFitAdapter', '3.12.7.4'
+  pod 'BidmadIronSourceAdapter', '7.8.0.0.0'
 
 end
 ```
@@ -276,7 +270,7 @@ end
 <br>
 
 ```
-# Uncomment the next line to define a global platform for your project
+# *** IMPORTANT: iOS 버전명을 반드시 12.0 혹은 이상으로 기입하십시오 ***
 platform :ios, '12.0'
 
 target 'cocos2d' do
@@ -287,30 +281,30 @@ target 'cocos2d' do
 
 end
 
+# *** IMPORTANT: 오직 프로젝트명으로 지명된 타겟에만 아래 Pod 커맨드를 추가하십시오 ***
 target 'CocosSampleProject' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # NECESSARY
-  pod 'BidmadSDK', '6.5.0'
-  pod 'OpenBiddingHelper', '6.5.0'
-  pod 'BidmadGoogleAdMobAdapter', '10.12.0.1'
-  pod 'BidmadGoogleAdManagerAdapter', '10.12.0.1'
-  pod 'BidmadAppLovinAdapter', '11.11.3.1'
-  pod 'BidmadUnityAdsAdapter', '4.8.0.1'
-  pod 'BidmadPangleAdapter', '5.3.1.0.1'
-  pod 'BidmadFyberAdapter', '8.2.4.1'
-  pod 'BidmadVungleAdapter', '7.1.0.1'
-  pod 'BidmadPubmaticAdapter', '3.2.0.1'
-  pod 'BidmadAdColonyAdapter', '4.9.0.1'
-  pod 'BidmadADOPCoupangAdapter', '1.0.0.1'
-  pod 'BidmadPartners/AdMobBidding', '1.0.2'
+  pod 'BidmadSDK', '6.6.1'
+  pod 'OpenBiddingHelper', '6.6.1'
+  pod 'BidmadGoogleAdMobAdapter', '11.2.0.0'
+  pod 'BidmadGoogleAdManagerAdapter', '11.2.0.0'
+  pod 'BidmadAppLovinAdapter', '12.2.1.0'
+  pod 'BidmadUnityAdsAdapter', '4.9.3.0'
+  pod 'BidmadPangleAdapter', '5.8.0.7.0'
+  pod 'BidmadFyberAdapter', '8.2.6.0'
+  pod 'BidmadVungleAdapter', '7.2.2.0'
+  pod 'BidmadPubmaticAdapter', '3.2.0.3'
+  pod 'BidmadADOPCoupangAdapter', '1.0.0.3'
+  pod 'BidmadPartners/AdMobBidding', '1.0.3'
   
   # OPTIONAL
-  pod 'BidmadTeadsAdapter', '5.0.27.1'
-  pod 'BidmadAtomAdapter', '1.0.0.1'
-  pod 'BidmadAdFitAdapter', '3.12.7.1'
-  pod 'BidmadIronSourceAdapter', '7.5.0.0.1'
+  pod 'BidmadTeadsAdapter', '5.0.27.3'
+  pod 'BidmadAtomAdapter', '1.0.0.3'
+  pod 'BidmadAdFitAdapter', '3.12.7.4'
+  pod 'BidmadIronSourceAdapter', '7.8.0.0.0'
 
 end
 
@@ -342,7 +336,9 @@ end
 <br>
 
 - Xcode Project iOS Deployment Target 12.0 으로 세팅
-![XCODEBUILD1](https://i.imgur.com/AhqGPXn.png)
+![XCODEBUILD0](https://i.imgur.com/AhqGPXn.png)
+- Xcode Project iOS 앱 타겟 클릭 -> Build Phases 클릭 -> Target Dependencies 섹션 오픈 -> ZERO_CHECK(타겟명) 클릭 -> 제거 버튼 클릭
+![XCODEBUILD1](https://i.imgur.com/dU4Whr6.png)
 - Xcode Project iOS 앱 타겟 클릭 -> Build Settings 클릭 -> Debug / Release용 Framework Search Path에 ${PODS_CONFIGURATION_BUILD_DIR}를 기입
 ![XCODEBUILD2](https://i.imgur.com/QWB7TlM.png)
 - Xcode Project 폴더 -> Pods 폴더 -> Target Support Files 폴더 -> Pods-#프로젝트명# 폴더 -> Pods-#프로젝트명#-frameworks.sh 파일 내 아래 기존 스크립트를 다음과 같이 수정:

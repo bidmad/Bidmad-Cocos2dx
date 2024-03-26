@@ -12,25 +12,6 @@ You can use the plugin to serve banner/interstitial/reward ads in your Unity mob
 
 1. Copy the Classes/bidmad folder of the downloaded sample project to your game project.<br>
 
-*If using Android.mk, add bidmad source.
-```cpp
-LOCAL_SRC_FILES := $(LOCAL_PATH)/hellocpp/main.cpp \
-                   ...
-                   $(LOCAL_PATH)/../../../Classes/bidmad/RewardInterface.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/InterstitialInterface.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/BannerInterface.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/CommonInterface.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/GoogleGDPRInterface.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardController.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/RewardCallback.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialController.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/InterstitialCallback.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerController.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/BannerCallback.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/CommonController.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/GoogleGDPRController.cpp \
-                   $(LOCAL_PATH)/../../../Classes/bidmad/android/GoogleGDPRCallback.cpp
-```
 *If using Cmake List, add bidmad source as below.
 ```cpp
 list(APPEND GAME_SOURCE
@@ -224,7 +205,21 @@ endif()
 
 #### Bidmad Plugin Import Guide
 
-- After closing the Xcode Project, go to the folder containing the Xcode Project in the terminal and issue the pod init command. (If the command does not work, please install CocoaPods)
+- When using Cocos2DX 4.X version, the following terminal command to create an Xcode Project is required.
+
+<details markdown="1">
+<summary>Cocos2DX 4.X version Xcode Project creation terminal command</summary>
+<br>
+
+1. Run the terminal app.
+2. CD (change directory) to the game project root folder.
+3. Run the following command: mkdir ios-build && cd ios-build
+4. Run the following command: cmake .. -GXcode -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_SYSROOT=iphoneos
+5. Follow the guided CocoaPods section below.
+
+</details>
+
+- Go to the folder containing the Xcode Project in the terminal and issue the pod init command. (If the command does not work, please install CocoaPods)
 - After that, write the following inside the Podfile.
 
 <details markdown="1">
@@ -246,25 +241,24 @@ target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
   # NECESSARY
-  pod 'BidmadSDK', '6.5.0'
-  pod 'OpenBiddingHelper', '6.5.0'
-  pod 'BidmadGoogleAdMobAdapter', '10.12.0.1'
-  pod 'BidmadGoogleAdManagerAdapter', '10.12.0.1'
-  pod 'BidmadAppLovinAdapter', '11.11.3.1'
-  pod 'BidmadUnityAdsAdapter', '4.8.0.1'
-  pod 'BidmadPangleAdapter', '5.3.1.0.1'
-  pod 'BidmadFyberAdapter', '8.2.4.1'
-  pod 'BidmadVungleAdapter', '7.1.0.1'
-  pod 'BidmadPubmaticAdapter', '3.2.0.1'
-  pod 'BidmadAdColonyAdapter', '4.9.0.1'
-  pod 'BidmadADOPCoupangAdapter', '1.0.0.1'
-  pod 'BidmadPartners/AdMobBidding', '1.0.2'
+  pod 'BidmadSDK', '6.6.1'
+  pod 'OpenBiddingHelper', '6.6.1'
+  pod 'BidmadGoogleAdMobAdapter', '11.2.0.0'
+  pod 'BidmadGoogleAdManagerAdapter', '11.2.0.0'
+  pod 'BidmadAppLovinAdapter', '12.2.1.0'
+  pod 'BidmadUnityAdsAdapter', '4.9.3.0'
+  pod 'BidmadPangleAdapter', '5.8.0.7.0'
+  pod 'BidmadFyberAdapter', '8.2.6.0'
+  pod 'BidmadVungleAdapter', '7.2.2.0'
+  pod 'BidmadPubmaticAdapter', '3.2.0.3'
+  pod 'BidmadADOPCoupangAdapter', '1.0.0.3'
+  pod 'BidmadPartners/AdMobBidding', '1.0.3'
   
   # OPTIONAL
-  pod 'BidmadTeadsAdapter', '5.0.27.1'
-  pod 'BidmadAtomAdapter', '1.0.0.1'
-  pod 'BidmadAdFitAdapter', '3.12.7.1'
-  pod 'BidmadIronSourceAdapter', '7.5.0.0.1'
+  pod 'BidmadTeadsAdapter', '5.0.27.3'
+  pod 'BidmadAtomAdapter', '1.0.0.3'
+  pod 'BidmadAdFitAdapter', '3.12.7.4'
+  pod 'BidmadIronSourceAdapter', '7.8.0.0.0'
 
 end
 ```
@@ -276,7 +270,7 @@ end
 <br>
 
 ```
-# Uncomment the next line to define a global platform for your project
+# *** IMPORTANT: Be sure to enter iOS version name 12.0 or higher ***
 platform :ios, '12.0'
 
 target 'cocos2d' do
@@ -287,30 +281,30 @@ target 'cocos2d' do
 
 end
 
+*** IMPORTANT: Add the Pod command below only to a target named by the project name ***
 target 'CocosSampleProject' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # NECESSARY
-  pod 'BidmadSDK', '6.5.0'
-  pod 'OpenBiddingHelper', '6.5.0'
-  pod 'BidmadGoogleAdMobAdapter', '10.12.0.1'
-  pod 'BidmadGoogleAdManagerAdapter', '10.12.0.1'
-  pod 'BidmadAppLovinAdapter', '11.11.3.1'
-  pod 'BidmadUnityAdsAdapter', '4.8.0.1'
-  pod 'BidmadPangleAdapter', '5.3.1.0.1'
-  pod 'BidmadFyberAdapter', '8.2.4.1'
-  pod 'BidmadVungleAdapter', '7.1.0.1'
-  pod 'BidmadPubmaticAdapter', '3.2.0.1'
-  pod 'BidmadAdColonyAdapter', '4.9.0.1'
-  pod 'BidmadADOPCoupangAdapter', '1.0.0.1'
-  pod 'BidmadPartners/AdMobBidding', '1.0.2'
+  pod 'BidmadSDK', '6.6.1'
+  pod 'OpenBiddingHelper', '6.6.1'
+  pod 'BidmadGoogleAdMobAdapter', '11.2.0.0'
+  pod 'BidmadGoogleAdManagerAdapter', '11.2.0.0'
+  pod 'BidmadAppLovinAdapter', '12.2.1.0'
+  pod 'BidmadUnityAdsAdapter', '4.9.3.0'
+  pod 'BidmadPangleAdapter', '5.8.0.7.0'
+  pod 'BidmadFyberAdapter', '8.2.6.0'
+  pod 'BidmadVungleAdapter', '7.2.2.0'
+  pod 'BidmadPubmaticAdapter', '3.2.0.3'
+  pod 'BidmadADOPCoupangAdapter', '1.0.0.3'
+  pod 'BidmadPartners/AdMobBidding', '1.0.3'
   
   # OPTIONAL
-  pod 'BidmadTeadsAdapter', '5.0.27.1'
-  pod 'BidmadAtomAdapter', '1.0.0.1'
-  pod 'BidmadAdFitAdapter', '3.12.7.1'
-  pod 'BidmadIronSourceAdapter', '7.5.0.0.1'
+  pod 'BidmadTeadsAdapter', '5.0.27.3'
+  pod 'BidmadAtomAdapter', '1.0.0.3'
+  pod 'BidmadAdFitAdapter', '3.12.7.4'
+  pod 'BidmadIronSourceAdapter', '7.8.0.0.0'
 
 end
 
@@ -325,7 +319,6 @@ end
 <details markdown="1">
 <summary>Cocos2DX 3.X Version Xcode Build Settings</summary>
 <br>
-
 
 - After saving the changed Podfile, go to the folder containing the Xcode Project in the terminal and issue the pod install command.
 - In the Xcode Project, in the build settings for mobile target, set the following values.
@@ -344,7 +337,9 @@ end
 <br>
 
 - Set Xcode Project iOS Deployment Target to 12.0
-![XCODEBUILD1](https://i.imgur.com/AhqGPXn.png)
+![XCODEBUILD0](https://i.imgur.com/AhqGPXn.png)
+- Click the Xcode Project iOS app target -> Click Build Phases -> Open the Target Dependencies section -> Click ZERO_CHECK (target name) -> Click the Remove button
+![XCODEBUILD1](https://i.imgur.com/dU4Whr6.png)
 - Click Xcode Project iOS App Target -> Click Build Settings -> Add ${PODS_CONFIGURATION_BUILD_DIR} to Framework Search Path For Debug / Release
 ![XCODEBUILD2](https://i.imgur.com/QWB7TlM.png)
 - Xcode Project Folder -> Pods Folder -> Target Support Files Folder -> Pods-#Project_name# Folder -> In the Pods-#Project-name#-frameworks.sh file, alter the part of the script by referring to the following scripts:
