@@ -1,7 +1,16 @@
+# Version 2.3.0
+#### Changes
+- AOS Add Criteo Network
+- iOS Dependency Update for Privacy Manifest
+- Bug Fix
+#### Integrated BidmadSDK Version
+- Android: bidmad-androidx 3.13.0
+- iOS : BidmadSDK.framework 6.6.1
+
 # Version 2.2.2
 #### Changes
-- Android : Fix Pangle Target SDK 34 crash issue.
-- iOS : Dependency Update
+- AOS Fix Pangle Target SDK 34 crash issue.
+- iOS Dependency Update
 #### Integrated BidmadSDK Version
 - Android: bidmad-androidx 3.11.0
 - iOS : BidmadSDK.framework 6.5.0
