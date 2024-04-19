@@ -133,7 +133,7 @@ public static final ** CREATOR;
 
 #### 1.2 iOS
 
-*Bidmad Cocos2DX 플러그인은 Xcode 15.3을 지원합니다. Xcode 버전 15.3 미만을 사용하고 계시다면 최신 버전으로 업데이트해주세요.
+*Bidmad Cocos2DX 플러그인은 Xcode 15.3을 지원합니다. Xcode 버전 15.3 미만을 사용하고 계시다면 최신 버전으로 업데이트해주세요.<br>
 *App Store에 애플리케이션을 제출할 때 다음 가이드를 참고하여 개인정보 보호 정책 및 설문조사를 올바르게 설정하세요: [Guide for Privacy Manifest & Privacy Survey](https://github.com/bidmad/Bidmad-iOS/wiki/Guide-for-Privacy-Manifest-&-Privacy-Survey-%5BKR%5D)
 
 1. 다운로드 받은 샘플 프로젝트의 Classes/bidmad 폴더를 게임 프로젝트로 복사하고 Xcode에 추가합니다.<br>

@@ -133,7 +133,7 @@ If your app is targeting children, check out our [guide](https://github.com/bidm
 
 #### 1.2 iOS
 
-*Bidmad Cocos2DX Plugin supports Xcode 15.3. If you are using Xcode version lower than 15.3, please update to the latest version.
+*Bidmad Cocos2DX Plugin supports Xcode 15.3. If you are using Xcode version lower than 15.3, please update to the latest version.<br>
 *When submitting your application to the App Store, use the following guide to properly set up your privacy survey: [Guide for Privacy Manifest & Privacy Survey](https://github.com/bidmad/Bidmad-iOS/wiki/Guide-for-Privacy-Manifest-&-Privacy-Survey-%5BEN%5D)
 
 1. Copy the Classes/bidmad folder of the downloaded sample project to your game project and add it to Xcode.<br>
