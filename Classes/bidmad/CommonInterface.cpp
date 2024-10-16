@@ -10,7 +10,7 @@
 #define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #endif
 
-char* CommonInterface::pluginVersion = "2.3.0";
+char* CommonInterface::pluginVersion = "2.4.0";
 
 void CommonInterface::setDebugMode(bool isDebug){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -88,21 +88,21 @@ void CommonInterface::setCUID(char* id){
     return;
 }
 
-void CommonInterface::initializeSdk(char *appKey) {
+void CommonInterface::initializeSdk(char *appDomain) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    CommonBridgeCpp::initializeSdk(appKey);
+    CommonBridgeCpp::initializeSdk(appDomain);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    CommonController::initializeSdk(appKey);
+    CommonController::initializeSdk(appDomain);
 #endif
     return;
 }
 
-void CommonInterface::initializeSdkWithCallback(char *appKey, void (*_onInitialized) (bool)) {
+void CommonInterface::initializeSdkWithCallback(char *appDomain, void (*_onInitialized) (bool)) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     CommonBridgeCpp::setInitializeCallback(_onInitialized);
-    CommonBridgeCpp::initializeSdkWithCallback(appKey);
+    CommonBridgeCpp::initializeSdkWithCallback(appDomain);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    CommonController::initializeSdkWithCallback(appKey, _onInitialized);
+    CommonController::initializeSdkWithCallback(appDomain, _onInitialized);
 #endif
     return;
 }

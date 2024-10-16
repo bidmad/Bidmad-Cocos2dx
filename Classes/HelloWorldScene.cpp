@@ -75,9 +75,9 @@ bool HelloWorld::init()
 
     // Please call the InitializeSdk method before calling Bidmad ads.
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    CommonInterface::initializeSdk("6b097551-7f78-11ed-a117-026864a21938");
+    CommonInterface::initializeSdk("Your iOS APP DOMAIN");
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    CommonInterface::initializeSdk("6933aab2-7f78-11ed-a117-026864a21938");
+    CommonInterface::initializeSdk("Your Android APP DOMAIN");
 #endif
 
     CCLOG("BidmadPlugin Version : %s", CommonInterface::pluginVersion);

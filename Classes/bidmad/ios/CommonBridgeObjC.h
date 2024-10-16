@@ -24,8 +24,8 @@
 - (void)setGdprConsent:(bool)consent useArea:(bool)useArea;
 - (int)getGdprConsentWithUseArea:(bool)useArea;
 - (const char *)getPRIVACYURL;
-- (void)initializeSdkWithAppKey:(NSString *)appKey;
-- (void)initializeSdkWithCallbackForAppKey:(NSString *)appKey;
+- (void)initializeSdkWithAppDomain:(NSString *)appDomain;
+- (void)initializeSdkWithCallbackForAppDomain:(NSString *)appDomain;
 - (bool)isAdFree;
 
 // callback setting

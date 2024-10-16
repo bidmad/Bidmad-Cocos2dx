@@ -7,7 +7,6 @@
 
 #include "InterstitialBridgeObjC.h"
 #import "BidmadCocos2DXSharedState.h"
-#import <ADOPUtility/NSArray+HigherOrderFunctionsForADOP.h>
 
 @interface InterstitialSharedState : NSObject <BIDMADOpenBiddingInterstitialDelegate>
 

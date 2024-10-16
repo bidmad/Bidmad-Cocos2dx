@@ -141,7 +141,23 @@ void CommonController::setCUID(char * id){
         }
 }
 
-void CommonController::initializeSdk(char * appKey){
+void CommonController::setPlatform(){
+    JniMethodInfo jniM;
+    if (JniHelper::getStaticMethodInfo(
+            jniM,
+            coco2dxClass,
+            "setRunningPlatform",
+            "(I)V"
+    )) {
+        jniM.env->CallStaticVoidMethod(jniM.classID, jniM.methodID, 6);
+
+        jniM.env->DeleteLocalRef(jniM.classID);
+    }
+}
+
+void CommonController::initializeSdk(char * appDomain){
+    setPlatform();
+
     JniMethodInfo jniM;
     if (JniHelper::getStaticMethodInfo(
             jniM,
@@ -149,17 +165,18 @@ void CommonController::initializeSdk(char * appKey){
             "initializeSdk",
             "(Landroid/app/Activity;Ljava/lang/String;)V"
     )) {
+        jstring _appDomain = jniM.env->NewStringUTF(appDomain);
+        jniM.env->CallStaticVoidMethod(jniM.classID, jniM.methodID, JniHelper::getActivity(), _appDomain);
 
-        jstring _appkey = jniM.env->NewStringUTF(appKey);
-        jniM.env->CallStaticVoidMethod(jniM.classID, jniM.methodID, JniHelper::getActivity(), _appkey);
-
-        jniM.env->DeleteLocalRef(_appkey);
+        jniM.env->DeleteLocalRef(_appDomain);
         jniM.env->DeleteLocalRef(jniM.classID);
     }
 
 }
 
-void CommonController::initializeSdkWithCallback(char * appKey, void (*_onInitialized) (bool)){
+void CommonController::initializeSdkWithCallback(char * appDomain, void (*_onInitialized) (bool)){
+    setPlatform();
+
     JniMethodInfo jniM;
     if (JniHelper::getStaticMethodInfo(
             jniM,
@@ -171,10 +188,10 @@ void CommonController::initializeSdkWithCallback(char * appKey, void (*_onInitia
 
         onInitialized = _onInitialized;
 
-        jstring _appkey = jniM.env->NewStringUTF(appKey);
-        jniM.env->CallStaticVoidMethod(jniM.classID, jniM.methodID, JniHelper::getActivity(), _appkey);
+        jstring _appDomain = jniM.env->NewStringUTF(appDomain);
+        jniM.env->CallStaticVoidMethod(jniM.classID, jniM.methodID, JniHelper::getActivity(), _appDomain);
 
-        jniM.env->DeleteLocalRef(_appkey);
+        jniM.env->DeleteLocalRef(_appDomain);
         jniM.env->DeleteLocalRef(jniM.classID);
     }
 

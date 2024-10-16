@@ -7,7 +7,6 @@
 
 #include "BannerBridgeObjC.h"
 #import "BidmadCocos2DXSharedState.h"
-#import <ADOPUtility/NSArray+HigherOrderFunctionsForADOP.h>
 
 @interface BannerSharedState : NSObject <BIDMADOpenBiddingBannerDelegate>
 

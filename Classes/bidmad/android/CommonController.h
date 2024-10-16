@@ -4,6 +4,8 @@
 USING_NS_CC;
 
 class CommonController{
+private:
+    static void setPlatform();
 public:
     static void setDebugging(bool);
     static void setCUID(char *);

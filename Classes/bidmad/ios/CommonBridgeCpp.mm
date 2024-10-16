@@ -53,13 +53,12 @@ void CommonBridgeCpp::setCUID(char *cuid) {
     [BIDMADSetting.sharedInstance setCuid:[NSString stringWithUTF8String:(const char *)cuid]];
 }
 
-void CommonBridgeCpp::initializeSdk(char *appKey) {
-    [[CommonBridgeObjC sharedInstance] initializeSdkWithAppKey:[NSString stringWithUTF8String:(const char *)appKey]];
-    return;
+void CommonBridgeCpp::initializeSdk(char *appDomain) {
+    [CommonBridgeObjC.sharedInstance initializeSdkWithAppDomain:[NSString stringWithUTF8String:(const char *)appDomain]];
 }
 
-void CommonBridgeCpp::initializeSdkWithCallback(char *appKey) {
-    [CommonBridgeObjC.sharedInstance initializeSdkWithCallbackForAppKey:[NSString stringWithUTF8String:(const char *)appKey]];
+void CommonBridgeCpp::initializeSdkWithCallback(char *appDomain) {
+    [CommonBridgeObjC.sharedInstance initializeSdkWithCallbackForAppDomain:[NSString stringWithUTF8String:(const char *)appDomain]];
 }
 
 bool CommonBridgeCpp::isAdFree() {
