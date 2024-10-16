@@ -1,3 +1,12 @@
+# Version 2.4.0
+#### Changes
+- Add ad Networks<br>
+- Appkey is deprecated. Instead, use App Domain.<br>
+- Bug Fix
+#### Integrated BidmadSDK Version
+- Android: bidmad-androidx 3.18.0
+- iOS : BidmadSDK.framework 6.11.0
+
 # Version 2.3.0
 #### Changes
 - AOS Add Criteo Network

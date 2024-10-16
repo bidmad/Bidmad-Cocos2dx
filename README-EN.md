@@ -7,6 +7,11 @@ You can use the plugin to serve banner/interstitial/reward ads in your Unity mob
 - [Download the latest sample project](https://github.com/bidmad/Bidmad-Cocos2dx/archive/master.zip)
 - [Download the latest plugin](https://github.com/bidmad/Bidmad-Cocos2dx/releases)
 
+> [!IMPORTANT]
+> Starting with version 2.4.0, the previously used Appkey has been changed to AppDomain.<br>
+> **AppDomain is not compatible with existing Appkeys, so a new AppDomain must be issued to initiaize.**<br>
+> If you are updating to version 2.4.0, please contact **Techlabs Platform Operations Team.**<br>
+
 ### 1. Add Plugin
 #### 1.1 Android
 
@@ -132,9 +137,6 @@ If your app is targeting children, check out our [guide](https://github.com/bidm
 *Bidmad uses the AndroidX library. If it is not an AndroidX project, please migrate to AndroidX.
 
 #### 1.2 iOS
-
-*Bidmad Cocos2DX Plugin supports Xcode 15.3. If you are using Xcode version lower than 15.3, please update to the latest version.<br>
-*When submitting your application to the App Store, use the following guide to properly set up your privacy survey: [Guide for Privacy Manifest & Privacy Survey](https://github.com/bidmad/Bidmad-iOS/wiki/Guide-for-Privacy-Manifest-&-Privacy-Survey-%5BEN%5D)
 
 1. Copy the Classes/bidmad folder of the downloaded sample project to your game project and add it to Xcode.<br>
 *If using Cmake List, add bidmad source as below.
@@ -408,14 +410,15 @@ Before configuring your app initially, for all users who are updating from 1.10.
 
 #### 2.2 BidmadSDK Initialization
 Performs tasks required to run BidmadSDK. The SDK won't allow ads to load unless you call the initializeSdk method.<br>
-The initializeSdk method receives the App Key as a parameter, and the App Key can be copied from ADOP Insight. You can get the App Key by referring to the [Find your App Key](https://github.com/bidmad/SDK/wiki/Find-your-app-key%5BEN%5D) guide.<br>
-Before loading ads, call the initializeSdk method as shown in the following example at the beginning of app.
+The initializeSdk method receives App Domain as a parameter.<br>
+Before loading ads, call the initializeSdk method as shown in the following example at the beginning of app execution.<br>
+(*To check the App Domain, please contact the Techlabs platform operation team.)
 
 ```cpp
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    CommonInterface::initializeSdk("IOS APP KEY");
+    CommonInterface::initializeSdk("IOS APP DOMAIN");
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    CommonInterface::initializeSdk("ANDROID APP KEY");
+    CommonInterface::initializeSdk("ANDROID APP DOMAIN");
 #endif
 ```
 
@@ -425,10 +428,10 @@ Alternatively, if you are using Bidmad Plugin version 2.1.0 or higher, you can c
 void initializeBidmadPlugin()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    CommonInterface::initializeSdkWithCallback("IOS APP KEY", onInitialized);
+    CommonInterface::initializeSdkWithCallback("IOS APP DOMAIN", onInitialized);
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    CommonInterface::initializeSdkWithCallback("ANDROID APP KEY", onInitialized);
+    CommonInterface::initializeSdkWithCallback("ANDROID APP DOMAIN", onInitialized);
 
 #endif
 }
@@ -745,7 +748,7 @@ static int getGdprConsent(bool)|GDPR Consent Status (Param: is EU Region)
 static const char* getPRIVACYURL()|Get Bidmad Privacy URL.
 static void setCUID(char *)|This method sets the CUID for all ads.
 static void initializeSdk(char *)|Perform BidmadSDK initialization.
-static void initializeSdkWithCallback(char *appKey, void (*_onInitialized) (bool)) |initialize the BidmadSDK configurations and preload the interstitial and reward ads. Receive Callback Function for Initialize Status.
+static void initializeSdkWithCallback(char *appDomain, void (*_onInitialized) (bool)) |initialize the BidmadSDK configurations and preload the interstitial and reward ads. Receive Callback Function for Initialize Status.
 static bool isAdFree()|Checks whether ads are blocked by the Coupang advertising network.
 static void setAdFreeEventCallback(void (*_onAdFree) (bool))|Set a callback function to receive information about changes to the ad blocking status by the Coupang advertising network.
 

@@ -7,6 +7,11 @@ Plugin을 사용하여 Cocos2dx 모바일 앱에서 전면 / 보상형 광고를
 - [최신 샘플 프로젝트 다운로드](https://github.com/bidmad/Bidmad-Cocos2dx/archive/master.zip)
 - [최신 플러그인 다운로드](https://github.com/bidmad/Bidmad-Cocos2dx/releases)
 
+> [!IMPORTANT]
+> 2.4.0 버전부터는 기존에 사용하던 **Appkey가 AppDomain으로 변경**되었습니다.<br>
+> **AppDomain은 기존 Appkey와 호환이 되지 않아 initiaize를 위해서는 AppDomain을 새로 발급받으셔야 합니다.**<br>
+> 2.4.0 버전으로 업데이트 하시는 경우에는 **테크랩스 플랫폼 사업부 운영팀에 연락 부탁 드립니다.**<br>
+
 ### 1. Plugin 추가하기
 #### 1.1 Android
 
@@ -132,9 +137,6 @@ public static final ** CREATOR;
 *Bidmad는 AndroidX 라이브러리를 사용합니다. AndroidX 프로젝트가 아니라면 AndroidX로 마이그레이션 바랍니다.
 
 #### 1.2 iOS
-
-*Bidmad Cocos2DX 플러그인은 Xcode 15.3을 지원합니다. Xcode 버전 15.3 미만을 사용하고 계시다면 최신 버전으로 업데이트해주세요.<br>
-*App Store에 애플리케이션을 제출할 때 다음 가이드를 참고하여 개인정보 보호 정책 및 설문조사를 올바르게 설정하세요: [Guide for Privacy Manifest & Privacy Survey](https://github.com/bidmad/Bidmad-iOS/wiki/Guide-for-Privacy-Manifest-&-Privacy-Survey-%5BKR%5D)
 
 1. 다운로드 받은 샘플 프로젝트의 Classes/bidmad 폴더를 게임 프로젝트로 복사하고 Xcode에 추가합니다.<br>
 *Cmake List를 사용하는 경우 아래와 같이 bidmad source를 추가합니다.
@@ -407,14 +409,14 @@ install_framework()
 
 #### 2.2 BidmadSDK 초기화
 BidmadSDK 실행에 필요한 작업을 수행합니다. SDK는 initializeSdk 메서드를 호출하지 않은 경우 광고 로드를 허용하지 않습니다.<br>
-initializeSdk 메서드는 ADOP Insight 에서 확인가능한 App Key 를 인자값으로 받고 있습니다. App Key 는 [App Key 찾기](https://github.com/bidmad/SDK/wiki/Find-your-app-key%5BKR%5D) 가이드를 참고해 가져올 수 있습니다.<br>
-광고를 로드하기 전, 앱 실행 초기에 다음 예시와 같이 initializeSdk 메서드를 호출해주십시오.
+initializeSdk 메서드는 App Domain를 인자값으로 받고 있으며 광고를 로드하기 전, 앱 실행 초기에 다음 예시와 같이 initializeSdk 메서드를 호출해주십시오.<br>
+(*App Domain을 발급받으시려면 테크랩스 플랫폼 운영팀으로 연락 부탁 드립니다.)
 
 ```cpp
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    CommonInterface::initializeSdk("IOS APP KEY");
+    CommonInterface::initializeSdk("IOS APP DOMAIN");
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    CommonInterface::initializeSdk("ANDROID APP KEY");
+    CommonInterface::initializeSdk("ANDROID APP DOMAIN");
 #endif
 ```
 
@@ -424,10 +426,10 @@ initializeSdk 메서드는 ADOP Insight 에서 확인가능한 App Key 를 인�
 void initializeBidmadPlugin()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    CommonInterface::initializeSdkWithCallback("IOS APP KEY", onInitialized);
+    CommonInterface::initializeSdkWithCallback("IOS APP DOMAIN", onInitialized);
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    CommonInterface::initializeSdkWithCallback("ANDROID APP KEY", onInitialized);
+    CommonInterface::initializeSdkWithCallback("ANDROID APP DOMAIN", onInitialized);
 
 #endif
 }
@@ -744,7 +746,7 @@ static int getGdprConsent(bool)|GDPR 동의 여부 (Param: EU 지역 여부)
 static const char* getPRIVACYURL()|Bidmad 개인정보 방침 웹 URL을 가져옵니다.
 static void setCUID(char *)|모든 광고에 CUID를 세팅합니다.
 static void initializeSdk(char *)|BidmadSDK 초기화 작업을 수행합니다.
-static void initializeSdkWithCallback(char *appKey, void (*_onInitialized) (bool)) |BidmadSDK 환경 설정을 초기화하고, 전면 및 리워드 광고를 프리로드합니다. 콜백 함수로 초기화 여부를 받습니다.
+static void initializeSdkWithCallback(char *appDomain, void (*_onInitialized) (bool)) |BidmadSDK 환경 설정을 초기화하고, 전면 및 리워드 광고를 프리로드합니다. 콜백 함수로 초기화 여부를 받습니다.
 static bool isAdFree()|쿠팡 광고네트워크에 의한 광고 차단 여부를 확인합니다.
 static void setAdFreeEventCallback(void (*_onAdFree) (bool))|쿠팡 광고네트워크에 의한 광고차단 상태 변경 정보를 받기 위해 콜백 함수를 설정합니다.
 
