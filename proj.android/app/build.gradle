@@ -1,11 +1,16 @@
 import org.gradle.internal.os.OperatingSystem
 
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
+
 apply from: "bidmad.gradle"
 
 android {
+    namespace "com.adop.sample"
+
     ndkVersion "25.2.9519653"
-    compileSdkVersion PROP_COMPILE_SDK_VERSION.toInteger()
+    compileSdk PROP_COMPILE_SDK_VERSION.toInteger()
 
     defaultConfig {
         applicationId "com.adop.sample"

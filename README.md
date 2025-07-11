@@ -245,26 +245,23 @@ end
 target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
-  # NECESSARY
-  pod "BidmadSDK", "6.11.0"
-  pod "OpenBiddingHelper", "6.11.0"
-  pod "BidmadAdpieAdapter", "1.6.1.10.0"
-  pod "BidmadAdPopcornAdapter", "2.6.5.10.0"
-  pod "BidmadPangleAdapter", "6.2.0.7.10.0"
-  pod "BidmadAdFitAdapter", "3.12.7.10.0"
-  pod "BidmadUnityAdsAdapter", "4.12.3.10.0"
-  pod "BidmadVungleAdapter", "7.4.1.10.0"
-  pod "BidmadAppLovinAdapter", "13.0.0.10.0"
-  pod "BidmadGoogleAdMobAdapter", "11.10.0.10.0"
-  pod "BidmadGoogleAdManagerAdapter", "11.10.0.10.0"
-  pod "BidmadFyberAdapter", "8.3.2.10.0"
-  pod "BidmadIronSourceAdapter", "8.3.0.0.10.0"
-  pod "BidmadPartners/AdMobBidding", "1.0.5"
-  
-  # OPTIONAL
-  pod "BidmadAtomAdapter", "1.0.0.10.0"
-  pod "BidmadPubmaticAdapter", "3.2.0.10.0"
-  pod "BidmadTeadsAdapter", "5.0.27.10.0"
+  pod "BidmadSDK", "6.12.4"
+  pod "OpenBiddingHelper", "6.12.3"
+
+  pod "BidmadAdFitAdapter", "3.12.7.11.0"
+  pod "BidmadAdmixerAdapter", "2.0.2.11.1"
+  pod "BidmadAppLovinAdapter", "13.3.1.11.0"
+  pod "BidmadFyberAdapter", "8.3.7.11.0"
+  pod "BidmadGoogleAdManagerAdapter", "12.6.0.11.0"
+  pod "BidmadGoogleAdMobAdapter", "12.6.0.11.0"
+  pod "BidmadMobwithAdapter", "1.0.0.11.2"
+  pod "BidmadORTBAdapter", "1.0.0.11.2"
+  pod "BidmadPangleAdapter", "7.2.0.5.11.0"
+  pod "BidmadTaboolaAdapter", "3.8.33.11.2"
+  pod "BidmadTeadsAdapter", "5.2.0.11.2"
+  pod "BidmadUnityAdsAdapter", "4.15.0.11.0"
+  pod "BidmadVungleAdapter", "7.5.1.11.0"
+  pod "BidmadPartners/AdMobBidding", "1.0.7"
 
 end
 ```
@@ -292,26 +289,23 @@ target 'CocosSampleProject' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # NECESSARY
-  pod "BidmadSDK", "6.11.0"
-  pod "OpenBiddingHelper", "6.11.0"
-  pod "BidmadAdpieAdapter", "1.6.1.10.0"
-  pod "BidmadAdPopcornAdapter", "2.6.5.10.0"
-  pod "BidmadPangleAdapter", "6.2.0.7.10.0"
-  pod "BidmadAdFitAdapter", "3.12.7.10.0"
-  pod "BidmadUnityAdsAdapter", "4.12.3.10.0"
-  pod "BidmadVungleAdapter", "7.4.1.10.0"
-  pod "BidmadAppLovinAdapter", "13.0.0.10.0"
-  pod "BidmadGoogleAdMobAdapter", "11.10.0.10.0"
-  pod "BidmadGoogleAdManagerAdapter", "11.10.0.10.0"
-  pod "BidmadFyberAdapter", "8.3.2.10.0"
-  pod "BidmadIronSourceAdapter", "8.3.0.0.10.0"
-  pod "BidmadPartners/AdMobBidding", "1.0.5"
-  
-  # OPTIONAL
-  pod "BidmadAtomAdapter", "1.0.0.10.0"
-  pod "BidmadPubmaticAdapter", "3.2.0.10.0"
-  pod "BidmadTeadsAdapter", "5.0.27.10.0"
+  pod "BidmadSDK", "6.12.4"
+  pod "OpenBiddingHelper", "6.12.3"
+
+  pod "BidmadAdFitAdapter", "3.12.7.11.0"
+  pod "BidmadAdmixerAdapter", "2.0.2.11.1"
+  pod "BidmadAppLovinAdapter", "13.3.1.11.0"
+  pod "BidmadFyberAdapter", "8.3.7.11.0"
+  pod "BidmadGoogleAdManagerAdapter", "12.6.0.11.0"
+  pod "BidmadGoogleAdMobAdapter", "12.6.0.11.0"
+  pod "BidmadMobwithAdapter", "1.0.0.11.2"
+  pod "BidmadORTBAdapter", "1.0.0.11.2"
+  pod "BidmadPangleAdapter", "7.2.0.5.11.0"
+  pod "BidmadTaboolaAdapter", "3.8.33.11.2"
+  pod "BidmadTeadsAdapter", "5.2.0.11.2"
+  pod "BidmadUnityAdsAdapter", "4.15.0.11.0"
+  pod "BidmadVungleAdapter", "7.5.1.11.0"
+  pod "BidmadPartners/AdMobBidding", "1.0.7"
 
 end
 
@@ -329,7 +323,7 @@ end
 
 - Xcode Project 내부, mobile 타겟 용 빌드 세팅에서 다음 값을 설정해주십시오.
     - ENABLE_BITCODE → NO
-    - General → Deployment Info 내부, iOS 최소버전을 "iOS 12" 로 설정
+    - General → Deployment Info 내부, iOS 최소버전을 "iOS 13" 로 설정
 - Xcode Project 내부, mobile 타겟 용 빌드 세팅에서 다음 값을 추가해주십시오.
     - GCC_PREPROCESSOR_DEFINITIONS → $(inherited)
     - LIBRARY_SEARCH_PATHS → $(inherited)
