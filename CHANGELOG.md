@@ -1,3 +1,11 @@
+# Version 2.5.1
+#### Changes
+- Ad Network SDK Update
+- Bug Fix
+#### Integrated BidmadSDK Version
+- Android: bidmad-androidx 3.25.0
+- iOS : BidmadSDK.framework 6.13.3
+
 # Version 2.5.0
 #### Changes
 - Ad Network SDK Update
