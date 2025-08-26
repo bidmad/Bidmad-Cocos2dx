@@ -7,6 +7,10 @@
 
 #include "GoogleGDPRBridgeCpp.h"
 #import <Foundation/Foundation.h>
+#import <BidmadSDK/BidmadSDK.h>
+#import <BidmadSDK/BidmadSDK-Swift.h>
+#import <OpenBiddingHelper/OpenBiddingHelper.h>
+#import <OpenBiddingHelper/OpenBiddingHelper-Swift.h>
 #import <BidmadSDK/Cocos2dxGDPRforGoogle.h>
 
 NS_ASSUME_NONNULL_BEGIN

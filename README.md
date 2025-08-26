@@ -232,7 +232,7 @@ endif()
 <br>
 
 ```
-platform :ios, '12.0'
+platform :ios, '13.0'
 
 target 'MyGame-desktop' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -245,22 +245,22 @@ end
 target 'MyGame-mobile' do
   use_frameworks! :linkage => :static
 
-  pod "BidmadSDK", "6.12.4"
-  pod "OpenBiddingHelper", "6.12.3"
+  pod "BidmadSDK/core", "6.13.3"
+  pod "OpenBiddingHelper", "6.13.2"
 
-  pod "BidmadAdFitAdapter", "3.12.7.11.0"
-  pod "BidmadAdmixerAdapter", "2.0.2.11.1"
-  pod "BidmadAppLovinAdapter", "13.3.1.11.0"
-  pod "BidmadFyberAdapter", "8.3.7.11.0"
-  pod "BidmadGoogleAdManagerAdapter", "12.6.0.11.0"
-  pod "BidmadGoogleAdMobAdapter", "12.6.0.11.0"
-  pod "BidmadMobwithAdapter", "1.0.0.11.2"
-  pod "BidmadORTBAdapter", "1.0.0.11.2"
-  pod "BidmadPangleAdapter", "7.2.0.5.11.0"
-  pod "BidmadTaboolaAdapter", "3.8.33.11.2"
-  pod "BidmadTeadsAdapter", "5.2.0.11.2"
-  pod "BidmadUnityAdsAdapter", "4.15.0.11.0"
-  pod "BidmadVungleAdapter", "7.5.1.11.0"
+  pod "BidmadAdFitAdapter", "3.12.7.12.1"
+  pod "BidmadAdmixerAdapter", "2.0.2.12.2"
+  pod "BidmadAppLovinAdapter", "13.3.1.12.1"
+  pod "BidmadFyberAdapter", "8.3.7.12.1"
+  pod "BidmadGoogleAdManagerAdapter", "12.6.0.12.1"
+  pod "BidmadGoogleAdMobAdapter", "12.6.0.12.1"
+  pod "BidmadMobwithAdapter", "1.0.0.12.1"
+  pod "BidmadORTBAdapter", "1.0.0.12.1"
+  pod "BidmadPangleAdapter", "7.2.0.5.12.2"
+  pod "BidmadTaboolaAdapter", "3.8.33.12.1"
+  pod "BidmadTeadsAdapter", "5.2.0.12.1"
+  pod "BidmadUnityAdsAdapter", "4.15.0.12.1"
+  pod "BidmadVungleAdapter", "7.5.1.12.1"
   pod "BidmadPartners/AdMobBidding", "1.0.7"
 
 end
@@ -273,8 +273,8 @@ end
 <br>
 
 ```
-# *** IMPORTANT: iOS 버전명을 반드시 12.0 혹은 이상으로 기입하십시오 ***
-platform :ios, '12.0'
+# *** IMPORTANT: iOS 버전명을 반드시 13.0 혹은 이상으로 기입하십시오 ***
+platform :ios, '13.0'
 
 target 'cocos2d' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -289,22 +289,22 @@ target 'CocosSampleProject' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod "BidmadSDK", "6.12.4"
-  pod "OpenBiddingHelper", "6.12.3"
+  pod "BidmadSDK/core", "6.13.3"
+  pod "OpenBiddingHelper", "6.13.2"
 
-  pod "BidmadAdFitAdapter", "3.12.7.11.0"
-  pod "BidmadAdmixerAdapter", "2.0.2.11.1"
-  pod "BidmadAppLovinAdapter", "13.3.1.11.0"
-  pod "BidmadFyberAdapter", "8.3.7.11.0"
-  pod "BidmadGoogleAdManagerAdapter", "12.6.0.11.0"
-  pod "BidmadGoogleAdMobAdapter", "12.6.0.11.0"
-  pod "BidmadMobwithAdapter", "1.0.0.11.2"
-  pod "BidmadORTBAdapter", "1.0.0.11.2"
-  pod "BidmadPangleAdapter", "7.2.0.5.11.0"
-  pod "BidmadTaboolaAdapter", "3.8.33.11.2"
-  pod "BidmadTeadsAdapter", "5.2.0.11.2"
-  pod "BidmadUnityAdsAdapter", "4.15.0.11.0"
-  pod "BidmadVungleAdapter", "7.5.1.11.0"
+  pod "BidmadAdFitAdapter", "3.12.7.12.1"
+  pod "BidmadAdmixerAdapter", "2.0.2.12.2"
+  pod "BidmadAppLovinAdapter", "13.3.1.12.1"
+  pod "BidmadFyberAdapter", "8.3.7.12.1"
+  pod "BidmadGoogleAdManagerAdapter", "12.6.0.12.1"
+  pod "BidmadGoogleAdMobAdapter", "12.6.0.12.1"
+  pod "BidmadMobwithAdapter", "1.0.0.12.1"
+  pod "BidmadORTBAdapter", "1.0.0.12.1"
+  pod "BidmadPangleAdapter", "7.2.0.5.12.2"
+  pod "BidmadTaboolaAdapter", "3.8.33.12.1"
+  pod "BidmadTeadsAdapter", "5.2.0.12.1"
+  pod "BidmadUnityAdsAdapter", "4.15.0.12.1"
+  pod "BidmadVungleAdapter", "7.5.1.12.1"
   pod "BidmadPartners/AdMobBidding", "1.0.7"
 
 end
@@ -336,7 +336,7 @@ end
 <summary>Cocos2DX 4.X 버전 Xcode Build 세팅</summary>
 <br>
 
-- Xcode Project iOS Deployment Target 12.0 으로 세팅
+- Xcode Project iOS Deployment Target 13.0 으로 세팅
 ![XCODEBUILD0](https://i.imgur.com/AhqGPXn.png)
 - Xcode Project iOS 앱 타겟 클릭 -> Build Phases 클릭 -> Target Dependencies 섹션 오픈 -> ZERO_CHECK(타겟명) 클릭 -> 제거 버튼 클릭
 ![XCODEBUILD1](https://i.imgur.com/dU4Whr6.png)

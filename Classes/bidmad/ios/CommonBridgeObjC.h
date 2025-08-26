@@ -10,6 +10,10 @@
 #include "CommonBridgeCpp.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <BidmadSDK/BidmadSDK.h>
+#import <BidmadSDK/BidmadSDK-Swift.h>
+#import <OpenBiddingHelper/OpenBiddingHelper.h>
+#import <OpenBiddingHelper/OpenBiddingHelper-Swift.h>
 #import <BidmadSDK/Cocos2dxCommon.h>
 #import <OpenBiddingHelper/BidmadAdFreeInformation.h>
 
